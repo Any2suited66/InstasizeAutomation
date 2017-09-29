@@ -1,16 +1,14 @@
 import os
-import unittest
-
 from appium import webdriver
-from time import sleep
 
 
 def _by_link_text():
     pass
 
 
-class DriverBuilder(unittest.TestCase):
-    "Class to run tests on Instasize on android 7.0"
+class DriverBuilderAndroid:
+    def __init__(self):
+        self.driver = driver
 
     def setUp(self):
         "Setup for the test"
@@ -24,3 +22,6 @@ class DriverBuilder(unittest.TestCase):
         desired_caps['appPackage'] = 'com.jsdev.instasize'
         desired_caps['appActivity'] = '.activities.MainActivity'
         self.driver = webdriver.Remote('http://localhost:4723/wd/hub', desired_caps)
+
+    def teardown(self):
+        self.driver.quit()

@@ -1,11 +1,10 @@
 import os
+import os
 import unittest
-
-import self as self
 from appium import webdriver
 from time import sleep
-from page_objects import PageObject, PageElement
-
+from GridPage import Grid
+from selenium.common.exceptions import NoSuchElementException
 
 
 
@@ -21,7 +20,7 @@ class Filters(object):
         self.driver.find_element_by_xpath("//android.widget.TextView[@text='H1']").click()
 
     def reviewPopup(self):
-        self.driver.find_element_by_id("btnDeny")
+        self.driver.find_element_by_id("btnDeny").click()
 
     def filterLevel(self):
         self.driver.find_element_by_id("tvFilterLevel")

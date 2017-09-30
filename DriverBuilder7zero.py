@@ -2,13 +2,7 @@ import os
 from appium import webdriver
 
 
-def _by_link_text():
-    pass
-
-
-class DriverBuilderAndroid:
-    def __init__(self):
-        self.driver = driver
+class DriverBuilderAndroid(object):
 
     def setUp(self):
         "Setup for the test"
@@ -23,5 +17,12 @@ class DriverBuilderAndroid:
         desired_caps['appActivity'] = '.activities.MainActivity'
         self.driver = webdriver.Remote('http://localhost:4723/wd/hub', desired_caps)
 
+    def __init__(self):
+        self.driver, self.driverSetup()
+
     def teardown(self):
         self.driver.quit()
+
+    def driverSetup(self):
+        driverSetup = DriverBuilderAndroid()
+        driverSetup.setUp()

@@ -15,21 +15,27 @@ def _by_link_text():
 
 
 class InstasizeFilterTest(unittest.TestCase):
-    "Class to run tests on exporting photos to Instagram"
-    def setUp(self):
-        "Setup for the test"
-        desired_caps = {}
-        desired_caps['platformName'] = 'Android'
-        desired_caps['platformVersion'] = '6.0.1'
-        desired_caps['deviceName'] = '05157df532e5e40e'
-        # Returns abs path relative to this file and not cwd
-        desired_caps['app'] = os.path.abspath(
-            os.path.join(os.path.dirname(__file__), '/Users/tyler/Desktop/Instasize_20172109_3.9.9_118_google.apk'))
-        desired_caps['appPackage'] = 'com.jsdev.instasize'
-        desired_caps['appActivity'] = '.activities.MainActivity'
-        self.driver = webdriver.Remote('http://localhost:4723/wd/hub', desired_caps)
+    # "Class to run tests on exporting photos to Instagram"
+    # def setUp(self):
+    #     "Setup for the test"
+    #     desired_caps = {}
+    #     desired_caps['platformName'] = 'Android'
+    #     desired_caps['platformVersion'] = '6.0.1'
+    #     desired_caps['deviceName'] = '05157df532e5e40e'
+    #     # Returns abs path relative to this file and not cwd
+    #     desired_caps['app'] = os.path.abspath(
+    #         os.path.join(os.path.dirname(__file__), '/Users/tyler/Desktop/Instasize_20172109_3.9.9_118_google.apk'))
+    #     desired_caps['appPackage'] = 'com.jsdev.instasize'
+    #     desired_caps['appActivity'] = '.activities.MainActivity'
+    #     self.driver = webdriver.Remote('http://localhost:4723/wd/hub', desired_caps)
 
+    def __init__(self):
+        self.driver()
 
+    # call the method from DriverBuilder7zero.py
+    def driverSetup(self):
+        setup = DriverBuilderAndroid(driver)
+        setup.setUp()
 
     def test_filter_uploads(self):
         sleep(4)
@@ -62,7 +68,7 @@ class InstasizeFilterTest(unittest.TestCase):
         try:
             self.driver.find_element_by_id("btnDeny").click()
         except NoSuchElementException:
-            print('PlayStore review has been done')
+            print('PlayStore review popup did not occur')
 
         # taps on the filter
         filters = EditorPage(driver)

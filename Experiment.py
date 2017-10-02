@@ -4,7 +4,6 @@ from appium import webdriver
 from time import sleep
 from InstasizePages import EditorPage
 from InstasizePages import GridPage
-from InstasizePages import PhotoLibraryPage
 from Asserts import PhotoLibraryAsserts
 from selenium.common.exceptions import NoSuchElementException
 from DriverBuilder7zero import DriverBuilderAndroid

@@ -1,3 +1,4 @@
+
 class EditorPage(object):
 
     def __init__(self, driver):
@@ -20,6 +21,9 @@ class EditorPage(object):
 
     def oakFilter(self):
         self.driver.find_element_by_xpath("//android.widget.TextView[@text='OAK']").click()
+
+    def wavesFilter(self):
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='WAVES']").click()
 
     def reviewPopup(self):
         self.driver.find_element_by_id("btnDeny").click()

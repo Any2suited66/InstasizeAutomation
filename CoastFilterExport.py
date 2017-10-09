@@ -1,24 +1,24 @@
 import unittest
+
 from Asserts import PhotoLibraryAsserts
 from DriverBuilder7zero import DriverBuilderAndroid
 from InstasizePages import EditorPage
 from InstasizePages import GridPage
 from TryExcepts import TryExcepts
 from time import sleep
-
+from appium import webdriver
 
 def _by_link_text():
     pass
 
 
+class CoastFilterExportTest(unittest.TestCase):
+     # Class to run tests on exporting photos to Instagram
 
-class AthensFilterExportTest(unittest.TestCase):
-    "Class to run tests on exporting photos to Instagram"
 
     def test_filter_uploads(self):
         driver_builder = DriverBuilderAndroid()
         driver = driver_builder.driver
-
 
         # taps on the + icon
         addPhoto = GridPage(driver)
@@ -46,7 +46,7 @@ class AthensFilterExportTest(unittest.TestCase):
 
         # taps on the filter
         filters = EditorPage(driver)
-        filters.athensFilter()
+        filters.coastFilter()
 
         # Asserts tvFilterLevel is displayed
         tvFilterLevel = PhotoLibraryAsserts(driver)
@@ -72,11 +72,11 @@ class AthensFilterExportTest(unittest.TestCase):
         addPhoto = GridPage(driver)
         addPhoto.addPhotoFind()
 
-        sleep(5)
-        self.tearDown()
+        sleep(10)
+        driver.quit()
 
 
 # ---START OF SCRIPT
 if __name__ == '__main__':
-    suite = unittest.TestLoader().loadTestsFromTestCase(AthensFilterExportTest)
+    suite = unittest.TestLoader().loadTestsFromTestCase(CoastFilterExportTest)
     unittest.TextTestRunner(verbosity=2).run(suite)

@@ -9,6 +9,18 @@ class EditorPage(object):
     def h1filter(self):
         self.driver.find_element_by_xpath("//android.widget.TextView[@text='H1']").click()
 
+    def coastFilter(self):
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='COAST']").click()
+
+    def tikiFilter(self):
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='TIKI']").click()
+
+    def athensFilter(self):
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='ATHENS']").click()
+
+    def oakFilter(self):
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='OAK']").click()
+
     def reviewPopup(self):
         self.driver.find_element_by_id("btnDeny").click()
 

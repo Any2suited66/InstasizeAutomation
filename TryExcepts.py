@@ -17,4 +17,3 @@ class TryExcepts(object):
             self.driver.find_element_by_id("icon").click()
         except NoSuchElementException:
             print("Not required on this version of android")
-            self.driver.back()

@@ -6,14 +6,15 @@ from InstasizePages import GridPage
 from TryExcepts import TryExcepts
 from time import sleep
 
+
 def _by_link_text():
     pass
 
 
 class WavesFilterExportTest(unittest.TestCase):
-     "Class to run tests on exporting photos to Instagram"
+    "Class to run tests on exporting photos to Instagram"
 
-     def test_filter_uploads(self):
+    def test_filter_uploads(self):
         driver_builder = DriverBuilderAndroid()
         driver = driver_builder.driver
 
@@ -41,7 +42,9 @@ class WavesFilterExportTest(unittest.TestCase):
         dismissReviewPopup = TryExcepts(driver)
         dismissReviewPopup.reviewPopup()
 
-        driver.swipe(1054, 2228, 246, 2293)
+        # swipe once to access filter
+        swipeOnce = EditorPage(driver)
+        swipeOnce.oneSwipeRtoL()
 
         # taps on the filter
         filters = EditorPage(driver)
@@ -50,7 +53,6 @@ class WavesFilterExportTest(unittest.TestCase):
         # Asserts tvFilterLevel is displayed
         tvFilterLevel = PhotoLibraryAsserts(driver)
         tvFilterLevel.tvFilterLevel()
-
 
         # taps on share button
         tapShareButton = EditorPage(driver)
@@ -71,7 +73,9 @@ class WavesFilterExportTest(unittest.TestCase):
         addPhoto = GridPage(driver)
         addPhoto.addPhotoFind()
 
+        sleep(5)
         driver.quit()
+
 
 # ---START OF SCRIPT
 if __name__ == '__main__':

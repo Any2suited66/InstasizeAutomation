@@ -69,6 +69,7 @@ class OakFilterExportTest(unittest.TestCase):
         addPhoto = GridPage(driver)
         addPhoto.addPhotoFind()
 
+        sleep(5)
         driver.quit()
 
 # ---START OF SCRIPT

@@ -1,0 +1,4 @@
+#!/bin/bash
+# script to run all python tests
+
+for f in /Users/tyler/PycharmProjects/InstasizeAutomation/*.py; do python "$f"; done

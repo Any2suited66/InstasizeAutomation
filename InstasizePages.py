@@ -1,3 +1,5 @@
+from time import sleep
+
 
 class EditorPage(object):
 
@@ -25,11 +27,131 @@ class EditorPage(object):
     def wavesFilter(self):
         self.driver.find_element_by_xpath("//android.widget.TextView[@text='WAVES']").click()
 
+    def tokyoFilter(self):
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='TOKYO']").click()
+
+    def kayakFilter(self):
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='KAYAK']").click()
+
+    def lincolnFilter(self):
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='LINCOLN']").click()
+
+    def rioFilter(self):
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='RIO']").click()
+
+    def newportFilter(self):
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='NEWPORT']").click()
+
+    def novaFilter(self):
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='NOVA']").click()
+
+    def hiroFilter(self):
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='HIRO']").click()
+
+    def wasatchFilter(self):
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='WASATCH']").click()
+
+    def marketFilter(self):
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='MARKET']").click()
+
+    def radioFilter(self):
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='RADIO']").click()
+
+    def madridFilter(self):
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='MADRID']").click()
+
+    def barkFilter(self):
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='BARK']").click()
+
+    def fluxFilter(self):
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='FLUX']").click()
+
+    def nineteen89Filter(self):
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='1989']").click()
+
+    def celsiusFilter(self):
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='CELSIUS']").click()
+
+    def petraFilter(self):
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='PETRA']").click()
+
+    def organicFilter(self):
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='ORGANIC']").click()
+
+    def nomadFilter(self):
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='NOMAD']").click()
+
+    def altaFilter(self):
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='ALTA']").click()
+
+    def balticFilter(self):
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='BALTIC']").click()
+
+    def junoFilter(self):
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='JUNO']").click()
+
+    def hulaFilter(self):
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='HULA']").click()
+
     def reviewPopup(self):
         self.driver.find_element_by_id("btnDeny").click()
 
     def filterLevel(self):
         self.driver.find_element_by_id("tvFilterLevel")
+
+    def oneSwipeRtoL(self):
+        self.driver.swipe(1202, 2268, 201, 2268)
+        sleep(2)
+
+    def twoSwipesRtoL(self):
+        self.driver.swipe(1202, 2268, 201, 2268)
+        sleep(2)
+        self.driver.swipe(1202, 2268, 201, 2268)
+        sleep(2)
+
+    def threeSwipesRtoL(self):
+        self.driver.swipe(1202, 2268, 201, 2268)
+        sleep(2)
+        self.driver.swipe(1202, 2268, 201, 2268)
+        sleep(2)
+        self.driver.swipe(1202, 2268, 201, 2268)
+        sleep(2)
+
+    def fourSwipesRtoL(self):
+        self.driver.swipe(1202, 2268, 201, 2268)
+        sleep(2)
+        self.driver.swipe(1202, 2268, 201, 2268)
+        sleep(2)
+        self.driver.swipe(1202, 2268, 201, 2268)
+        sleep(2)
+        self.driver.swipe(1190, 2268, 250, 2268)
+        sleep(2)
+
+    def fiveSwsipesRtoL(self):
+        self.driver.swipe(1202, 2268, 201, 2268)
+        sleep(2)
+        self.driver.swipe(1202, 2268, 201, 2268)
+        sleep(2)
+        self.driver.swipe(1202, 2268, 201, 2268)
+        sleep(2)
+        self.driver.swipe(1190, 2268, 250, 2268)
+        sleep(2)
+        self.driver.swipe(1190, 2268, 250, 2268)
+        sleep(2)
+
+    def sixSwsipesRtoL(self):
+        self.driver.swipe(1202, 2268, 201, 2268)
+        sleep(2)
+        self.driver.swipe(1202, 2268, 201, 2268)
+        sleep(2)
+        self.driver.swipe(1202, 2268, 201, 2268)
+        sleep(2)
+        self.driver.swipe(1190, 2268, 250, 2268)
+        sleep(2)
+        self.driver.swipe(1190, 2268, 250, 2268)
+        sleep(2)
+        self.driver.swipe(1190, 2268, 250, 2268)
+        sleep(2)
 
         #
         # h2Filter = PageElement(xpath="//android.widget.TextView[@text='H2']")

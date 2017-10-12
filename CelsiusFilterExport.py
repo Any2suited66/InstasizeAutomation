@@ -1,19 +1,22 @@
 import unittest
+
 from Asserts import PhotoLibraryAsserts
 from DriverBuilder7zero import DriverBuilderAndroid
 from InstasizePages import EditorPage
 from InstasizePages import GridPage
 from TryExcepts import TryExcepts
 from time import sleep
+from appium import webdriver
 
 def _by_link_text():
     pass
 
 
-class OakFilterExportTest(unittest.TestCase):
-     "Class to run tests on exporting photos to Instagram"
+class CelsiusFilterExportTest(unittest.TestCase):
+     # Class to run tests on exporting photos to Instagram
 
-     def test_filter_uploads(self):
+
+    def test_filter_uploads(self):
         driver_builder = DriverBuilderAndroid()
         driver = driver_builder.driver
 
@@ -41,14 +44,17 @@ class OakFilterExportTest(unittest.TestCase):
         dismissReviewPopup = TryExcepts(driver)
         dismissReviewPopup.reviewPopup()
 
+        # swipes 4 times to access filter
+        swipe4times = EditorPage(driver)
+        swipe4times.fourSwipesRtoL()
+
         # taps on the filter
         filters = EditorPage(driver)
-        filters.oakFilter()
+        filters.celsiusFilter()
 
         # Asserts tvFilterLevel is displayed
         tvFilterLevel = PhotoLibraryAsserts(driver)
         tvFilterLevel.tvFilterLevel()
-
 
         # taps on share button
         tapShareButton = EditorPage(driver)
@@ -62,17 +68,18 @@ class OakFilterExportTest(unittest.TestCase):
         instagramSystemPopup = TryExcepts(driver)
         instagramSystemPopup.instagramSystemPopup()
 
-        sleep(5)
+        sleep(3)
         driver.back()
 
         # Asserts the + button is displayed
         addPhoto = GridPage(driver)
         addPhoto.addPhotoFind()
 
-        sleep(5)
+        sleep(10)
         driver.quit()
+
 
 # ---START OF SCRIPT
 if __name__ == '__main__':
-    suite = unittest.TestLoader().loadTestsFromTestCase(OakFilterExportTest)
+    suite = unittest.TestLoader().loadTestsFromTestCase(CelsiusFilterExportTest)
     unittest.TextTestRunner(verbosity=2).run(suite)

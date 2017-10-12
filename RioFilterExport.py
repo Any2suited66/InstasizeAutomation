@@ -10,7 +10,7 @@ def _by_link_text():
     pass
 
 
-class OakFilterExportTest(unittest.TestCase):
+class RioFilterExportTest(unittest.TestCase):
      "Class to run tests on exporting photos to Instagram"
 
      def test_filter_uploads(self):
@@ -41,14 +41,17 @@ class OakFilterExportTest(unittest.TestCase):
         dismissReviewPopup = TryExcepts(driver)
         dismissReviewPopup.reviewPopup()
 
+        # swipes twice to access filter
+        swipeTwice = EditorPage(driver)
+        swipeTwice.twoSwipesRtoL()
+
         # taps on the filter
         filters = EditorPage(driver)
-        filters.oakFilter()
+        filters.rioFilter()
 
         # Asserts tvFilterLevel is displayed
         tvFilterLevel = PhotoLibraryAsserts(driver)
         tvFilterLevel.tvFilterLevel()
-
 
         # taps on share button
         tapShareButton = EditorPage(driver)
@@ -74,5 +77,5 @@ class OakFilterExportTest(unittest.TestCase):
 
 # ---START OF SCRIPT
 if __name__ == '__main__':
-    suite = unittest.TestLoader().loadTestsFromTestCase(OakFilterExportTest)
+    suite = unittest.TestLoader().loadTestsFromTestCase(RioFilterExportTest)
     unittest.TextTestRunner(verbosity=2).run(suite)

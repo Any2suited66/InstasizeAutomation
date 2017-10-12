@@ -52,7 +52,6 @@ class AthensFilterExportTest(unittest.TestCase):
         tvFilterLevel = PhotoLibraryAsserts(driver)
         tvFilterLevel.tvFilterLevel()
 
-
         # taps on share button
         tapShareButton = EditorPage(driver)
         tapShareButton.sharebutton()
@@ -72,7 +71,7 @@ class AthensFilterExportTest(unittest.TestCase):
         addPhoto = GridPage(driver)
         addPhoto.addPhotoFind()
 
-        sleep(5)
+        sleep(8)
         driver.quit()
 
 

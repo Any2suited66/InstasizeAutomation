@@ -4,7 +4,7 @@ from DriverBuilder7zero import DriverBuilderAndroid
 from InstasizePages import EditorPage
 from InstasizePages import GridPage
 from TryExcepts import TryExcepts
-
+from time import sleep
 
 def _by_link_text():
     pass
@@ -68,6 +68,7 @@ class TikiFilterExportTest(unittest.TestCase):
         addPhoto = GridPage(driver)
         addPhoto.addPhotoFind()
 
+        sleep(5)
         driver.quit()
 
 # ---START OF SCRIPT

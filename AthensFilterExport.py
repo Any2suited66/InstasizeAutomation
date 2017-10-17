@@ -44,6 +44,10 @@ class AthensFilterExportTest(unittest.TestCase):
         dismissReviewPopup = TryExcepts(driver)
         dismissReviewPopup.reviewPopup()
 
+        # swipe to access filter
+        swipe = EditorPage(driver)
+        swipe.fifteenSwsipesRtoL()
+
         # taps on the filter
         filters = EditorPage(driver)
         filters.athensFilter()

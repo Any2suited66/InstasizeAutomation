@@ -43,9 +43,9 @@ class HulaFilterExportTest(unittest.TestCase):
         dismissReviewPopup = TryExcepts(driver)
         dismissReviewPopup.reviewPopup()
 
-        # swipes 6 times to access filter
-        swipe6times = EditorPage(driver)
-        swipe6times.sixSwsipesRtoL()
+        # Swipes right to left
+        swipe = EditorPage(driver)
+        swipe.tenSwsipesRtoL()
 
         # taps on the filter
         filters = EditorPage(driver)

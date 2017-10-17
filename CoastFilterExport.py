@@ -44,6 +44,10 @@ class CoastFilterExportTest(unittest.TestCase):
         dismissReviewPopup = TryExcepts(driver)
         dismissReviewPopup.reviewPopup()
 
+        # Swipes right to left 8 times
+        swipe9Times = EditorPage(driver)
+        swipe9Times.eightSwsipesRtoL()
+
         # taps on the filter
         filters = EditorPage(driver)
         filters.coastFilter()
@@ -51,7 +55,6 @@ class CoastFilterExportTest(unittest.TestCase):
         # Asserts tvFilterLevel is displayed
         tvFilterLevel = PhotoLibraryAsserts(driver)
         tvFilterLevel.tvFilterLevel()
-
 
         # taps on share button
         tapShareButton = EditorPage(driver)
@@ -72,7 +75,7 @@ class CoastFilterExportTest(unittest.TestCase):
         addPhoto = GridPage(driver)
         addPhoto.addPhotoFind()
 
-        sleep(10)
+        sleep(3)
         driver.quit()
 
 

@@ -41,9 +41,9 @@ class MadridFilterExportTest(unittest.TestCase):
         dismissReviewPopup = TryExcepts(driver)
         dismissReviewPopup.reviewPopup()
 
-        # swipes right three times to access filter
-        swipeRtoL = EditorPage(driver)
-        swipeRtoL.threeSwipesRtoL()
+        # swipe to access filter
+        swipe = EditorPage(driver)
+        swipe.twelveSwsipesRtoL()
 
         # taps on the filter
         filters = EditorPage(driver)

@@ -43,8 +43,8 @@ class WavesFilterExportTest(unittest.TestCase):
         dismissReviewPopup.reviewPopup()
 
         # swipe once to access filter
-        swipeOnce = EditorPage(driver)
-        swipeOnce.oneSwipeRtoL()
+        swipe = EditorPage(driver)
+        swipe.elevenSwsipesRtoL()
 
         # taps on the filter
         filters = EditorPage(driver)

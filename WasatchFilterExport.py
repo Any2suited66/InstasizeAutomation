@@ -41,9 +41,9 @@ class WasatchFilterExportTest(unittest.TestCase):
         dismissReviewPopup = TryExcepts(driver)
         dismissReviewPopup.reviewPopup()
 
-        # swipes twice to access filter
-        swipeTwice = EditorPage(driver)
-        swipeTwice.twoSwipesRtoL()
+        # swipe to access filter
+        swipe = EditorPage(driver)
+        swipe.twelveSwsipesRtoL()
 
         # taps on the filter
         filters = EditorPage(driver)

@@ -41,9 +41,9 @@ class RioFilterExportTest(unittest.TestCase):
         dismissReviewPopup = TryExcepts(driver)
         dismissReviewPopup.reviewPopup()
 
-        # swipes twice to access filter
-        swipeTwice = EditorPage(driver)
-        swipeTwice.twoSwipesRtoL()
+        # swipes to access filter
+        swipe = EditorPage(driver)
+        swipe.elevenSwsipesRtoL()
 
         # taps on the filter
         filters = EditorPage(driver)
@@ -65,7 +65,7 @@ class RioFilterExportTest(unittest.TestCase):
         instagramSystemPopup = TryExcepts(driver)
         instagramSystemPopup.instagramSystemPopup()
 
-        sleep(5)
+        sleep(2)
         driver.back()
 
         # Asserts the + button is displayed

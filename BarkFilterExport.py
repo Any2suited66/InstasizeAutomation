@@ -44,9 +44,9 @@ class BarkFilterExportTest(unittest.TestCase):
         dismissReviewPopup = TryExcepts(driver)
         dismissReviewPopup.reviewPopup()
 
-        # swipes 4 times to access filter
-        swipe4times = EditorPage(driver)
-        swipe4times.fourSwipesRtoL()
+        # Swipes right to left
+        swipe = EditorPage(driver)
+        swipe.nineSwsipesRtoL()
 
         # taps on the filter
         filters = EditorPage(driver)

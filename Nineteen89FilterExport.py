@@ -43,9 +43,9 @@ class Nineteen89FilterExportTest(unittest.TestCase):
         dismissReviewPopup = TryExcepts(driver)
         dismissReviewPopup.reviewPopup()
 
-        # swipes 4 times to access filter
-        swipe4times = EditorPage(driver)
-        swipe4times.fourSwipesRtoL()
+        # Swipes right to left
+        swipe = EditorPage(driver)
+        swipe.tenSwsipesRtoL()
 
         # taps on the filter
         filters = EditorPage(driver)

@@ -44,9 +44,9 @@ class OrganicFilterExportTest(unittest.TestCase):
         dismissReviewPopup = TryExcepts(driver)
         dismissReviewPopup.reviewPopup()
 
-        # swipes 4 times to access filter
-        swipe5times = EditorPage(driver)
-        swipe5times.fiveSwsipesRtoL()
+        # swipe to access filter
+        swipe = EditorPage(driver)
+        swipe.thirteenSwsipesRtoL()
 
         # taps on the filter
         filters = EditorPage(driver)

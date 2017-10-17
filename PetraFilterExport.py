@@ -44,9 +44,9 @@ class PetraFilterExportTest(unittest.TestCase):
         dismissReviewPopup = TryExcepts(driver)
         dismissReviewPopup.reviewPopup()
 
-        # swipes 4 times to access filter
-        swipe4times = EditorPage(driver)
-        swipe4times.fourSwipesRtoL()
+        # swipe to access filter
+        swipe = EditorPage(driver)
+        swipe.thirteenSwsipesRtoL()
 
         # taps on the filter
         filters = EditorPage(driver)

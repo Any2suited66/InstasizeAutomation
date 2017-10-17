@@ -45,6 +45,10 @@ class WavesFilterExportTest(unittest.TestCase):
         swipeOnce = EditorPage(driver)
         swipeOnce.oneSwipeRtoL()
 
+        # Swipes right to left 9 times
+        swipe9Times = EditorPage(driver)
+        swipe9Times.nineSwsipesRtoL()
+
         # taps on the filter
         filters = EditorPage(driver)
         filters.tokyoFilter()

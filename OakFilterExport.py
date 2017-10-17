@@ -41,6 +41,10 @@ class OakFilterExportTest(unittest.TestCase):
         dismissReviewPopup = TryExcepts(driver)
         dismissReviewPopup.reviewPopup()
 
+        # Swipes right to left 9 times
+        swipe9Times = EditorPage(driver)
+        swipe9Times.nineSwsipesRtoL()
+
         # taps on the filter
         filters = EditorPage(driver)
         filters.oakFilter()

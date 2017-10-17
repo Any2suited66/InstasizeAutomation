@@ -45,10 +45,13 @@ class TikiFilterExportTest(unittest.TestCase):
         filters = EditorPage(driver)
         filters.tikiFilter()
 
+        # Swipes right to left 9 times
+        swipe9Times = EditorPage(driver)
+        swipe9Times.nineSwsipesRtoL()
+
         # Asserts tvFilterLevel is displayed
         tvFilterLevel = PhotoLibraryAsserts(driver)
         tvFilterLevel.tvFilterLevel()
-
 
         # taps on share button
         tapShareButton = EditorPage(driver)

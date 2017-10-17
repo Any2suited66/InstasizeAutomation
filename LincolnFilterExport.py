@@ -41,9 +41,9 @@ class LincolnFilterExportTest(unittest.TestCase):
         dismissReviewPopup = TryExcepts(driver)
         dismissReviewPopup.reviewPopup()
 
-        # swipe once to access filter
-        swipeOnce = EditorPage(driver)
-        swipeOnce.oneSwipeRtoL()
+        # Swipes right to left
+        swipe = EditorPage(driver)
+        swipe.tenSwsipesRtoL()
 
         # taps on the filter
         filters = EditorPage(driver)

@@ -48,9 +48,9 @@ class CelsiusFilterExportTest(unittest.TestCase):
         swipe4times = EditorPage(driver)
         swipe4times.fourSwipesRtoL()
 
-        # taps on the filter
-        filters = EditorPage(driver)
-        filters.celsiusFilter()
+        # swipe to access filter
+        swipe = EditorPage(driver)
+        swipe.elevenSwsipesRtoL()
 
         # Asserts tvFilterLevel is displayed
         tvFilterLevel = PhotoLibraryAsserts(driver)

@@ -41,9 +41,9 @@ class HiroFilterExportTest(unittest.TestCase):
         dismissReviewPopup = TryExcepts(driver)
         dismissReviewPopup.reviewPopup()
 
-        # Swipes twice to access the filter
-        swipeTwice = EditorPage(driver)
-        swipeTwice.twoSwipesRtoL()
+        # Swipes right to left
+        swipe = EditorPage(driver)
+        swipe.tenSwsipesRtoL()
 
         # taps on the filter
         filters = EditorPage(driver)

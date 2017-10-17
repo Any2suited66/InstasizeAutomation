@@ -41,8 +41,9 @@ class NovaFilterExportTest(unittest.TestCase):
         dismissReviewPopup = TryExcepts(driver)
         dismissReviewPopup.reviewPopup()
 
-        swipeTwice = EditorPage(driver)
-        swipeTwice.twoSwipesRtoL()
+        # swipe to access filter
+        swipe = EditorPage(driver)
+        swipe.twelveSwsipesRtoL()
 
         # taps on the filter
         filters = EditorPage(driver)

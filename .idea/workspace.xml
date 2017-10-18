@@ -4,6 +4,7 @@
     <list default="true" id="d33e3f3a-c811-4db9-b289-d63cf1d06cc9" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AltaFilterExport.py" afterPath="$PROJECT_DIR$/AltaFilterExport.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Asserts.py" afterPath="$PROJECT_DIR$/Asserts.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AthensFilterExport.py" afterPath="$PROJECT_DIR$/AthensFilterExport.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BalticFilterExport.py" afterPath="$PROJECT_DIR$/BalticFilterExport.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BarkFilterExport.py" afterPath="$PROJECT_DIR$/BarkFilterExport.py" />
@@ -42,101 +43,105 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="BalticFilterExport.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/BalticFilterExport.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="973">
-              <caret line="74" column="31" lean-forward="false" selection-start-line="74" selection-start-column="7" selection-end-line="74" selection-end-column="31" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BarkFilterExport.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/BarkFilterExport.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="595">
-              <caret line="66" column="33" lean-forward="false" selection-start-line="66" selection-start-column="33" selection-end-line="66" selection-end-column="33" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="CelsiusFilterExport.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CelsiusFilterExport.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="743">
-              <caret line="60" column="29" lean-forward="false" selection-start-line="60" selection-start-column="29" selection-end-line="60" selection-end-column="29" />
+            <state relative-caret-position="945">
+              <caret line="71" column="29" lean-forward="false" selection-start-line="71" selection-start-column="29" selection-end-line="71" selection-end-column="29" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CoastFilterExport.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CoastFilterExport.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CoastFilterExport.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="349">
-              <caret line="53" column="0" lean-forward="true" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="343">
+              <caret line="43" column="36" lean-forward="true" selection-start-line="43" selection-start-column="36" selection-end-line="43" selection-end-column="36" />
+              <folding>
+                <element signature="e#0#15#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LincolnFilterExport.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/LincolnFilterExport.py">
+      <file leaf-file-name="RadioFilterExport.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/RadioFilterExport.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="284">
-              <caret line="54" column="0" lean-forward="true" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+            <state relative-caret-position="791">
+              <caret line="72" column="29" lean-forward="false" selection-start-line="72" selection-start-column="29" selection-end-line="72" selection-end-column="29" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AthensFilterExport.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/AthensFilterExport.py">
+      <file leaf-file-name="RioFilterExport.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/RioFilterExport.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="27" column="39" lean-forward="true" selection-start-line="27" selection-start-column="39" selection-end-line="27" selection-end-column="39" />
+            <state relative-caret-position="791">
+              <caret line="72" column="29" lean-forward="false" selection-start-line="72" selection-start-column="29" selection-end-line="72" selection-end-column="29" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JunoFilterExport.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/JunoFilterExport.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="54" column="51" lean-forward="true" selection-start-line="54" selection-start-column="51" selection-end-line="54" selection-end-column="51" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="InstasizePages.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="InstasizePages.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/InstasizePages.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5805">
-              <caret line="387" column="56" lean-forward="true" selection-start-line="387" selection-start-column="56" selection-end-line="387" selection-end-column="56" />
+            <state relative-caret-position="525">
+              <caret line="35" column="46" lean-forward="true" selection-start-line="25" selection-start-column="4" selection-end-line="35" selection-end-column="46" />
+              <folding>
+                <element signature="e#0#61#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Asserts.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Asserts.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AltaFilterExport.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/AltaFilterExport.py">
+      <file leaf-file-name="TokyoFilterExport" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/TokyoFilterExport">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="515">
-              <caret line="47" column="35" lean-forward="false" selection-start-line="47" selection-start-column="35" selection-end-line="47" selection-end-column="35" />
+            <state relative-caret-position="791">
+              <caret line="77" column="29" lean-forward="false" selection-start-line="77" selection-start-column="29" selection-end-line="77" selection-end-column="29" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DriverBuilder7zero.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DriverBuilder7zero.py">
+      <file leaf-file-name="WasatchFilterExport.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/WasatchFilterExport.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="6" column="23" lean-forward="true" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
+            <state relative-caret-position="776">
+              <caret line="73" column="29" lean-forward="false" selection-start-line="73" selection-start-column="29" selection-end-line="73" selection-end-column="29" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WavesFilterExport.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/WavesFilterExport.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="266">
+              <caret line="28" column="45" lean-forward="true" selection-start-line="28" selection-start-column="45" selection-end-line="28" selection-end-column="45" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TikiFilterExport.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/TikiFilterExport.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="791">
+              <caret line="71" column="29" lean-forward="false" selection-start-line="71" selection-start-column="29" selection-end-line="71" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -181,7 +186,6 @@
         <option value="$PROJECT_DIR$/GridPage.py" />
         <option value="$PROJECT_DIR$/Experiment2.py" />
         <option value="$PROJECT_DIR$/PhotoLibraryPage.py" />
-        <option value="$PROJECT_DIR$/Asserts.py" />
         <option value="$PROJECT_DIR$/Experiment.py" />
         <option value="$PROJECT_DIR$/FilterExportTestCases/FilterExportTestSuite.py" />
         <option value="$PROJECT_DIR$/FilterExportTestCases/RunAllFilterExportTests.py" />
@@ -190,40 +194,42 @@
         <option value="$PROJECT_DIR$/1989FilterExport.py" />
         <option value="$PROJECT_DIR$/TryExcepts.py" />
         <option value="$PROJECT_DIR$/FilterExportTestCases/FilterTest.py" />
-        <option value="$PROJECT_DIR$/TikiFilterExport.py" />
-        <option value="$PROJECT_DIR$/OakFilterExport.py" />
-        <option value="$PROJECT_DIR$/TokyoFilterExport" />
-        <option value="$PROJECT_DIR$/Nineteen89FilterExport.py" />
-        <option value="$PROJECT_DIR$/HulaFilterExport.py" />
-        <option value="$PROJECT_DIR$/RadioFilterExport.py" />
-        <option value="$PROJECT_DIR$/HiroFilterExport.py" />
-        <option value="$PROJECT_DIR$/WavesFilterExport.py" />
-        <option value="$PROJECT_DIR$/KayakFilterExport.py" />
-        <option value="$PROJECT_DIR$/NewportFilterExport.py" />
-        <option value="$PROJECT_DIR$/RioFilterExport.py" />
-        <option value="$PROJECT_DIR$/NovaFilterExport.py" />
-        <option value="$PROJECT_DIR$/WasatchFilterExport.py" />
-        <option value="$PROJECT_DIR$/MarketFilterExport.py" />
-        <option value="$PROJECT_DIR$/MadridFilterExport.py" />
-        <option value="$PROJECT_DIR$/FluxFilterExport.py" />
-        <option value="$PROJECT_DIR$/PetraFilterExport.py" />
-        <option value="$PROJECT_DIR$/OrganicFilterExport.py" />
-        <option value="$PROJECT_DIR$/NomadFilterExport.py" />
+        <option value="$PROJECT_DIR$/DriverBuilder7zero.py" />
         <option value="$PROJECT_DIR$/AltaFilterExport.py" />
+        <option value="$PROJECT_DIR$/OrganicFilterExport.py" />
         <option value="$PROJECT_DIR$/AthensFilterExport.py" />
+        <option value="$PROJECT_DIR$/BalticFilterExport.py" />
         <option value="$PROJECT_DIR$/BarkFilterExport.py" />
         <option value="$PROJECT_DIR$/CelsiusFilterExport.py" />
-        <option value="$PROJECT_DIR$/LincolnFilterExport.py" />
-        <option value="$PROJECT_DIR$/CoastFilterExport.py" />
+        <option value="$PROJECT_DIR$/FluxFilterExport.py" />
+        <option value="$PROJECT_DIR$/HiroFilterExport.py" />
+        <option value="$PROJECT_DIR$/HulaFilterExport.py" />
         <option value="$PROJECT_DIR$/JunoFilterExport.py" />
+        <option value="$PROJECT_DIR$/KayakFilterExport.py" />
+        <option value="$PROJECT_DIR$/LincolnFilterExport.py" />
+        <option value="$PROJECT_DIR$/MadridFilterExport.py" />
+        <option value="$PROJECT_DIR$/MarketFilterExport.py" />
+        <option value="$PROJECT_DIR$/NewportFilterExport.py" />
+        <option value="$PROJECT_DIR$/Nineteen89FilterExport.py" />
+        <option value="$PROJECT_DIR$/NomadFilterExport.py" />
+        <option value="$PROJECT_DIR$/NovaFilterExport.py" />
+        <option value="$PROJECT_DIR$/OakFilterExport.py" />
+        <option value="$PROJECT_DIR$/PetraFilterExport.py" />
+        <option value="$PROJECT_DIR$/RadioFilterExport.py" />
+        <option value="$PROJECT_DIR$/RioFilterExport.py" />
+        <option value="$PROJECT_DIR$/TikiFilterExport.py" />
+        <option value="$PROJECT_DIR$/TokyoFilterExport" />
+        <option value="$PROJECT_DIR$/WasatchFilterExport.py" />
+        <option value="$PROJECT_DIR$/WavesFilterExport.py" />
+        <option value="$PROJECT_DIR$/CoastFilterExport.py" />
+        <option value="$PROJECT_DIR$/Asserts.py" />
         <option value="$PROJECT_DIR$/InstasizePages.py" />
-        <option value="$PROJECT_DIR$/BalticFilterExport.py" />
-        <option value="$PROJECT_DIR$/DriverBuilder7zero.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="23" />
+    <option name="x" value="461" />
+    <option name="y" value="77" />
     <option name="width" value="2098" />
     <option name="height" value="1282" />
   </component>
@@ -307,7 +313,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python tests.Unittests in BalticFilterExport.py">
+  <component name="RunManager" selected="Python tests.Unittests in CoastFilterExport.py">
     <configuration name="Unittests in BalticFilterExport.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -364,7 +370,7 @@
       <option name="_new_target" value="&quot;$PROJECT_DIR$/JunoFilterExport.py&quot;" />
       <option name="_new_targetType" value="&quot;PATH&quot;" />
     </configuration>
-    <configuration name="Unittests in LincolnFilterExport.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+    <configuration name="Unittests in WavesFilterExport.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs />
@@ -375,23 +381,23 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="InstasizeAutomation" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;$PROJECT_DIR$/LincolnFilterExport.py&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/WavesFilterExport.py&quot;" />
       <option name="_new_targetType" value="&quot;PATH&quot;" />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Python tests.Unittests in LincolnFilterExport.py" />
-      <item index="1" class="java.lang.String" itemvalue="Python tests.Unittests in BarkFilterExport.py" />
-      <item index="2" class="java.lang.String" itemvalue="Python tests.Unittests in CoastFilterExport.py" />
-      <item index="3" class="java.lang.String" itemvalue="Python tests.Unittests in JunoFilterExport.py" />
-      <item index="4" class="java.lang.String" itemvalue="Python tests.Unittests in BalticFilterExport.py" />
+      <item index="0" class="java.lang.String" itemvalue="Python tests.Unittests in BarkFilterExport.py" />
+      <item index="1" class="java.lang.String" itemvalue="Python tests.Unittests in CoastFilterExport.py" />
+      <item index="2" class="java.lang.String" itemvalue="Python tests.Unittests in JunoFilterExport.py" />
+      <item index="3" class="java.lang.String" itemvalue="Python tests.Unittests in BalticFilterExport.py" />
+      <item index="4" class="java.lang.String" itemvalue="Python tests.Unittests in WavesFilterExport.py" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python tests.Unittests in BalticFilterExport.py" />
-        <item index="1" class="java.lang.String" itemvalue="Python tests.Unittests in BarkFilterExport.py" />
-        <item index="2" class="java.lang.String" itemvalue="Python tests.Unittests in JunoFilterExport.py" />
-        <item index="3" class="java.lang.String" itemvalue="Python tests.Unittests in CoastFilterExport.py" />
-        <item index="4" class="java.lang.String" itemvalue="Python tests.Unittests in LincolnFilterExport.py" />
+        <item index="0" class="java.lang.String" itemvalue="Python tests.Unittests in CoastFilterExport.py" />
+        <item index="1" class="java.lang.String" itemvalue="Python tests.Unittests in WavesFilterExport.py" />
+        <item index="2" class="java.lang.String" itemvalue="Python tests.Unittests in BalticFilterExport.py" />
+        <item index="3" class="java.lang.String" itemvalue="Python tests.Unittests in BarkFilterExport.py" />
+        <item index="4" class="java.lang.String" itemvalue="Python tests.Unittests in JunoFilterExport.py" />
       </list>
     </recent_temporary>
   </component>
@@ -451,43 +457,50 @@
       <option name="project" value="LOCAL" />
       <updated>1507593429659</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Updated the filters for paid version">
+      <created>1508266269021</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1508266269021</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Unittests_in_BalticFilterExport_py - 2017.10.17 at 09h 48m 26s.xml">
-      <configuration name="Unittests in BalticFilterExport.py" configurationId="tests" />
+    <history-entry file="Unittests_in_CoastFilterExport_py - 2017.10.17 at 18h 24m 32s.xml">
+      <configuration name="Unittests in CoastFilterExport.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_BalticFilterExport_py - 2017.10.17 at 09h 51m 25s.xml">
-      <configuration name="Unittests in BalticFilterExport.py" configurationId="tests" />
+    <history-entry file="Unittests_in_CoastFilterExport_py - 2017.10.17 at 18h 31m 07s.xml">
+      <configuration name="Unittests in CoastFilterExport.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_BalticFilterExport_py - 2017.10.17 at 09h 59m 06s.xml">
-      <configuration name="Unittests in BalticFilterExport.py" configurationId="tests" />
+    <history-entry file="Unittests_in_CoastFilterExport_py - 2017.10.17 at 22h 04m 40s.xml">
+      <configuration name="Unittests in CoastFilterExport.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_BalticFilterExport_py - 2017.10.17 at 10h 49m 15s.xml">
-      <configuration name="Unittests in BalticFilterExport.py" configurationId="tests" />
+    <history-entry file="Unittests_in_CoastFilterExport_py - 2017.10.17 at 22h 23m 24s.xml">
+      <configuration name="Unittests in CoastFilterExport.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_BalticFilterExport_py - 2017.10.17 at 10h 56m 33s.xml">
-      <configuration name="Unittests in BalticFilterExport.py" configurationId="tests" />
+    <history-entry file="Unittests_in_CoastFilterExport_py - 2017.10.17 at 22h 27m 06s.xml">
+      <configuration name="Unittests in CoastFilterExport.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_BalticFilterExport_py - 2017.10.17 at 10h 58m 06s.xml">
-      <configuration name="Unittests in BalticFilterExport.py" configurationId="tests" />
+    <history-entry file="Unittests_in_CoastFilterExport_py - 2017.10.17 at 22h 28m 30s.xml">
+      <configuration name="Unittests in CoastFilterExport.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_BalticFilterExport_py - 2017.10.17 at 10h 59m 56s.xml">
-      <configuration name="Unittests in BalticFilterExport.py" configurationId="tests" />
+    <history-entry file="Unittests_in_CoastFilterExport_py - 2017.10.18 at 09h 06m 23s.xml">
+      <configuration name="Unittests in CoastFilterExport.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_BalticFilterExport_py - 2017.10.17 at 11h 06m 42s.xml">
-      <configuration name="Unittests in BalticFilterExport.py" configurationId="tests" />
+    <history-entry file="Unittests_in_CoastFilterExport_py - 2017.10.18 at 09h 07m 28s.xml">
+      <configuration name="Unittests in CoastFilterExport.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_BalticFilterExport_py - 2017.10.17 at 11h 08m 21s.xml">
-      <configuration name="Unittests in BalticFilterExport.py" configurationId="tests" />
+    <history-entry file="Unittests_in_CoastFilterExport_py - 2017.10.18 at 09h 27m 36s.xml">
+      <configuration name="Unittests in CoastFilterExport.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_BalticFilterExport_py - 2017.10.17 at 11h 10m 13s.xml">
-      <configuration name="Unittests in BalticFilterExport.py" configurationId="tests" />
+    <history-entry file="Unittests_in_CoastFilterExport_py - 2017.10.18 at 09h 29m 04s.xml">
+      <configuration name="Unittests in CoastFilterExport.py" configurationId="tests" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="2098" height="1282" extended-state="0" />
+    <frame x="461" y="77" width="2098" height="1282" extended-state="0" />
     <layout>
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24404195" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -528,7 +541,8 @@
     <MESSAGE value="Just an update" />
     <MESSAGE value="Initial commit to instasize automation repo" />
     <MESSAGE value="moved some files so the bash script will work correctly" />
-    <option name="LAST_COMMIT_MESSAGE" value="moved some files so the bash script will work correctly" />
+    <MESSAGE value="Updated the filters for paid version" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated the filters for paid version" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -632,243 +646,247 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TikiFilterExport.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
-          <caret line="54" column="0" lean-forward="true" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/OakFilterExport.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="45" column="37" lean-forward="true" selection-start-line="43" selection-start-column="8" selection-end-line="45" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TokyoFilterExport">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="52" column="36" lean-forward="true" selection-start-line="52" selection-start-column="36" selection-end-line="52" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/HulaFilterExport.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="59" column="36" lean-forward="true" selection-start-line="59" selection-start-column="36" selection-end-line="59" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/RadioFilterExport.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="74" column="16" lean-forward="true" selection-start-line="74" selection-start-column="16" selection-end-line="74" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/HiroFilterExport.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="371">
-          <caret line="45" column="30" lean-forward="true" selection-start-line="45" selection-start-column="30" selection-end-line="45" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Nineteen89FilterExport.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="124">
-          <caret line="47" column="30" lean-forward="false" selection-start-line="47" selection-start-column="30" selection-end-line="47" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WavesFilterExport.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="54" column="37" lean-forward="true" selection-start-line="54" selection-start-column="37" selection-end-line="54" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/KayakFilterExport.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="109">
-          <caret line="48" column="36" lean-forward="true" selection-start-line="48" selection-start-column="36" selection-end-line="48" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/RioFilterExport.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1110">
-          <caret line="80" column="51" lean-forward="true" selection-start-line="80" selection-start-column="51" selection-end-line="80" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/NewportFilterExport.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="46" column="33" lean-forward="true" selection-start-line="44" selection-start-column="8" selection-end-line="46" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MarketFilterExport.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="54" column="37" lean-forward="true" selection-start-line="54" selection-start-column="37" selection-end-line="54" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MadridFilterExport.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="48" column="36" lean-forward="true" selection-start-line="48" selection-start-column="36" selection-end-line="48" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FluxFilterExport.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="65">
-          <caret line="48" column="35" lean-forward="true" selection-start-line="46" selection-start-column="8" selection-end-line="48" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PetraFilterExport.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="48" column="35" lean-forward="false" selection-start-line="48" selection-start-column="35" selection-end-line="48" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/OrganicFilterExport.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="51" column="36" lean-forward="true" selection-start-line="51" selection-start-column="36" selection-end-line="51" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WasatchFilterExport.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="45" column="33" lean-forward="true" selection-start-line="43" selection-start-column="8" selection-end-line="45" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/NovaFilterExport.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="61" column="39" lean-forward="true" selection-start-line="61" selection-start-column="39" selection-end-line="61" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/NomadFilterExport.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="47" column="35" lean-forward="true" selection-start-line="47" selection-start-column="35" selection-end-line="47" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Asserts.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="78" lean-forward="true" selection-start-line="16" selection-start-column="8" selection-end-line="17" selection-end-column="78" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LincolnFilterExport.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
-          <caret line="54" column="0" lean-forward="true" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/JunoFilterExport.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="54" column="51" lean-forward="true" selection-start-line="54" selection-start-column="51" selection-end-line="54" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BarkFilterExport.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="66" column="33" lean-forward="false" selection-start-line="66" selection-start-column="33" selection-end-line="66" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/DriverBuilder7zero.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="6" column="23" lean-forward="true" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
+        <state relative-caret-position="285">
+          <caret line="21" column="39" lean-forward="true" selection-start-line="21" selection-start-column="39" selection-end-line="21" selection-end-column="39" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/AltaFilterExport.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="515">
-          <caret line="47" column="35" lean-forward="false" selection-start-line="47" selection-start-column="35" selection-end-line="47" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CelsiusFilterExport.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="743">
-          <caret line="60" column="29" lean-forward="false" selection-start-line="60" selection-start-column="29" selection-end-line="60" selection-end-column="29" />
+        <state relative-caret-position="791">
+          <caret line="74" column="29" lean-forward="true" selection-start-line="72" selection-start-column="8" selection-end-line="74" selection-end-column="29" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/AthensFilterExport.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="27" column="39" lean-forward="true" selection-start-line="27" selection-start-column="39" selection-end-line="27" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/InstasizePages.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5805">
-          <caret line="387" column="56" lean-forward="true" selection-start-line="387" selection-start-column="56" selection-end-line="387" selection-end-column="56" />
+        <state relative-caret-position="761">
+          <caret line="75" column="29" lean-forward="false" selection-start-line="75" selection-start-column="29" selection-end-line="75" selection-end-column="29" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/BalticFilterExport.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="973">
-          <caret line="74" column="31" lean-forward="false" selection-start-line="74" selection-start-column="7" selection-end-line="74" selection-end-column="31" />
+        <state relative-caret-position="809">
+          <caret line="74" column="29" lean-forward="false" selection-start-line="74" selection-start-column="29" selection-end-line="74" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BarkFilterExport.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="776">
+          <caret line="75" column="29" lean-forward="false" selection-start-line="75" selection-start-column="29" selection-end-line="75" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FluxFilterExport.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="776">
+          <caret line="75" column="29" lean-forward="false" selection-start-line="75" selection-start-column="29" selection-end-line="75" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HiroFilterExport.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="791">
+          <caret line="73" column="29" lean-forward="false" selection-start-line="73" selection-start-column="29" selection-end-line="73" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HulaFilterExport.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="776">
+          <caret line="74" column="29" lean-forward="false" selection-start-line="74" selection-start-column="29" selection-end-line="74" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JunoFilterExport.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="776">
+          <caret line="74" column="29" lean-forward="false" selection-start-line="74" selection-start-column="29" selection-end-line="74" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/KayakFilterExport.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="776">
+          <caret line="72" column="29" lean-forward="false" selection-start-line="72" selection-start-column="29" selection-end-line="72" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LincolnFilterExport.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="791">
+          <caret line="73" column="29" lean-forward="false" selection-start-line="73" selection-start-column="29" selection-end-line="73" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MadridFilterExport.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="791">
+          <caret line="73" column="29" lean-forward="false" selection-start-line="73" selection-start-column="29" selection-end-line="73" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MarketFilterExport.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="791">
+          <caret line="74" column="29" lean-forward="false" selection-start-line="74" selection-start-column="29" selection-end-line="74" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NewportFilterExport.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="761">
+          <caret line="73" column="29" lean-forward="false" selection-start-line="73" selection-start-column="29" selection-end-line="73" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Nineteen89FilterExport.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="776">
+          <caret line="74" column="29" lean-forward="false" selection-start-line="74" selection-start-column="29" selection-end-line="74" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NomadFilterExport.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="776">
+          <caret line="74" column="29" lean-forward="false" selection-start-line="74" selection-start-column="29" selection-end-line="74" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NovaFilterExport.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="791">
+          <caret line="73" column="29" lean-forward="false" selection-start-line="73" selection-start-column="29" selection-end-line="73" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/OakFilterExport.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="791">
+          <caret line="73" column="29" lean-forward="false" selection-start-line="73" selection-start-column="29" selection-end-line="73" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/OrganicFilterExport.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="776">
+          <caret line="75" column="29" lean-forward="false" selection-start-line="75" selection-start-column="29" selection-end-line="75" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PetraFilterExport.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="799">
+          <caret line="76" column="0" lean-forward="false" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RadioFilterExport.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="791">
+          <caret line="72" column="29" lean-forward="false" selection-start-line="72" selection-start-column="29" selection-end-line="72" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RioFilterExport.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="791">
+          <caret line="72" column="29" lean-forward="false" selection-start-line="72" selection-start-column="29" selection-end-line="72" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TikiFilterExport.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="791">
+          <caret line="71" column="29" lean-forward="false" selection-start-line="71" selection-start-column="29" selection-end-line="71" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TokyoFilterExport">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="791">
+          <caret line="77" column="29" lean-forward="false" selection-start-line="77" selection-start-column="29" selection-end-line="77" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WasatchFilterExport.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="776">
+          <caret line="73" column="29" lean-forward="false" selection-start-line="73" selection-start-column="29" selection-end-line="73" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WavesFilterExport.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="28" column="45" lean-forward="true" selection-start-line="28" selection-start-column="45" selection-end-line="28" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CelsiusFilterExport.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="945">
+          <caret line="71" column="29" lean-forward="false" selection-start-line="71" selection-start-column="29" selection-end-line="71" selection-end-column="29" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/CoastFilterExport.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="349">
-          <caret line="53" column="0" lean-forward="true" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+        <state relative-caret-position="343">
+          <caret line="43" column="36" lean-forward="true" selection-start-line="43" selection-start-column="36" selection-end-line="43" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Asserts.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/InstasizePages.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="35" column="46" lean-forward="true" selection-start-line="25" selection-start-column="4" selection-end-line="35" selection-end-column="46" />
+          <folding>
+            <element signature="e#0#61#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

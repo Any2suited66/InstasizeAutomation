@@ -37,10 +37,6 @@ class LincolnFilterExportTest(unittest.TestCase):
         tapTopLeftPhoto = GridPage(driver)
         tapTopLeftPhoto.topLeftPhoto()
 
-        # Searches for the Review Popup and dismisses it
-        dismissReviewPopup = TryExcepts(driver)
-        dismissReviewPopup.reviewPopup()
-
         # Swipes right to left
         swipe = EditorPage(driver)
         swipe.tenSwsipesRtoL()
@@ -73,8 +69,9 @@ class LincolnFilterExportTest(unittest.TestCase):
         addPhoto = GridPage(driver)
         addPhoto.addPhotoFind()
 
-        sleep(5)
-        driver.quit()
+        # Tears down the test
+        quitTest = EditorPage(driver)
+        quitTest.driverQuit()
 
 # ---START OF SCRIPT
 if __name__ == '__main__':

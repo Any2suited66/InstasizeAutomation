@@ -40,17 +40,9 @@ class CoastFilterExportTest(unittest.TestCase):
         tapTopLeftPhoto = GridPage(driver)
         tapTopLeftPhoto.topLeftPhoto()
 
-        # Searches for the Review Popup and dismisses it
-        dismissReviewPopup = TryExcepts(driver)
-        dismissReviewPopup.reviewPopup()
-
-        # Swipes right to left 8 times
-        swipe9Times = EditorPage(driver)
-        swipe9Times.eightSwsipesRtoL()
-
-        # taps on the filter
+        # locates and taps on the filter
         filters = EditorPage(driver)
-        filters.coastFilter()
+        filters.findCoastFilter()
 
         # Asserts tvFilterLevel is displayed
         tvFilterLevel = PhotoLibraryAsserts(driver)
@@ -75,8 +67,9 @@ class CoastFilterExportTest(unittest.TestCase):
         addPhoto = GridPage(driver)
         addPhoto.addPhotoFind()
 
-        sleep(3)
-        driver.quit()
+        # Tears down the test
+        quitTest = EditorPage(driver)
+        quitTest.driverQuit()
 
 
 # ---START OF SCRIPT

@@ -26,8 +26,8 @@ class EditorPage(object):
     def findCoastFilter(self):
         for _ in xrange(15):
             try:
-                filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='COAST']").is_displayed()
-                if filter_found is True:
+                filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='COAST']")
+                if filter_found.is_displayed():
                     EditorPage.tapCoastFilter(self)
                     break
 

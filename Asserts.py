@@ -1,3 +1,4 @@
+from appium.webdriver.common.touch_action import TouchAction
 
 class PhotoLibraryAsserts(object):
 
@@ -15,6 +16,4 @@ class PhotoLibraryAsserts(object):
         tvFilterLevel = self.driver.find_element_by_id("tvFilterLevel")
         self.assertTrue(tvFilterLevel.is_displayed, "Failed, Check for crash")
 
-    def swipeInEditor(self, webdriver):
-                self.driver.swipe(1202, 2268, 201, 2268)
-                self.driver.implicitly_wait(2)
+

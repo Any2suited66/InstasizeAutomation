@@ -31,9 +31,8 @@ class EditorPage(object):
                     EditorPage.tapCoastFilter(self)
                     break
 
-            except NoSuchElementException:
-                findFilter = PhotoLibraryAsserts(self)
-                findFilter.swipeInEditor(self)
+            except:
+                EditorPage.swipeInEditor(self)
 
     def tapCoastFilter(self):
         self.driver.find_element_by_xpath("//android.widget.TextView[@text='COAST']").click()

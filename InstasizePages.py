@@ -1,9 +1,4 @@
-from selenium.common.exceptions import NoSuchElementException
 from time import sleep
-from appium.webdriver.common.touch_action import TouchAction
-from Asserts import PhotoLibraryAsserts
-
-from os import wait
 
 
 class EditorPage(object):

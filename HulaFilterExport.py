@@ -39,10 +39,6 @@ class HulaFilterExportTest(unittest.TestCase):
         tapTopLeftPhoto = GridPage(driver)
         tapTopLeftPhoto.topLeftPhoto()
 
-        # Swipes right to left
-        swipe = EditorPage(driver)
-        swipe.tenSwsipesRtoL()
-
         # taps on the filter
         filters = EditorPage(driver)
         filters.hulaFilter()

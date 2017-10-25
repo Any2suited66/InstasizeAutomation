@@ -39,10 +39,6 @@ class AltaFilterExportTest(unittest.TestCase):
         tapTopLeftPhoto = GridPage(driver)
         tapTopLeftPhoto.topLeftPhoto()
 
-        # swipe to access filter
-        swipe = EditorPage(driver)
-        swipe.fourteenSwsipesRtoL()
-
         # taps on the filter
         filters = EditorPage(driver)
         filters.altaFilter()

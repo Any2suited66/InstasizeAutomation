@@ -20,11 +20,8 @@ class EditorPage(object):
             print "Test Failed, check for crash manually and double check if element is located correctly in script"
             self.driver.quit()
 
-    def coastFilterLocate(self):
-        self.driver.find_element_by_xpath("//android.widget.TextView[@text='COAST']").is_displayed()
-
     def findCoastFilter(self):
-        for _ in xrange(15):
+        for _ in xrange(50):
             try:
                 filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='COAST']")
                 if filter_found.is_displayed():
@@ -38,186 +35,368 @@ class EditorPage(object):
         self.driver.find_element_by_xpath("//android.widget.TextView[@text='COAST']").click()
 
     def tikiFilter(self):
-        try:
-            self.driver.find_element_by_xpath("//android.widget.TextView[@text='TIKI']").click()
-        except:
-            print "Test Failed, check for crash manually and double check if element is located correctly in script"
-            self.driver.quit()
+        for _ in xrange(50):
+            try:
+                filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='TIKI']")
+                if filter_found.is_displayed():
+                    EditorPage.tapTikiFilter(self)
+                    break
+
+            except:
+                EditorPage.swipeInEditor(self)
+
+    def tapTikiFilter(self):
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='TIKI']").click()
 
     def athensFilter(self):
-        try:
-            self.driver.find_element_by_xpath("//android.widget.TextView[@text='ATHENS']").click()
-        except:
-            print "Test Failed, check for crash manually and double check if element is located correctly in script"
-            self.driver.quit()
+        for _ in xrange(50):
+            try:
+                filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='ATHENS']")
+                if filter_found.is_displayed():
+                    EditorPage.tapAthensFilter(self)
+                    break
+
+            except:
+                EditorPage.swipeInEditor(self)
+
+    def tapAthensFilter(self):
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='ATHENS']").click()
 
     def oakFilter(self):
-        try:
-            self.driver.find_element_by_xpath("//android.widget.TextView[@text='OAK']").click()
-        except:
-            print "Test Failed, check for crash manually and double check if element is located correctly in script"
-            self.driver.quit()
+        for _ in xrange(50):
+            try:
+                filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='OAK']")
+                if filter_found.is_displayed():
+                    EditorPage.tapOakFilter(self)
+                    break
+
+            except:
+                EditorPage.swipeInEditor(self)
+
+    def tapOakFilter(self):
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='OAK']").click()
 
     def wavesFilter(self):
-        try:
-            self.driver.find_element_by_xpath("//android.widget.TextView[@text='WAVES']").click()
-        except:
-            print "Test Failed, check for crash manually and double check if element is located correctly in script"
-            self.driver.quit()
+        for _ in xrange(50):
+            try:
+                filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='WAVES']")
+                if filter_found.is_displayed():
+                    EditorPage.tapWavesFilter(self)
+                    break
+
+            except:
+                EditorPage.swipeInEditor(self)
+
+    def tapWavesFilter(self):
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='WAVES']").click()
 
     def tokyoFilter(self):
-        try:
-            self.driver.find_element_by_xpath("//android.widget.TextView[@text='TOKYO']").click()
-        except:
-            print "Test Failed, check for crash manually and double check if element is located correctly in script"
-            self.driver.quit()
+        for _ in xrange(50):
+            try:
+                filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='TOKYO']")
+                if filter_found.is_displayed():
+                    EditorPage.tapTokyoFilter(self)
+                    break
+
+            except:
+                EditorPage.swipeInEditor(self)
+
+    def tapTokyoFilter(self):
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='TOKYO']").click()
 
     def kayakFilter(self):
-        try:
-            self.driver.find_element_by_xpath("//android.widget.TextView[@text='KAYAK']").click()
-        except:
-            print "Test Failed, check for crash manually and double check if element is located correctly in script"
-            self.driver.quit()
+        for _ in xrange(50):
+            try:
+                filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='KAYAK']")
+                if filter_found.is_displayed():
+                    EditorPage.tapKayakFilter(self)
+                    break
+
+            except:
+                EditorPage.swipeInEditor(self)
+
+    def tapKayakFilter(self):
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='Kayak']").click()
 
     def lincolnFilter(self):
-        try:
-            self.driver.find_element_by_xpath("//android.widget.TextView[@text='LINCOLN']").click()
-        except:
-            print "Test Failed, check for crash manually and double check if element is located correctly in script"
-            self.driver.quit()
+        for _ in xrange(50):
+            try:
+                filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='LINCOLN']")
+                if filter_found.is_displayed():
+                    EditorPage.tapLincolnFilter(self)
+                    break
+
+            except:
+                EditorPage.swipeInEditor(self)
+
+    def tapLincolnFilter(self):
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='LINCOLN']").click()
 
     def rioFilter(self):
-        try:
-            self.driver.find_element_by_xpath("//android.widget.TextView[@text='RIO']").click()
-        except:
-            print "Test Failed, check for crash manually and double check if element is located correctly in script"
-            self.driver.quit()
+        for _ in xrange(50):
+            try:
+                filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='RIO']")
+                if filter_found.is_displayed():
+                    EditorPage.tapRioFilter(self)
+                    break
+
+            except:
+                EditorPage.swipeInEditor(self)
+
+    def tapRioFilter(self):
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='RIO']").click()
 
     def newportFilter(self):
-        try:
-            self.driver.find_element_by_xpath("//android.widget.TextView[@text='NEWPORT']").click()
-        except:
-            print "Test Failed, check for crash manually and double check if element is located correctly in script"
-            self.driver.quit()
+            for _ in xrange(50):
+                try:
+                    filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='NEWPORT']")
+                    if filter_found.is_displayed():
+                        EditorPage.tapNewportFilter(self)
+                        break
+
+                except:
+                    EditorPage.swipeInEditor(self)
+
+    def tapNewportFilter(self):
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='NEWPORT']").click()
 
     def novaFilter(self):
-        try:
-            self.driver.find_element_by_xpath("//android.widget.TextView[@text='NOVA']").click()
-        except:
-            print "Test Failed, check for crash manually and double check if element is located correctly in script"
-            self.driver.quit()
+        for _ in xrange(50):
+            try:
+                filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='NOVA']")
+                if filter_found.is_displayed():
+                    EditorPage.tapNovaFilter(self)
+                    break
+
+            except:
+                EditorPage.swipeInEditor(self)
+
+    def tapNovaFilter(self):
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='NOVA']").click()
 
     def hiroFilter(self):
-        try:
-            self.driver.find_element_by_xpath("//android.widget.TextView[@text='HIRO']").click()
-        except:
-            print "Test Failed, check for crash manually and double check if element is located correctly in script"
-            self.driver.quit()
+        for _ in xrange(50):
+            try:
+                filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='HIRO']")
+                if filter_found.is_displayed():
+                    EditorPage.tapHiroFilter(self)
+                    break
+
+            except:
+                EditorPage.swipeInEditor(self)
+
+    def tapHiroFilter(self):
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='HIRO']").click()
 
     def wasatchFilter(self):
-        try:
-            self.driver.find_element_by_xpath("//android.widget.TextView[@text='WASATCH']").click()
-        except:
-            print "Test Failed, check for crash manually and double check if element is located correctly in script"
-            self.driver.quit()
+        for _ in xrange(50):
+            try:
+                filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='WASATCH']")
+                if filter_found.is_displayed():
+                    EditorPage.tapWasatchFilter(self)
+                    break
+
+            except:
+                EditorPage.swipeInEditor(self)
+
+    def tapWasatchFilter(self):
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='WASATCH']").click()
 
     def marketFilter(self):
-        try:
-            self.driver.find_element_by_xpath("//android.widget.TextView[@text='MARKET']").click()
-        except:
-            print "Test Failed, check for crash manually and double check if element is located correctly in script"
-            self.driver.quit()
+        for _ in xrange(50):
+            try:
+                filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='MARKET']")
+                if filter_found.is_displayed():
+                    EditorPage.tapMarketFilter(self)
+                    break
+
+            except:
+                EditorPage.swipeInEditor(self)
+
+    def tapMarketFilter(self):
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='MARKET']").click()
 
     def radioFilter(self):
-        try:
-            self.driver.find_element_by_xpath("//android.widget.TextView[@text='RADIO']").click()
-        except:
-            print "Test Failed, check for crash manually and double check if element is located correctly in script"
-            self.driver.quit()
+        for _ in xrange(50):
+            try:
+                filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='RADIO']")
+                if filter_found.is_displayed():
+                    EditorPage.tapRadioFilter(self)
+                    break
+
+            except:
+                EditorPage.swipeInEditor(self)
+
+    def tapRadioFilter(self):
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='RADIO']").click()
 
     def madridFilter(self):
-        try:
-            self.driver.find_element_by_xpath("//android.widget.TextView[@text='MADRID']").click()
-        except:
-            print "Test Failed, check for crash manually and double check if element is located correctly in script"
-            self.driver.quit()
+        for _ in xrange(50):
+            try:
+                filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='MADRID']")
+                if filter_found.is_displayed():
+                    EditorPage.tapMadridFilter(self)
+                    break
+
+            except:
+                EditorPage.swipeInEditor(self)
+
+    def tapMadridFilter(self):
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='MADRID']").click()
 
     def barkFilter(self):
-        try:
-            self.driver.find_element_by_xpath("//android.widget.TextView[@text='BARK']").click()
-        except:
-            print "Test Failed, check for crash manually and double check if element is located correctly in script"
-            self.driver.quit()
+        for _ in xrange(50):
+            try:
+                filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='BARK']")
+                if filter_found.is_displayed():
+                    EditorPage.tapBarkFilter(self)
+                    break
+
+            except:
+                EditorPage.swipeInEditor(self)
+
+    def tapBarkFilter(self):
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='BARK']").click()
 
     def fluxFilter(self):
-        try:
-            self.driver.find_element_by_xpath("//android.widget.TextView[@text='FLUX']").click()
-        except:
-            print "Test Failed, check for crash manually and double check if element is located correctly in script"
-            self.driver.quit()
+        for _ in xrange(50):
+            try:
+                filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='FLUX']")
+                if filter_found.is_displayed():
+                    EditorPage.tapFluxFilter(self)
+                    break
+
+            except:
+                EditorPage.swipeInEditor(self)
+
+    def tapFluxFilter(self):
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='FLUX']").click()
 
     def nineteen89Filter(self):
-        try:
-            self.driver.find_element_by_xpath("//android.widget.TextView[@text='1989']").click()
-        except:
-            print "Test Failed, check for crash manually and double check if element is located correctly in script"
-            self.driver.quit()
+        for _ in xrange(50):
+            try:
+                filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='1989']")
+                if filter_found.is_displayed():
+                    EditorPage.tapNineteen89Filter(self)
+                    break
+
+            except:
+                EditorPage.swipeInEditor(self)
+
+    def tapNineteen89Filter(self):
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='1989']").click()
 
     def celsiusFilter(self):
-        try:
-            self.driver.find_element_by_xpath("//android.widget.TextView[@text='CELSIUS']").click()
-        except:
-            print "Test Failed, check for crash manually and double check if element is located correctly in script"
-            self.driver.quit()
+        for _ in xrange(50):
+            try:
+                filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='CELSIUS']")
+                if filter_found.is_displayed():
+                    EditorPage.tapNineteen89Filter(self)
+                    break
+
+            except:
+                EditorPage.swipeInEditor(self)
+
+    def tapCelsiusFilter(self):
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='CELSIUS']").click()
 
     def petraFilter(self):
-        try:
-            self.driver.find_element_by_xpath("//android.widget.TextView[@text='PETRA']").click()
-        except:
-            print "Test Failed, check for crash manually and double check if element is located correctly in script"
-            self.driver.quit()
+        for _ in xrange(50):
+            try:
+                filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='PETRA']")
+                if filter_found.is_displayed():
+                    EditorPage.tapNineteen89Filter(self)
+                    break
+
+            except:
+                EditorPage.swipeInEditor(self)
+
+    def tapPetraFilter(self):
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='PETRA']").click()
 
     def organicFilter(self):
-        try:
-            self.driver.find_element_by_xpath("//android.widget.TextView[@text='ORGANIC']").click()
-        except:
-            print "Test Failed, check for crash manually and double check if element is located correctly in script"
-            self.driver.quit()
+        for _ in xrange(50):
+            try:
+                filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='ORGANIC']")
+                if filter_found.is_displayed():
+                    EditorPage.tapNineteen89Filter(self)
+                    break
+
+            except:
+                EditorPage.swipeInEditor(self)
+
+    def tapOrganicFilter(self):
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='ORGANIC']").click()
 
     def nomadFilter(self):
-        try:
-            self.driver.find_element_by_xpath("//android.widget.TextView[@text='NOMAD']").click()
-        except:
-            print "Test Failed, check for crash manually and double check if element is located correctly in script"
-            self.driver.quit()
+        for _ in xrange(50):
+            try:
+                filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='NOMAD']")
+                if filter_found.is_displayed():
+                    EditorPage.tapNineteen89Filter(self)
+                    break
+
+            except:
+                EditorPage.swipeInEditor(self)
+
+    def tapNomadFilter(self):
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='NOMAD']").click()
 
     def altaFilter(self):
-        try:
-            self.driver.find_element_by_xpath("//android.widget.TextView[@text='ALTA']").click()
-        except:
-            print "Test Failed, check for crash manually and double check if element is located correctly in script"
-            self.driver.quit()
+        for _ in xrange(50):
+            try:
+                filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='ALTA']")
+                if filter_found.is_displayed():
+                    EditorPage.tapNineteen89Filter(self)
+                    break
+
+            except:
+                EditorPage.swipeInEditor(self)
+
+    def tapAltaFilter(self):
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='ALTA']").click()
 
     def balticFilter(self):
-        try:
-            self.driver.find_element_by_xpath("//android.widget.TextView[@text='BALTIC']").click()
-        except:
-            print "Test Failed, check for crash manually and double check if element is located correctly in script"
-            self.driver.quit()
+        for _ in xrange(50):
+            try:
+                filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='BALTIC']")
+                if filter_found.is_displayed():
+                    EditorPage.tapNineteen89Filter(self)
+                    break
+
+            except:
+                EditorPage.swipeInEditor(self)
+
+    def tapBalticFilter(self):
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='BALTIC']").click()
 
     def junoFilter(self):
-        try:
-            self.driver.find_element_by_xpath("//android.widget.TextView[@text='JUNO']").click()
-        except:
-            print "Test Failed, check for crash manually and double check if element is located correctly in script"
-            self.driver.quit()
+        for _ in xrange(50):
+            try:
+                filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='JUNO']")
+                if filter_found.is_displayed():
+                    EditorPage.tapNineteen89Filter(self)
+                    break
+
+            except:
+                EditorPage.swipeInEditor(self)
+
+    def tapJunoFilter(self):
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='JUNO']").click()
 
     def hulaFilter(self):
-        try:
-            self.driver.find_element_by_xpath("//android.widget.TextView[@text='HULA']").click()
-        except:
-            print "Test Failed, check for crash manually and double check if element is located correctly in script"
-            self.driver.quit()
+        for _ in xrange(50):
+            try:
+                filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='HULA']")
+                if filter_found.is_displayed():
+                    EditorPage.tapNineteen89Filter(self)
+                    break
+
+            except:
+                EditorPage.swipeInEditor(self)
+
+    def tapHulaFilter(self):
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='HULA']").click()
 
     def reviewPopup(self):
         self.driver.find_element_by_id("btnDeny").click()
@@ -231,170 +410,10 @@ class EditorPage(object):
         sleep(5)
 
     def swipeInEditor(self):
-                self.driver.swipe(1202, 2268, 201, 2268)
+                self.driver.swipe(1000, 2268, 201, 2268)
                 self.driver.implicitly_wait(2)
 
-    def tenSwsipesRtoL(self):
-        self.driver.swipe(1202, 2268, 201, 2268)
-        sleep(2)
-        self.driver.swipe(1202, 2268, 201, 2268)
-        sleep(2)
-        self.driver.swipe(1202, 2268, 201, 2268)
-        sleep(2)
-        self.driver.swipe(1190, 2268, 250, 2268)
-        sleep(2)
-        self.driver.swipe(1190, 2268, 250, 2268)
-        sleep(2)
-        self.driver.swipe(1190, 2268, 250, 2268)
-        sleep(2)
-        self.driver.swipe(1190, 2268, 250, 2268)
-        sleep(2)
-        self.driver.swipe(1190, 2268, 250, 2268)
-        sleep(2)
-        self.driver.swipe(1190, 2268, 250, 2268)
-        sleep(2)
-        self.driver.swipe(1220, 2268, 250, 2268)
-        sleep(2)
 
-    def elevenSwsipesRtoL(self):
-        self.driver.swipe(1202, 2268, 201, 2268)
-        sleep(2)
-        self.driver.swipe(1202, 2268, 201, 2268)
-        sleep(2)
-        self.driver.swipe(1202, 2268, 201, 2268)
-        sleep(2)
-        self.driver.swipe(1190, 2268, 250, 2268)
-        sleep(2)
-        self.driver.swipe(1190, 2268, 250, 2268)
-        sleep(2)
-        self.driver.swipe(1190, 2268, 250, 2268)
-        sleep(2)
-        self.driver.swipe(1190, 2268, 250, 2268)
-        sleep(2)
-        self.driver.swipe(1190, 2268, 250, 2268)
-        sleep(2)
-        self.driver.swipe(1190, 2268, 250, 2268)
-        sleep(2)
-        self.driver.swipe(1190, 2268, 250, 2268)
-        sleep(2)
-        self.driver.swipe(1200, 2268, 250, 2268)
-        sleep(2)
-
-    def twelveSwsipesRtoL(self):
-        self.driver.swipe(1202, 2268, 201, 2268)
-        sleep(2)
-        self.driver.swipe(1202, 2268, 201, 2268)
-        sleep(2)
-        self.driver.swipe(1202, 2268, 201, 2268)
-        sleep(2)
-        self.driver.swipe(1190, 2268, 250, 2268)
-        sleep(2)
-        self.driver.swipe(1190, 2268, 250, 2268)
-        sleep(2)
-        self.driver.swipe(1190, 2268, 250, 2268)
-        sleep(2)
-        self.driver.swipe(1190, 2268, 250, 2268)
-        sleep(2)
-        self.driver.swipe(1190, 2268, 250, 2268)
-        sleep(2)
-        self.driver.swipe(1190, 2268, 250, 2268)
-        sleep(2)
-        self.driver.swipe(1190, 2268, 250, 2268)
-        sleep(2)
-        self.driver.swipe(1200, 2268, 250, 2268)
-        sleep(2)
-        self.driver.swipe(1190, 2268, 250, 2268)
-        sleep(2)
-
-    def thirteenSwsipesRtoL(self):
-        self.driver.swipe(1202, 2268, 201, 2268)
-        sleep(2)
-        self.driver.swipe(1202, 2268, 201, 2268)
-        sleep(2)
-        self.driver.swipe(1202, 2268, 201, 2268)
-        sleep(2)
-        self.driver.swipe(1190, 2268, 250, 2268)
-        sleep(2)
-        self.driver.swipe(1190, 2268, 250, 2268)
-        sleep(2)
-        self.driver.swipe(1190, 2268, 250, 2268)
-        sleep(2)
-        self.driver.swipe(1190, 2268, 250, 2268)
-        sleep(2)
-        self.driver.swipe(1190, 2268, 250, 2268)
-        sleep(2)
-        self.driver.swipe(1190, 2268, 250, 2268)
-        sleep(2)
-        self.driver.swipe(1190, 2268, 250, 2268)
-        sleep(2)
-        self.driver.swipe(1200, 2268, 250, 2268)
-        sleep(2)
-        self.driver.swipe(1190, 2268, 250, 2268)
-        sleep(2)
-        self.driver.swipe(1190, 2268, 250, 2268)
-        sleep(2)
-
-    def fourteenSwsipesRtoL(self):
-        self.driver.swipe(1202, 2268, 201, 2268)
-        sleep(2)
-        self.driver.swipe(1202, 2268, 201, 2268)
-        sleep(2)
-        self.driver.swipe(1202, 2268, 201, 2268)
-        sleep(2)
-        self.driver.swipe(1190, 2268, 250, 2268)
-        sleep(2)
-        self.driver.swipe(1190, 2268, 250, 2268)
-        sleep(2)
-        self.driver.swipe(1190, 2268, 250, 2268)
-        sleep(2)
-        self.driver.swipe(1190, 2268, 250, 2268)
-        sleep(2)
-        self.driver.swipe(1190, 2268, 250, 2268)
-        sleep(2)
-        self.driver.swipe(1190, 2268, 250, 2268)
-        sleep(2)
-        self.driver.swipe(1190, 2268, 250, 2268)
-        sleep(2)
-        self.driver.swipe(1200, 2268, 250, 2268)
-        sleep(2)
-        self.driver.swipe(1190, 2268, 250, 2268)
-        sleep(2)
-        self.driver.swipe(1190, 2268, 250, 2268)
-        sleep(2)
-        self.driver.swipe(1200, 2268, 250, 2268)
-        sleep(2)
-
-    def fifteenSwsipesRtoL(self):
-        self.driver.swipe(1202, 2268, 201, 2268)
-        sleep(2)
-        self.driver.swipe(1202, 2268, 201, 2268)
-        sleep(2)
-        self.driver.swipe(1202, 2268, 201, 2268)
-        sleep(2)
-        self.driver.swipe(1190, 2268, 250, 2268)
-        sleep(2)
-        self.driver.swipe(1190, 2268, 250, 2268)
-        sleep(2)
-        self.driver.swipe(1190, 2268, 250, 2268)
-        sleep(2)
-        self.driver.swipe(1190, 2268, 250, 2268)
-        sleep(2)
-        self.driver.swipe(1190, 2268, 250, 2268)
-        sleep(2)
-        self.driver.swipe(1190, 2268, 250, 2268)
-        sleep(2)
-        self.driver.swipe(1190, 2268, 250, 2268)
-        sleep(2)
-        self.driver.swipe(1200, 2268, 250, 2268)
-        sleep(2)
-        self.driver.swipe(1190, 2268, 250, 2268)
-        sleep(2)
-        self.driver.swipe(1190, 2268, 250, 2268)
-        sleep(2)
-        self.driver.swipe(1190, 2268, 250, 2268)
-        sleep(2)
-        self.driver.swipe(1190, 2268, 250, 2268)
-        sleep(2)
         # h2Filter = PageElement(xpath="//android.widget.TextView[@text='H2']")
         # h3Filter = PageElement(xpath="//android.widget.TextView[@text='H3']")
         # v1Filter = PageElement(xpath="//android.widget.TextView[@text='V1']")

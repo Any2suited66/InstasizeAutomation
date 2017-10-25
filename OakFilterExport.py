@@ -37,18 +37,13 @@ class OakFilterExportTest(unittest.TestCase):
         tapTopLeftPhoto = GridPage(driver)
         tapTopLeftPhoto.topLeftPhoto()
 
-        # Swipes right to left 9 times
-        swipe9Times = EditorPage(driver)
-        swipe9Times.nineSwsipesRtoL()
-
-        # taps on the filter
+        # finds and taps on the filter
         filters = EditorPage(driver)
         filters.oakFilter()
 
         # Asserts tvFilterLevel is displayed
         tvFilterLevel = PhotoLibraryAsserts(driver)
         tvFilterLevel.tvFilterLevel()
-
 
         # taps on share button
         tapShareButton = EditorPage(driver)

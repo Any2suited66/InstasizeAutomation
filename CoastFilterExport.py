@@ -40,10 +40,6 @@ class CoastFilterExportTest(unittest.TestCase):
         tapTopLeftPhoto = GridPage(driver)
         tapTopLeftPhoto.topLeftPhoto()
 
-        # locates and taps on the filter
-        filters = EditorPage(driver)
-        filters.findCoastFilter()
-
         # Asserts tvFilterLevel is displayed
         tvFilterLevel = PhotoLibraryAsserts(driver)
         tvFilterLevel.tvFilterLevel()

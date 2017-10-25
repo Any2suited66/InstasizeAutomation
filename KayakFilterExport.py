@@ -37,11 +37,7 @@ class KayakFilterExportTest(unittest.TestCase):
         tapTopLeftPhoto = GridPage(driver)
         tapTopLeftPhoto.topLeftPhoto()
 
-        # swipe once to access filter
-        swipe = EditorPage(driver)
-        swipe.elevenSwsipesRtoL()
-
-        # taps on the filter
+        # finds and taps on the filter
         filters = EditorPage(driver)
         filters.kayakFilter()
 

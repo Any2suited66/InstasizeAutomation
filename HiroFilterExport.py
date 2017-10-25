@@ -37,10 +37,6 @@ class HiroFilterExportTest(unittest.TestCase):
         tapTopLeftPhoto = GridPage(driver)
         tapTopLeftPhoto.topLeftPhoto()
 
-        # Swipes right to left
-        swipe = EditorPage(driver)
-        swipe.tenSwsipesRtoL()
-
         # taps on the filter
         filters = EditorPage(driver)
         filters.hiroFilter()
@@ -48,7 +44,6 @@ class HiroFilterExportTest(unittest.TestCase):
         # Asserts tvFilterLevel is displayed
         tvFilterLevel = PhotoLibraryAsserts(driver)
         tvFilterLevel.tvFilterLevel()
-
 
         # taps on share button
         tapShareButton = EditorPage(driver)
@@ -72,6 +67,7 @@ class HiroFilterExportTest(unittest.TestCase):
         # Tears down the test
         quitTest = EditorPage(driver)
         quitTest.driverQuit()
+
 
 # ---START OF SCRIPT
 if __name__ == '__main__':

@@ -40,10 +40,6 @@ class BarkFilterExportTest(unittest.TestCase):
         tapTopLeftPhoto = GridPage(driver)
         tapTopLeftPhoto.topLeftPhoto()
 
-        # Swipes right to left
-        swipe = EditorPage(driver)
-        swipe.nineSwsipesRtoL()
-
         # taps on the filter
         filters = EditorPage(driver)
         filters.barkFilter()

@@ -37,18 +37,13 @@ class LincolnFilterExportTest(unittest.TestCase):
         tapTopLeftPhoto = GridPage(driver)
         tapTopLeftPhoto.topLeftPhoto()
 
-        # Swipes right to left
-        swipe = EditorPage(driver)
-        swipe.tenSwsipesRtoL()
-
-        # taps on the filter
+        # finds and taps on the filter
         filters = EditorPage(driver)
         filters.lincolnFilter()
 
         # Asserts tvFilterLevel is displayed
         tvFilterLevel = PhotoLibraryAsserts(driver)
         tvFilterLevel.tvFilterLevel()
-
 
         # taps on share button
         tapShareButton = EditorPage(driver)

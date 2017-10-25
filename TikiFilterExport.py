@@ -37,13 +37,9 @@ class TikiFilterExportTest(unittest.TestCase):
         tapTopLeftPhoto = GridPage(driver)
         tapTopLeftPhoto.topLeftPhoto()
 
-        # taps on the filter
-        filters = EditorPage(driver)
-        filters.tikiFilter()
-
-        # Swipes right to left 9 times
-        swipe9Times = EditorPage(driver)
-        swipe9Times.nineSwsipesRtoL()
+        # finds and taps the filter
+        findFilter = EditorPage(driver)
+        findFilter.tikiFilter()
 
         # Asserts tvFilterLevel is displayed
         tvFilterLevel = PhotoLibraryAsserts(driver)

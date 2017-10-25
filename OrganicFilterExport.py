@@ -40,11 +40,7 @@ class OrganicFilterExportTest(unittest.TestCase):
         tapTopLeftPhoto = GridPage(driver)
         tapTopLeftPhoto.topLeftPhoto()
 
-        # swipe to access filter
-        swipe = EditorPage(driver)
-        swipe.thirteenSwsipesRtoL()
-
-        # taps on the filter
+        # finds and taps on the filter
         filters = EditorPage(driver)
         filters.organicFilter()
 

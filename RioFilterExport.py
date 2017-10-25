@@ -37,11 +37,7 @@ class RioFilterExportTest(unittest.TestCase):
         tapTopLeftPhoto = GridPage(driver)
         tapTopLeftPhoto.topLeftPhoto()
 
-        # swipes to access filter
-        swipe = EditorPage(driver)
-        swipe.elevenSwsipesRtoL()
-
-        # taps on the filter
+        # finds and taps on the filter
         filters = EditorPage(driver)
         filters.rioFilter()
 

@@ -39,11 +39,7 @@ class Nineteen89FilterExportTest(unittest.TestCase):
         tapTopLeftPhoto = GridPage(driver)
         tapTopLeftPhoto.topLeftPhoto()
 
-        # Swipes right to left
-        swipe = EditorPage(driver)
-        swipe.tenSwsipesRtoL()
-
-        # taps on the filter
+        # finds and taps on the filter
         filters = EditorPage(driver)
         filters.nineteen89Filter()
 

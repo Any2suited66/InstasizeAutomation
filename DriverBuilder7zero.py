@@ -12,7 +12,7 @@ class DriverBuilderAndroid(object):
         desired_caps = {}
         desired_caps['platformName'] = 'Android'
         desired_caps['platformVersion'] = '6.0.1'
-        desired_caps['deviceName'] = '05157df532e5e40e'
+        desired_caps['deviceName'] = '8802edf5'
         # Returns abs path relative to this file and not cwd
         desired_caps['app'] = os.path.abspath(
             os.path.join(os.path.dirname(__file__), '/Users/tyler/PycharmProjects/InstasizeAutomation/apps/Instasize_20171610_release_4.0.0_119_google.apk'))

@@ -8,13 +8,6 @@ class EditorPage(object):
     def sharebutton(self):
         self.driver.find_element_by_id("ibExport").click()
 
-    def h1filter(self):
-        try:
-            self.driver.find_element_by_xpath("//android.widget.TextView[@text='H1']").click()
-        except:
-            print "Test Failed, check for crash manually and double check if element is located correctly in script"
-            self.driver.quit()
-
     def findCoastFilter(self):
         for _ in xrange(50):
             try:
@@ -286,7 +279,7 @@ class EditorPage(object):
             try:
                 filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='CELSIUS']")
                 if filter_found.is_displayed():
-                    EditorPage.tapNineteen89Filter(self)
+                    EditorPage.tapCelsiusFilter(self)
                     break
 
             except:
@@ -300,7 +293,7 @@ class EditorPage(object):
             try:
                 filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='PETRA']")
                 if filter_found.is_displayed():
-                    EditorPage.tapNineteen89Filter(self)
+                    EditorPage.tapPetraFilter(self)
                     break
 
             except:
@@ -314,7 +307,7 @@ class EditorPage(object):
             try:
                 filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='ORGANIC']")
                 if filter_found.is_displayed():
-                    EditorPage.tapNineteen89Filter(self)
+                    EditorPage.tapOrganicFilter(self)
                     break
 
             except:
@@ -328,7 +321,7 @@ class EditorPage(object):
             try:
                 filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='NOMAD']")
                 if filter_found.is_displayed():
-                    EditorPage.tapNineteen89Filter(self)
+                    EditorPage.tapNomadFilter(self)
                     break
 
             except:
@@ -342,7 +335,7 @@ class EditorPage(object):
             try:
                 filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='ALTA']")
                 if filter_found.is_displayed():
-                    EditorPage.tapNineteen89Filter(self)
+                    EditorPage.tapAltaFilter(self)
                     break
 
             except:
@@ -356,7 +349,7 @@ class EditorPage(object):
             try:
                 filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='BALTIC']")
                 if filter_found.is_displayed():
-                    EditorPage.tapNineteen89Filter(self)
+                    EditorPage.tapBalticFilter(self)
                     break
 
             except:
@@ -370,7 +363,7 @@ class EditorPage(object):
             try:
                 filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='JUNO']")
                 if filter_found.is_displayed():
-                    EditorPage.tapNineteen89Filter(self)
+                    EditorPage.tapJunoFilter(self)
                     break
 
             except:
@@ -384,7 +377,7 @@ class EditorPage(object):
             try:
                 filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='HULA']")
                 if filter_found.is_displayed():
-                    EditorPage.tapNineteen89Filter(self)
+                    EditorPage.tapHulaFilter(self)
                     break
 
             except:
@@ -407,13 +400,6 @@ class EditorPage(object):
     def swipeInEditor(self):
                 self.driver.swipe(1000, 2268, 201, 2268)
                 self.driver.implicitly_wait(2)
-
-
-        # h2Filter = PageElement(xpath="//android.widget.TextView[@text='H2']")
-        # h3Filter = PageElement(xpath="//android.widget.TextView[@text='H3']")
-        # v1Filter = PageElement(xpath="//android.widget.TextView[@text='V1']")
-        # v2Filter = PageElement(xpath="//android.widget.TextView[@text='V2']")
-        # v3Filter = PageElement(xpath="//android.widget.TextView[@text='V3']")
 
 
 class GridPage(object):

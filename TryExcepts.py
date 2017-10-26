@@ -1,5 +1,5 @@
 from selenium.common.exceptions import NoSuchElementException
-from appium import webdriver
+
 
 class TryExcepts(object):
 
@@ -13,6 +13,7 @@ class TryExcepts(object):
             print('PlayStore review popup did not occur')
 
     def instagramSystemPopup(self):
+        self.driver.implicitly_wait(100)
         try:
             self.driver.find_element_by_id("icon").click()
         except NoSuchElementException:

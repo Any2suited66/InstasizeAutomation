@@ -6,6 +6,7 @@ from InstasizePages import GridPage
 from TryExcepts import TryExcepts
 from time import sleep
 
+
 def _by_link_text():
     pass
 

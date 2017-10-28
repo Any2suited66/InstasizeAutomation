@@ -17,3 +17,18 @@ class PhotoLibraryAsserts(object):
         self.assertTrue(tvFilterLevel.is_displayed, "Failed, Check for crash")
 
 
+class EditorPageAsserts(object):
+
+    def __init__(self, driver):
+        self.driver = driver
+
+    def assertTrue(self, is_displayed, param):
+        pass
+
+    def giveAReview(self):
+        giveAReviewPopup = self.driver.find_element_by_id("btnReview")
+        self.assertTrue(giveAReviewPopup.is_displayed, "Failed, check for popup manually")
+
+    def instasizeButtonAssert(self):
+        instasizeButton = self.driver.find_element_by_id("ibAspectChange")
+        self.assertTrue(instasizeButton.is_displayed, "Failed, check for crash manual)ly")

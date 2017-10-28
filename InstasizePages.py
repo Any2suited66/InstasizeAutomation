@@ -8,6 +8,9 @@ class EditorPage(object):
     def sharebutton(self):
         self.driver.find_element_by_id("ibExport").click()
 
+    def instasizButton(self):
+        self.driver.find_element_by_id("ibAspectChange").click()
+
     def findCoastFilter(self):
         for _ in xrange(50):
             try:
@@ -104,7 +107,7 @@ class EditorPage(object):
                 EditorPage.swipeInEditor(self)
 
     def tapKayakFilter(self):
-        self.driver.find_element_by_xpath("//android.widget.TextView[@text='Kayak']").click()
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='KAYAK']").click()
 
     def lincolnFilter(self):
         for _ in xrange(50):
@@ -392,6 +395,9 @@ class EditorPage(object):
     def filterLevel(self):
         self.driver.find_element_by_id("tvFilterLevel")
 
+    def giveAReviewButtonTap(self):
+        self.driver.find_element_by_id("btnReview").click()
+
     def driverQuit(self):
         sleep(3)
         self.driver.quit()
@@ -418,6 +424,14 @@ class GridPage(object):
             self.assertTrue(addPhotoFind.is_displayed(), "+ not found, Test Failed! Check for crash manually")
         except:
             self.driver.quit()
+
+    def topLeftPhotoGridtap(self):
+        sleep(6)
+        self.driver.find_element_by_id("ivPhoto").click()
+
+    def reeditButtontap(self):
+        self.driver.implicitly_wait(100)
+        self.driver.find_element_by_id("ibEdit").click()
 
     def collapseIconFind(self):
         self.driver.find_element_by_id("ivCollapseIcon")

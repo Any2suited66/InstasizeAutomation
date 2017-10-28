@@ -115,7 +115,7 @@ class PaidEditorPage(object):
                 PaidEditorPage.swipeInEditor(self)
 
     def tapPikeFilter(self):
-        self.driver.find_element_by_xpath("//android.widget.TextView[@text='Pike']").click()
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='PIKE']").click()
 
     def azulFilter(self):
         for _ in xrange(50):

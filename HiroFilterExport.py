@@ -37,6 +37,17 @@ class HiroFilterExportTest(unittest.TestCase):
         tapTopLeftPhoto = GridPage(driver)
         tapTopLeftPhoto.topLeftPhoto()
 
+<<<<<<< HEAD
+=======
+        # Searches for the Review Popup and dismisses it
+        dismissReviewPopup = TryExcepts(driver)
+        dismissReviewPopup.reviewPopup()
+
+        # Swipes twice to access the filter
+        swipeTwice = EditorPage(driver)
+        swipeTwice.twoSwipesRtoL()
+
+>>>>>>> origin/master
         # taps on the filter
         filters = EditorPage(driver)
         filters.hiroFilter()
@@ -45,6 +56,10 @@ class HiroFilterExportTest(unittest.TestCase):
         tvFilterLevel = PhotoLibraryAsserts(driver)
         tvFilterLevel.tvFilterLevel()
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master
         # taps on share button
         tapShareButton = EditorPage(driver)
         tapShareButton.sharebutton()
@@ -64,10 +79,15 @@ class HiroFilterExportTest(unittest.TestCase):
         addPhoto = GridPage(driver)
         addPhoto.addPhotoFind()
 
+<<<<<<< HEAD
         # Tears down the test
         quitTest = EditorPage(driver)
         quitTest.driverQuit()
 
+=======
+        sleep(10)
+        driver.quit()
+>>>>>>> origin/master
 
 # ---START OF SCRIPT
 if __name__ == '__main__':

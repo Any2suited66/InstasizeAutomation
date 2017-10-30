@@ -39,7 +39,19 @@ class Nineteen89FilterExportTest(unittest.TestCase):
         tapTopLeftPhoto = GridPage(driver)
         tapTopLeftPhoto.topLeftPhoto()
 
+<<<<<<< HEAD
         # finds and taps on the filter
+=======
+        # Searches for the Review Popup and dismisses it
+        dismissReviewPopup = TryExcepts(driver)
+        dismissReviewPopup.reviewPopup()
+
+        # swipes 4 times to access filter
+        swipe4times = EditorPage(driver)
+        swipe4times.fourSwipesRtoL()
+
+        # taps on the filter
+>>>>>>> origin/master
         filters = EditorPage(driver)
         filters.nineteen89Filter()
 
@@ -66,9 +78,14 @@ class Nineteen89FilterExportTest(unittest.TestCase):
         addPhoto = GridPage(driver)
         addPhoto.addPhotoFind()
 
+<<<<<<< HEAD
         # Tears down the test
         quitTest = EditorPage(driver)
         quitTest.driverQuit()
+=======
+        sleep(5)
+        driver.quit()
+>>>>>>> origin/master
 
 
 # ---START OF SCRIPT

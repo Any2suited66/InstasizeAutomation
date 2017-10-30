@@ -37,18 +37,13 @@ class OakFilterExportTest(unittest.TestCase):
         tapTopLeftPhoto = GridPage(driver)
         tapTopLeftPhoto.topLeftPhoto()
 
-        # Searches for the Review Popup and dismisses it
-        dismissReviewPopup = TryExcepts(driver)
-        dismissReviewPopup.reviewPopup()
-
-        # taps on the filter
+        # finds and taps on the filter
         filters = EditorPage(driver)
         filters.oakFilter()
 
         # Asserts tvFilterLevel is displayed
         tvFilterLevel = PhotoLibraryAsserts(driver)
         tvFilterLevel.tvFilterLevel()
-
 
         # taps on share button
         tapShareButton = EditorPage(driver)
@@ -69,8 +64,14 @@ class OakFilterExportTest(unittest.TestCase):
         addPhoto = GridPage(driver)
         addPhoto.addPhotoFind()
 
+<<<<<<< HEAD
+        # Tears down the test
+        quitTest = EditorPage(driver)
+        quitTest.driverQuit()
+=======
         sleep(5)
         driver.quit()
+>>>>>>> origin/master
 
 # ---START OF SCRIPT
 if __name__ == '__main__':

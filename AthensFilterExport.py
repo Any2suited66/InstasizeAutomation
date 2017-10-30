@@ -40,11 +40,7 @@ class AthensFilterExportTest(unittest.TestCase):
         tapTopLeftPhoto = GridPage(driver)
         tapTopLeftPhoto.topLeftPhoto()
 
-        # Searches for the Review Popup and dismisses it
-        dismissReviewPopup = TryExcepts(driver)
-        dismissReviewPopup.reviewPopup()
-
-        # taps on the filter
+        # finds and taps on the filter
         filters = EditorPage(driver)
         filters.athensFilter()
 
@@ -71,8 +67,14 @@ class AthensFilterExportTest(unittest.TestCase):
         addPhoto = GridPage(driver)
         addPhoto.addPhotoFind()
 
+<<<<<<< HEAD
+        # Tears down the test
+        quitTest = EditorPage(driver)
+        quitTest.driverQuit()
+=======
         sleep(8)
         driver.quit()
+>>>>>>> origin/master
 
 
 # ---START OF SCRIPT

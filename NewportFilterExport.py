@@ -38,6 +38,8 @@ class NewportFilterExportTest(unittest.TestCase):
         tapTopLeftPhoto = GridPage(driver)
         tapTopLeftPhoto.topLeftPhoto()
 
+<<<<<<< HEAD:CoastFilterExport.py
+=======
         # Searches for the Review Popup and dismisses it
         dismissReviewPopup = TryExcepts(driver)
         dismissReviewPopup.reviewPopup()
@@ -49,6 +51,7 @@ class NewportFilterExportTest(unittest.TestCase):
         filters = EditorPage(driver)
         filters.newportFilter()
 
+>>>>>>> origin/master:NewportFilterExport.py
         # Asserts tvFilterLevel is displayed
         tvFilterLevel = PhotoLibraryAsserts(driver)
         tvFilterLevel.tvFilterLevel()
@@ -72,8 +75,14 @@ class NewportFilterExportTest(unittest.TestCase):
         addPhoto = GridPage(driver)
         addPhoto.addPhotoFind()
 
+<<<<<<< HEAD:CoastFilterExport.py
+        # Tears down the test
+        quitTest = EditorPage(driver)
+        quitTest.driverQuit()
+=======
         sleep(5)
         driver.quit()
+>>>>>>> origin/master:NewportFilterExport.py
 
 
 # ---START OF SCRIPT

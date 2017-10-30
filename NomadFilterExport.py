@@ -39,6 +39,9 @@ class NomadFilterExportTest(unittest.TestCase):
         tapTopLeftPhoto = GridPage(driver)
         tapTopLeftPhoto.topLeftPhoto()
 
+<<<<<<< HEAD
+        # finds and taps on the filter
+=======
         # Searches for the Review Popup and dismisses it
         dismissReviewPopup = TryExcepts(driver)
         dismissReviewPopup.reviewPopup()
@@ -48,6 +51,7 @@ class NomadFilterExportTest(unittest.TestCase):
         swipe5times.fiveSwsipesRtoL()
 
         # taps on the filter
+>>>>>>> origin/master
         filters = EditorPage(driver)
         filters.nomadFilter()
 
@@ -74,8 +78,14 @@ class NomadFilterExportTest(unittest.TestCase):
         addPhoto = GridPage(driver)
         addPhoto.addPhotoFind()
 
+<<<<<<< HEAD
+        # Tears down the test
+        quitTest = EditorPage(driver)
+        quitTest.driverQuit()
+=======
         sleep(5)
         driver.quit()
+>>>>>>> origin/master
 
 
 # ---START OF SCRIPT

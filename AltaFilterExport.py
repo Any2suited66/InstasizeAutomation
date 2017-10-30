@@ -39,6 +39,8 @@ class AltaFilterExportTest(unittest.TestCase):
         tapTopLeftPhoto = GridPage(driver)
         tapTopLeftPhoto.topLeftPhoto()
 
+<<<<<<< HEAD
+=======
         # Searches for the Review Popup and dismisses it
         dismissReviewPopup = TryExcepts(driver)
         dismissReviewPopup.reviewPopup()
@@ -47,6 +49,7 @@ class AltaFilterExportTest(unittest.TestCase):
         swipe5times = EditorPage(driver)
         swipe5times.fiveSwsipesRtoL()
 
+>>>>>>> origin/master
         # taps on the filter
         filters = EditorPage(driver)
         filters.altaFilter()
@@ -74,8 +77,14 @@ class AltaFilterExportTest(unittest.TestCase):
         addPhoto = GridPage(driver)
         addPhoto.addPhotoFind()
 
+<<<<<<< HEAD
+        # Tears down the test
+        quitTest = EditorPage(driver)
+        quitTest.driverQuit()
+=======
         sleep(10)
         driver.quit()
+>>>>>>> origin/master
 
 
 # ---START OF SCRIPT

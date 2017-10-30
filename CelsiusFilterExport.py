@@ -40,6 +40,8 @@ class CelsiusFilterExportTest(unittest.TestCase):
         tapTopLeftPhoto = GridPage(driver)
         tapTopLeftPhoto.topLeftPhoto()
 
+<<<<<<< HEAD
+=======
         # Searches for the Review Popup and dismisses it
         dismissReviewPopup = TryExcepts(driver)
         dismissReviewPopup.reviewPopup()
@@ -52,6 +54,7 @@ class CelsiusFilterExportTest(unittest.TestCase):
         filters = EditorPage(driver)
         filters.celsiusFilter()
 
+>>>>>>> origin/master
         # Asserts tvFilterLevel is displayed
         tvFilterLevel = PhotoLibraryAsserts(driver)
         tvFilterLevel.tvFilterLevel()
@@ -75,8 +78,14 @@ class CelsiusFilterExportTest(unittest.TestCase):
         addPhoto = GridPage(driver)
         addPhoto.addPhotoFind()
 
+<<<<<<< HEAD
+        # Tears down the test
+        quitTest = EditorPage(driver)
+        quitTest.driverQuit()
+=======
         sleep(10)
         driver.quit()
+>>>>>>> origin/master
 
 
 # ---START OF SCRIPT

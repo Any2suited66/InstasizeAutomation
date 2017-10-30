@@ -6,6 +6,10 @@ from InstasizePages import GridPage
 from TryExcepts import TryExcepts
 from time import sleep
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> origin/master
 def _by_link_text():
     pass
 
@@ -37,6 +41,9 @@ class KayakFilterExportTest(unittest.TestCase):
         tapTopLeftPhoto = GridPage(driver)
         tapTopLeftPhoto.topLeftPhoto()
 
+<<<<<<< HEAD
+        # finds and taps on the filter
+=======
         # Searches for the Review Popup and dismisses it
         dismissReviewPopup = TryExcepts(driver)
         dismissReviewPopup.reviewPopup()
@@ -46,6 +53,7 @@ class KayakFilterExportTest(unittest.TestCase):
         swipeOnce.oneSwipeRtoL()
 
         # taps on the filter
+>>>>>>> origin/master
         filters = EditorPage(driver)
         filters.kayakFilter()
 
@@ -72,8 +80,14 @@ class KayakFilterExportTest(unittest.TestCase):
         addPhoto = GridPage(driver)
         addPhoto.addPhotoFind()
 
+<<<<<<< HEAD
+        # Tears down the test
+        quitTest = EditorPage(driver)
+        quitTest.driverQuit()
+=======
         sleep(10)
         driver.quit()
+>>>>>>> origin/master
 
 
 # ---START OF SCRIPT

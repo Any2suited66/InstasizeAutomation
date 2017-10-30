@@ -1,7 +1,7 @@
 import unittest
 from CoastFilterExportTest import CoastFilterTestCase
 
-from FilterExportTestCases.AthensFilterExport import AthensFilterExportTest
+from AthensFilterExport import AthensFilterExportTest
 
 coastFilter = unittest.TestLoader().loadTestsFromTestCase(CoastFilterTestCase)
 athensFilter = unittest.TestLoader().loadTestsFromTestCase(AthensFilterExportTest)

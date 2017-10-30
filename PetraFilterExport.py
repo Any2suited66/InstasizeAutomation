@@ -40,6 +40,9 @@ class PetraFilterExportTest(unittest.TestCase):
         tapTopLeftPhoto = GridPage(driver)
         tapTopLeftPhoto.topLeftPhoto()
 
+<<<<<<< HEAD
+        # finds and taps on the filter
+=======
         # Searches for the Review Popup and dismisses it
         dismissReviewPopup = TryExcepts(driver)
         dismissReviewPopup.reviewPopup()
@@ -49,6 +52,7 @@ class PetraFilterExportTest(unittest.TestCase):
         swipe4times.fourSwipesRtoL()
 
         # taps on the filter
+>>>>>>> origin/master
         filters = EditorPage(driver)
         filters.petraFilter()
 
@@ -75,8 +79,14 @@ class PetraFilterExportTest(unittest.TestCase):
         addPhoto = GridPage(driver)
         addPhoto.addPhotoFind()
 
+<<<<<<< HEAD
+        # Tears down the test
+        quitTest = EditorPage(driver)
+        quitTest.driverQuit()
+=======
         sleep(4)
         driver.quit()
+>>>>>>> origin/master
 
 
 # ---START OF SCRIPT

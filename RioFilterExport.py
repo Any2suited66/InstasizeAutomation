@@ -37,6 +37,9 @@ class RioFilterExportTest(unittest.TestCase):
         tapTopLeftPhoto = GridPage(driver)
         tapTopLeftPhoto.topLeftPhoto()
 
+<<<<<<< HEAD
+        # finds and taps on the filter
+=======
         # Searches for the Review Popup and dismisses it
         dismissReviewPopup = TryExcepts(driver)
         dismissReviewPopup.reviewPopup()
@@ -46,6 +49,7 @@ class RioFilterExportTest(unittest.TestCase):
         swipeTwice.twoSwipesRtoL()
 
         # taps on the filter
+>>>>>>> origin/master
         filters = EditorPage(driver)
         filters.rioFilter()
 
@@ -65,15 +69,25 @@ class RioFilterExportTest(unittest.TestCase):
         instagramSystemPopup = TryExcepts(driver)
         instagramSystemPopup.instagramSystemPopup()
 
+<<<<<<< HEAD
+        sleep(2)
+=======
         sleep(5)
+>>>>>>> origin/master
         driver.back()
 
         # Asserts the + button is displayed
         addPhoto = GridPage(driver)
         addPhoto.addPhotoFind()
 
+<<<<<<< HEAD
+        # Tears down the test
+        quitTest = EditorPage(driver)
+        quitTest.driverQuit()
+=======
         sleep(5)
         driver.quit()
+>>>>>>> origin/master
 
 # ---START OF SCRIPT
 if __name__ == '__main__':

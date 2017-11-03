@@ -40,6 +40,7 @@ class CoastFilterExportTest(unittest.TestCase):
         tapTopLeftPhoto = GridPage(driver)
         tapTopLeftPhoto.topLeftPhoto()
 
+
         # finds and taps on the filter
         filters = EditorPage(driver)
         filters.findCoastFilter()

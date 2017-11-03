@@ -63,14 +63,9 @@ class TikiFilterExportTest(unittest.TestCase):
         addPhoto = GridPage(driver)
         addPhoto.addPhotoFind()
 
-<<<<<<< HEAD
         # Tears down the test
         quitTest = EditorPage(driver)
         quitTest.driverQuit()
-=======
-        sleep(5)
-        driver.quit()
->>>>>>> origin/master
 
 # ---START OF SCRIPT
 if __name__ == '__main__':

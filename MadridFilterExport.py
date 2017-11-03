@@ -37,19 +37,7 @@ class MadridFilterExportTest(unittest.TestCase):
         tapTopLeftPhoto = GridPage(driver)
         tapTopLeftPhoto.topLeftPhoto()
 
-<<<<<<< HEAD
         # finds and taps on the filter
-=======
-        # Searches for the Review Popup and dismisses it
-        dismissReviewPopup = TryExcepts(driver)
-        dismissReviewPopup.reviewPopup()
-
-        # swipes right three times to access filter
-        swipeRtoL = EditorPage(driver)
-        swipeRtoL.threeSwipesRtoL()
-
-        # taps on the filter
->>>>>>> origin/master
         filters = EditorPage(driver)
         filters.madridFilter()
 
@@ -57,10 +45,6 @@ class MadridFilterExportTest(unittest.TestCase):
         tvFilterLevel = PhotoLibraryAsserts(driver)
         tvFilterLevel.tvFilterLevel()
 
-<<<<<<< HEAD
-=======
-
->>>>>>> origin/master
         # taps on share button
         tapShareButton = EditorPage(driver)
         tapShareButton.sharebutton()
@@ -80,14 +64,9 @@ class MadridFilterExportTest(unittest.TestCase):
         addPhoto = GridPage(driver)
         addPhoto.addPhotoFind()
 
-<<<<<<< HEAD
         # Tears down the test
         quitTest = EditorPage(driver)
         quitTest.driverQuit()
-=======
-        sleep(5)
-        driver.quit()
->>>>>>> origin/master
 
 # ---START OF SCRIPT
 if __name__ == '__main__':

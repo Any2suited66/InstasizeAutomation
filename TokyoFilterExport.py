@@ -1,21 +1,19 @@
 import unittest
-
 from Asserts import PhotoLibraryAsserts
 from DriverBuilder7zero import DriverBuilderAndroid
 from InstasizePages import EditorPage
 from InstasizePages import GridPage
 from TryExcepts import TryExcepts
 from time import sleep
-from appium import webdriver
 
 def _by_link_text():
     pass
 
 
-class AltaFilterExportTest(unittest.TestCase):
-    # Class to run tests on exporting photos to Instagram
+class WavesFilterExportTest(unittest.TestCase):
+     "Class to run tests on exporting photos to Instagram"
 
-    def test_filter_uploads(self):
+     def test_filter_uploads(self):
         driver_builder = DriverBuilderAndroid()
         driver = driver_builder.driver
 
@@ -39,20 +37,9 @@ class AltaFilterExportTest(unittest.TestCase):
         tapTopLeftPhoto = GridPage(driver)
         tapTopLeftPhoto.topLeftPhoto()
 
-<<<<<<< HEAD
-=======
-        # Searches for the Review Popup and dismisses it
-        dismissReviewPopup = TryExcepts(driver)
-        dismissReviewPopup.reviewPopup()
-
-        # swipes 4 times to access filter
-        swipe5times = EditorPage(driver)
-        swipe5times.fiveSwsipesRtoL()
-
->>>>>>> origin/master
-        # taps on the filter
+        # finds and taps on the filter
         filters = EditorPage(driver)
-        filters.altaFilter()
+        filters.tokyoFilter()
 
         # Asserts tvFilterLevel is displayed
         tvFilterLevel = PhotoLibraryAsserts(driver)
@@ -70,24 +57,18 @@ class AltaFilterExportTest(unittest.TestCase):
         instagramSystemPopup = TryExcepts(driver)
         instagramSystemPopup.instagramSystemPopup()
 
-        sleep(3)
+        sleep(5)
         driver.back()
 
         # Asserts the + button is displayed
         addPhoto = GridPage(driver)
         addPhoto.addPhotoFind()
 
-<<<<<<< HEAD
         # Tears down the test
         quitTest = EditorPage(driver)
         quitTest.driverQuit()
-=======
-        sleep(10)
-        driver.quit()
->>>>>>> origin/master
-
 
 # ---START OF SCRIPT
 if __name__ == '__main__':
-    suite = unittest.TestLoader().loadTestsFromTestCase(AltaFilterExportTest)
+    suite = unittest.TestLoader().loadTestsFromTestCase(WavesFilterExportTest)
     unittest.TextTestRunner(verbosity=2).run(suite)

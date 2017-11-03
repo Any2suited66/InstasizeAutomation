@@ -40,17 +40,6 @@ class FluxFilterExportTest(unittest.TestCase):
         tapTopLeftPhoto = GridPage(driver)
         tapTopLeftPhoto.topLeftPhoto()
 
-<<<<<<< HEAD
-=======
-        # Searches for the Review Popup and dismisses it
-        dismissReviewPopup = TryExcepts(driver)
-        dismissReviewPopup.reviewPopup()
-
-        # swipes 4 times to access filter
-        swipe4times = EditorPage(driver)
-        swipe4times.fourSwipesRtoL()
-
->>>>>>> origin/master
         # taps on the filter
         filters = EditorPage(driver)
         filters.fluxFilter()
@@ -59,10 +48,6 @@ class FluxFilterExportTest(unittest.TestCase):
         tvFilterLevel = PhotoLibraryAsserts(driver)
         tvFilterLevel.tvFilterLevel()
 
-<<<<<<< HEAD
-=======
-
->>>>>>> origin/master
         # taps on share button
         tapShareButton = EditorPage(driver)
         tapShareButton.sharebutton()
@@ -82,14 +67,9 @@ class FluxFilterExportTest(unittest.TestCase):
         addPhoto = GridPage(driver)
         addPhoto.addPhotoFind()
 
-<<<<<<< HEAD
         # Tears down the test
         quitTest = EditorPage(driver)
         quitTest.driverQuit()
-=======
-        sleep(10)
-        driver.quit()
->>>>>>> origin/master
 
 
 # ---START OF SCRIPT

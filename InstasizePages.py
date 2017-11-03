@@ -1,8 +1,4 @@
 from time import sleep
-<<<<<<< HEAD
-=======
-
->>>>>>> origin/master
 
 
 class EditorPage(object):
@@ -86,7 +82,6 @@ class EditorPage(object):
         self.driver.find_element_by_xpath("//android.widget.TextView[@text='WAVES']").click()
 
     def tokyoFilter(self):
-<<<<<<< HEAD
         for _ in xrange(50):
             try:
                 filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='TOKYO']")
@@ -392,71 +387,6 @@ class EditorPage(object):
                 EditorPage.swipeInEditor(self)
 
     def tapHulaFilter(self):
-=======
-        self.driver.find_element_by_xpath("//android.widget.TextView[@text='TOKYO']").click()
-
-    def kayakFilter(self):
-        self.driver.find_element_by_xpath("//android.widget.TextView[@text='KAYAK']").click()
-
-    def lincolnFilter(self):
-        self.driver.find_element_by_xpath("//android.widget.TextView[@text='LINCOLN']").click()
-
-    def rioFilter(self):
-        self.driver.find_element_by_xpath("//android.widget.TextView[@text='RIO']").click()
-
-    def newportFilter(self):
-        self.driver.find_element_by_xpath("//android.widget.TextView[@text='NEWPORT']").click()
-
-    def novaFilter(self):
-        self.driver.find_element_by_xpath("//android.widget.TextView[@text='NOVA']").click()
-
-    def hiroFilter(self):
-        self.driver.find_element_by_xpath("//android.widget.TextView[@text='HIRO']").click()
-
-    def wasatchFilter(self):
-        self.driver.find_element_by_xpath("//android.widget.TextView[@text='WASATCH']").click()
-
-    def marketFilter(self):
-        self.driver.find_element_by_xpath("//android.widget.TextView[@text='MARKET']").click()
-
-    def radioFilter(self):
-        self.driver.find_element_by_xpath("//android.widget.TextView[@text='RADIO']").click()
-
-    def madridFilter(self):
-        self.driver.find_element_by_xpath("//android.widget.TextView[@text='MADRID']").click()
-
-    def barkFilter(self):
-        self.driver.find_element_by_xpath("//android.widget.TextView[@text='BARK']").click()
-
-    def fluxFilter(self):
-        self.driver.find_element_by_xpath("//android.widget.TextView[@text='FLUX']").click()
-
-    def nineteen89Filter(self):
-        self.driver.find_element_by_xpath("//android.widget.TextView[@text='1989']").click()
-
-    def celsiusFilter(self):
-        self.driver.find_element_by_xpath("//android.widget.TextView[@text='CELSIUS']").click()
-
-    def petraFilter(self):
-        self.driver.find_element_by_xpath("//android.widget.TextView[@text='PETRA']").click()
-
-    def organicFilter(self):
-        self.driver.find_element_by_xpath("//android.widget.TextView[@text='ORGANIC']").click()
-
-    def nomadFilter(self):
-        self.driver.find_element_by_xpath("//android.widget.TextView[@text='NOMAD']").click()
-
-    def altaFilter(self):
-        self.driver.find_element_by_xpath("//android.widget.TextView[@text='ALTA']").click()
-
-    def balticFilter(self):
-        self.driver.find_element_by_xpath("//android.widget.TextView[@text='BALTIC']").click()
-
-    def junoFilter(self):
-        self.driver.find_element_by_xpath("//android.widget.TextView[@text='JUNO']").click()
-
-    def hulaFilter(self):
->>>>>>> origin/master
         self.driver.find_element_by_xpath("//android.widget.TextView[@text='HULA']").click()
 
     def reviewPopup(self):
@@ -465,7 +395,6 @@ class EditorPage(object):
     def filterLevel(self):
         self.driver.find_element_by_id("tvFilterLevel")
 
-<<<<<<< HEAD
     def giveAReviewButtonTap(self):
         self.driver.find_element_by_id("btnReview").click()
 
@@ -479,79 +408,16 @@ class EditorPage(object):
                 self.driver.implicitly_wait(2)
 
 
-=======
-    def oneSwipeRtoL(self):
-        self.driver.swipe(1202, 2268, 201, 2268)
-        sleep(2)
-
-    def twoSwipesRtoL(self):
-        self.driver.swipe(1202, 2268, 201, 2268)
-        sleep(2)
-        self.driver.swipe(1202, 2268, 201, 2268)
-        sleep(2)
-
-    def threeSwipesRtoL(self):
-        self.driver.swipe(1202, 2268, 201, 2268)
-        sleep(2)
-        self.driver.swipe(1202, 2268, 201, 2268)
-        sleep(2)
-        self.driver.swipe(1202, 2268, 201, 2268)
-        sleep(2)
-
-    def fourSwipesRtoL(self):
-        self.driver.swipe(1202, 2268, 201, 2268)
-        sleep(2)
-        self.driver.swipe(1202, 2268, 201, 2268)
-        sleep(2)
-        self.driver.swipe(1202, 2268, 201, 2268)
-        sleep(2)
-        self.driver.swipe(1190, 2268, 250, 2268)
-        sleep(2)
-
-    def fiveSwsipesRtoL(self):
-        self.driver.swipe(1202, 2268, 201, 2268)
-        sleep(2)
-        self.driver.swipe(1202, 2268, 201, 2268)
-        sleep(2)
-        self.driver.swipe(1202, 2268, 201, 2268)
-        sleep(2)
-        self.driver.swipe(1190, 2268, 250, 2268)
-        sleep(2)
-        self.driver.swipe(1190, 2268, 250, 2268)
-        sleep(2)
-
-    def sixSwsipesRtoL(self):
-        self.driver.swipe(1202, 2268, 201, 2268)
-        sleep(2)
-        self.driver.swipe(1202, 2268, 201, 2268)
-        sleep(2)
-        self.driver.swipe(1202, 2268, 201, 2268)
-        sleep(2)
-        self.driver.swipe(1190, 2268, 250, 2268)
-        sleep(2)
-        self.driver.swipe(1190, 2268, 250, 2268)
-        sleep(2)
-        self.driver.swipe(1190, 2268, 250, 2268)
-        sleep(2)
-
-        #
-        # h2Filter = PageElement(xpath="//android.widget.TextView[@text='H2']")
-        # h3Filter = PageElement(xpath="//android.widget.TextView[@text='H3']")
-        # v1Filter = PageElement(xpath="//android.widget.TextView[@text='V1']")
-        # v2Filter = PageElement(xpath="//android.widget.TextView[@text='V2']")
-        # v3Filter = PageElement(xpath="//android.widget.TextView[@text='V3']")
->>>>>>> origin/master
 class GridPage(object):
     def __init__(self, driver):
         self.driver = driver
 
+    # taps the + sign on the grid page
     def addPhotoTap(self):
         self.driver.find_element_by_id("ibAddPhoto").click()
 
     def addPhotoFind(self):
         sleep(3)
-        # addPhotoFind = self.driver.find_element_by_id("ibAddPhoto")
-        # self.assertTrue(addPhotoFind.is_displayed(), "+ not found, check for crash")
         try:
             addPhotoFind = self.driver.find_element_by_id("ibAddPhoto")
             self.assertTrue(addPhotoFind.is_displayed(), "+ not found, Test Failed! Check for crash manually")
@@ -572,6 +438,7 @@ class GridPage(object):
     def photoContainers(self):
         self.driver.find_element_by_id("photosContainer").click()
 
+    # top left photo in the photo library
     def topLeftPhoto(self):
         self.driver.find_element_by_xpath("//android.widget.ImageView[@index=0]").click()
         sleep(5)
@@ -589,6 +456,11 @@ class GridPage(object):
     def assertTrue(self, param, param1):
         pass
 
+    def deleteButtontTap(self):
+        self.driver.find_element_by_id("ibDelete").click()
+
+    def settingsIconTap(self):
+        self.driver.find_element_by_id("ibSettingsIcon").click()
 
 class PhotoLibraryPage(object):
     def __init__(self, driver):

@@ -35,7 +35,7 @@ class TestReviewPopupTest(unittest.TestCase):
         allPhotosButton = PhotoLibraryAsserts(driver)
         allPhotosButton.allPhotosButton()
 
-        # taps on the top left photo
+        # taps on the top left photo on photo library page
         tapTopLeftPhoto = GridPage(driver)
         tapTopLeftPhoto.topLeftPhoto()
 
@@ -69,9 +69,9 @@ class TestReviewPopupTest(unittest.TestCase):
         assertInstasizeButton = EditorPageAsserts(driver)
         assertInstasizeButton.instasizeButtonAssert()
 
-        runNextTest = ['/Users/tyler/PycharmProjects/InstasizeAutomation/AltaFilterExport.py']
+        driver.quit()
+        sleep(3)
 
-        subprocess.Popen(runNextTest)
 
 # ---START OF SCRIPT
 if __name__ == '__main__':

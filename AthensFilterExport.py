@@ -67,14 +67,9 @@ class AthensFilterExportTest(unittest.TestCase):
         addPhoto = GridPage(driver)
         addPhoto.addPhotoFind()
 
-<<<<<<< HEAD
         # Tears down the test
         quitTest = EditorPage(driver)
         quitTest.driverQuit()
-=======
-        sleep(8)
-        driver.quit()
->>>>>>> origin/master
 
 
 # ---START OF SCRIPT

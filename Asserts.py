@@ -32,3 +32,16 @@ class EditorPageAsserts(object):
     def instasizeButtonAssert(self):
         instasizeButton = self.driver.find_element_by_id("ibAspectChange")
         self.assertTrue(instasizeButton.is_displayed, "Failed, check for crash manual)ly")
+
+
+class GridPageAsserts(object):
+
+    def __init__(self, driver):
+        self.driver = driver
+
+    def assertTrue(self, is_displayed, param):
+        pass
+
+    def settingsIconAssert(self):
+        settingsIcon = self.driver.find_element_by_id("ibSettingsIcon")
+        self.assertTrue(settingsIcon.is_displayed, "Failed, check for crash manually")

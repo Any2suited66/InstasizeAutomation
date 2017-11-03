@@ -2,6 +2,8 @@ import os
 import unittest
 from appium import webdriver
 from time import sleep
+import sys
+
 
 def _by_link_text():
     pass

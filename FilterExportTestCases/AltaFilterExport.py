@@ -1,19 +1,21 @@
 import unittest
+
 from Asserts import PhotoLibraryAsserts
 from DriverBuilder7zero import DriverBuilderAndroid
 from InstasizePages import EditorPage
 from InstasizePages import GridPage
 from TryExcepts import TryExcepts
 from time import sleep
+from appium import webdriver
 
 def _by_link_text():
     pass
 
 
-class WavesFilterExportTest(unittest.TestCase):
-     "Class to run tests on exporting photos to Instagram"
+class AltaFilterExportTest(unittest.TestCase):
+    # Class to run tests on exporting photos to Instagram
 
-     def test_filter_uploads(self):
+    def test_filter_uploads(self):
         driver_builder = DriverBuilderAndroid()
         driver = driver_builder.driver
 
@@ -37,30 +39,14 @@ class WavesFilterExportTest(unittest.TestCase):
         tapTopLeftPhoto = GridPage(driver)
         tapTopLeftPhoto.topLeftPhoto()
 
-<<<<<<< HEAD
-        # finds and taps on the filter
-=======
-        # Searches for the Review Popup and dismisses it
-        dismissReviewPopup = TryExcepts(driver)
-        dismissReviewPopup.reviewPopup()
-
-        # swipes once to access filter
-        swipeOnce = EditorPage(driver)
-        swipeOnce.oneSwipeRtoL()
-
         # taps on the filter
->>>>>>> origin/master
         filters = EditorPage(driver)
-        filters.tokyoFilter()
+        filters.altaFilter()
 
         # Asserts tvFilterLevel is displayed
         tvFilterLevel = PhotoLibraryAsserts(driver)
         tvFilterLevel.tvFilterLevel()
 
-<<<<<<< HEAD
-=======
-
->>>>>>> origin/master
         # taps on share button
         tapShareButton = EditorPage(driver)
         tapShareButton.sharebutton()
@@ -73,23 +59,19 @@ class WavesFilterExportTest(unittest.TestCase):
         instagramSystemPopup = TryExcepts(driver)
         instagramSystemPopup.instagramSystemPopup()
 
-        sleep(5)
+        sleep(3)
         driver.back()
 
         # Asserts the + button is displayed
         addPhoto = GridPage(driver)
         addPhoto.addPhotoFind()
 
-<<<<<<< HEAD
         # Tears down the test
         quitTest = EditorPage(driver)
         quitTest.driverQuit()
-=======
-        sleep(5)
-        driver.quit()
->>>>>>> origin/master
+
 
 # ---START OF SCRIPT
 if __name__ == '__main__':
-    suite = unittest.TestLoader().loadTestsFromTestCase(WavesFilterExportTest)
+    suite = unittest.TestLoader().loadTestsFromTestCase(AltaFilterExportTest)
     unittest.TextTestRunner(verbosity=2).run(suite)

@@ -39,17 +39,6 @@ class BalticFilterExportTest(unittest.TestCase):
         tapTopLeftPhoto = GridPage(driver)
         tapTopLeftPhoto.topLeftPhoto()
 
-<<<<<<< HEAD
-=======
-        # Searches for the Review Popup and dismisses it
-        dismissReviewPopup = TryExcepts(driver)
-        dismissReviewPopup.reviewPopup()
-
-        # swipes 6 times to access filter
-        swipe6times = EditorPage(driver)
-        swipe6times.sixSwsipesRtoL()
-
->>>>>>> origin/master
         # taps on the filter
         filters = EditorPage(driver)
         filters.balticFilter()
@@ -77,14 +66,9 @@ class BalticFilterExportTest(unittest.TestCase):
         addPhoto = GridPage(driver)
         addPhoto.addPhotoFind()
 
-<<<<<<< HEAD
         # Tears down the test
         quitTest = EditorPage(driver)
         quitTest.driverQuit()
-=======
-        sleep(10)
-        driver.quit()
->>>>>>> origin/master
 
 
 # ---START OF SCRIPT

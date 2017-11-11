@@ -68,6 +68,8 @@ class AzulFilterExportTest(unittest.TestCase):
         addPhoto = GridPage(driver)
         addPhoto.addPhotoFind()
 
+        print "Filter Passed!"
+
         # Tears down the test
         quitTest = EditorPage(driver)
         quitTest.driverQuit()

@@ -399,6 +399,7 @@ class EditorPage(object):
         self.driver.find_element_by_id("btnReview").click()
 
     def driverQuit(self):
+        print "Filter Passed!"
         sleep(3)
         self.driver.quit()
         sleep(5)

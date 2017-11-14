@@ -14,8 +14,7 @@ def _by_link_text():
 
 
 class AryaFilterExportTest(unittest.TestCase):
-     # Class to run tests on exporting photos to Instagram
-
+    # Class to run tests on exporting photos to Instagram
 
     def test_filter_uploads(self):
         driver_builder = DriverBuilderAndroid()

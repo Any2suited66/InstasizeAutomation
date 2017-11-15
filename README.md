@@ -9,7 +9,7 @@ command line tools located at the bottom of the webpage.
 
 Make sure your capabilities in the DriverBuilder7zero.py file are set correctly for the device you are testing on.
 
-Python must be installed are your system.  You can install it with homebrew: brew install python.
+Python must be installed on your system.  You can install it with homebrew: brew install python.
 
 Install the nose2 plugig: pip install nose2
 

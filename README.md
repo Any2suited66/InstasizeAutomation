@@ -11,8 +11,8 @@ Make sure your capabilities in the DriverBuilder7zero.py file are set correctly 
 
 Python must be installed are your system.  You can install it with homebrew: brew install python.
 
-To run the tests: 
+Install the nose2 plugig: pip install nose2
 
-1) install nose2 plugig: pip install nose2
-2) type in terminal: nose2 -v -s path/to/instasizeautomation/folder
+Add this to your bash_profile: export PYTHONPATH=$PYTHONPATH:path/to/testInstasizeAutomation.  This allows the test scripts to be stored in their own folder and still be able to import all of the modules.
 
+To run the tests run appium and type into terminal: nose2 -v -s /path/to/test/scripts

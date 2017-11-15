@@ -11,7 +11,7 @@ Make sure your capabilities in the DriverBuilder7zero.py file are set correctly 
 
 Python must be installed on your system.  You can install it with homebrew: brew install python.
 
-Install the nose2 plugig: pip install nose2
+Install the nose2 plugin: pip install nose2
 
 Add this to your bash_profile: export PYTHONPATH=$PYTHONPATH:path/to/testInstasizeAutomation.  This allows the test scripts to be stored in their own folder and still be able to import all of the modules.
 

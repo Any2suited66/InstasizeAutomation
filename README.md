@@ -15,4 +15,6 @@ Install the nose2 plugin: pip install nose2
 
 Add this to your bash_profile: export PYTHONPATH=$PYTHONPATH:path/to/testInstasizeAutomation.  This allows the test scripts to be stored in their own folder and still be able to import all of the modules.
 
+Optional: Add appium path to your bash profile so it can be run in terminal just by typing 'appium'
+
 To run the tests run appium and type into terminal: nose2 -v -s /path/to/test/scripts

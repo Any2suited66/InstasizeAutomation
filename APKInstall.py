@@ -9,7 +9,7 @@ from path import Path
 
 
 def installAPK():
-    """This method finds an apk file in a folder of your choosing and returns it for the driverbuilder method
+    """This method finds an apk file in a path set in your bash_profile and returns it in the driverbuilder method
     for appium testing.  The driverbuilder method will install ANY apk file in this folder so make sure it is the
     correct apk file.  Also, make sure there is only one apk file in this folder as this method will install all apk files
     to the test device."""

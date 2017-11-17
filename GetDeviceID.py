@@ -1,5 +1,5 @@
-import os
-from subprocess import check_output, CalledProcessError
+
+from subprocess import check_output
 
 class GetDeviceID(object):
 

@@ -1,0 +1,21 @@
+import subprocess
+from time import sleep
+import os
+
+
+from path import Path
+
+
+
+
+def installAPK():
+    """This method finds an apk file in a folder of your choosing and returns it for the driverbuilder method
+    for appium testing.  The driverbuilder method will install ANY apk file in this folder so make sure it is the
+    correct apk file.  Also, make sure there is only one apk file in this folder as this method will install all apk files
+    to the test device."""
+
+    # Edit this path to your dedicated Instasize APK folder
+    d = Path('/Users/tyler/Desktop/InstasizeInstallAPK')
+    output = d.files('*.apk')
+    listed = ''.join(str(e) for e in output)
+    return listed

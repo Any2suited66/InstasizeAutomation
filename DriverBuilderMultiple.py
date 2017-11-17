@@ -1,8 +1,9 @@
+"""Do not use this file for testing.  This is used to experiment with different settings"""
+
 from appium import webdriver
 from GetDeviceID import GetDeviceID
 import GetAndroidVersion
 import APKInstall
-
 
 class DriverBuilderAndroid(object):
 
@@ -23,5 +24,8 @@ class DriverBuilderAndroid(object):
         self.driver = webdriver.Remote('http://localhost:4723/wd/hub', desired_caps)
         self.driver.implicitly_wait(10)
 
-    def tearDown(self):
-        self.driver.quit()
+
+
+
+
+

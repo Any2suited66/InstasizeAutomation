@@ -15,7 +15,7 @@ def installAPK():
     to the test device."""
 
     # Edit this path to your dedicated Instasize APK folder
-    d = Path('/Users/tyler/Desktop/InstasizeInstallAPK')
+    d = Path(os.environ['IS_ANDROID_APK_PATH'])
     output = d.files('*.apk')
     listed = ''.join(str(e) for e in output)
     return listed

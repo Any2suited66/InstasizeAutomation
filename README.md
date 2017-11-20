@@ -15,6 +15,8 @@ Add this path to your bash_profile: export PYTHONPATH=$PYTHONPATH:path/to/testIn
 
 Optional: Add appium path to your bash profile so it can be run in terminal just by typing 'appium'
 
+Create a folder to put the Instasize apk and add that folder to your bash_profile as: IS_ANDROID_APK_PATH.  Do not put any other files in this folder.  The APKInstall.py script refers to this path in your profile to install the apk and may throw an exception if there are other files in the folder.
+
 # To run the tests:
 
 In terminal: nose2 -v -s /path/to/FilterExportTests

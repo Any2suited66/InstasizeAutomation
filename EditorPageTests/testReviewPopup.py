@@ -5,7 +5,7 @@ from InstasizePages import EditorPage
 from Asserts import PhotoLibraryAsserts
 from Asserts import EditorPageAsserts
 from time import sleep
-import subprocess
+
 
 
 
@@ -15,6 +15,13 @@ def _by_link_text():
 
 class TestReviewPopupTest(unittest.TestCase):
 
+    # This method uninstalls the app off the test device to create the correct conditions
+    def uninstallApp(self):
+        driverBuildedr = DriverBuilderAndroid()
+        driver = driverBuildedr.driver
+        driver.remove_app()
+        driver.quit()
+
     # Test for review popup in editor
     def test_ReviewPopup(self):
         driverBuilder = DriverBuilderAndroid()
@@ -22,6 +29,32 @@ class TestReviewPopupTest(unittest.TestCase):
 
         addphoto = GridPage(driver)
         addphoto.addPhotoTap()
+
+        # Asserts collapseIcon is displayed
+        collapseIcon = GridPage(driver)
+        collapseIcon.collapseIconFind()
+
+        # taps on the native photos container
+        tapPhotoContainer = GridPage(driver)
+        tapPhotoContainer.photoContainers()
+
+        # Asserts allPhotosButton is displayed
+        allPhotosButton = PhotoLibraryAsserts(driver)
+        allPhotosButton.allPhotosButton()
+
+        # taps on the top left photo on photo library page
+        tapTopLeftPhoto = GridPage(driver)
+        tapTopLeftPhoto.topLeftPhoto()
+
+        # taps on share icon
+        tapShareButton = EditorPage(driver)
+        tapShareButton.sharebutton()
+
+        sleep(2)
+        driver.back()
+
+        addphoto2 = GridPage(driver)
+        addphoto2.addPhotoTap()
 
         # Asserts collapseIcon is displayed
         collapseIcon = GridPage(driver)

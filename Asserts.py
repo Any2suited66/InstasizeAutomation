@@ -1,4 +1,6 @@
 from appium.webdriver.common.touch_action import TouchAction
+from selenium.common.exceptions import NoSuchElementException
+
 
 class PhotoLibraryAsserts(object):
 
@@ -45,3 +47,19 @@ class GridPageAsserts(object):
     def settingsIconAssert(self):
         settingsIcon = self.driver.find_element_by_id("ibSettingsIcon")
         self.assertTrue(settingsIcon.is_displayed, "Failed, check for crash manually")
+
+    def gridPagePhotoNotPresent(self):
+        topLeftPhoto = self.driver.find_element_by_id("ivPhoto")
+        if topLeftPhoto.is_present():
+            print 'Delete failed, check manually'
+
+        else:
+            print 'Test passed'
+
+
+
+
+
+
+
+

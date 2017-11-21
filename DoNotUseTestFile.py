@@ -1,4 +1,5 @@
-"""Do not use this file for testing.  This is used to experiment with different settings"""
+"""Do not use this file for testing.  This is used to experiment with different settings. Ignore this file if it
+throws an exception"""
 
 
 

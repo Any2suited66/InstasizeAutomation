@@ -1,0 +1,4 @@
+#!/bin/bash
+# script to run all python tests
+
+nose2 -v -s path/to/instasizeAutomation/folder

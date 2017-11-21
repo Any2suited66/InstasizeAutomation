@@ -426,7 +426,6 @@ class GridPage(object):
             self.driver.quit()
 
     def topLeftPhotoGridtap(self):
-        sleep(6)
         self.driver.find_element_by_id("ivPhoto").click()
 
     def reeditButtontap(self):
@@ -457,8 +456,14 @@ class GridPage(object):
     def assertTrue(self, param, param1):
         pass
 
-    def deleteButtontTap(self):
+    def deleteIconTap(self):
         self.driver.find_element_by_id("ibDelete").click()
+
+    def deleteButtonTap(self):
+        self.driver.find_element_by_id("btnDelete").click()
+
+    def cancelButtonTap(self):
+        self.driver.find_element_by_id("btnCancel").click()
 
     def settingsIconTap(self):
         self.driver.find_element_by_id("ibSettingsIcon").click()

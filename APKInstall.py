@@ -2,10 +2,7 @@ import subprocess
 from time import sleep
 import os
 
-
 from path import Path
-
-
 
 
 def installAPK():
@@ -19,3 +16,4 @@ def installAPK():
     output = d.files('*.apk')
     listed = ''.join(str(e) for e in output)
     return listed
+

@@ -49,14 +49,12 @@ class GridPageAsserts(object):
         self.assertTrue(settingsIcon.is_displayed, "Failed, check for crash manually")
 
     def gridPagePhotoNotPresent(self):
-        topLeftPhoto = self.driver.find_element_by_id("ivPhoto")
-        if topLeftPhoto.is_present():
-            print 'Delete failed, check manually'
+        self.driver.implicitly_wait(100)
+        try:
+            self.driver.find_element_by_id("ivPhoto")
 
-        else:
-            print 'Test passed'
-
-
+        except NoSuchElementException:
+            print 'Test passed, image successfully deleted'
 
 
 

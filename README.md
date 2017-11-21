@@ -19,4 +19,4 @@ Create a folder to put the Instasize apk and add that folder to your bash_profil
 
 # To run the tests:
 
-In terminal: nose2 -v -s /path/to/FilterExportTests
+In terminal: nose2 -v -s /path/to/testInstasizeAutomation/folder

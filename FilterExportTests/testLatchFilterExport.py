@@ -4,6 +4,7 @@ from Asserts import PhotoLibraryAsserts
 from DriverBuilder7zero import DriverBuilderAndroid
 from PaidFiltersPage import PaidEditorPage
 from InstasizePages import GridPage
+from InstasizePages import EditorPage
 from TryExcepts import TryExcepts
 from time import sleep
 from InstasizePages import EditorPage
@@ -42,7 +43,7 @@ class LatchFilterExportTest(unittest.TestCase):
         tapTopLeftPhoto.topLeftPhoto()
 
         # taps on the filter
-        filters = PaidEditorPage(driver)
+        filters = EditorPage(driver)
         filters.latchFilter()
 
         # Asserts tvFilterLevel is displayed

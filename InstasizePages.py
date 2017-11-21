@@ -375,6 +375,20 @@ class EditorPage(object):
     def tapJunoFilter(self):
         self.driver.find_element_by_xpath("//android.widget.TextView[@text='JUNO']").click()
 
+    def latchFilter(self):
+        for _ in xrange(50):
+            try:
+                filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='LATCH']")
+                if filter_found.is_displayed():
+                    EditorPage.tapLatchFilter(self)
+                    break
+
+            except:
+                EditorPage.swipeInEditor(self)
+
+    def tapLatchFilter(self):
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='LATCH']").click()
+
     def hulaFilter(self):
         for _ in xrange(50):
             try:

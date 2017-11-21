@@ -49,7 +49,7 @@ class GridPageAsserts(object):
         self.assertTrue(settingsIcon.is_displayed, "Failed, check for crash manually")
 
     def gridPagePhotoNotPresent(self):
-        self.driver.implicitly_wait(100)
+        self.driver.implicitly_wait(10)
         try:
             self.driver.find_element_by_id("ivPhoto")
 

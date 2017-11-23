@@ -269,7 +269,7 @@ class PaidEditorPage(object):
                 PaidEditorPage.swipeInEditor(self)
 
     def tapRoseFilter(self):
-        self.driver.find_element_by_xpath("//android.widget.TextView[@text='Rose']").click()
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='ROSE']").click()
 
     def bachFilter(self):
         for _ in xrange(50):

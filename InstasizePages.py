@@ -1,4 +1,5 @@
 from time import sleep
+from appium.webdriver.common.touch_action import TouchAction
 
 
 class EditorPage(object):
@@ -482,12 +483,27 @@ class GridPage(object):
     def settingsIconTap(self):
         self.driver.find_element_by_id("ibSettingsIcon").click()
 
+    def collageButtonTap(self):
+        self.driver.find_element_by_id("ibCollage").click()
+
+
 class PhotoLibraryPage(object):
     def __init__(self, driver):
         self.driver = driver
 
     def allPhotosButton(self):
         self.driver.find_element_by_id("btnShowAlbumsList").click()
+
+
+class CollagePage(object):
+    def __init__(self, driver):
+        self.driver = driver
+
+    def tapFirstCollageOption(self):
+        self.driver.find_element_by_xpath("//android.view.View[@index=1]").click()
+
+    def topLeftPhoto(self):
+        self.driver.find_element_by_xpath("//android.widget.ImageView[@index=1]").click()
 
 
 class SelectFormat(object):

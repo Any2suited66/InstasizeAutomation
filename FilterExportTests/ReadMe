@@ -1,0 +1,5 @@
+
+
+
+These test scripts select an image from the test device library and will apply all the filters one by one
+and export the image to Instagram.

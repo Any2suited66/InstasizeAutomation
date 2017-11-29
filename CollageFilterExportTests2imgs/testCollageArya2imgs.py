@@ -39,9 +39,13 @@ class CollageFilter1imgExportTest(unittest.TestCase):
         allPhotosButton.allPhotosButton()
 
         # taps on the top left photo
-        sleep(3)
         tapTopLeftPhoto = CollagePage(driver)
         tapTopLeftPhoto.topLeftPhoto()
+        sleep(3)
+
+        # taps on the next photo to the right
+        tapOnNextPhoto = CollagePage(driver)
+        tapOnNextPhoto.top2ndPhoto()
 
         # taps on 1st collage option to open editor
         tapOnFirstCollageOption = CollagePage(driver)

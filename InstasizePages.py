@@ -505,9 +505,11 @@ class CollagePage(object):
     def tap2ndCollageOption(self):
         self.driver.find_element_by_xpath("(//android.view.View[@index=0])[2]").click()
 
-
     def topLeftPhoto(self):
-        self.driver.find_element_by_xpath("//android.widget.ImageView[@index=1]").click()
+        self.driver.find_element_by_id("ivPhoto").click()
+
+    def top2ndPhoto(self):
+        self.driver.find_element_by_xpath("(//android.widget.ImageView[@index=0])[2]").click()
 
 
 class SelectFormat(object):

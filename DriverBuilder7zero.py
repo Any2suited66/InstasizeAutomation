@@ -1,3 +1,4 @@
+import os
 from appium import webdriver
 from GetDeviceID import GetDeviceID
 import GetAndroidVersion
@@ -14,13 +15,19 @@ class DriverBuilderAndroid(object):
         "Setup for the test"
         desired_caps = {}
         desired_caps['platformName'] = 'Android'
-        desired_caps['platformVersion'] = GetAndroidVersion.getVersion()
-        desired_caps['deviceName'] = getDevice.getDeviceID()
+        desired_caps['platformVersion'] = os.environ['PLATFORM_VERSION'] if "PLATFORM_VERSION" in os.environ else GetAndroidVersion.getVersion()
+        port = os.environ['PORT'] if "PORT" in os.environ else 4723
+        desired_caps['deviceName'] =  os.environ['UDID'] if "UDID" in os.environ else getDevice.getDeviceID()
         # Returns abs path relative to this file and not cwd
+
         desired_caps['app'] = APKInstall.installAPK()
         desired_caps['appPackage'] = 'com.jsdev.instasize'
         desired_caps['appActivity'] = '.activities.MainActivity'
-        self.driver = webdriver.Remote('http://localhost:4723/wd/hub', desired_caps)
+        port = os.environ['PORT'] if "PORT" in os.environ else 4723
+        url = "http://localhost:%s/wd/hub" % port
+        print url
+        print desired_caps
+        self.driver = webdriver.Remote(url, desired_caps)
         self.driver.implicitly_wait(10)
 
     def tearDown(self):

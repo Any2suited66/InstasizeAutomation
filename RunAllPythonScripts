@@ -26,7 +26,9 @@ function start_appium_server() {
 
   echo "[INFO] Starting Appium server instance with main port: ${appium_main_port} and bootstrap port: ${appium_bootstrap_port} for udid: ${udid}..."
   appium_full_path=`which appium`
-  nohup $appium_full_path -p $appium_main_port -bp $appium_bootstrap_port -U $udid > "$appium_server_logs.$udid" &
+  appium_command="${appium_full_path} -p ${appium_main_port} -bp ${appium_bootstrap_port} -U ${udid}"
+  echo "[INFO] appium_command: ${appium_command}"
+  nohup $appium_command > "$appium_server_logs.$udid" &
 }
 
 # Function for running tests
@@ -43,7 +45,8 @@ function start_tests() {
     "nose2" )
       nose2_full_path=`which nose2`
       cd $test_dir
-      UDID=$udid PORT=$appium_main_port PLATFORM_VERSION=$platform_version $nose2_full_path &
+      UDID=$udid PORT=$appium_main_port PLATFORM_VERSION=$platform_version $nose2_full_path > "$test_logs-$udid" & 2>&1
+      echo $test_logs-$udid
       pid=$!
       PID_DATA+=($pid)
       cd -

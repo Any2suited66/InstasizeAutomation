@@ -7,7 +7,8 @@ class EditorPage(object):
         self.driver = driver
 
     def sharebutton(self):
-        self.driver.find_element_by_id("ibExport").click()
+        self.driver.swipe(600, 500, 602, 500)
+        self.driver.find_element_by_id('ibExport').click()
 
     def instasizButton(self):
         self.driver.find_element_by_id("ibAspectChange").click()
@@ -508,7 +509,7 @@ class CollagePage(object):
     def topLeftPhoto(self):
         self.driver.find_element_by_id("ivPhoto").click()
 
-    def top2ndPhoto(self):
+    def tap2ndPhoto(self):
         self.driver.find_element_by_xpath("(//android.widget.ImageView[@index=0])[2]").click()
 
 

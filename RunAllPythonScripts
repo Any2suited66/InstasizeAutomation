@@ -5,11 +5,10 @@
 
 
 
-TEST_FRAMEWORK=$1
-TEST_DIR=$2
-APPIUM_SERVER_LOGS=$3
-TEST_LOGS=$4
-APP_FILE_PATH=$5
+TEST_FRAMEWORK='nose2'
+TEST_DIR="/Users/ryaz/Sites/instasize-automation/GridPageTests" #$PWD
+APPIUM_SERVER_LOGS='appium.log'
+TEST_LOGS='test.log'
 PID_DATA=()
 
 echo "------------------- Parallel mobile test execution with Appium ------------------"
@@ -41,10 +40,10 @@ function start_tests() {
 
   echo "[INFO] Start ${test_framework} test with main port: ${appium_main_port} and udid: ${udid}..."
   case $test_framework in
-    "rspec" )
-      rspec_full_path=`which rspec`
+    "nose2" )
+      nose2_full_path=`which nose2`
       cd $test_dir
-      UDID=$udid PORT=$appium_main_port PLATFORM_VERSION=$platform_version APP_FILE=$APP_FILE_PATH $rspec_full_path spec > "$test_logs-$udid" &
+      UDID=$udid PORT=$appium_main_port PLATFORM_VERSION=$platform_version $nose2_full_path &
       pid=$!
       PID_DATA+=($pid)
       cd -

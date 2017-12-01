@@ -6,7 +6,7 @@
 
 
 TEST_FRAMEWORK='nose2'
-TEST_DIR="/Users/ryaz/Sites/instasize-automation/GridPageTests" #$PWD
+TEST_DIR="/Users/tyler/PycharmProjects/testInstasizeAutomation/EditorPageTests" #$PWD
 APPIUM_SERVER_LOGS='appium.log'
 TEST_LOGS='test.log'
 PID_DATA=()
@@ -43,7 +43,7 @@ function start_tests() {
     "nose2" )
       nose2_full_path=`which nose2`
       cd $test_dir
-      UDID=$udid PORT=$appium_main_port PLATFORM_VERSION=$platform_version $nose2_full_path &
+      UDID=$udid PORT=$appium_main_port PLATFORM_VERSION=$platform_version $nose2_full_path > "$test_logs-$udid" & 2>&1
       pid=$!
       PID_DATA+=($pid)
       cd -

@@ -6,6 +6,7 @@ import APKInstall
 
 
 class DriverBuilderAndroid(object):
+    _multiprocess_can_split_ = True
 
     def __init__(self):
         self.setUp()

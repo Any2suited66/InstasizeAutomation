@@ -14,6 +14,7 @@ def _by_link_text():
 
 
 class TestReviewPopupTest(unittest.TestCase):
+    _multiprocess_can_split_ = True
 
     # This method uninstalls the app off the test device to create the correct conditions
     def uninstallApp(self):

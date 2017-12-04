@@ -512,6 +512,9 @@ class CollagePage(object):
     def tap2ndPhoto(self):
         self.driver.find_element_by_xpath("(//android.widget.ImageView[@index=0])[2]").click()
 
+    def tap3rdPhoto(self):
+        self.driver.find_element_by_xpath("(//android.widget.ImageView[@index=0])[3]").click()
+
 
 class SelectFormat(object):
     def __init__(self, driver):

@@ -504,6 +504,7 @@ class CollagePage(object):
         self.driver.find_element_by_xpath("//android.view.View[@index=1]").click()
 
     def tap2ndCollageOption(self):
+        sleep(2)
         self.driver.find_element_by_xpath("(//android.view.View[@index=0])[2]").click()
 
     def topLeftPhoto(self):

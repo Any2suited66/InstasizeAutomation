@@ -507,14 +507,24 @@ class CollagePage(object):
         sleep(2)
         self.driver.find_element_by_xpath("(//android.view.View[@index=0])[2]").click()
 
+    def tap3rdCollageOption(self):
+        sleep(2)
+        self.driver.swipe(1360, 200, 160, 200)
+        self.driver.find_element_by_xpath("(//android.view.View[@index=0])[3]").click()
+
     def topLeftPhoto(self):
+        sleep(2)
         self.driver.find_element_by_id("ivPhoto").click()
 
     def tap2ndPhoto(self):
+        sleep(1)
         self.driver.find_element_by_xpath("(//android.widget.ImageView[@index=0])[2]").click()
 
     def tap3rdPhoto(self):
+        sleep(1)
         self.driver.find_element_by_xpath("(//android.widget.ImageView[@index=0])[3]").click()
+
+
 
 
 class SelectFormat(object):

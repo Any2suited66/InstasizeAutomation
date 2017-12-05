@@ -2,6 +2,7 @@ from time import sleep
 from appium.webdriver.common.touch_action import TouchAction
 
 
+
 class EditorPage(object):
     def __init__(self, driver):
         self.driver = driver
@@ -512,16 +513,24 @@ class CollagePage(object):
         self.driver.swipe(1360, 200, 160, 200)
         self.driver.find_element_by_xpath("(//android.view.View[@index=0])[3]").click()
 
+    def tap4thCollageOption(self):
+        sleep(2)
+        self.driver.swipe(1360, 200, 160, 200)
+        self.driver.swipe(1360, 200, 460, 200)
+        sleep(2)
+        self.driver.find_element_by_xpath("//android.view.View[@index=1]").click()
+
+
     def topLeftPhoto(self):
         sleep(2)
         self.driver.find_element_by_id("ivPhoto").click()
 
     def tap2ndPhoto(self):
-        sleep(1)
+        sleep(2)
         self.driver.find_element_by_xpath("(//android.widget.ImageView[@index=0])[2]").click()
 
     def tap3rdPhoto(self):
-        sleep(1)
+        sleep(3)
         self.driver.find_element_by_xpath("(//android.widget.ImageView[@index=0])[3]").click()
 
 

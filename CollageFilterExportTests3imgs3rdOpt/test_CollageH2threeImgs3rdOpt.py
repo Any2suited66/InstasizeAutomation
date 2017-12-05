@@ -50,13 +50,13 @@ class CollageFilter1imgExportTest(unittest.TestCase):
         tapOn3rdPhoto = CollagePage(driver)
         tapOn3rdPhoto.tap3rdPhoto()
 
-        # taps on 2nd collage option to open editor
-        tapOnFirstCollageOption = CollagePage(driver)
-        tapOnFirstCollageOption.tap2ndCollageOption()
+        # taps on 3rd collage option to open editor
+        tapOn3rdCollageOption = CollagePage(driver)
+        tapOn3rdCollageOption.tap3rdCollageOption()
 
         # taps on the filter
         filters = PaidEditorPage(driver)
-        filters.bloomFilter()
+        filters.h2Filter()
 
         # Asserts tvFilterLevel is displayed
         tvFilterLevel = PhotoLibraryAsserts(driver)

@@ -520,6 +520,17 @@ class CollagePage(object):
         sleep(2)
         self.driver.find_element_by_xpath("//android.view.View[@index=1]").click()
 
+    def tap5thCollageOption(self):
+        sleep(2)
+        self.driver.swipe(1360, 200, 160, 200)
+        sleep(2)
+        self.driver.swipe(1360, 200, 260, 200)
+        sleep(2)
+        self.driver.swipe(1360, 200, 760, 200)
+        sleep(2)
+        self.driver.find_element_by_xpath("//android.view.View[@index=2]").click()
+
+
 
     def topLeftPhoto(self):
         sleep(2)

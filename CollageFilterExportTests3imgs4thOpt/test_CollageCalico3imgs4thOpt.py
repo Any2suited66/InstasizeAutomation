@@ -50,9 +50,9 @@ class CollageFilter1imgExportTest(unittest.TestCase):
         tapOn3rdPhoto = CollagePage(driver)
         tapOn3rdPhoto.tap3rdPhoto()
 
-        # taps on 2nd collage option to open editor
-        tapOn2ndCollageOption = CollagePage(driver)
-        tapOn2ndCollageOption.tap2ndCollageOption()
+        # taps on 4th collage option to open editor
+        tapOnCollageOption = CollagePage(driver)
+        tapOnCollageOption.tap4thCollageOption()
 
         # taps on the filter
         filters = PaidEditorPage(driver)

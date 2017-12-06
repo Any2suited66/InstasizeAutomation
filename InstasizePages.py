@@ -556,6 +556,10 @@ class CollagePage(object):
         sleep(3)
         self.driver.find_element_by_xpath("(//android.widget.ImageView[@index=0])[3]").click()
 
+    def tap4thPhoto(self):
+        sleep(3)
+        self.driver.find_element_by_xpath("(//android.widget.ImageView[@index=0])[4]").click()
+
 
 
 

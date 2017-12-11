@@ -445,6 +445,9 @@ class GridPage(object):
     def topLeftPhotoGridtap(self):
         self.driver.find_element_by_id("ivPhoto").click()
 
+    def second_grid_image(self):
+        self.driver.find_element_by_xpath("(//android.widget.ImageView[@index=0])[2]").click()
+
     def reeditButtontap(self):
         self.driver.implicitly_wait(100)
         self.driver.find_element_by_id("ibEdit").click()

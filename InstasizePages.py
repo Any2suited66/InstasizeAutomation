@@ -1,6 +1,6 @@
 from time import sleep
 from appium.webdriver.common.touch_action import TouchAction
-
+from selenium.common.exceptions import NoSuchElementException
 
 
 class EditorPage(object):
@@ -22,7 +22,7 @@ class EditorPage(object):
                     EditorPage.tapCoastFilter(self)
                     break
 
-            except:
+            except NoSuchElementException:
                 EditorPage.swipeInEditor(self)
 
     def tapCoastFilter(self):
@@ -36,7 +36,7 @@ class EditorPage(object):
                     EditorPage.tapTikiFilter(self)
                     break
 
-            except:
+            except NoSuchElementException:
                 EditorPage.swipeInEditor(self)
 
     def tapTikiFilter(self):
@@ -50,7 +50,7 @@ class EditorPage(object):
                     EditorPage.tapAthensFilter(self)
                     break
 
-            except:
+            except NoSuchElementException:
                 EditorPage.swipeInEditor(self)
 
     def tapAthensFilter(self):
@@ -64,7 +64,7 @@ class EditorPage(object):
                     EditorPage.tapOakFilter(self)
                     break
 
-            except:
+            except NoSuchElementException:
                 EditorPage.swipeInEditor(self)
 
     def tapOakFilter(self):
@@ -78,7 +78,7 @@ class EditorPage(object):
                     EditorPage.tapWavesFilter(self)
                     break
 
-            except:
+            except NoSuchElementException:
                 EditorPage.swipeInEditor(self)
 
     def tapWavesFilter(self):
@@ -92,7 +92,7 @@ class EditorPage(object):
                     EditorPage.tapTokyoFilter(self)
                     break
 
-            except:
+            except NoSuchElementException:
                 EditorPage.swipeInEditor(self)
 
     def tapTokyoFilter(self):
@@ -106,7 +106,7 @@ class EditorPage(object):
                     EditorPage.tapKayakFilter(self)
                     break
 
-            except:
+            except NoSuchElementException:
                 EditorPage.swipeInEditor(self)
 
     def tapKayakFilter(self):
@@ -120,7 +120,7 @@ class EditorPage(object):
                     EditorPage.tapLincolnFilter(self)
                     break
 
-            except:
+            except NoSuchElementException:
                 EditorPage.swipeInEditor(self)
 
     def tapLincolnFilter(self):
@@ -134,22 +134,22 @@ class EditorPage(object):
                     EditorPage.tapRioFilter(self)
                     break
 
-            except:
+            except NoSuchElementException:
                 EditorPage.swipeInEditor(self)
 
     def tapRioFilter(self):
         self.driver.find_element_by_xpath("//android.widget.TextView[@text='RIO']").click()
 
     def newportFilter(self):
-            for _ in xrange(50):
-                try:
-                    filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='NEWPORT']")
-                    if filter_found.is_displayed():
-                        EditorPage.tapNewportFilter(self)
-                        break
+        for _ in xrange(50):
+            try:
+                filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='NEWPORT']")
+                if filter_found.is_displayed():
+                    EditorPage.tapNewportFilter(self)
+                    break
 
-                except:
-                    EditorPage.swipeInEditor(self)
+            except NoSuchElementException:
+                EditorPage.swipeInEditor(self)
 
     def tapNewportFilter(self):
         self.driver.find_element_by_xpath("//android.widget.TextView[@text='NEWPORT']").click()
@@ -162,7 +162,7 @@ class EditorPage(object):
                     EditorPage.tapNovaFilter(self)
                     break
 
-            except:
+            except NoSuchElementException:
                 EditorPage.swipeInEditor(self)
 
     def tapNovaFilter(self):
@@ -176,7 +176,7 @@ class EditorPage(object):
                     EditorPage.tapHiroFilter(self)
                     break
 
-            except:
+            except NoSuchElementException:
                 EditorPage.swipeInEditor(self)
 
     def tapHiroFilter(self):
@@ -190,7 +190,7 @@ class EditorPage(object):
                     EditorPage.tapWasatchFilter(self)
                     break
 
-            except:
+            except NoSuchElementException:
                 EditorPage.swipeInEditor(self)
 
     def tapWasatchFilter(self):
@@ -204,7 +204,7 @@ class EditorPage(object):
                     EditorPage.tapMarketFilter(self)
                     break
 
-            except:
+            except NoSuchElementException:
                 EditorPage.swipeInEditor(self)
 
     def tapMarketFilter(self):
@@ -218,7 +218,7 @@ class EditorPage(object):
                     EditorPage.tapRadioFilter(self)
                     break
 
-            except:
+            except NoSuchElementException:
                 EditorPage.swipeInEditor(self)
 
     def tapRadioFilter(self):
@@ -232,7 +232,7 @@ class EditorPage(object):
                     EditorPage.tapMadridFilter(self)
                     break
 
-            except:
+            except NoSuchElementException:
                 EditorPage.swipeInEditor(self)
 
     def tapMadridFilter(self):
@@ -246,7 +246,7 @@ class EditorPage(object):
                     EditorPage.tapBarkFilter(self)
                     break
 
-            except:
+            except NoSuchElementException:
                 EditorPage.swipeInEditor(self)
 
     def tapBarkFilter(self):
@@ -260,7 +260,7 @@ class EditorPage(object):
                     EditorPage.tapFluxFilter(self)
                     break
 
-            except:
+            except NoSuchElementException:
                 EditorPage.swipeInEditor(self)
 
     def tapFluxFilter(self):
@@ -274,7 +274,7 @@ class EditorPage(object):
                     EditorPage.tapNineteen89Filter(self)
                     break
 
-            except:
+            except NoSuchElementException:
                 EditorPage.swipeInEditor(self)
 
     def tapNineteen89Filter(self):
@@ -288,7 +288,7 @@ class EditorPage(object):
                     EditorPage.tapCelsiusFilter(self)
                     break
 
-            except:
+            except NoSuchElementException:
                 EditorPage.swipeInEditor(self)
 
     def tapCelsiusFilter(self):
@@ -302,7 +302,7 @@ class EditorPage(object):
                     EditorPage.tapPetraFilter(self)
                     break
 
-            except:
+            except NoSuchElementException:
                 EditorPage.swipeInEditor(self)
 
     def tapPetraFilter(self):
@@ -316,7 +316,7 @@ class EditorPage(object):
                     EditorPage.tapOrganicFilter(self)
                     break
 
-            except:
+            except NoSuchElementException:
                 EditorPage.swipeInEditor(self)
 
     def tapOrganicFilter(self):
@@ -330,7 +330,7 @@ class EditorPage(object):
                     EditorPage.tapNomadFilter(self)
                     break
 
-            except:
+            except NoSuchElementException:
                 EditorPage.swipeInEditor(self)
 
     def tapNomadFilter(self):
@@ -344,7 +344,7 @@ class EditorPage(object):
                     EditorPage.tapAltaFilter(self)
                     break
 
-            except:
+            except NoSuchElementException:
                 EditorPage.swipeInEditor(self)
 
     def tapAltaFilter(self):
@@ -358,7 +358,7 @@ class EditorPage(object):
                     EditorPage.tapBalticFilter(self)
                     break
 
-            except:
+            except NoSuchElementException:
                 EditorPage.swipeInEditor(self)
 
     def tapBalticFilter(self):
@@ -372,7 +372,7 @@ class EditorPage(object):
                     EditorPage.tapJunoFilter(self)
                     break
 
-            except:
+            except NoSuchElementException:
                 EditorPage.swipeInEditor(self)
 
     def tapJunoFilter(self):
@@ -386,7 +386,7 @@ class EditorPage(object):
                     EditorPage.tapLatchFilter(self)
                     break
 
-            except:
+            except NoSuchElementException:
                 EditorPage.swipeInEditor(self)
 
     def tapLatchFilter(self):
@@ -400,7 +400,7 @@ class EditorPage(object):
                     EditorPage.tapHulaFilter(self)
                     break
 
-            except:
+            except NoSuchElementException:
                 EditorPage.swipeInEditor(self)
 
     def tapHulaFilter(self):

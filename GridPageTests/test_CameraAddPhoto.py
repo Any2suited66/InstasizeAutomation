@@ -47,14 +47,6 @@ class CameraTest(unittest.TestCase):
         tapCameraOkay = GridPage(driver)
         tapCameraOkay.tap_camera_ok()
 
-        # taps on the filter
-        filters = PaidEditorPage(driver)
-        filters.aryaFilter()
-
-        # Asserts tvFilterLevel is displayed
-        tvFilterLevel = PhotoLibraryAsserts(driver)
-        tvFilterLevel.tvFilterLevel()
-
         # taps on share button
         tapShareButton = EditorPage(driver)
         tapShareButton.sharebutton()

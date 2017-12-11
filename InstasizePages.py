@@ -448,6 +448,18 @@ class GridPage(object):
     def second_grid_image(self):
         self.driver.find_element_by_xpath("(//android.widget.ImageView[@index=0])[2]").click()
 
+    def tap_camera_icon(self):
+        self.driver.find_element_by_id("ibCamera").click()
+
+    def take_photo(self):
+        self.driver.find_element_by_id("MENUID_SHUTTER").click()
+
+    def tap_retry_camera(self):
+        self.driver.find_element_by_xpath("(//android.widget.TextView[@index=0])").click()
+
+    def tap_camera_ok(self):
+        self.driver.find_element_by_xpath("(//android.widget.TextView[@index=1])").click()
+
     def reeditButtontap(self):
         self.driver.implicitly_wait(100)
         self.driver.find_element_by_id("ibEdit").click()

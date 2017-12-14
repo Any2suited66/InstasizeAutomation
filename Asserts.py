@@ -51,10 +51,10 @@ class GridPageAsserts(object):
     def gridPagePhotoNotPresent(self):
         self.driver.implicitly_wait(10)
         try:
-            self.driver.find_element_by_id("ivPhoto")
+            self.driver.find_element_by_xpath("(//android.widget.ImageView[@index=0])[1]")
 
         except NoSuchElementException:
-            print 'Test passed, image successfully deleted'
+            print 'Test passed, image(s) successfully deleted'
 
 
 

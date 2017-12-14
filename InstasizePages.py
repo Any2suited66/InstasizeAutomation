@@ -1,6 +1,6 @@
 from time import sleep
 from appium.webdriver.common.touch_action import TouchAction
-from selenium.common.exceptions import NoSuchElementException
+from selenium.common.exceptions import NoSuchElementException, WebDriverException
 
 
 class EditorPage(object):
@@ -8,8 +8,16 @@ class EditorPage(object):
         self.driver = driver
 
     def sharebutton(self):
-        self.driver.swipe(600, 500, 602, 500)
-        self.driver.find_element_by_id('ibExport').click()
+        for _ in xrange(10):
+            try:
+                self.driver.swipe(600, 500, 602, 500)
+                el = self.driver.find_element_by_id('ibExport')
+                if el.is_displayed():
+                    el.click()
+                    break
+            except NoSuchElementException:
+                print "test failed, test manually"
+                self.driver.quit()
 
     def instasizButton(self):
         self.driver.find_element_by_id("ibAspectChange").click()
@@ -432,21 +440,89 @@ class GridPage(object):
 
     # taps the + sign on the grid page
     def addPhotoTap(self):
-        self.driver.find_element_by_id("ibAddPhoto").click()
+        # had to add this try/except to take care of the premium popup screen.
+        # if premium popup screen is removed please delete this try/except to reduce testing time
+        for _ in xrange(5):
+            try:
+                el = self.driver.find_element_by_id("btnGetStarted")
+                if el.is_displayed():
+                    el.click()
+                    break
+            except NoSuchElementException:
+                    print "element not found, please check manually and to make sure element is still present"
+                    break
+
+        for _ in xrange(5):
+            try:
+                sleep(3)
+                el = self.driver.find_element_by_id("btnSkip")
+                if el.is_displayed():
+                    el.click()
+                    break
+            except NoSuchElementException:
+                print "element not found, please check manually and to make sure element is still present"
+                break
+            finally:
+                self.driver.find_element_by_id("ibAddPhoto").click()
 
     def addPhotoFind(self):
         sleep(3)
         try:
             addPhotoFind = self.driver.find_element_by_id("ibAddPhoto")
             self.assertTrue(addPhotoFind.is_displayed(), "+ not found, Test Failed! Check for crash manually")
-        except:
+        except NoSuchElementException:
             self.driver.quit()
 
+    def tap_get_started_button(self):
+        for _ in xrange(10):
+            try:
+                el = self.driver.find_element_by_id("btnGetStarted")
+                if el.is_displayed():
+                    el.click()
+                    break
+            except NoSuchElementException:
+                print "element not found, please check manually and to make sure element is still present"
+                break
+
+    def skip_button(self):
+        for _ in xrange(10):
+            try:
+                sleep(5)
+                el = self.driver.find_element_by_id("btnSkip")
+                if el.is_displayed():
+                    el.click()
+                    break
+            except NoSuchElementException:
+                print "element not found, please check manually and to make sure element is still present"
+                break
+
     def topLeftPhotoGridtap(self):
-        self.driver.find_element_by_id("ivPhoto").click()
+        for _ in xrange(10):
+            try:
+                sleep(5)
+                topLeftPhotoGridtap = self.driver.find_element_by_id("ivPhoto")
+                if topLeftPhotoGridtap.is_displayed():
+                    topLeftPhotoGridtap.click()
+                    break
+            except NoSuchElementException:
+                print "test failed, check manually"
+
+
 
     def second_grid_image(self):
-        self.driver.find_element_by_xpath("(//android.widget.ImageView[@index=0])[2]").click()
+        for _ in xrange(10):
+            try:
+                sleep(20)
+                el = self.driver.find_element_by_xpath("(//android.widget.ImageView[@index=0])[2]")
+                if el.is_displayed():
+                    el.click()
+                    break
+            except NoSuchElementException:
+                print "test failed, check manually"
+                self.driver.quit()
+
+
+
 
     def tap_camera_icon(self):
         self.driver.find_element_by_id("ibCamera").click()

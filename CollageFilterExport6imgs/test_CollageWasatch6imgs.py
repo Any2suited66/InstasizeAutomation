@@ -68,7 +68,7 @@ class CollageFilter1imgExportTest(unittest.TestCase):
 
         # taps on the filter
         filters = EditorPage(driver)
-        filters.nomadFilter()
+        filters.wasatchFilter()
 
         # Asserts tvFilterLevel is displayed
         tvFilterLevel = PhotoLibraryAsserts(driver)

@@ -1,7 +1,9 @@
 from time import sleep
 from appium.webdriver.common.touch_action import TouchAction
 from selenium.common.exceptions import NoSuchElementException, WebDriverException
-
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 class EditorPage(object):
     def __init__(self, driver):
@@ -430,6 +432,7 @@ class EditorPage(object):
         sleep(5)
 
     def swipeInEditor(self):
+                sleep(2)
                 self.driver.swipe(1000, 2268, 201, 2268)
                 self.driver.implicitly_wait(2)
 
@@ -447,10 +450,12 @@ class GridPage(object):
                 el = self.driver.find_element_by_id("btnGetStarted")
                 if el.is_displayed():
                     el.click()
-                    break
+                    sleep(2)
+                    pass
             except NoSuchElementException:
                     print "element not found, please check manually and to make sure element is still present"
-                    break
+                    sleep(2)
+                    pass
 
         for _ in xrange(5):
             try:
@@ -460,10 +465,10 @@ class GridPage(object):
                     el.click()
                     break
             except NoSuchElementException:
-                print "element not found, please check manually and to make sure element is still present"
-                break
-            finally:
-                self.driver.find_element_by_id("ibAddPhoto").click()
+                self.driver.find_element_by_id("btnGetStarted").click()
+                pass
+
+        self.driver.find_element_by_id("ibAddPhoto").click()
 
     def addPhotoFind(self):
         sleep(3)
@@ -471,9 +476,11 @@ class GridPage(object):
             addPhotoFind = self.driver.find_element_by_id("ibAddPhoto")
             self.assertTrue(addPhotoFind.is_displayed(), "+ not found, Test Failed! Check for crash manually")
         except NoSuchElementException:
-            self.driver.quit()
+            print("element not found, check manually!")
+            pass
 
     def tap_get_started_button(self):
+        sleep(2)
         for _ in xrange(10):
             try:
                 el = self.driver.find_element_by_id("btnGetStarted")
@@ -485,6 +492,7 @@ class GridPage(object):
                 break
 
     def skip_button(self):
+        sleep(2)
         for _ in xrange(10):
             try:
                 sleep(5)
@@ -552,7 +560,7 @@ class GridPage(object):
         sleep(5)
 
     def instagramIcon(self):
-        self.driver.find_element_by_xpath("//android.widget.TextView[@index=1]").click()
+        self.driver.find_element_by_xpath("//android.widget.TextView[@index=2]").click()
 
     def instagramPopup(self):
         self.driver.find_element_by_id("android:id/icon").click()
@@ -593,11 +601,14 @@ class CollagePage(object):
         self.driver = driver
 
     def tapFirstCollageOption(self):
-        self.driver.find_element_by_xpath("//android.view.View[@index=1]").click()
+        if self.driver.find_element_by_xpath("//android.view.View[@index=1]").is_displayed():
+            WebDriverWait(self.driver, 30).until(EC.presence_of_element_located((By.XPATH, "//android.view.View[@index=1]")))
+            self.driver.find_element_by_xpath("//android.view.View[@index=1]").click()
 
     def tap2ndCollageOption(self):
         sleep(2)
         self.driver.find_element_by_xpath("(//android.view.View[@index=0])[2]").click()
+        sleep(3)
 
     def tap3rdCollageOption(self):
         sleep(2)
@@ -650,6 +661,14 @@ class CollagePage(object):
     def tap4thPhoto(self):
         sleep(3)
         self.driver.find_element_by_xpath("(//android.widget.ImageView[@index=0])[4]").click()
+
+    def tap5thPhoto(self):
+        sleep(3)
+        self.driver.find_element_by_xpath("(//android.widget.ImageView[@index=0])[5]").click()
+
+    def tap6thPhoto(self):
+        sleep(3)
+        self.driver.find_element_by_xpath("(//android.widget.ImageView[@index=0])[6]").click()
 
 
 

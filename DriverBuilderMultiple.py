@@ -5,27 +5,29 @@ from GetDeviceID import GetDeviceID
 import GetAndroidVersion
 import APKInstall
 
+
 class DriverBuilderAndroid(object):
+    _multiprocess_can_split_ = True
 
     def __init__(self):
         self.setUp()
 
     def setUp(self):
-        getDevice = GetDeviceID()
-        "Setup for the test"
+
+
+
+
         desired_caps = {}
         desired_caps['platformName'] = 'Android'
+        desired_caps['deviceName'] = 'deviceName'
         desired_caps['platformVersion'] = GetAndroidVersion.getVersion()
-        desired_caps['deviceName'] = getDevice.getDeviceID()
-        # Returns abs path relative to this file and not cwd
         desired_caps['app'] = APKInstall.installAPK()
-        desired_caps['appPackage'] = 'com.jsdev.instasize'
-        desired_caps['appActivity'] = '.activities.MainActivity'
-        self.driver = webdriver.Remote('http://localhost:4723/wd/hub', desired_caps)
-        self.driver.implicitly_wait(10)
+
+        self.driver = webdriver.Remote('http://127.0.0.1:4444/wd/hub', desired_caps)
 
 
 
-
+    def teardown(self):
+        self.driver.quit()
 
 

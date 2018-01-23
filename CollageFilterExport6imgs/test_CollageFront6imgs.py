@@ -67,8 +67,8 @@ class CollageFilter1imgExportTest(unittest.TestCase):
         tapOnCollageOption.tapFirstCollageOption()
 
         # taps on the filter
-        filters = EditorPage(driver)
-        filters.nomadFilter()
+        filters = PaidEditorPage(driver)
+        filters.frontFilter()
 
         # Asserts tvFilterLevel is displayed
         tvFilterLevel = PhotoLibraryAsserts(driver)

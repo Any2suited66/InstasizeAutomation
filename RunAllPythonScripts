@@ -6,7 +6,7 @@
 
 
 TEST_FRAMEWORK='nose2'
-TEST_DIR="/Users/tyler/PycharmProjects/testInstasizeAutomation/EditorPageTests" #$PWD
+TEST_DIR="/Users/tyler/PycharmProjects/testInstasizeAutomation/" #$PWD
 APPIUM_SERVER_LOGS='appium.log'
 TEST_LOGS='test.log'
 PID_DATA=()

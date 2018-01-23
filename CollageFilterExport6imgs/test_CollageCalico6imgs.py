@@ -42,9 +42,9 @@ class CollageFilter1imgExportTest(unittest.TestCase):
         tapTopLeftPhoto = CollagePage(driver)
         tapTopLeftPhoto.topLeftPhoto()
 
-        # taps on the next photo to the right
-        tapOnNextPhoto = CollagePage(driver)
-        tapOnNextPhoto.tap2ndPhoto()
+        # taps on the 2nd photo
+        tapOn2ndPhoto = CollagePage(driver)
+        tapOn2ndPhoto.tap2ndPhoto()
 
         # taps on the 3rd photo
         tapOn3rdPhoto = CollagePage(driver)
@@ -67,8 +67,8 @@ class CollageFilter1imgExportTest(unittest.TestCase):
         tapOnCollageOption.tapFirstCollageOption()
 
         # taps on the filter
-        filters = EditorPage(driver)
-        filters.nomadFilter()
+        filters = PaidEditorPage(driver)
+        filters.calicoFilter()
 
         # Asserts tvFilterLevel is displayed
         tvFilterLevel = PhotoLibraryAsserts(driver)

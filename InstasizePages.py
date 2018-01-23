@@ -5,6 +5,19 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
+# custom explicit wait for element to be enabled
+class element_is_enabled(object):
+    def __init__(self, locator, is_enabled):
+        self.locator = locator
+        self.is_enabled = is_enabled
+
+    def __call__(self, driver):
+        element = driver.find_element(*self.locator)
+        if self.is_enabled in element.get_attribute("enabled"):
+            return element
+        else:
+            return False
+
 class EditorPage(object):
     def __init__(self, driver):
         self.driver = driver
@@ -432,9 +445,9 @@ class EditorPage(object):
         sleep(5)
 
     def swipeInEditor(self):
-                sleep(2)
-                self.driver.swipe(1000, 2268, 201, 2268)
-                self.driver.implicitly_wait(2)
+        sleep(2)
+        self.driver.swipe(1000, 2268, 201, 2268)
+        self.driver.implicitly_wait(2)
 
 
 class GridPage(object):
@@ -453,9 +466,9 @@ class GridPage(object):
                     sleep(2)
                     pass
             except NoSuchElementException:
-                    print "element not found, please check manually and to make sure element is still present"
-                    sleep(2)
-                    pass
+                print "element not found, please check manually and to make sure element is still present"
+                sleep(2)
+                pass
 
         for _ in xrange(5):
             try:
@@ -515,8 +528,6 @@ class GridPage(object):
             except NoSuchElementException:
                 print "test failed, check manually"
 
-
-
     def second_grid_image(self):
         for _ in xrange(10):
             try:
@@ -528,9 +539,6 @@ class GridPage(object):
             except NoSuchElementException:
                 print "test failed, check manually"
                 self.driver.quit()
-
-
-
 
     def tap_camera_icon(self):
         self.driver.find_element_by_id("ibCamera").click()
@@ -602,7 +610,8 @@ class CollagePage(object):
 
     def tapFirstCollageOption(self):
         if self.driver.find_element_by_xpath("//android.view.View[@index=1]").is_displayed():
-            WebDriverWait(self.driver, 30).until(EC.presence_of_element_located((By.XPATH, "//android.view.View[@index=1]")))
+            WebDriverWait(self.driver, 30).until(
+                EC.presence_of_element_located((By.XPATH, "//android.view.View[@index=1]")))
             self.driver.find_element_by_xpath("//android.view.View[@index=1]").click()
 
     def tap2ndCollageOption(self):
@@ -644,33 +653,73 @@ class CollagePage(object):
         sleep(2)
         self.driver.find_element_by_xpath("//android.view.View[@index=0]").click()
 
-
-
     def topLeftPhoto(self):
         sleep(2)
         self.driver.find_element_by_id("ivPhoto").click()
 
     def tap2ndPhoto(self):
-        sleep(2)
-        self.driver.find_element_by_xpath("(//android.widget.ImageView[@index=0])[2]").click()
+        el = self.driver.find_element_by_xpath("(//android.widget.ImageView[@index=0])[2]")
+        if el.is_enabled():
+            sleep(1)
+            el.click()
+            pass
+
+        else:
+            WebDriverWait(self.driver, 30).until(element_is_enabled((By.XPATH, "(//android.widget.ImageView[@index=0])[2]"), "true"))
+            el.click()
+            pass
 
     def tap3rdPhoto(self):
-        sleep(3)
-        self.driver.find_element_by_xpath("(//android.widget.ImageView[@index=0])[3]").click()
+        el = self.driver.find_element_by_xpath("(//android.widget.ImageView[@index=0])[4]")
+        if el.is_enabled():
+            sleep(1)
+            el.click()
+            pass
+
+        else:
+            WebDriverWait(self.driver, 30).until(
+                element_is_enabled((By.XPATH, "(//android.widget.ImageView[@index=0])[4]"), "true"))
+            el.click()
+            pass
 
     def tap4thPhoto(self):
-        sleep(3)
-        self.driver.find_element_by_xpath("(//android.widget.ImageView[@index=0])[4]").click()
+        el = self.driver.find_element_by_xpath("(//android.widget.ImageView[@index=0])[6]")
+        if el.is_enabled():
+            sleep(1)
+            el.click()
+            pass
+
+        else:
+            WebDriverWait(self.driver, 30).until(
+                element_is_enabled((By.XPATH, "(//android.widget.ImageView[@index=0])[6]"), "true"))
+            el.click()
+            pass
 
     def tap5thPhoto(self):
-        sleep(3)
-        self.driver.find_element_by_xpath("(//android.widget.ImageView[@index=0])[5]").click()
+        el = self.driver.find_element_by_xpath("(//android.widget.ImageView[@index=0])[8]")
+        if el.is_enabled():
+            sleep(1)
+            el.click()
+            pass
+
+        else:
+            WebDriverWait(self.driver, 30).until(
+                element_is_enabled((By.XPATH, "(//android.widget.ImageView[@index=0])[8]"), "true"))
+            el.click()
+            pass
 
     def tap6thPhoto(self):
-        sleep(3)
-        self.driver.find_element_by_xpath("(//android.widget.ImageView[@index=0])[6]").click()
+        el = self.driver.find_element_by_xpath("(//android.widget.ImageView[@index=0])[10]")
+        if el.is_enabled():
+            sleep(1)
+            el.click()
+            pass
 
-
+        else:
+            WebDriverWait(self.driver, 30).until(
+                element_is_enabled((By.XPATH, "(//android.widget.ImageView[@index=0])[10]"), "true"))
+            el.click()
+            pass
 
 
 class SelectFormat(object):

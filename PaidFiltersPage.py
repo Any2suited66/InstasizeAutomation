@@ -6,6 +6,7 @@ class PaidEditorPage(object):
     def __init__(self, driver):
         self.driver = driver
 
+    # premium subscription element
     def h1Filter(self):
         PaidEditorPage.wait_for_editor(self)
         for _ in xrange(50):
@@ -19,6 +20,22 @@ class PaidEditorPage(object):
                 PaidEditorPage.swipeInEditor(self)
 
     def tapH1Filter(self):
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='H1']").click()
+
+    # free version element
+    def freeH1Filter(self):
+        sleep(5)
+        for _ in xrange(50):
+            try:
+                filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='H1']")
+                if filter_found.is_displayed():
+                    PaidEditorPage.freeTapH1Filter(self)
+                    break
+
+            except:
+                PaidEditorPage.freeSwipeInEditor(self)
+
+    def freeTapH1Filter(self):
         self.driver.find_element_by_xpath("//android.widget.TextView[@text='H1']").click()
 
     def h2Filter(self):
@@ -549,8 +566,12 @@ class PaidEditorPage(object):
 
 
     def swipeInEditor(self):
-                self.driver.swipe(1000, 2268, 201, 2268)
-                self.driver.implicitly_wait(2)
+        self.driver.swipe(1000, 2268, 201, 2268)
+        self.driver.implicitly_wait(2)
+
+    def freeSwipeInEditor(self):
+        self.driver.swipe(900, 2050, 220, 2050)
+        self.driver.implicitly_wait(2)
 
     def wait_for_editor(self):
         self.driver.implicitly_wait(5)

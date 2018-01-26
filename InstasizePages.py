@@ -429,6 +429,10 @@ class EditorPage(object):
     def tapHulaFilter(self):
         self.driver.find_element_by_xpath("//android.widget.TextView[@text='HULA']").click()
 
+    def tapPremiumBanner(self):
+        banner = self.driver.find_element_by_id("getCollectionViewContainer")
+        banner.click()
+
     def reviewPopup(self):
         self.driver.find_element_by_id("btnDeny").click()
 
@@ -439,15 +443,24 @@ class EditorPage(object):
         self.driver.find_element_by_id("btnReview").click()
 
     def driverQuit(self):
-        print "Filter Passed!"
-        sleep(3)
+        print "Passed!"
         self.driver.quit()
-        sleep(5)
+        sleep(2)
 
+    # Premium version swipe
     def swipeInEditor(self):
         sleep(2)
         self.driver.swipe(1000, 2268, 201, 2268)
-        self.driver.implicitly_wait(2)
+        sleep(2)
+
+    def freeVersionSwipeInEditor(self):
+        sleep(2)
+        self.driver.swipe(1000, 2050, 201, 2050)
+
+    def discardEditsConfirm(self):
+        WebDriverWait(self.driver, 30).until(
+            EC.presence_of_element_located((By.ID, "btnDiscard")))
+        self.driver.find_element_by_id("btnDiscard").click()
 
 
 class GridPage(object):
@@ -458,30 +471,34 @@ class GridPage(object):
     def addPhotoTap(self):
         # had to add this try/except to take care of the premium popup screen.
         # if premium popup screen is removed please delete this try/except to reduce testing time
-        for _ in xrange(5):
+
+        try:
+            plusIcon = self.driver.find_element_by_id("ibAddPhoto")
+            sleep(2)
+            plusIcon.click()
+
+        except NoSuchElementException:
+            WebDriverWait(self.driver, 30).until(
+                EC.presence_of_element_located((By.ID, "btnGetStarted")))
+            self.driver.find_element_by_id("btnGetStarted").click()
+
             try:
-                el = self.driver.find_element_by_id("btnGetStarted")
-                if el.is_displayed():
-                    el.click()
-                    sleep(2)
-                    pass
-            except NoSuchElementException:
-                print "element not found, please check manually and to make sure element is still present"
+                plusIcon = self.driver.find_element_by_id("ibAddPhoto")
                 sleep(2)
-                pass
+                plusIcon.click()
 
-        for _ in xrange(5):
-            try:
-                sleep(3)
-                el = self.driver.find_element_by_id("btnSkip")
-                if el.is_displayed():
-                    el.click()
-                    break
             except NoSuchElementException:
-                self.driver.find_element_by_id("btnGetStarted").click()
-                pass
+                try:
+                    self.driver.find_element_by_id("btnSkip").click()
+                    WebDriverWait(self.driver, 30).until(
+                        EC.presence_of_element_located((By.ID, "ibAddPhoto")))
+                    self.driver.find_element_by_id("ibAddPhoto").click()
 
-        self.driver.find_element_by_id("ibAddPhoto").click()
+                except NoSuchElementException:
+                    WebDriverWait(self.driver, 30).until(
+                        EC.presence_of_element_located((By.ID, "ibAddPhoto")))
+                    self.driver.find_element_by_id("ibAddPhoto").click()
+
 
     def addPhotoFind(self):
         sleep(3)
@@ -518,24 +535,27 @@ class GridPage(object):
                 break
 
     def topLeftPhotoGridtap(self):
-        for _ in xrange(10):
             try:
-                sleep(5)
+                sleep(13)
                 topLeftPhotoGridtap = self.driver.find_element_by_id("ivPhoto")
-                if topLeftPhotoGridtap.is_displayed():
-                    topLeftPhotoGridtap.click()
-                    break
+
+                WebDriverWait(self.driver, 30).until(
+                    EC.presence_of_element_located((By.ID, "ivPhoto")))
+
+                topLeftPhotoGridtap.click()
+                pass
+
             except NoSuchElementException:
                 print "test failed, check manually"
 
     def second_grid_image(self):
-        for _ in xrange(10):
+
             try:
-                sleep(20)
+                sleep(2)
                 el = self.driver.find_element_by_xpath("(//android.widget.ImageView[@index=0])[2]")
                 if el.is_displayed():
                     el.click()
-                    break
+                    pass
             except NoSuchElementException:
                 print "test failed, check manually"
                 self.driver.quit()
@@ -562,10 +582,9 @@ class GridPage(object):
     def photoContainers(self):
         self.driver.find_element_by_id("photosContainer").click()
 
-    # top left photo in the photo library
+    # taps the top left photo in the photo library
     def topLeftPhoto(self):
         self.driver.find_element_by_xpath("//android.widget.ImageView[@index=0]").click()
-        sleep(5)
 
     def instagramIcon(self):
         self.driver.find_element_by_xpath("//android.widget.TextView[@index=2]").click()
@@ -581,7 +600,10 @@ class GridPage(object):
         pass
 
     def deleteIconTap(self):
-        self.driver.find_element_by_id("ibDelete").click()
+        deletePhoto = self.driver.find_element_by_id("ibDelete")
+        WebDriverWait(self.driver, 30).until(
+            element_is_enabled((By.ID, "ibDelete"), "true"))
+        deletePhoto.click()
 
     def deleteButtonTap(self):
         self.driver.find_element_by_id("btnDelete").click()
@@ -654,8 +676,19 @@ class CollagePage(object):
         self.driver.find_element_by_xpath("//android.view.View[@index=0]").click()
 
     def topLeftPhoto(self):
-        sleep(2)
-        self.driver.find_element_by_id("ivPhoto").click()
+        el = self.driver.find_element_by_id("ivPhoto")
+        if el.is_enabled():
+            sleep(1)
+            el.click()
+            pass
+
+        else:
+            WebDriverWait(self.driver, 30).until(
+                element_is_enabled((By.ID, "ivPhoto"), "true"))
+            el.click()
+            pass
+
+
 
     def tap2ndPhoto(self):
         el = self.driver.find_element_by_xpath("(//android.widget.ImageView[@index=0])[2]")

@@ -1,6 +1,6 @@
 from appium.webdriver.common.touch_action import TouchAction
 from selenium.common.exceptions import NoSuchElementException
-
+from time import sleep
 
 class PhotoLibraryAsserts(object):
 
@@ -35,6 +35,22 @@ class EditorPageAsserts(object):
     def instasizeButtonAssert(self):
         instasizeButton = self.driver.find_element_by_id("ibAspectChange")
         self.assertTrue(instasizeButton.is_displayed, "Failed, check for crash manual)ly")
+
+    def premiumPageAssert(self):
+        premiumPage = self.driver.find_element_by_id("coordinator")
+        self.assertTrue(premiumPage.is_displayed, "Failed, check for premium page manulally")
+        sleep(2)
+        self.driver.back()
+        sleep(2)
+
+    def shareButtonNotDisplayed(self):
+        sleep(2)
+        try:
+            self.driver.find_element_by_id("ibExport")
+        except NoSuchElementException:
+            print ("Success, user is not able to share the image with a premium filter applied")
+            pass
+            self.driver.back()
 
 
 class GridPageAsserts(object):

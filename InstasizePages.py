@@ -25,6 +25,7 @@ class EditorPage(object):
     def sharebutton(self):
         for _ in xrange(10):
             try:
+                sleep(5)
                 self.driver.swipe(600, 500, 602, 500)
                 el = self.driver.find_element_by_id('ibExport')
                 if el.is_displayed():
@@ -451,7 +452,7 @@ class EditorPage(object):
     def swipeInEditor(self):
         sleep(2)
         self.driver.swipe(1000, 2268, 201, 2268)
-        sleep(2)
+
 
     def freeVersionSwipeInEditor(self):
         sleep(2)
@@ -617,6 +618,62 @@ class GridPage(object):
     def collageButtonTap(self):
         self.driver.find_element_by_id("ibCollage").click()
 
+    def whatsNewBtnTap(self):
+        try:
+            whatsNewIcon = self.driver.find_element_by_id("com.jsdev.instasize:id/ibWhatsNewIcon")
+            sleep(2)
+            whatsNewIcon.click()
+
+        except NoSuchElementException:
+            WebDriverWait(self.driver, 30).until(
+                EC.presence_of_element_located((By.ID, "btnGetStarted")))
+            self.driver.find_element_by_id("btnGetStarted").click()
+
+            try:
+                whatsNewIcon = self.driver.find_element_by_xpath("//android.widget.ImageButton[@index=2]")
+                sleep(2)
+                whatsNewIcon.click()
+
+            except NoSuchElementException:
+                try:
+                    self.driver.find_element_by_id("btnSkip").click()
+                    WebDriverWait(self.driver, 30).until(
+                        EC.presence_of_element_located((By.XPATH, "//android.widget.ImageButton[@index=2]")))
+                    self.driver.find_element_by_id("com.jsdev.instasize:id/ibWhatsNewIcon]").click()
+
+                except NoSuchElementException:
+                    WebDriverWait(self.driver, 30).until(
+                        EC.presence_of_element_located((By.XPATH, "//android.widget.ImageButton[@index=2]")))
+                    self.driver.find_element_by_id("com.jsdev.instasize:id/ibWhatsNewIcon").click()
+
+    def openProfilePage(self):
+        try:
+            profilePlusIcon = self.driver.find_element_by_id("com.jsdev.instasize:id/ibPlus")
+            sleep(2)
+            profilePlusIcon.click()
+
+        except NoSuchElementException:
+            WebDriverWait(self.driver, 30).until(
+                EC.presence_of_element_located((By.ID, "btnGetStarted")))
+            self.driver.find_element_by_id("btnGetStarted").click()
+
+            try:
+                profilePlusIcon = self.driver.find_element_by_id("com.jsdev.instasize:id/ibPlus")
+                sleep(2)
+                profilePlusIcon.click()
+
+            except NoSuchElementException:
+                try:
+                    self.driver.find_element_by_id("btnSkip").click()
+                    WebDriverWait(self.driver, 30).until(
+                        EC.presence_of_element_located((By.XPATH, "//android.widget.ImageButton[@index=2]")))
+                    self.driver.find_element_by_id("com.jsdev.instasize:id/ibWhatsNewIcon]").click()
+
+                except NoSuchElementException:
+                    WebDriverWait(self.driver, 30).until(
+                        EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/ibPlus")))
+                    self.driver.find_element_by_id("com.jsdev.instasize:id/ibPlus").click()
+
 
 class PhotoLibraryPage(object):
     def __init__(self, driver):
@@ -754,6 +811,24 @@ class CollagePage(object):
             el.click()
             pass
 
+class ProfilePage(object):
+    def __init__(self, driver):
+        self.driver = driver
+
+    def tapSignIn(self):
+        self.driver.find_element_by_id("com.jsdev.instasize:id/tvOption1").click()
+
+    def enterLoginInfo(self):
+        email = self.driver.find_element_by_id("com.jsdev.instasize:id/etvEmailAddress")
+        email.click()
+        email.send_keys('test1@test.com')
+        password = self.driver.find_element_by_id("com.jsdev.instasize:id/etvPassword")
+        password.click()
+        password.send_keys('aaaaaaaa')
+
+    def tapSignUp(self):
+        signUP = self.driver.find_element_by_id("com.jsdev.instasize:id/btnMainAction")
+        signUP.click()
 
 class SelectFormat(object):
     def __init__(self, driver):

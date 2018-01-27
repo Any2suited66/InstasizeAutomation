@@ -1,6 +1,9 @@
 from appium.webdriver.common.touch_action import TouchAction
 from selenium.common.exceptions import NoSuchElementException
 from time import sleep
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 class PhotoLibraryAsserts(object):
 
@@ -38,7 +41,7 @@ class EditorPageAsserts(object):
 
     def premiumPageAssert(self):
         premiumPage = self.driver.find_element_by_id("coordinator")
-        self.assertTrue(premiumPage.is_displayed, "Failed, check for premium page manulally")
+        self.assertTrue(premiumPage.is_displayed, "Failed, check for premium page manually")
         sleep(2)
         self.driver.back()
         sleep(2)
@@ -62,8 +65,11 @@ class GridPageAsserts(object):
         pass
 
     def settingsIconAssert(self):
+        WebDriverWait(self.driver, 30).until(
+            EC.presence_of_element_located((By.ID, "ibSettingsIcon")))
         settingsIcon = self.driver.find_element_by_id("ibSettingsIcon")
         self.assertTrue(settingsIcon.is_displayed, "Failed, check for crash manually")
+        print ("Passed, no crash")
 
     def gridPagePhotoNotPresent(self):
         self.driver.implicitly_wait(10)

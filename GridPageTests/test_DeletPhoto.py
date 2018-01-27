@@ -13,7 +13,7 @@ def _by_link_text():
 
 class TestDeletePhoto(unittest.TestCase):
 
-    def testDelete(self):
+    def runTest(self):
         driverBuilder = DriverBuilderAndroid()
         driver = driverBuilder.driver
 

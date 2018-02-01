@@ -9,7 +9,8 @@ class GetDeviceID(object):
         str = adb_ouput.decode()
         removeFirst = str.replace('List of devices attached', '')
         device = removeFirst.replace('device', '')
-        return device
+        json = device.encode()
+        return json
 
 
 

@@ -443,6 +443,9 @@ class EditorPage(object):
     def giveAReviewButtonTap(self):
         self.driver.find_element_by_id("btnReview").click()
 
+    def tapCropFeature(self):
+        self.driver.find_element_by_xpath("//android.widget.RelativeLayout[@index='2'][2]").click()
+
     def driverQuit(self):
         print "Passed!"
         self.driver.quit()
@@ -474,37 +477,40 @@ class GridPage(object):
         # if premium popup screen is removed please delete this try/except to reduce testing time
 
         try:
-            plusIcon = self.driver.find_element_by_id("ibAddPhoto")
+            plusIcon = self.driver.find_element_by_id("com.jsdev.instasize:id/ibAddPhoto")
             sleep(2)
             plusIcon.click()
 
         except NoSuchElementException:
             WebDriverWait(self.driver, 30).until(
                 EC.presence_of_element_located((By.ID, "btnGetStarted")))
+            sleep(1)
             self.driver.find_element_by_id("btnGetStarted").click()
 
             try:
-                plusIcon = self.driver.find_element_by_id("ibAddPhoto")
                 sleep(2)
+                plusIcon = self.driver.find_element_by_id("com.jsdev.instasize:id/ibAddPhoto")
                 plusIcon.click()
 
             except NoSuchElementException:
                 try:
+                    sleep(1)
                     self.driver.find_element_by_id("btnSkip").click()
                     WebDriverWait(self.driver, 30).until(
-                        EC.presence_of_element_located((By.ID, "ibAddPhoto")))
-                    self.driver.find_element_by_id("ibAddPhoto").click()
+                        EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/ibAddPhoto")))
+                    self.driver.find_element_by_id("com.jsdev.instasize:id/ibAddPhoto").click()
 
                 except NoSuchElementException:
                     WebDriverWait(self.driver, 30).until(
-                        EC.presence_of_element_located((By.ID, "ibAddPhoto")))
-                    self.driver.find_element_by_id("ibAddPhoto").click()
+                        EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/ibAddPhoto")))
+                    sleep(2)
+                    self.driver.find_element_by_id("com.jsdev.instasize:id/ibAddPhoto").click()
 
 
     def addPhotoFind(self):
         sleep(3)
         try:
-            addPhotoFind = self.driver.find_element_by_id("ibAddPhoto")
+            addPhotoFind = self.driver.find_element_by_id("com.jsdev.instasize:id/ibAddPhoto")
             self.assertTrue(addPhotoFind.is_displayed(), "+ not found, Test Failed! Check for crash manually")
         except NoSuchElementException:
             print("element not found, check manually!")
@@ -577,23 +583,31 @@ class GridPage(object):
         self.driver.implicitly_wait(100)
         self.driver.find_element_by_id("ibEdit").click()
 
-    def collapseIconFind(self):
-        self.driver.find_element_by_id("ivCollapseIcon")
-
     def photoContainers(self):
         self.driver.find_element_by_id("photosContainer").click()
 
     # taps the top left photo in the photo library
     def topLeftPhoto(self):
-        self.driver.find_element_by_xpath("//android.widget.ImageView[@index=0]").click()
+        sleep(5)
+        # WebDriverWait(self.driver, 30).until(
+        #     EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/ivPhoto")))
+        self.driver.find_element_by_id("com.jsdev.instasize:id/ivPhoto").click()
 
     def instagramIcon(self):
+        sleep(1)
+        WebDriverWait(self.driver, 30).until(
+            EC.presence_of_element_located((By.XPATH, "//android.widget.TextView[@index=2]")))
         self.driver.find_element_by_xpath("//android.widget.TextView[@index=2]").click()
 
     def instagramPopup(self):
-        self.driver.find_element_by_id("android:id/icon").click()
+        WebDriverWait(self.driver, 30).until(
+            EC.presence_of_element_located((By.ID, "android:id/icon")))
+        nativeInstagram = self.driver.find_element_by_id("android:id/icon")
+        nativeInstagram.click()
 
-    def collapseIconAssert(self):
+    def collapseIconFind(self):
+        WebDriverWait(self.driver, 30).until(
+            EC.presence_of_element_located((By.ID, "ivCollapseIcon")))
         collapseIcon = self.driver.find_element_by_id("ivCollapseIcon")
         self.assertTrue(collapseIcon.is_displayed(), "Not Present, check for crash")
 
@@ -688,10 +702,10 @@ class CollagePage(object):
         self.driver = driver
 
     def tapFirstCollageOption(self):
-        if self.driver.find_element_by_xpath("//android.view.View[@index=1]").is_displayed():
-            WebDriverWait(self.driver, 30).until(
-                EC.presence_of_element_located((By.XPATH, "//android.view.View[@index=1]")))
-            self.driver.find_element_by_xpath("//android.view.View[@index=1]").click()
+        sleep(3)
+        WebDriverWait(self.driver, 30).until(
+            EC.presence_of_element_located((By.XPATH, "//android.view.View[@index=1]")))
+        self.driver.find_element_by_xpath("//android.view.View[@index=1]").click()
 
     def tap2ndCollageOption(self):
         sleep(2)
@@ -733,83 +747,39 @@ class CollagePage(object):
         self.driver.find_element_by_xpath("//android.view.View[@index=0]").click()
 
     def topLeftPhoto(self):
+        sleep(5)
         el = self.driver.find_element_by_id("ivPhoto")
-        if el.is_enabled():
-            sleep(1)
-            el.click()
-            pass
-
-        else:
-            WebDriverWait(self.driver, 30).until(
-                element_is_enabled((By.ID, "ivPhoto"), "true"))
-            el.click()
-            pass
-
+        # WebDriverWait(self.driver, 30).until(
+        #     element_is_enabled((By.ID, "ivPhoto"), "true"))
+        el.click()
 
 
     def tap2ndPhoto(self):
-        el = self.driver.find_element_by_xpath("(//android.widget.ImageView[@index=0])[2]")
-        if el.is_enabled():
-            sleep(1)
-            el.click()
-            pass
+        el = self.driver.find_element_by_xpath("(//android.widget.ImageView[@index=0])[3]")
+        sleep(3)
+        el.click()
 
-        else:
-            WebDriverWait(self.driver, 30).until(element_is_enabled((By.XPATH, "(//android.widget.ImageView[@index=0])[2]"), "true"))
-            el.click()
-            pass
 
     def tap3rdPhoto(self):
-        el = self.driver.find_element_by_xpath("(//android.widget.ImageView[@index=0])[4]")
-        if el.is_enabled():
-            sleep(1)
-            el.click()
-            pass
+        el = self.driver.find_element_by_xpath("(//android.widget.ImageView[@index=0])[5]")
+        sleep(3)
+        el.click()
 
-        else:
-            WebDriverWait(self.driver, 30).until(
-                element_is_enabled((By.XPATH, "(//android.widget.ImageView[@index=0])[4]"), "true"))
-            el.click()
-            pass
 
     def tap4thPhoto(self):
-        el = self.driver.find_element_by_xpath("(//android.widget.ImageView[@index=0])[6]")
-        if el.is_enabled():
-            sleep(1)
-            el.click()
-            pass
-
-        else:
-            WebDriverWait(self.driver, 30).until(
-                element_is_enabled((By.XPATH, "(//android.widget.ImageView[@index=0])[6]"), "true"))
-            el.click()
-            pass
+        el = self.driver.find_element_by_xpath("(//android.widget.ImageView[@index=0])[7]")
+        sleep(3)
+        el.click()
 
     def tap5thPhoto(self):
-        el = self.driver.find_element_by_xpath("(//android.widget.ImageView[@index=0])[8]")
-        if el.is_enabled():
-            sleep(1)
-            el.click()
-            pass
-
-        else:
-            WebDriverWait(self.driver, 30).until(
-                element_is_enabled((By.XPATH, "(//android.widget.ImageView[@index=0])[8]"), "true"))
-            el.click()
-            pass
+        el = self.driver.find_element_by_xpath("(//android.widget.ImageView[@index=0])[9]")
+        sleep(3)
+        el.click()
 
     def tap6thPhoto(self):
-        el = self.driver.find_element_by_xpath("(//android.widget.ImageView[@index=0])[10]")
-        if el.is_enabled():
-            sleep(1)
-            el.click()
-            pass
-
-        else:
-            WebDriverWait(self.driver, 30).until(
-                element_is_enabled((By.XPATH, "(//android.widget.ImageView[@index=0])[10]"), "true"))
-            el.click()
-            pass
+        el = self.driver.find_element_by_xpath("(//android.widget.ImageView[@index=0])[11]")
+        sleep(3)
+        el.click()
 
 class ProfilePage(object):
     def __init__(self, driver):
@@ -829,6 +799,16 @@ class ProfilePage(object):
     def tapSignUp(self):
         signUP = self.driver.find_element_by_id("com.jsdev.instasize:id/btnMainAction")
         signUP.click()
+
+    def enterFullName(self):
+        fullName = self.driver.find_element_by_id("com.jsdev.instasize:id/etvFullName")
+        fullName.click()
+        fullName.send_keys('Test Me')
+
+    def enterEmail(self):
+        email = self.driver.find_element_by_id("com.jsdev.instasize:id/etvEmailAddress")
+        email.click()
+        email.send_keys('randomEmail@test.com')
 
 class SelectFormat(object):
     def __init__(self, driver):

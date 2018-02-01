@@ -12,12 +12,13 @@ class DriverBuilderAndroid(object):
         self.setUp()
 
     def setUp(self):
-        # getDevice = GetDeviceID()
+        getDevice = GetDeviceID()
         "Setup for the test"
         desired_caps = {}
         desired_caps['platformName'] = 'ANDROID'
-        desired_caps['deviceName'] = 'null'
-        desired_caps['platformVersion'] = GetAndroidVersion.getVersion()
+        desired_caps['automationName'] = 'uiautomator2'
+        desired_caps['deviceName'] = getDevice
+        # desired_caps['platformVersion'] = GetAndroidVersion.getVersion()
         desired_caps['app'] = '/Users/tyler/Desktop/InstasizeInstallAPK/Instasize_20180501_release_4.0.8b2_126_google.apk'
         desired_caps['appPackage'] = 'com.jsdev.instasize'
 

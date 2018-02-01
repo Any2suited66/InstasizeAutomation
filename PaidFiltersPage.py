@@ -1,5 +1,19 @@
 from time import sleep
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
+class element_is_enabled(object):
+    def __init__(self, locator, is_enabled):
+        self.locator = locator
+        self.is_enabled = is_enabled
+
+    def __call__(self, driver):
+        element = driver.find_element(*self.locator)
+        if self.is_enabled in element.get_attribute("enabled"):
+            return element
+        else:
+            return False
 
 
 class PaidEditorPage(object):
@@ -566,6 +580,8 @@ class PaidEditorPage(object):
 
 
     def swipeInEditor(self):
+        WebDriverWait(self.driver, 30).until(
+            element_is_enabled((By.ID, "ibExport"), "true"))
         self.driver.swipe(1000, 2268, 201, 2268)
         self.driver.implicitly_wait(2)
 

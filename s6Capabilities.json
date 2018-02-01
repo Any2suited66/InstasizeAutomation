@@ -2,22 +2,23 @@
   "capabilities":
       [
         {
-          "platformVersion":"6.0.1",
-          "maxInstances": 5,
-          "platformName":"ANDROID",
-          "UDID":"05157df532e5e40e",
-          "browserName":"Chrome"
+          "applicationName": "Samsung S6",
+          "platformVersion": "6.0.1",
+          "maxInstances": 1,
+          "platformName": "ANDROID",
+          "U": "05157df532e5e40e",
+          "browserName": "Samsung S6"
         }
       ],
   "configuration":
   {
-    "cleanUpCycle":2000,
-    "timeout":30000,
+    "cleanUpCycle": 2000,
+    "timeout": 30000,
     "proxy": "org.openqa.grid.selenium.proxy.DefaultRemoteProxy",
-    "url":"http://localhost:4823/wd/hub",
+    "url": "http://localhost:4823/wd/hub",
     "host": "127.0.0.1",
     "port": 4823,
-    "maxSession": 99999,
+    "maxSession": 1,
     "register": true,
     "role": "node",
     "registerCycle": 5000,

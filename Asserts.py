@@ -14,6 +14,8 @@ class PhotoLibraryAsserts(object):
         pass
 
     def allPhotosButton(self):
+        WebDriverWait(self.driver, 10).until(
+            EC.presence_of_element_located((By.ID, "btnShowAlbumsList")))
         allPhotosButton = self.driver.find_element_by_id("btnShowAlbumsList")
         self.assertTrue(allPhotosButton.is_displayed, "Failed, Check for crash")
 

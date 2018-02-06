@@ -1,5 +1,8 @@
 from selenium.common.exceptions import NoSuchElementException
-
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from time import sleep
 
 class TryExcepts(object):
 
@@ -15,6 +18,17 @@ class TryExcepts(object):
     def instagramSystemPopup(self):
         self.driver.implicitly_wait(100)
         try:
-            self.driver.find_element_by_id("icon").click()
+            WebDriverWait(self.driver, 5).until(
+                EC.presence_of_element_located((By.ID, "android:id/icon")))
+            self.driver.find_element_by_id("android:id/icon").click()
+
         except NoSuchElementException:
-            print("Not required on this version of android")
+            print ("Not required on this version of android")
+            pass
+
+
+
+
+
+
+

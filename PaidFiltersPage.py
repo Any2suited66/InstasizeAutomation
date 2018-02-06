@@ -1,11 +1,28 @@
 from time import sleep
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+
+class element_is_enabled(object):
+    def __init__(self, locator, is_enabled):
+        self.locator = locator
+        self.is_enabled = is_enabled
+
+    def __call__(self, driver):
+        element = driver.find_element(*self.locator)
+        if self.is_enabled in element.get_attribute("enabled"):
+            return element
+        else:
+            return False
 
 
 class PaidEditorPage(object):
     def __init__(self, driver):
         self.driver = driver
 
+    # premium subscription element
     def h1Filter(self):
+        PaidEditorPage.wait_for_editor(self)
         for _ in xrange(50):
             try:
                 filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='H1']")
@@ -19,7 +36,24 @@ class PaidEditorPage(object):
     def tapH1Filter(self):
         self.driver.find_element_by_xpath("//android.widget.TextView[@text='H1']").click()
 
+    # free version element
+    def freeH1Filter(self):
+        sleep(5)
+        for _ in xrange(50):
+            try:
+                filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='H1']")
+                if filter_found.is_displayed():
+                    PaidEditorPage.freeTapH1Filter(self)
+                    break
+
+            except:
+                PaidEditorPage.freeSwipeInEditor(self)
+
+    def freeTapH1Filter(self):
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='H1']").click()
+
     def h2Filter(self):
+        PaidEditorPage.wait_for_editor(self)
         for _ in xrange(50):
             try:
                 filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='H2']")
@@ -34,6 +68,7 @@ class PaidEditorPage(object):
         self.driver.find_element_by_xpath("//android.widget.TextView[@text='H2']").click()
 
     def h3Filter(self):
+        PaidEditorPage.wait_for_editor(self)
         for _ in xrange(50):
             try:
                 filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='H3']")
@@ -48,6 +83,7 @@ class PaidEditorPage(object):
         self.driver.find_element_by_xpath("//android.widget.TextView[@text='H3']").click()
 
     def v1Filter(self):
+        PaidEditorPage.wait_for_editor(self)
         for _ in xrange(50):
             try:
                 filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='V1']")
@@ -62,6 +98,7 @@ class PaidEditorPage(object):
         self.driver.find_element_by_xpath("//android.widget.TextView[@text='V1']").click()
 
     def v2Filter(self):
+        PaidEditorPage.wait_for_editor(self)
         for _ in xrange(50):
             try:
                 filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='V2']")
@@ -76,6 +113,7 @@ class PaidEditorPage(object):
         self.driver.find_element_by_xpath("//android.widget.TextView[@text='V2']").click()
 
     def v3Filter(self):
+        PaidEditorPage.wait_for_editor(self)
         for _ in xrange(50):
             try:
                 filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='V3']")
@@ -90,6 +128,7 @@ class PaidEditorPage(object):
         self.driver.find_element_by_xpath("//android.widget.TextView[@text='V3']").click()
 
     def kotoFilter(self):
+        PaidEditorPage.wait_for_editor(self)
         for _ in xrange(50):
             try:
                 filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='KOTO']")
@@ -104,6 +143,7 @@ class PaidEditorPage(object):
         self.driver.find_element_by_xpath("//android.widget.TextView[@text='KOTO']").click()
 
     def pikeFilter(self):
+        PaidEditorPage.wait_for_editor(self)
         for _ in xrange(50):
             try:
                 filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='PIKE']")
@@ -118,6 +158,7 @@ class PaidEditorPage(object):
         self.driver.find_element_by_xpath("//android.widget.TextView[@text='PIKE']").click()
 
     def azulFilter(self):
+        PaidEditorPage.wait_for_editor(self)
         for _ in xrange(50):
             try:
                 filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='AZUL']")
@@ -132,6 +173,7 @@ class PaidEditorPage(object):
         self.driver.find_element_by_xpath("//android.widget.TextView[@text='AZUL']").click()
 
     def calicoFilter(self):
+        PaidEditorPage.wait_for_editor(self)
         for _ in xrange(50):
             try:
                 filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='CALICO']")
@@ -146,6 +188,7 @@ class PaidEditorPage(object):
         self.driver.find_element_by_xpath("//android.widget.TextView[@text='CALICO']").click()
 
     def frontFilter(self):
+        PaidEditorPage.wait_for_editor(self)
         for _ in xrange(50):
             try:
                 filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='FRONT']")
@@ -160,6 +203,7 @@ class PaidEditorPage(object):
         self.driver.find_element_by_xpath("//android.widget.TextView[@text='FRONT']").click()
 
     def tacomaFilter(self):
+        PaidEditorPage.wait_for_editor(self)
         for _ in xrange(50):
             try:
                 filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='TACOMA']")
@@ -174,6 +218,7 @@ class PaidEditorPage(object):
         self.driver.find_element_by_xpath("//android.widget.TextView[@text='TACOMA']").click()
 
     def echoFilter(self):
+        PaidEditorPage.wait_for_editor(self)
         for _ in xrange(50):
             try:
                 filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='ECHO']")
@@ -188,6 +233,7 @@ class PaidEditorPage(object):
         self.driver.find_element_by_xpath("//android.widget.TextView[@text='ECHO']").click()
 
     def cruzFilter(self):
+        PaidEditorPage.wait_for_editor(self)
         for _ in xrange(50):
             try:
                 filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='CRUZ']")
@@ -202,6 +248,7 @@ class PaidEditorPage(object):
         self.driver.find_element_by_xpath("//android.widget.TextView[@text='CRUZ']").click()
 
     def flumeFilter(self):
+        PaidEditorPage.wait_for_editor(self)
         for _ in xrange(50):
             try:
                 filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='FLUME']")
@@ -216,6 +263,7 @@ class PaidEditorPage(object):
         self.driver.find_element_by_xpath("//android.widget.TextView[@text='FLUME']").click()
 
     def timberFilter(self):
+        PaidEditorPage.wait_for_editor(self)
         for _ in xrange(50):
             try:
                 filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='TIMBER']")
@@ -230,6 +278,7 @@ class PaidEditorPage(object):
         self.driver.find_element_by_xpath("//android.widget.TextView[@text='TIMBER']").click()
 
     def aryaFilter(self):
+        PaidEditorPage.wait_for_editor(self)
         for _ in xrange(50):
             try:
                 filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='ARYA']")
@@ -244,6 +293,7 @@ class PaidEditorPage(object):
         self.driver.find_element_by_xpath("//android.widget.TextView[@text='ARYA']").click()
 
     def tariusFilter(self):
+        PaidEditorPage.wait_for_editor(self)
         for _ in xrange(50):
             try:
                 filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='TARIUS']")
@@ -258,6 +308,7 @@ class PaidEditorPage(object):
         self.driver.find_element_by_xpath("//android.widget.TextView[@text='TARIUS']").click()
 
     def roseFilter(self):
+        PaidEditorPage.wait_for_editor(self)
         for _ in xrange(50):
             try:
                 filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='ROSE']")
@@ -272,6 +323,7 @@ class PaidEditorPage(object):
         self.driver.find_element_by_xpath("//android.widget.TextView[@text='ROSE']").click()
 
     def bachFilter(self):
+        PaidEditorPage.wait_for_editor(self)
         for _ in xrange(50):
             try:
                 filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='BACH']")
@@ -286,6 +338,7 @@ class PaidEditorPage(object):
         self.driver.find_element_by_xpath("//android.widget.TextView[@text='BACH']").click()
 
     def loftFilter(self):
+        PaidEditorPage.wait_for_editor(self)
         for _ in xrange(50):
             try:
                 filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='LOFT']")
@@ -300,6 +353,7 @@ class PaidEditorPage(object):
         self.driver.find_element_by_xpath("//android.widget.TextView[@text='LOFT']").click()
 
     def bloomFilter(self):
+        PaidEditorPage.wait_for_editor(self)
         for _ in xrange(50):
             try:
                 filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='BLOOM']")
@@ -314,6 +368,7 @@ class PaidEditorPage(object):
         self.driver.find_element_by_xpath("//android.widget.TextView[@text='BLOOM']").click()
 
     def jukeFilter(self):
+        PaidEditorPage.wait_for_editor(self)
         for _ in xrange(50):
             try:
                 filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='JUKE']")
@@ -329,6 +384,7 @@ class PaidEditorPage(object):
         
     
     def walesFilter(self):
+        PaidEditorPage.wait_for_editor(self)
         for _ in xrange(50):
             try:
                 filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='WALES']")
@@ -343,6 +399,7 @@ class PaidEditorPage(object):
         self.driver.find_element_by_xpath("//android.widget.TextView[@text='WALES']").click()
         
     def rokiFilter(self):
+        PaidEditorPage.wait_for_editor(self)
         for _ in xrange(50):
             try:
                 filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='ROKI']")
@@ -357,6 +414,7 @@ class PaidEditorPage(object):
         self.driver.find_element_by_xpath("//android.widget.TextView[@text='ROKI']").click()
         
     def hillsFilter(self):
+        PaidEditorPage.wait_for_editor(self)
         for _ in xrange(50):
             try:
                 filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='HILLS']")
@@ -371,6 +429,7 @@ class PaidEditorPage(object):
         self.driver.find_element_by_xpath("//android.widget.TextView[@text='HILLS']").click()
         
     def latchFilter(self):
+        PaidEditorPage.wait_for_editor(self)
         for _ in xrange(50):
             try:
                 filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='LATCH']")
@@ -382,9 +441,10 @@ class PaidEditorPage(object):
                 PaidEditorPage.swipeInEditor(self)
 
     def tapLatchFilter(self):
-        self.driver.find_element_by_xpath("//android.widget.TextView[@text='LATCH]").click()
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='LATCH']").click()
         
     def finFilter(self):
+        PaidEditorPage.wait_for_editor(self)
         for _ in xrange(50):
             try:
                 filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='FIN']")
@@ -399,6 +459,7 @@ class PaidEditorPage(object):
         self.driver.find_element_by_xpath("//android.widget.TextView[@text='FIN']").click()
         
     def loonFilter(self):
+        PaidEditorPage.wait_for_editor(self)
         for _ in xrange(50):
             try:
                 filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='LOON']")
@@ -413,6 +474,7 @@ class PaidEditorPage(object):
         self.driver.find_element_by_xpath("//android.widget.TextView[@text='LOON']").click()
         
     def lanaFilter(self):
+        PaidEditorPage.wait_for_editor(self)
         for _ in xrange(50):
             try:
                 filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='LANA']")
@@ -427,6 +489,7 @@ class PaidEditorPage(object):
         self.driver.find_element_by_xpath("//android.widget.TextView[@text='LANA']").click()
         
     def osakaFilter(self):
+        PaidEditorPage.wait_for_editor(self)
         for _ in xrange(50):
             try:
                 filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='OSAKA']")
@@ -441,6 +504,7 @@ class PaidEditorPage(object):
         self.driver.find_element_by_xpath("//android.widget.TextView[@text='OSAKA']").click()
         
     def rootFilter(self):
+        PaidEditorPage.wait_for_editor(self)
         for _ in xrange(50):
             try:
                 filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='ROOT']")
@@ -455,6 +519,7 @@ class PaidEditorPage(object):
         self.driver.find_element_by_xpath("//android.widget.TextView[@text='ROOT']").click()
         
     def kauaiFilter(self):
+        PaidEditorPage.wait_for_editor(self)
         for _ in xrange(50):
             try:
                 filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='KAUAI']")
@@ -469,6 +534,7 @@ class PaidEditorPage(object):
         self.driver.find_element_by_xpath("//android.widget.TextView[@text='KAUAI']").click()
         
     def sparkFilter(self):
+        PaidEditorPage.wait_for_editor(self)
         for _ in xrange(50):
             try:
                 filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='SPARK']")
@@ -483,6 +549,7 @@ class PaidEditorPage(object):
         self.driver.find_element_by_xpath("//android.widget.TextView[@text='SPARK']").click()
         
     def riseFilter(self):
+        PaidEditorPage.wait_for_editor(self)
         for _ in xrange(50):
             try:
                 filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='RISE']")
@@ -497,6 +564,7 @@ class PaidEditorPage(object):
         self.driver.find_element_by_xpath("//android.widget.TextView[@text='RISE']").click()
         
     def meritFilter(self):
+        PaidEditorPage.wait_for_editor(self)
         for _ in xrange(50):
             try:
                 filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='MERIT']")
@@ -512,5 +580,14 @@ class PaidEditorPage(object):
 
 
     def swipeInEditor(self):
-                self.driver.swipe(1000, 2268, 201, 2268)
-                self.driver.implicitly_wait(2)
+        WebDriverWait(self.driver, 30).until(
+            element_is_enabled((By.ID, "ibExport"), "true"))
+        self.driver.swipe(1000, 2268, 201, 2268)
+        self.driver.implicitly_wait(2)
+
+    def freeSwipeInEditor(self):
+        self.driver.swipe(900, 2050, 220, 2050)
+        self.driver.implicitly_wait(2)
+
+    def wait_for_editor(self):
+        self.driver.implicitly_wait(5)

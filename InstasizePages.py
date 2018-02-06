@@ -1,7 +1,22 @@
 from time import sleep
 from appium.webdriver.common.touch_action import TouchAction
 from selenium.common.exceptions import NoSuchElementException, WebDriverException
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
+# custom explicit wait for element to be enabled
+class element_is_enabled(object):
+    def __init__(self, locator, is_enabled):
+        self.locator = locator
+        self.is_enabled = is_enabled
+
+    def __call__(self, driver):
+        element = driver.find_element(*self.locator)
+        if self.is_enabled in element.get_attribute("enabled"):
+            return element
+        else:
+            return False
 
 class EditorPage(object):
     def __init__(self, driver):
@@ -10,6 +25,7 @@ class EditorPage(object):
     def sharebutton(self):
         for _ in xrange(10):
             try:
+                sleep(5)
                 self.driver.swipe(600, 500, 602, 500)
                 el = self.driver.find_element_by_id('ibExport')
                 if el.is_displayed():
@@ -414,6 +430,10 @@ class EditorPage(object):
     def tapHulaFilter(self):
         self.driver.find_element_by_xpath("//android.widget.TextView[@text='HULA']").click()
 
+    def tapPremiumBanner(self):
+        banner = self.driver.find_element_by_id("getCollectionViewContainer")
+        banner.click()
+
     def reviewPopup(self):
         self.driver.find_element_by_id("btnDeny").click()
 
@@ -423,15 +443,106 @@ class EditorPage(object):
     def giveAReviewButtonTap(self):
         self.driver.find_element_by_id("btnReview").click()
 
-    def driverQuit(self):
-        print "Filter Passed!"
-        sleep(3)
-        self.driver.quit()
+    def tapCropFeature(self):
         sleep(5)
+        self.driver.find_element_by_xpath("//*[@class = 'android.widget.ImageView' and @content-desc ='Crop']").click()
 
+    def tapCropFree(self):
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='FREE']").click()
+
+    def tapCropOneToOne(self):
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='1:1']").click()
+
+    def tapCropThreeToTwo(self):
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='3:2']").click()
+
+    def tapCropFiveToThree(self):
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='5:3']").click()
+
+    def tapCropFourToThree(self):
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='4:3']").click()
+
+    def tapCropFiveToFour(self):
+        EditorPage.swipeInEditor(self)
+        sleep(2)
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='5:4']").click()
+
+    def tapCropFourToFive(self):
+        EditorPage.swipeInEditor(self)
+        sleep(2)
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='4:5']").click()
+
+    def tapCropThreeToFour(self):
+        EditorPage.swipeInEditor(self)
+        sleep(2)
+        EditorPage.swipeInEditor(self)
+        sleep(2)
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='3:4']").click()
+
+    def tapCropTwoToThree(self):
+        EditorPage.swipeInEditor(self)
+        sleep(2)
+        EditorPage.swipeInEditor(self)
+        sleep(2)
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='2:3']").click()
+
+    def tapCropSevenToFive(self):
+        EditorPage.swipeInEditor(self)
+        sleep(2)
+        EditorPage.swipeInEditor(self)
+        sleep(2)
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='7:5']").click()
+
+    def tapCrop21To9(self):
+        EditorPage.swipeInEditor(self)
+        sleep(2)
+        EditorPage.swipeInEditor(self)
+        sleep(2)
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='21:9']").click()
+
+    def tapAccept(self):
+        self.driver.find_element_by_xpath("//*[@class = 'android.widget.ImageButton' and @content-desc ='Accept']").click()
+
+    def tapBorderFeature(self):
+        sleep(5)
+        self.driver.find_element_by_xpath("//*[@class = 'android.widget.ImageView' and @content-desc ='Border']").click()
+
+    def tapXOXOBorderPack(self):
+        sleep(2)
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='XOXO']").click()
+
+    def tapX1Border(self):
+        sleep(2)
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='X1']").click()
+
+    def tapPhotoBorder(self):
+        sleep(2)
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='PHOTO']").click()
+
+    def tapBlurPhotoBorder(self):
+        sleep(2)
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='BLUR']").click()
+
+
+    def driverQuit(self):
+        print "Passed!"
+        self.driver.quit()
+        sleep(2)
+
+    # Premium version swipe
     def swipeInEditor(self):
-                self.driver.swipe(1000, 2268, 201, 2268)
-                self.driver.implicitly_wait(2)
+        sleep(4)
+        self.driver.swipe(1000, 2268, 201, 2268)
+
+
+    def freeVersionSwipeInEditor(self):
+        sleep(2)
+        self.driver.swipe(1000, 2050, 201, 2050)
+
+    def discardEditsConfirm(self):
+        WebDriverWait(self.driver, 30).until(
+            EC.presence_of_element_located((By.ID, "btnDiscard")))
+        self.driver.find_element_by_id("btnDiscard").click()
 
 
 class GridPage(object):
@@ -442,38 +553,49 @@ class GridPage(object):
     def addPhotoTap(self):
         # had to add this try/except to take care of the premium popup screen.
         # if premium popup screen is removed please delete this try/except to reduce testing time
-        for _ in xrange(5):
-            try:
-                el = self.driver.find_element_by_id("btnGetStarted")
-                if el.is_displayed():
-                    el.click()
-                    break
-            except NoSuchElementException:
-                    print "element not found, please check manually and to make sure element is still present"
-                    break
 
-        for _ in xrange(5):
+        try:
+            plusIcon = self.driver.find_element_by_id("com.jsdev.instasize:id/ibAddPhoto")
+            sleep(2)
+            plusIcon.click()
+
+        except NoSuchElementException:
+            WebDriverWait(self.driver, 30).until(
+                EC.presence_of_element_located((By.ID, "btnGetStarted")))
+            sleep(1)
+            self.driver.find_element_by_id("btnGetStarted").click()
+
             try:
-                sleep(3)
-                el = self.driver.find_element_by_id("btnSkip")
-                if el.is_displayed():
-                    el.click()
-                    break
+                sleep(2)
+                plusIcon = self.driver.find_element_by_id("com.jsdev.instasize:id/ibAddPhoto")
+                plusIcon.click()
+
             except NoSuchElementException:
-                print "element not found, please check manually and to make sure element is still present"
-                break
-            finally:
-                self.driver.find_element_by_id("ibAddPhoto").click()
+                try:
+                    sleep(1)
+                    self.driver.find_element_by_id("btnSkip").click()
+                    WebDriverWait(self.driver, 30).until(
+                        EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/ibAddPhoto")))
+                    self.driver.find_element_by_id("com.jsdev.instasize:id/ibAddPhoto").click()
+
+                except NoSuchElementException:
+                    WebDriverWait(self.driver, 30).until(
+                        EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/ibAddPhoto")))
+                    sleep(2)
+                    self.driver.find_element_by_id("com.jsdev.instasize:id/ibAddPhoto").click()
+
 
     def addPhotoFind(self):
         sleep(3)
         try:
-            addPhotoFind = self.driver.find_element_by_id("ibAddPhoto")
+            addPhotoFind = self.driver.find_element_by_id("com.jsdev.instasize:id/ibAddPhoto")
             self.assertTrue(addPhotoFind.is_displayed(), "+ not found, Test Failed! Check for crash manually")
         except NoSuchElementException:
-            self.driver.quit()
+            print("element not found, check manually!")
+            pass
 
     def tap_get_started_button(self):
+        sleep(2)
         for _ in xrange(10):
             try:
                 el = self.driver.find_element_by_id("btnGetStarted")
@@ -485,6 +607,7 @@ class GridPage(object):
                 break
 
     def skip_button(self):
+        sleep(2)
         for _ in xrange(10):
             try:
                 sleep(5)
@@ -497,32 +620,30 @@ class GridPage(object):
                 break
 
     def topLeftPhotoGridtap(self):
-        for _ in xrange(10):
             try:
-                sleep(5)
+                sleep(13)
                 topLeftPhotoGridtap = self.driver.find_element_by_id("ivPhoto")
-                if topLeftPhotoGridtap.is_displayed():
-                    topLeftPhotoGridtap.click()
-                    break
+
+                WebDriverWait(self.driver, 30).until(
+                    EC.presence_of_element_located((By.ID, "ivPhoto")))
+
+                topLeftPhotoGridtap.click()
+                pass
+
             except NoSuchElementException:
                 print "test failed, check manually"
 
-
-
     def second_grid_image(self):
-        for _ in xrange(10):
+
             try:
-                sleep(20)
+                sleep(2)
                 el = self.driver.find_element_by_xpath("(//android.widget.ImageView[@index=0])[2]")
                 if el.is_displayed():
                     el.click()
-                    break
+                    pass
             except NoSuchElementException:
                 print "test failed, check manually"
                 self.driver.quit()
-
-
-
 
     def tap_camera_icon(self):
         self.driver.find_element_by_id("ibCamera").click()
@@ -540,24 +661,31 @@ class GridPage(object):
         self.driver.implicitly_wait(100)
         self.driver.find_element_by_id("ibEdit").click()
 
-    def collapseIconFind(self):
-        self.driver.find_element_by_id("ivCollapseIcon")
-
     def photoContainers(self):
         self.driver.find_element_by_id("photosContainer").click()
 
-    # top left photo in the photo library
+    # taps the top left photo in the photo library
     def topLeftPhoto(self):
-        self.driver.find_element_by_xpath("//android.widget.ImageView[@index=0]").click()
         sleep(5)
+        # WebDriverWait(self.driver, 30).until(
+        #     EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/ivPhoto")))
+        self.driver.find_element_by_id("com.jsdev.instasize:id/ivPhoto").click()
 
     def instagramIcon(self):
-        self.driver.find_element_by_xpath("//android.widget.TextView[@index=1]").click()
+        sleep(1)
+        WebDriverWait(self.driver, 30).until(
+            EC.presence_of_element_located((By.XPATH, "//android.widget.TextView[@index=2]")))
+        self.driver.find_element_by_xpath("//android.widget.TextView[@index=2]").click()
 
     def instagramPopup(self):
-        self.driver.find_element_by_id("android:id/icon").click()
+        WebDriverWait(self.driver, 30).until(
+            EC.presence_of_element_located((By.ID, "android:id/icon")))
+        nativeInstagram = self.driver.find_element_by_id("android:id/icon")
+        nativeInstagram.click()
 
-    def collapseIconAssert(self):
+    def collapseIconFind(self):
+        WebDriverWait(self.driver, 30).until(
+            EC.presence_of_element_located((By.ID, "ivCollapseIcon")))
         collapseIcon = self.driver.find_element_by_id("ivCollapseIcon")
         self.assertTrue(collapseIcon.is_displayed(), "Not Present, check for crash")
 
@@ -565,7 +693,10 @@ class GridPage(object):
         pass
 
     def deleteIconTap(self):
-        self.driver.find_element_by_id("ibDelete").click()
+        deletePhoto = self.driver.find_element_by_id("ibDelete")
+        WebDriverWait(self.driver, 30).until(
+            element_is_enabled((By.ID, "ibDelete"), "true"))
+        deletePhoto.click()
 
     def deleteButtonTap(self):
         self.driver.find_element_by_id("btnDelete").click()
@@ -578,6 +709,62 @@ class GridPage(object):
 
     def collageButtonTap(self):
         self.driver.find_element_by_id("ibCollage").click()
+
+    def whatsNewBtnTap(self):
+        try:
+            whatsNewIcon = self.driver.find_element_by_id("com.jsdev.instasize:id/ibWhatsNewIcon")
+            sleep(2)
+            whatsNewIcon.click()
+
+        except NoSuchElementException:
+            WebDriverWait(self.driver, 30).until(
+                EC.presence_of_element_located((By.ID, "btnGetStarted")))
+            self.driver.find_element_by_id("btnGetStarted").click()
+
+            try:
+                whatsNewIcon = self.driver.find_element_by_xpath("//android.widget.ImageButton[@index=2]")
+                sleep(2)
+                whatsNewIcon.click()
+
+            except NoSuchElementException:
+                try:
+                    self.driver.find_element_by_id("btnSkip").click()
+                    WebDriverWait(self.driver, 30).until(
+                        EC.presence_of_element_located((By.XPATH, "//android.widget.ImageButton[@index=2]")))
+                    self.driver.find_element_by_id("com.jsdev.instasize:id/ibWhatsNewIcon]").click()
+
+                except NoSuchElementException:
+                    WebDriverWait(self.driver, 30).until(
+                        EC.presence_of_element_located((By.XPATH, "//android.widget.ImageButton[@index=2]")))
+                    self.driver.find_element_by_id("com.jsdev.instasize:id/ibWhatsNewIcon").click()
+
+    def openProfilePage(self):
+        try:
+            profilePlusIcon = self.driver.find_element_by_id("com.jsdev.instasize:id/ibPlus")
+            sleep(2)
+            profilePlusIcon.click()
+
+        except NoSuchElementException:
+            WebDriverWait(self.driver, 30).until(
+                EC.presence_of_element_located((By.ID, "btnGetStarted")))
+            self.driver.find_element_by_id("btnGetStarted").click()
+
+            try:
+                profilePlusIcon = self.driver.find_element_by_id("com.jsdev.instasize:id/ibPlus")
+                sleep(2)
+                profilePlusIcon.click()
+
+            except NoSuchElementException:
+                try:
+                    self.driver.find_element_by_id("btnSkip").click()
+                    WebDriverWait(self.driver, 30).until(
+                        EC.presence_of_element_located((By.XPATH, "//android.widget.ImageButton[@index=2]")))
+                    self.driver.find_element_by_id("com.jsdev.instasize:id/ibWhatsNewIcon]").click()
+
+                except NoSuchElementException:
+                    WebDriverWait(self.driver, 30).until(
+                        EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/ibPlus")))
+                    self.driver.find_element_by_id("com.jsdev.instasize:id/ibPlus").click()
 
 
 class PhotoLibraryPage(object):
@@ -593,11 +780,15 @@ class CollagePage(object):
         self.driver = driver
 
     def tapFirstCollageOption(self):
+        sleep(3)
+        WebDriverWait(self.driver, 30).until(
+            EC.presence_of_element_located((By.XPATH, "//android.view.View[@index=1]")))
         self.driver.find_element_by_xpath("//android.view.View[@index=1]").click()
 
     def tap2ndCollageOption(self):
         sleep(2)
         self.driver.find_element_by_xpath("(//android.view.View[@index=0])[2]").click()
+        sleep(3)
 
     def tap3rdCollageOption(self):
         sleep(2)
@@ -633,26 +824,71 @@ class CollagePage(object):
         sleep(2)
         self.driver.find_element_by_xpath("//android.view.View[@index=0]").click()
 
-
-
     def topLeftPhoto(self):
-        sleep(2)
-        self.driver.find_element_by_id("ivPhoto").click()
+        sleep(5)
+        el = self.driver.find_element_by_id("ivPhoto")
+        # WebDriverWait(self.driver, 30).until(
+        #     element_is_enabled((By.ID, "ivPhoto"), "true"))
+        el.click()
+
 
     def tap2ndPhoto(self):
-        sleep(2)
-        self.driver.find_element_by_xpath("(//android.widget.ImageView[@index=0])[2]").click()
+        el = self.driver.find_element_by_xpath("(//android.widget.ImageView[@index=0])[3]")
+        sleep(3)
+        el.click()
+
 
     def tap3rdPhoto(self):
+        el = self.driver.find_element_by_xpath("(//android.widget.ImageView[@index=0])[5]")
         sleep(3)
-        self.driver.find_element_by_xpath("(//android.widget.ImageView[@index=0])[3]").click()
+        el.click()
+
 
     def tap4thPhoto(self):
+        el = self.driver.find_element_by_xpath("(//android.widget.ImageView[@index=0])[7]")
         sleep(3)
-        self.driver.find_element_by_xpath("(//android.widget.ImageView[@index=0])[4]").click()
+        el.click()
 
+    def tap5thPhoto(self):
+        el = self.driver.find_element_by_xpath("(//android.widget.ImageView[@index=0])[9]")
+        sleep(3)
+        el.click()
 
+    def tap6thPhoto(self):
+        el = self.driver.find_element_by_xpath("(//android.widget.ImageView[@index=0])[11]")
+        sleep(3)
+        el.click()
 
+class ProfilePage(object):
+    def __init__(self, driver):
+        self.driver = driver
+
+    def tapSignIn(self):
+        WebDriverWait(self.driver, 30).until(
+            EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/tvOption1")))
+        self.driver.find_element_by_id("com.jsdev.instasize:id/tvOption1").click()
+
+    def enterLoginInfo(self):
+        email = self.driver.find_element_by_id("com.jsdev.instasize:id/etvEmailAddress")
+        email.click()
+        email.send_keys('test1@test.com')
+        password = self.driver.find_element_by_id("com.jsdev.instasize:id/etvPassword")
+        password.click()
+        password.send_keys('aaaaaaaa')
+
+    def tapSignUp(self):
+        signUP = self.driver.find_element_by_id("com.jsdev.instasize:id/btnMainAction")
+        signUP.click()
+
+    def enterFullName(self):
+        fullName = self.driver.find_element_by_id("com.jsdev.instasize:id/etvFullName")
+        fullName.click()
+        fullName.send_keys('Test Me')
+
+    def enterEmail(self):
+        email = self.driver.find_element_by_id("com.jsdev.instasize:id/etvEmailAddress")
+        email.click()
+        email.send_keys('randomEmail@test.com')
 
 class SelectFormat(object):
     def __init__(self, driver):

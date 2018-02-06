@@ -70,13 +70,13 @@ class TestDeletePhoto(unittest.TestCase):
         sleep(2)
         driver.back()
 
-        # taps on the second image on grid screen
-        tap2ndImage = GridPage(driver)
-        tap2ndImage.second_grid_image()
-
         # Taps on the top left image on the grid
         tapOnGridPhoto = GridPage(driver)
         tapOnGridPhoto.topLeftPhotoGridtap()
+
+        # taps on the second image on grid screen
+        tap2ndImage = GridPage(driver)
+        tap2ndImage.second_grid_image()
 
         # Taps on delete icon
         tapDeleteIcon = GridPage(driver)

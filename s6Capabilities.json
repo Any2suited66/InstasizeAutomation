@@ -1,0 +1,28 @@
+{
+  "capabilities":
+      [
+        {
+          "applicationName": "Samsung S6",
+          "udid": "05157df532e5e40e",
+          "platformVersion": "6.0.1",
+          "maxInstances": 1,
+          "platformName": "ANDROID"
+
+        }
+      ],
+  "configuration":
+  {
+    "cleanUpCycle": 2000,
+    "timeout": 30000,
+    "proxy": "org.openqa.grid.selenium.proxy.DefaultRemoteProxy",
+    "url": "http://localhost:4823/wd/hub",
+    "host": "127.0.0.1",
+    "port": 4823,
+    "maxSession": 1,
+    "register": true,
+    "role": "node",
+    "registerCycle": 5000,
+    "hubPort": 4444,
+    "hubHost": "0.0.0.0"
+  }
+}

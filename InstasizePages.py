@@ -444,7 +444,85 @@ class EditorPage(object):
         self.driver.find_element_by_id("btnReview").click()
 
     def tapCropFeature(self):
-        self.driver.find_element_by_xpath("//android.widget.RelativeLayout[@index='2'][2]").click()
+        sleep(5)
+        self.driver.find_element_by_xpath("//*[@class = 'android.widget.ImageView' and @content-desc ='Crop']").click()
+
+    def tapCropFree(self):
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='FREE']").click()
+
+    def tapCropOneToOne(self):
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='1:1']").click()
+
+    def tapCropThreeToTwo(self):
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='3:2']").click()
+
+    def tapCropFiveToThree(self):
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='5:3']").click()
+
+    def tapCropFourToThree(self):
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='4:3']").click()
+
+    def tapCropFiveToFour(self):
+        EditorPage.swipeInEditor(self)
+        sleep(2)
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='5:4']").click()
+
+    def tapCropFourToFive(self):
+        EditorPage.swipeInEditor(self)
+        sleep(2)
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='4:5']").click()
+
+    def tapCropThreeToFour(self):
+        EditorPage.swipeInEditor(self)
+        sleep(2)
+        EditorPage.swipeInEditor(self)
+        sleep(2)
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='3:4']").click()
+
+    def tapCropTwoToThree(self):
+        EditorPage.swipeInEditor(self)
+        sleep(2)
+        EditorPage.swipeInEditor(self)
+        sleep(2)
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='2:3']").click()
+
+    def tapCropSevenToFive(self):
+        EditorPage.swipeInEditor(self)
+        sleep(2)
+        EditorPage.swipeInEditor(self)
+        sleep(2)
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='7:5']").click()
+
+    def tapCrop21To9(self):
+        EditorPage.swipeInEditor(self)
+        sleep(2)
+        EditorPage.swipeInEditor(self)
+        sleep(2)
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='21:9']").click()
+
+    def tapAccept(self):
+        self.driver.find_element_by_xpath("//*[@class = 'android.widget.ImageButton' and @content-desc ='Accept']").click()
+
+    def tapBorderFeature(self):
+        sleep(5)
+        self.driver.find_element_by_xpath("//*[@class = 'android.widget.ImageView' and @content-desc ='Border']").click()
+
+    def tapXOXOBorderPack(self):
+        sleep(2)
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='XOXO']").click()
+
+    def tapX1Border(self):
+        sleep(2)
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='X1']").click()
+
+    def tapPhotoBorder(self):
+        sleep(2)
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='PHOTO']").click()
+
+    def tapBlurPhotoBorder(self):
+        sleep(2)
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='BLUR']").click()
+
 
     def driverQuit(self):
         print "Passed!"
@@ -453,7 +531,7 @@ class EditorPage(object):
 
     # Premium version swipe
     def swipeInEditor(self):
-        sleep(2)
+        sleep(4)
         self.driver.swipe(1000, 2268, 201, 2268)
 
 
@@ -786,6 +864,8 @@ class ProfilePage(object):
         self.driver = driver
 
     def tapSignIn(self):
+        WebDriverWait(self.driver, 30).until(
+            EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/tvOption1")))
         self.driver.find_element_by_id("com.jsdev.instasize:id/tvOption1").click()
 
     def enterLoginInfo(self):

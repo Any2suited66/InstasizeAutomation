@@ -3,11 +3,10 @@
       [
         {
           "applicationName": "Samsung S7",
-          "U": "8802edf5",
-          "browserName": "Samsung S7",
+          "udid": "8802edf5",
           "platformVersion": "7.0",
           "maxInstances": 1,
-          "platform": "ANDROID"
+          "platformName": "ANDROID"
         }
       ],
   "configuration":

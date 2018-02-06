@@ -40,9 +40,9 @@ class CropFeatureTest(unittest.TestCase):
         tapCropFeature = EditorPage(driver)
         tapCropFeature.tapCropFeature()
 
-        # taps the Free option
-        tapFreeOption = EditorPage(driver)
-        tapFreeOption.tapCropFree()
+        # taps the crop option
+        tapCropOption = EditorPage(driver)
+        tapCropOption.tapCropFourToThree()
 
         # taps the accept Button
         tapAccept = EditorPage(driver)

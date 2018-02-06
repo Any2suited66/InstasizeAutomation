@@ -33,6 +33,8 @@ class TestProfileLogin(unittest.TestCase):
         assertSettingsIcon = GridPageAsserts(driver)
         assertSettingsIcon.settingsIconAssert()
 
+
+
         sleep(2)
         driver.quit()
 

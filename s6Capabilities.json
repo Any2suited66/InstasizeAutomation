@@ -3,11 +3,11 @@
       [
         {
           "applicationName": "Samsung S6",
+          "udid": "05157df532e5e40e",
           "platformVersion": "6.0.1",
           "maxInstances": 1,
-          "platformName": "ANDROID",
-          "U": "05157df532e5e40e",
-          "browserName": "Samsung S6"
+          "platformName": "ANDROID"
+
         }
       ],
   "configuration":

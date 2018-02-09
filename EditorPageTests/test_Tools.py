@@ -13,7 +13,7 @@ def _by_link_text():
     pass
 
 
-class BordersFeatureTest(unittest.TestCase):
+class CropFeatureTest(unittest.TestCase):
     # Class to run tests on exporting photos to Instagram
 
     def test_filter_uploads(self):
@@ -36,26 +36,15 @@ class BordersFeatureTest(unittest.TestCase):
         tapTopLeftPhoto = GridPage(driver)
         tapTopLeftPhoto.topLeftPhoto()
 
-        # taps on the borders feature
-        tapBorders = EditorPage(driver)
-        tapBorders.tapBorderFeature()
+        # taps the tools feature
+        tapTools = EditorPage(driver)
+        tapTools.tapToolsFeature()
 
-        # taps on the border pack
-        tapBorderPack = EditorPage(driver)
-        tapBorderPack.tapPhotoBorder()
+        # taps on all tool features
+        tapAllTools = EditorPage(driver)
+        tapAllTools.tapOnAllTools()
 
-        # taps photo library option
-        tapBlur = EditorPage(driver)
-        tapBlur.tapPhotoLibraryBorder()
-
-        # taps on the top left image in photo library
-        tapTopLeftPhoto.topLeftPhoto()
-
-        # taps accept
-        tapAccept = EditorPage(driver)
-        tapAccept.tapAccept()
-
-        # taps share button
+        # taps on share button
         tapShareButton = EditorPage(driver)
         tapShareButton.sharebutton()
 
@@ -78,6 +67,7 @@ class BordersFeatureTest(unittest.TestCase):
         quitTest = EditorPage(driver)
         quitTest.driverQuit()
 
+
 if __name__ == '__main__':
-    suite = unittest.TestLoader().loadTestsFromTestCase(BordersFeatureTest)
+    suite = unittest.TestLoader().loadTestsFromTestCase(CropFeatureTest)
     unittest.TextTestRunner(verbosity=2).run(suite)

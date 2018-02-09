@@ -17,7 +17,7 @@ class PurchasesTest(unittest.TestCase):
      # Class to run tests on exporting photos to Instagram
 
 
-    def test_filter_uploads(self):
+    def test_purchases(self):
         driver_builder = DriverBuilderAndroid()
         driver = driver_builder.driver
 

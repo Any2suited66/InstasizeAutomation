@@ -20,7 +20,7 @@ class TryExcepts(object):
         try:
             WebDriverWait(self.driver, 5).until(
                 EC.presence_of_element_located((By.ID, "android:id/icon")))
-            self.driver.find_element_by_id("android:id/icon").click()
+            self.driver.find_element_by_xpath("//*[@class = 'android.widget.TextView' and @text ='Instagram']").click()
 
         except NoSuchElementException:
             print ("Not required on this version of android")

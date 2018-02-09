@@ -44,9 +44,9 @@ class BordersFeatureTest(unittest.TestCase):
         tapBorderPack = EditorPage(driver)
         tapBorderPack.tapPhotoBorder()
 
-        # taps photo library option
+        # taps blur option
         tapBlur = EditorPage(driver)
-        tapBlur.tapPhotoLibraryBorder()
+        tapBlur.tapBlurPhotoBorder()
 
         # taps on the top left image in photo library
         tapTopLeftPhoto.topLeftPhoto()

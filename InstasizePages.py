@@ -1,6 +1,6 @@
 from time import sleep
 from appium.webdriver.common.touch_action import TouchAction
-from selenium.common.exceptions import NoSuchElementException, WebDriverException
+from selenium.common.exceptions import NoSuchElementException, WebDriverException, TimeoutException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -523,6 +523,29 @@ class EditorPage(object):
         sleep(2)
         self.driver.find_element_by_xpath("//android.widget.TextView[@text='BLUR']").click()
 
+    def tapPhotoLibraryBorder(self):
+        sleep(2)
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='LIBRARY']").click()
+
+    def tapToolsFeature(self):
+        WebDriverWait(self.driver, 30).until(
+            EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/ibExport")))
+        sleep(2)
+        EditorPage.featuresSwipe(self)
+        WebDriverWait(self.driver, 30).until(
+            EC.presence_of_element_located((By.XPATH, "//*[@class = 'android.widget.ImageView' and @content-desc ='Tools']")))
+        self.driver.find_element_by_xpath("//*[@class = 'android.widget.ImageView' and @content-desc ='Tools']").click()
+
+    def tapOnAllTools(self):
+        WebDriverWait(self.driver, 30).until(
+            EC.presence_of_element_located((By.XPATH, "//android.widget.TextView[@text='HORIZONTAL']")))
+        sleep(2)
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='HORIZONTAL']").click()
+        sleep(2)
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='VERTICAL']").click()
+        sleep(2)
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='ROTATE']").click()
+
 
     def driverQuit(self):
         print "Passed!"
@@ -533,6 +556,9 @@ class EditorPage(object):
     def swipeInEditor(self):
         sleep(4)
         self.driver.swipe(1000, 2268, 201, 2268)
+
+    def featuresSwipe(self):
+        self.driver.swipe(1000, 2500, 500, 2500)
 
 
     def freeVersionSwipeInEditor(self):
@@ -574,6 +600,9 @@ class GridPage(object):
                 try:
                     sleep(1)
                     self.driver.find_element_by_id("btnSkip").click()
+                    WebDriverWait(self.driver, 15).until(
+                        EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/ivCollapseIcon")))
+                    self.driver.find_element_by_id("com.jsdev.instasize:id/ivCollapseIcon").click()
                     WebDriverWait(self.driver, 30).until(
                         EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/ibAddPhoto")))
                     self.driver.find_element_by_id("com.jsdev.instasize:id/ibAddPhoto").click()
@@ -675,12 +704,13 @@ class GridPage(object):
         sleep(1)
         WebDriverWait(self.driver, 30).until(
             EC.presence_of_element_located((By.XPATH, "//android.widget.TextView[@index=2]")))
-        self.driver.find_element_by_xpath("//android.widget.TextView[@index=2]").click()
+        self.driver.find_element_by_xpath("//*[@class = 'android.widget.TextView' and @text ='Instagram']").click()
 
     def instagramPopup(self):
         WebDriverWait(self.driver, 30).until(
             EC.presence_of_element_located((By.ID, "android:id/icon")))
-        nativeInstagram = self.driver.find_element_by_id("android:id/icon")
+        nativeInstagram = self.driver.find_element_by_xpath("//*[@class = "
+                                                            "'android.widget.TextView' and @text ='Instagram']")
         nativeInstagram.click()
 
     def collapseIconFind(self):

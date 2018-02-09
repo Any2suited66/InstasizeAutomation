@@ -23,20 +23,16 @@ class EditorPage(object):
         self.driver = driver
 
     def sharebutton(self):
-        for _ in xrange(10):
-            try:
-                sleep(5)
-                self.driver.swipe(600, 500, 602, 500)
-                el = self.driver.find_element_by_id('ibExport')
-                if el.is_displayed():
-                    el.click()
-                    break
-            except NoSuchElementException:
-                print "test failed, test manually"
-                self.driver.quit()
+        WebDriverWait(self.driver, 30).until(
+            EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/ibExport")))
+        el = self.driver.find_element_by_id("com.jsdev.instasize:id/ibExport")
+        el.click()
 
-    def instasizButton(self):
-        self.driver.find_element_by_id("ibAspectChange").click()
+
+    def instasizeButton(self):
+        for _ in xrange(3):
+            sleep(5)
+            self.driver.find_element_by_id("com.jsdev.instasize:id/ibAspectChange").click()
 
     def findCoastFilter(self):
         for _ in xrange(50):
@@ -613,9 +609,20 @@ class GridPage(object):
                     sleep(2)
                     self.driver.find_element_by_id("com.jsdev.instasize:id/ibAddPhoto").click()
 
+    def tapOnCloudOption(self):
+        WebDriverWait(self.driver, 30).until(
+            EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/ibCloud")))
+        cloud = self.driver.find_element_by_id("com.jsdev.instasize:id/ibCloud")
+        cloud.click()
+
+    def tapOnCloudImage(self):
+        image = self.driver.find_element_by_id("com.android.documentsui:id/icon_mime")
+        image.click()
+
 
     def addPhotoFind(self):
-        sleep(3)
+        WebDriverWait(self.driver, 30).until(
+            EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/ibAddPhoto")))
         try:
             addPhotoFind = self.driver.find_element_by_id("com.jsdev.instasize:id/ibAddPhoto")
             self.assertTrue(addPhotoFind.is_displayed(), "+ not found, Test Failed! Check for crash manually")

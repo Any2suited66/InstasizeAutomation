@@ -21,6 +21,141 @@ class PaidEditorPage(object):
         self.driver = driver
 
     # premium subscription element
+    def f1Filter(self):
+        PaidEditorPage.wait_for_editor(self)
+        for _ in xrange(50):
+            try:
+                filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='F1']")
+                if filter_found.is_displayed():
+                    PaidEditorPage.tapF1Filter(self)
+                    break
+
+            except:
+                PaidEditorPage.swipeInEditor(self)
+
+    def tapF1Filter(self):
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='F1']").click()
+
+    def f2Filter(self):
+        PaidEditorPage.wait_for_editor(self)
+        for _ in xrange(50):
+            try:
+                filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='F2']")
+                if filter_found.is_displayed():
+                    PaidEditorPage.tapF2Filter(self)
+                    break
+
+            except:
+                PaidEditorPage.swipeInEditor(self)
+
+    def tapF2Filter(self):
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='F2']").click()
+
+    def f3Filter(self):
+        PaidEditorPage.wait_for_editor(self)
+        for _ in xrange(50):
+            try:
+                filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='F3']")
+                if filter_found.is_displayed():
+                    PaidEditorPage.tapF3Filter(self)
+                    break
+
+            except:
+                PaidEditorPage.swipeInEditor(self)
+
+    def tapF3Filter(self):
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='F3']").click()
+
+    def a1Filter(self):
+        PaidEditorPage.wait_for_editor(self)
+        for _ in xrange(50):
+            try:
+                filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='A1']")
+                if filter_found.is_displayed():
+                    PaidEditorPage.tapA1Filter(self)
+                    break
+
+            except:
+                PaidEditorPage.swipeInEditor(self)
+
+    def tapA1Filter(self):
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='A1']").click()
+
+    def a2Filter(self):
+        PaidEditorPage.wait_for_editor(self)
+        for _ in xrange(50):
+            try:
+                filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='A2']")
+                if filter_found.is_displayed():
+                    PaidEditorPage.tapA2Filter(self)
+                    break
+
+            except:
+                PaidEditorPage.swipeInEditor(self)
+
+    def tapA2Filter(self):
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='A2']").click()
+
+    def a3Filter(self):
+        PaidEditorPage.wait_for_editor(self)
+        for _ in xrange(50):
+            try:
+                filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='A3']")
+                if filter_found.is_displayed():
+                    PaidEditorPage.tapA3Filter(self)
+                    break
+
+            except:
+                PaidEditorPage.swipeInEditor(self)
+
+    def tapA3Filter(self):
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='A3']").click()
+
+    def r1Filter(self):
+        PaidEditorPage.wait_for_editor(self)
+        for _ in xrange(50):
+            try:
+                filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='R1']")
+                if filter_found.is_displayed():
+                    PaidEditorPage.tapR1Filter(self)
+                    break
+
+            except:
+                PaidEditorPage.swipeInEditor(self)
+
+    def tapR1Filter(self):
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='R1']").click()
+
+    def r2Filter(self):
+        PaidEditorPage.wait_for_editor(self)
+        for _ in xrange(50):
+            try:
+                filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='R2']")
+                if filter_found.is_displayed():
+                    PaidEditorPage.tapR2Filter(self)
+                    break
+
+            except:
+                PaidEditorPage.swipeInEditor(self)
+
+    def tapR2Filter(self):
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='R2']").click()
+
+    def r3Filter(self):
+        PaidEditorPage.wait_for_editor(self)
+        for _ in xrange(50):
+            try:
+                filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='R3']")
+                if filter_found.is_displayed():
+                    PaidEditorPage.tapR3Filter(self)
+                    break
+
+            except:
+                PaidEditorPage.swipeInEditor(self)
+
+    def tapR3Filter(self):
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='R3']").click()
+
     def h1Filter(self):
         PaidEditorPage.wait_for_editor(self)
         for _ in xrange(50):

@@ -426,6 +426,47 @@ class EditorPage(object):
     def tapHulaFilter(self):
         self.driver.find_element_by_xpath("//android.widget.TextView[@text='HULA']").click()
 
+    def bDayFilter(self):
+        sleep(4)
+        for _ in xrange(50):
+            try:
+                filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='BDAY']")
+                if filter_found.is_displayed():
+                    EditorPage.tapBDayFilter(self)
+                    break
+
+            except:
+                EditorPage.swipeInEditor(self)
+
+    def tapBDayFilter(self):
+        self.driver.find_element_by_xpath("//android.widget.TextView[@text='BDAY']").click()
+
+    def tapBdayDateSpinner(self):
+        WebDriverWait(self.driver, 30).until(
+            EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/tvBirthday")))
+        date_spinner = self.driver.find_element_by_id("com.jsdev.instasize:id/tvBirthday")
+        date_spinner.click()
+
+    def tapBdaySpinnerForInput(self):
+        WebDriverWait(self.driver, 30).until(
+            EC.presence_of_element_located((By.ID, "android:id/numberpicker_input")))
+        spinner = self.driver.find_element_by_id("android:id/numberpicker_input")
+        self.driver.set_value(spinner, 'Dec')
+        self.driver.find_element_by_id("android:id/numberpicker_input").click()
+
+
+    def tapCreateMyFilter(self):
+        WebDriverWait(self.driver, 30).until(
+            EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/btnCreateFilter")))
+        tapCreateFilter = self.driver.find_element_by_id("com.jsdev.instasize:id/btnCreateFilter")
+        tapCreateFilter.click()
+
+    def tapUseFilter(self):
+        WebDriverWait(self.driver, 30).until(
+            EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/btnUseFilter")))
+        tapUseFilter = self.driver.find_element_by_id("com.jsdev.instasize:id/btnUseFilter")
+        tapUseFilter.click()
+
     def tapPremiumBanner(self):
         banner = self.driver.find_element_by_id("getCollectionViewContainer")
         banner.click()
@@ -685,13 +726,20 @@ class GridPage(object):
         self.driver.find_element_by_id("ibCamera").click()
 
     def take_photo(self):
-        self.driver.find_element_by_id("MENUID_SHUTTER").click()
+        sleep(4)
+        tap = TouchAction(self.driver)
+        tap.tap(None, 730, 2346).perform()
+        sleep(2)
 
     def tap_retry_camera(self):
         self.driver.find_element_by_xpath("(//android.widget.TextView[@index=0])").click()
 
     def tap_camera_ok(self):
-        self.driver.find_element_by_xpath("(//android.widget.TextView[@index=1])").click()
+        sleep(4)
+        tap = TouchAction(self.driver)
+        tap.tap(None, 1080, 80).perform()
+        sleep(2)
+
 
     def reeditButtontap(self):
         self.driver.implicitly_wait(100)
@@ -767,10 +815,13 @@ class GridPage(object):
                 try:
                     self.driver.find_element_by_id("btnSkip").click()
                     WebDriverWait(self.driver, 30).until(
+                        EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/ivCollapseIcon")))
+                    self.driver.back()
+                    WebDriverWait(self.driver, 30).until(
                         EC.presence_of_element_located((By.XPATH, "//android.widget.ImageButton[@index=2]")))
                     self.driver.find_element_by_id("com.jsdev.instasize:id/ibWhatsNewIcon]").click()
 
-                except NoSuchElementException:
+                except:
                     WebDriverWait(self.driver, 30).until(
                         EC.presence_of_element_located((By.XPATH, "//android.widget.ImageButton[@index=2]")))
                     self.driver.find_element_by_id("com.jsdev.instasize:id/ibWhatsNewIcon").click()
@@ -795,10 +846,13 @@ class GridPage(object):
                 try:
                     self.driver.find_element_by_id("btnSkip").click()
                     WebDriverWait(self.driver, 30).until(
-                        EC.presence_of_element_located((By.XPATH, "//android.widget.ImageButton[@index=2]")))
-                    self.driver.find_element_by_id("com.jsdev.instasize:id/ibWhatsNewIcon]").click()
+                        EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/ivCollapseIcon")))
+                    self.driver.back()
+                    WebDriverWait(self.driver, 30).until(
+                        EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/ibPlus]")))
+                    self.driver.find_element_by_id("com.jsdev.instasize:id/ibPlus]").click()
 
-                except NoSuchElementException:
+                except:
                     WebDriverWait(self.driver, 30).until(
                         EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/ibPlus")))
                     self.driver.find_element_by_id("com.jsdev.instasize:id/ibPlus").click()

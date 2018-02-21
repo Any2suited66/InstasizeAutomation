@@ -1,5 +1,8 @@
 import unittest
+
+from Asserts import PhotoLibraryAsserts
 from DriverBuilder7zero import DriverBuilderAndroid
+from PaidFiltersPage import PaidEditorPage
 from InstasizePages import GridPage
 from TryExcepts import TryExcepts
 from time import sleep
@@ -10,7 +13,7 @@ def _by_link_text():
     pass
 
 
-class CameraTest(unittest.TestCase):
+class FilterExportTest(unittest.TestCase):
     # Class to run tests on exporting photos to Instagram
 
     def test_filter_uploads(self):
@@ -25,17 +28,41 @@ class CameraTest(unittest.TestCase):
         collapseIcon = GridPage(driver)
         collapseIcon.collapseIconFind()
 
-        # taps on the camera icon
-        tapCamera = GridPage(driver)
-        tapCamera.tap_camera_icon()
+        # taps on the native photos container
+        tapPhotoContainer = GridPage(driver)
+        tapPhotoContainer.photoContainers()
 
-        # takes a picture
-        take_picture = GridPage(driver)
-        take_picture.take_photo()
+        # Asserts allPhotosButton is displayed
+        allPhotosButton = PhotoLibraryAsserts(driver)
+        allPhotosButton.allPhotosButton()
 
-        # taps on ok
-        tapCameraOkay = GridPage(driver)
-        tapCameraOkay.tap_camera_ok()
+        # taps on the top left photo
+        tapTopLeftPhoto = GridPage(driver)
+        tapTopLeftPhoto.topLeftPhoto()
+
+        # taps on the filter
+        filters = EditorPage(driver)
+        filters.bDayFilter()
+
+        # taps on date spinner
+        bDaySpinner = EditorPage(driver)
+        bDaySpinner.tapBdayDateSpinner()
+
+        # swipes down on the date spinner
+        tapOn1999 = EditorPage(driver)
+        tapOn1999.tapBdaySpinnerForInput()
+
+        # taps on create my filter button
+        tapOnCreateMyFilter = EditorPage(driver)
+        tapOnCreateMyFilter.tapCreateMyFilter()
+
+        # taps on Use Filter
+        tapUseFilter = EditorPage(driver)
+        tapUseFilter.tapUseFilter()
+
+        # Asserts tvFilterLevel is displayed
+        tvFilterLevel = PhotoLibraryAsserts(driver)
+        tvFilterLevel.tvFilterLevel()
 
         # taps on share button
         tapShareButton = EditorPage(driver)
@@ -63,5 +90,5 @@ class CameraTest(unittest.TestCase):
 
 # ---START OF SCRIPT
 if __name__ == '__main__':
-    suite = unittest.TestLoader().loadTestsFromTestCase(CameraTest)
+    suite = unittest.TestLoader().loadTestsFromTestCase(FilterExportTest)
     unittest.TextTestRunner(verbosity=2).run(suite)

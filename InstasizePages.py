@@ -537,6 +537,131 @@ class EditorPage(object):
         sleep(2)
         self.driver.find_element_by_xpath("//android.widget.TextView[@text='21:9']").click()
 
+    def tapAdjustmentsFeature(self):
+        sleep(5)
+        WebDriverWait(self.driver, 30).until(
+            EC.presence_of_element_located(
+                (By.XPATH, "//*[@class = 'android.widget.ImageView' and @content-desc ='Adjustments']")))
+        settings = self.driver.find_element_by_xpath("//*[@class = 'android.widget.ImageView' and @content-desc = 'Adjustments']")
+        settings.click()
+
+    def tapExposure(self):
+        WebDriverWait(self.driver, 30).until(
+            EC.presence_of_element_located(
+                (By.XPATH, "//*[@class = 'android.widget.TextView' and @text ='EXPOSURE']")))
+        exposure = self.driver.find_element_by_xpath("//*[@class = 'android.widget.TextView' and @text ='EXPOSURE']")
+        exposure.click()
+
+    def tapContrast(self):
+        WebDriverWait(self.driver, 30).until(
+            EC.presence_of_element_located(
+                (By.XPATH, "//*[@class = 'android.widget.TextView' and @text ='CONTRAST']")))
+        contrast = self.driver.find_element_by_xpath("//*[@class = 'android.widget.TextView' and @text ='CONTRAST']")
+        contrast.click()
+
+    def tapBrightness(self):
+        WebDriverWait(self.driver, 30).until(
+            EC.presence_of_element_located(
+                (By.XPATH, "//*[@class = 'android.widget.TextView' and @text ='BRIGHTNESS']")))
+        brightness = self.driver.find_element_by_xpath("//*[@class = 'android.widget.TextView' and @text ='BRIGHTNESS']")
+        brightness.click()
+
+    def tapSharpness(self):
+        WebDriverWait(self.driver, 30).until(
+            EC.presence_of_element_located(
+                (By.XPATH, "//*[@class = 'android.widget.TextView' and @text ='SHARPNESS']")))
+        WebDriverWait(self.driver, 30).until(
+            EC.presence_of_element_located(
+                (By.XPATH, "//*[@class = 'android.widget.TextView' and @text ='SHARPNESS']")))
+        sharpness = self.driver.find_element_by_xpath("//*[@class = 'android.widget.TextView' and @text ='SHARPNESS']")
+        sharpness.click()
+
+    def tapSaturation(self):
+        for _ in xrange(5):
+            try:
+                saturation = self.driver.find_element_by_xpath("//*[@class = 'android.widget.TextView' and @text ='SATURATION']")
+                saturation.click()
+                break
+
+            except NoSuchElementException:
+                EditorPage.swipeInEditor(self)
+
+    def tapTint(self):
+        for _ in xrange(5):
+            try:
+                tint = self.driver.find_element_by_xpath("//*[@class = 'android.widget.TextView' and @text ='TINT']")
+                tint.click()
+                break
+
+            except NoSuchElementException:
+                EditorPage.swipeInEditor(self)
+
+    def tapWarmth(self):
+        for _ in xrange(5):
+            try:
+                warmth = self.driver.find_element_by_xpath("//*[@class = 'android.widget.TextView' and @text ='WARMTH']")
+                warmth.click()
+                break
+
+            except NoSuchElementException:
+                EditorPage.swipeInEditor(self)
+
+    def tapVignette(self):
+        for _ in xrange(5):
+            try:
+                vignette = self.driver.find_element_by_xpath("//*[@class = 'android.widget.TextView' and @text ='VIGNETTE']")
+                vignette.click()
+                break
+
+            except NoSuchElementException:
+                EditorPage.swipeInEditor(self)
+                pass
+
+    def tapShadows(self):
+        for _ in xrange(5):
+            try:
+                shadows = self.driver.find_element_by_xpath("//*[@class = 'android.widget.TextView' and @text ='SHADOWS']")
+                shadows.click()
+                break
+
+            except NoSuchElementException:
+                EditorPage.swipeInEditor(self)
+                pass
+
+    def tapHighlights(self):
+        for _ in xrange(5):
+            try:
+                highlights = self.driver.find_element_by_xpath("//*[@class = 'android.widget.TextView' and @text ='HIGHLIGHTS']")
+                highlights.click()
+                break
+
+            except NoSuchElementException:
+                EditorPage.swipeInEditor(self)
+                pass
+
+    def tapGrain(self):
+        for _ in xrange(5):
+            try:
+                sleep(2)
+                grain = self.driver.find_element_by_xpath(
+                    "//*[@class = 'android.widget.TextView' and @text ='GRAIN']")
+                grain.click()
+                break
+
+            except NoSuchElementException:
+                EditorPage.swipeInEditor(self)
+                pass
+
+    def adjustSeekBar(self):
+        adjust = self.driver.find_element_by_id('com.jsdev.instasize:id/seekBar')
+        backAndForth = TouchAction(self.driver)
+        backAndForth.long_press(adjust, x=724, y=2137).move_to(x=1270, y=2137).release().perform()
+
+        backAndForth.long_press(adjust, x=1270, y=2137).move_to(x=174, y=2137).release().perform()
+
+        backAndForth.long_press(adjust, x=174, y=2137).move_to(x=1270, y=2137).release().perform()
+
+
     def tapAccept(self):
         self.driver.find_element_by_xpath("//*[@class = 'android.widget.ImageButton' and @content-desc ='Accept']").click()
 
@@ -637,14 +762,11 @@ class GridPage(object):
                 try:
                     sleep(1)
                     self.driver.find_element_by_id("btnSkip").click()
-                    WebDriverWait(self.driver, 15).until(
-                        EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/ivCollapseIcon")))
-                    self.driver.find_element_by_id("com.jsdev.instasize:id/ivCollapseIcon").click()
                     WebDriverWait(self.driver, 30).until(
                         EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/ibAddPhoto")))
                     self.driver.find_element_by_id("com.jsdev.instasize:id/ibAddPhoto").click()
 
-                except NoSuchElementException:
+                except:
                     WebDriverWait(self.driver, 30).until(
                         EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/ibAddPhoto")))
                     sleep(2)

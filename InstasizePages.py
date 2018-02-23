@@ -454,7 +454,6 @@ class EditorPage(object):
         self.driver.set_value(spinner, 'Dec')
         self.driver.find_element_by_id("android:id/numberpicker_input").click()
 
-
     def tapCreateMyFilter(self):
         WebDriverWait(self.driver, 30).until(
             EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/btnCreateFilter")))
@@ -466,6 +465,36 @@ class EditorPage(object):
             EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/btnUseFilter")))
         tapUseFilter = self.driver.find_element_by_id("com.jsdev.instasize:id/btnUseFilter")
         tapUseFilter.click()
+
+    def tapFilterManager(self):
+        for _ in xrange(50):
+            try:
+                self.driver.find_element_by_xpath("//*[@class = 'android.widget.TextView' and @text ='MANAGE']").click()
+                break
+
+            except NoSuchElementException:
+                EditorPage.swipeInEditor(self)
+                pass
+
+    # taps athens filter in filter manager
+    def tapAthensBox(self):
+        for _ in xrange(10):
+            try:
+                sleep(2)
+                tapCheckBox = self.driver.find_element_by_xpath("//*[@class = 'android.widget.TextView' and @text ='ATHENS']")
+                tapCheckBox.click()
+                break
+
+            except NoSuchElementException:
+                EditorPage.swipeTopToBottom(self)
+                pass
+
+    def moveFilterInManager(self):
+        WebDriverWait(self.driver, 30).until(
+            EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/ivHandle")))
+        handle = self.driver.find_element_by_id('com.jsdev.instasize:id/ivHandle')
+        moveFilter = TouchAction(self.driver)
+        moveFilter.long_press(handle, x=102, y=106).move_to(x=102, y=819).release().perform()
 
     def tapPremiumBanner(self):
         banner = self.driver.find_element_by_id("getCollectionViewContainer")
@@ -719,9 +748,16 @@ class EditorPage(object):
         sleep(4)
         self.driver.swipe(1000, 2268, 201, 2268)
 
+    def swipeRightToLeftInEditor(self):
+        sleep(4)
+        self.driver.swipe(201, 2268, 1000, 2268)
+
+    def swipeTopToBottom(self):
+        sleep(2)
+        self.driver.swipe(800, 2284, 800, 40)
+
     def featuresSwipe(self):
         self.driver.swipe(1000, 2500, 500, 2500)
-
 
     def freeVersionSwipeInEditor(self):
         sleep(2)

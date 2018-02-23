@@ -1,6 +1,6 @@
 import unittest
 
-from Asserts import PhotoLibraryAsserts
+from Asserts import PhotoLibraryAsserts, EditorPageAsserts
 from DriverBuilder7zero import DriverBuilderAndroid
 from PaidFiltersPage import PaidEditorPage
 from InstasizePages import GridPage
@@ -13,7 +13,7 @@ def _by_link_text():
     pass
 
 
-class AdjustmentsFeatureTest(unittest.TestCase):
+class FilterManagerTest(unittest.TestCase):
     # Class to run tests on exporting photos to Instagram
 
     def test_filter_uploads(self):
@@ -32,25 +32,29 @@ class AdjustmentsFeatureTest(unittest.TestCase):
         tapPhotoContainer = GridPage(driver)
         tapPhotoContainer.photoContainers()
 
+        # Asserts allPhotosButton is displayed
+        allPhotosButton = PhotoLibraryAsserts(driver)
+        allPhotosButton.allPhotosButton()
+
         # taps on the top left photo
         tapTopLeftPhoto = GridPage(driver)
         tapTopLeftPhoto.topLeftPhoto()
 
-        # taps the settings feature
-        tapAdjustments = EditorPage(driver)
-        tapAdjustments.tapAdjustmentsFeature()
+        # taps the filer manager
+        tapFilterManager = EditorPage(driver)
+        tapFilterManager.tapFilterManager()
 
-        # taps adjustment
-        tapAdjustment = EditorPage(driver)
-        tapAdjustment.tapGrain()
+        # moves the top filter down 3 spots
+        moveFilter = EditorPage(driver)
+        moveFilter.moveFilterInManager()
 
-        # adjusts the seek bar
-        adjustSeek = EditorPage(driver)
-        adjustSeek.adjustSeekBar()
+        # taps accept
+        accept = EditorPage(driver)
+        accept.tapAccept()
 
-        # taps the accept Button
-        tapAccept = EditorPage(driver)
-        tapAccept.tapAccept()
+        # asserts filter is present on editor page
+        filterAssert = EditorPageAsserts(driver)
+        filterAssert.junoFilterPresent()
 
         # taps on share button
         tapShareButton = EditorPage(driver)
@@ -75,6 +79,8 @@ class AdjustmentsFeatureTest(unittest.TestCase):
         quitTest = EditorPage(driver)
         quitTest.driverQuit()
 
+
+# ---START OF SCRIPT
 if __name__ == '__main__':
-    suite = unittest.TestLoader().loadTestsFromTestCase(AdjustmentsFeatureTest)
+    suite = unittest.TestLoader().loadTestsFromTestCase(FilterManagerTest)
     unittest.TextTestRunner(verbosity=2).run(suite)

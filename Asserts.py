@@ -4,6 +4,7 @@ from time import sleep
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from InstasizePages import EditorPage
 
 class PhotoLibraryAsserts(object):
 
@@ -56,6 +57,20 @@ class EditorPageAsserts(object):
             print ("Success, user is not able to share the image with a premium filter applied")
             pass
             self.driver.back()
+
+    def athensFilterIsNotDisplayed(self):
+        try:
+            self.driver.find_element_by_xpath("//android.widget.TextView[@text='ATHENS']")
+            pass
+
+        except NoSuchElementException:
+            print 'Test Passed, filter is not displayed on editor page'
+
+    def junoFilterPresent(self):
+        WebDriverWait(self.driver, 5).until(
+            EC.presence_of_element_located((By.XPATH, "//android.widget.TextView[@text='JUNO']")))
+        juno = self.driver.find_element_by_xpath("//android.widget.TextView[@text='JUNO']")
+        self.assertTrue(juno.is_displayed, "Test Failed, check manually")
 
 
 class GridPageAsserts(object):

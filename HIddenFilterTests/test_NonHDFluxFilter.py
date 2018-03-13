@@ -1,4 +1,5 @@
 import unittest
+
 from Asserts import PhotoLibraryAsserts
 from DriverBuilder7zero import DriverBuilderAndroid
 from InstasizePages import EditorPage
@@ -6,15 +7,17 @@ from InstasizePages import GridPage
 from SettingsPage import SettingsPage
 from TryExcepts import TryExcepts
 from time import sleep
+from appium import webdriver
 
 def _by_link_text():
     pass
 
 
-class NonHDWasatchFilterExportTest(unittest.TestCase):
-     "Class to run tests on exporting photos to Instagram"
+class NonHDFluxFilterExportTest(unittest.TestCase):
+     # Class to run tests on exporting photos to Instagram
 
-     def test_filter_uploads(self):
+
+    def test_filter_uploads(self):
         driver_builder = DriverBuilderAndroid()
         driver = driver_builder.driver
 
@@ -48,9 +51,13 @@ class NonHDWasatchFilterExportTest(unittest.TestCase):
         tapTopLeftPhoto = GridPage(driver)
         tapTopLeftPhoto.topLeftPhoto()
 
-        # finds and taps on the filter
+        # taps the filer manager
+        tapFilterManager = EditorPage(driver)
+        tapFilterManager.tapFilterManager()
+
+        # taps on the filter
         filters = EditorPage(driver)
-        filters.wasatchFilter()
+        filters.fluxFilter()
 
         # Asserts tvFilterLevel is displayed
         tvFilterLevel = PhotoLibraryAsserts(driver)
@@ -68,7 +75,7 @@ class NonHDWasatchFilterExportTest(unittest.TestCase):
         instagramSystemPopup = TryExcepts(driver)
         instagramSystemPopup.instagramSystemPopup()
 
-        sleep(3)
+        sleep(5)
         driver.back()
 
         # Asserts the + button is displayed
@@ -82,5 +89,5 @@ class NonHDWasatchFilterExportTest(unittest.TestCase):
 
 # ---START OF SCRIPT
 if __name__ == '__main__':
-    suite = unittest.TestLoader().loadTestsFromTestCase(NonHDWasatchFilterExportTest)
+    suite = unittest.TestLoader().loadTestsFromTestCase(NonHDFluxFilterExportTest)
     unittest.TextTestRunner(verbosity=2).run(suite)

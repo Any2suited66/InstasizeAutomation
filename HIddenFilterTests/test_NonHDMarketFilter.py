@@ -1,5 +1,4 @@
 import unittest
-
 from Asserts import PhotoLibraryAsserts
 from DriverBuilder7zero import DriverBuilderAndroid
 from InstasizePages import EditorPage
@@ -7,17 +6,16 @@ from InstasizePages import GridPage
 from SettingsPage import SettingsPage
 from TryExcepts import TryExcepts
 from time import sleep
-from appium import webdriver
+
 
 def _by_link_text():
     pass
 
 
-class NonHDCelsiusFilterExportTest(unittest.TestCase):
-     # Class to run tests on exporting photos to Instagram
+class NonHDMarketFilterExportTest(unittest.TestCase):
+     "Class to run tests on exporting photos to Instagram"
 
-
-    def test_filter_uploads(self):
+     def test_filter_uploads(self):
         driver_builder = DriverBuilderAndroid()
         driver = driver_builder.driver
 
@@ -51,9 +49,13 @@ class NonHDCelsiusFilterExportTest(unittest.TestCase):
         tapTopLeftPhoto = GridPage(driver)
         tapTopLeftPhoto.topLeftPhoto()
 
+        # taps the filer manager
+        tapFilterManager = EditorPage(driver)
+        tapFilterManager.tapFilterManager()
+
         # finds and taps on the filter
-        tapOnFilter = EditorPage(driver)
-        tapOnFilter.celsiusFilter()
+        filters = EditorPage(driver)
+        filters.marketFilter()
 
         # Asserts tvFilterLevel is displayed
         tvFilterLevel = PhotoLibraryAsserts(driver)
@@ -71,7 +73,7 @@ class NonHDCelsiusFilterExportTest(unittest.TestCase):
         instagramSystemPopup = TryExcepts(driver)
         instagramSystemPopup.instagramSystemPopup()
 
-        sleep(3)
+        sleep(5)
         driver.back()
 
         # Asserts the + button is displayed
@@ -82,8 +84,7 @@ class NonHDCelsiusFilterExportTest(unittest.TestCase):
         quitTest = EditorPage(driver)
         quitTest.driverQuit()
 
-
 # ---START OF SCRIPT
 if __name__ == '__main__':
-    suite = unittest.TestLoader().loadTestsFromTestCase(NonHDCelsiusFilterExportTest)
+    suite = unittest.TestLoader().loadTestsFromTestCase(NonHDMarketFilterExportTest)
     unittest.TextTestRunner(verbosity=2).run(suite)

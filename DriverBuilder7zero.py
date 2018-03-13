@@ -21,7 +21,7 @@ class DriverBuilderAndroid(object):
         desired_caps['deviceName'] = 'ANDROID'
         # desired_caps['platformVersion'] = GetAndroidVersion.getVersion()
         desired_caps['app'] = \
-            '/Users/tyler/Desktop/InstasizeInstallAPK/Instasize_20181602_release_4.0.10_127_google.apk'
+            '/Users/tyler/Desktop/InstasizeInstallAPK/Instasize_20180903_release_4.0.11_128_google.apk'
         desired_caps['appPackage'] = 'com.jsdev.instasize'
         desired_caps['autoAcceptAlerts'] = True
         # desired_caps['noReset'] = True

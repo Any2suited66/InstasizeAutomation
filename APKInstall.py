@@ -2,7 +2,7 @@ import subprocess
 from time import sleep
 import os
 
-from path import Path
+
 
 
 def installAPK():

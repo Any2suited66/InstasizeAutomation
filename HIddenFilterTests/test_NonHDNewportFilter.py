@@ -7,14 +7,15 @@ from SettingsPage import SettingsPage
 from TryExcepts import TryExcepts
 from time import sleep
 
+
 def _by_link_text():
     pass
 
 
-class NonHDMadridFilterExportTest(unittest.TestCase):
-     "Class to run tests on exporting photos to Instagram"
+class NonHDNewportFilterExportTest(unittest.TestCase):
+    "Class to run tests on exporting photos to Instagram"
 
-     def test_filter_uploads(self):
+    def test_filter_uploads(self):
         driver_builder = DriverBuilderAndroid()
         driver = driver_builder.driver
 
@@ -48,9 +49,13 @@ class NonHDMadridFilterExportTest(unittest.TestCase):
         tapTopLeftPhoto = GridPage(driver)
         tapTopLeftPhoto.topLeftPhoto()
 
+        # taps the filer manager
+        tapFilterManager = EditorPage(driver)
+        tapFilterManager.tapFilterManager()
+
         # finds and taps on the filter
         filters = EditorPage(driver)
-        filters.madridFilter()
+        filters.newportFilter()
 
         # Asserts tvFilterLevel is displayed
         tvFilterLevel = PhotoLibraryAsserts(driver)
@@ -68,7 +73,7 @@ class NonHDMadridFilterExportTest(unittest.TestCase):
         instagramSystemPopup = TryExcepts(driver)
         instagramSystemPopup.instagramSystemPopup()
 
-        sleep(5)
+        sleep(2)
         driver.back()
 
         # Asserts the + button is displayed
@@ -79,7 +84,8 @@ class NonHDMadridFilterExportTest(unittest.TestCase):
         quitTest = EditorPage(driver)
         quitTest.driverQuit()
 
+
 # ---START OF SCRIPT
 if __name__ == '__main__':
-    suite = unittest.TestLoader().loadTestsFromTestCase(NonHDMadridFilterExportTest)
+    suite = unittest.TestLoader().loadTestsFromTestCase(NonHDNewportFilterExportTest)
     unittest.TextTestRunner(verbosity=2).run(suite)

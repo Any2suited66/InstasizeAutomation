@@ -79,7 +79,7 @@ class NonHDAzulFilterExportTest(unittest.TestCase):
         addPhoto = GridPage(driver)
         addPhoto.addPhotoFind()
 
-        print "Filter Passed!"
+        print("Filter Passed!")
 
         # Tears down the test
         quitTest = EditorPage(driver)

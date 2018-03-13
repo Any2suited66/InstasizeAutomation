@@ -21,10 +21,8 @@ class PhotoLibraryAsserts(object):
         self.assertTrue(allPhotosButton.is_displayed, "Failed, Check for crash")
 
     def tvFilterLevel(self):
-        pass
-        # tvFilterLevel = self.driver.find_element_by_xpath("//android.widget.TextView[@text='100']")
-        # self.assertTrue(tvFilterLevel.is_displayed, "Failed, Check for crash")
-
+        tvFilterLevel = self.driver.find_element_by_xpath("//android.widget.TextView[@text='100']")
+        self.assertTrue(tvFilterLevel.is_displayed, "Failed, Check for crash")
 
 class EditorPageAsserts(object):
 
@@ -64,7 +62,7 @@ class EditorPageAsserts(object):
             pass
 
         except NoSuchElementException:
-            print 'Test Passed, filter is not displayed on editor page'
+            print ('Test Passed, filter is not displayed on editor page')
 
     def junoFilterPresent(self):
         WebDriverWait(self.driver, 5).until(
@@ -94,7 +92,7 @@ class GridPageAsserts(object):
             self.driver.find_element_by_xpath("(//android.widget.ImageView[@index=0])[1]")
 
         except NoSuchElementException:
-            print 'Test passed, image(s) successfully deleted'
+            print ('Test passed, image(s) successfully deleted')
 
 
 

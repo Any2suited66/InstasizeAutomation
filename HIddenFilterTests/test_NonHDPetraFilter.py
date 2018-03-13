@@ -13,8 +13,9 @@ def _by_link_text():
     pass
 
 
-class NonHDNomadFilterExportTest(unittest.TestCase):
-    # Class to run tests on exporting photos to Instagram
+class NonHDPetraFilterExportTest(unittest.TestCase):
+     # Class to run tests on exporting photos to Instagram
+
 
     def test_filter_uploads(self):
         driver_builder = DriverBuilderAndroid()
@@ -50,9 +51,13 @@ class NonHDNomadFilterExportTest(unittest.TestCase):
         tapTopLeftPhoto = GridPage(driver)
         tapTopLeftPhoto.topLeftPhoto()
 
+        # taps the filer manager
+        tapFilterManager = EditorPage(driver)
+        tapFilterManager.tapFilterManager()
+
         # finds and taps on the filter
         filters = EditorPage(driver)
-        filters.nomadFilter()
+        filters.petraFilter()
 
         # Asserts tvFilterLevel is displayed
         tvFilterLevel = PhotoLibraryAsserts(driver)
@@ -70,7 +75,7 @@ class NonHDNomadFilterExportTest(unittest.TestCase):
         instagramSystemPopup = TryExcepts(driver)
         instagramSystemPopup.instagramSystemPopup()
 
-        sleep(3)
+        sleep(5)
         driver.back()
 
         # Asserts the + button is displayed
@@ -84,5 +89,5 @@ class NonHDNomadFilterExportTest(unittest.TestCase):
 
 # ---START OF SCRIPT
 if __name__ == '__main__':
-    suite = unittest.TestLoader().loadTestsFromTestCase(NonHDNomadFilterExportTest)
+    suite = unittest.TestLoader().loadTestsFromTestCase(NonHDPetraFilterExportTest)
     unittest.TextTestRunner(verbosity=2).run(suite)

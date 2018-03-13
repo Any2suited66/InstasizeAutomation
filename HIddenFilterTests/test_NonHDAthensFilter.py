@@ -1,21 +1,20 @@
 import unittest
-
 from Asserts import PhotoLibraryAsserts
 from DriverBuilder7zero import DriverBuilderAndroid
 from InstasizePages import EditorPage
 from InstasizePages import GridPage
-from SettingsPage import SettingsPage
 from TryExcepts import TryExcepts
 from time import sleep
-from appium import webdriver
+from SettingsPage import SettingsPage
+
 
 def _by_link_text():
     pass
 
 
-class NonHDOrganicFilterExportTest(unittest.TestCase):
-     # Class to run tests on exporting photos to Instagram
 
+class NonHDAthensFilterExportTest(unittest.TestCase):
+    "Class to run tests on exporting photos to Instagram"
 
     def test_filter_uploads(self):
         driver_builder = DriverBuilderAndroid()
@@ -51,9 +50,21 @@ class NonHDOrganicFilterExportTest(unittest.TestCase):
         tapTopLeftPhoto = GridPage(driver)
         tapTopLeftPhoto.topLeftPhoto()
 
+        # taps the filer manager
+        tapFilterManager = EditorPage(driver)
+        tapFilterManager.tapFilterManager()
+
+        # searches for filter
+        selectFilter = EditorPage(driver)
+        selectFilter.athensFilterManager()
+
+        # taps the checkmark
+        tapCheckmark = EditorPage(driver)
+        tapCheckmark.tapAccept()
+
         # finds and taps on the filter
         filters = EditorPage(driver)
-        filters.organicFilter()
+        filters.athensFilter()
 
         # Asserts tvFilterLevel is displayed
         tvFilterLevel = PhotoLibraryAsserts(driver)
@@ -71,7 +82,7 @@ class NonHDOrganicFilterExportTest(unittest.TestCase):
         instagramSystemPopup = TryExcepts(driver)
         instagramSystemPopup.instagramSystemPopup()
 
-        sleep(3)
+        sleep(5)
         driver.back()
 
         # Asserts the + button is displayed
@@ -85,5 +96,5 @@ class NonHDOrganicFilterExportTest(unittest.TestCase):
 
 # ---START OF SCRIPT
 if __name__ == '__main__':
-    suite = unittest.TestLoader().loadTestsFromTestCase(NonHDOrganicFilterExportTest)
+    suite = unittest.TestLoader().loadTestsFromTestCase(NonHDAthensFilterExportTest)
     unittest.TextTestRunner(verbosity=2).run(suite)

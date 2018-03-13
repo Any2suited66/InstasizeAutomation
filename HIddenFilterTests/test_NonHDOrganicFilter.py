@@ -1,4 +1,5 @@
 import unittest
+
 from Asserts import PhotoLibraryAsserts
 from DriverBuilder7zero import DriverBuilderAndroid
 from InstasizePages import EditorPage
@@ -6,15 +7,17 @@ from InstasizePages import GridPage
 from SettingsPage import SettingsPage
 from TryExcepts import TryExcepts
 from time import sleep
+from appium import webdriver
 
 def _by_link_text():
     pass
 
 
-class NonHDRioFilterExportTest(unittest.TestCase):
-     "Class to run tests on exporting photos to Instagram"
+class NonHDOrganicFilterExportTest(unittest.TestCase):
+     # Class to run tests on exporting photos to Instagram
 
-     def test_filter_uploads(self):
+
+    def test_filter_uploads(self):
         driver_builder = DriverBuilderAndroid()
         driver = driver_builder.driver
 
@@ -48,9 +51,13 @@ class NonHDRioFilterExportTest(unittest.TestCase):
         tapTopLeftPhoto = GridPage(driver)
         tapTopLeftPhoto.topLeftPhoto()
 
+        # taps the filer manager
+        tapFilterManager = EditorPage(driver)
+        tapFilterManager.tapFilterManager()
+
         # finds and taps on the filter
         filters = EditorPage(driver)
-        filters.rioFilter()
+        filters.organicFilter()
 
         # Asserts tvFilterLevel is displayed
         tvFilterLevel = PhotoLibraryAsserts(driver)
@@ -68,7 +75,7 @@ class NonHDRioFilterExportTest(unittest.TestCase):
         instagramSystemPopup = TryExcepts(driver)
         instagramSystemPopup.instagramSystemPopup()
 
-        sleep(2)
+        sleep(3)
         driver.back()
 
         # Asserts the + button is displayed
@@ -79,7 +86,8 @@ class NonHDRioFilterExportTest(unittest.TestCase):
         quitTest = EditorPage(driver)
         quitTest.driverQuit()
 
+
 # ---START OF SCRIPT
 if __name__ == '__main__':
-    suite = unittest.TestLoader().loadTestsFromTestCase(NonHDRioFilterExportTest)
+    suite = unittest.TestLoader().loadTestsFromTestCase(NonHDOrganicFilterExportTest)
     unittest.TextTestRunner(verbosity=2).run(suite)

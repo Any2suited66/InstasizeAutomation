@@ -11,7 +11,8 @@ def _by_link_text():
     pass
 
 
-class WavesFilterExportTest(unittest.TestCase):
+
+class FilterExportTest(unittest.TestCase):
     "Class to run tests on exporting photos to Instagram"
 
     def test_filter_uploads(self):
@@ -38,9 +39,27 @@ class WavesFilterExportTest(unittest.TestCase):
         tapTopLeftPhoto = GridPage(driver)
         tapTopLeftPhoto.topLeftPhoto()
 
+        # taps the filer manager
+        tapFilterManager = EditorPage(driver)
+        tapFilterManager.tapFilterManager()
+
+        # searches for filter
+        selectFilter = EditorPage(driver)
+        selectFilter.fluxFilterManager()
+
+        # taps the checkmark
+        tapCheckmark = EditorPage(driver)
+        tapCheckmark.tapAccept()
+
         # finds and taps on the filter
         filters = EditorPage(driver)
-        filters.wavesFilter()
+        filters.fluxFilter()
+
+        # taps accept
+        tapCheckmark.tapAccept()
+
+        # taps athens filter again
+        filters.fluxFilter()
 
         # Asserts tvFilterLevel is displayed
         tvFilterLevel = PhotoLibraryAsserts(driver)
@@ -72,5 +91,5 @@ class WavesFilterExportTest(unittest.TestCase):
 
 # ---START OF SCRIPT
 if __name__ == '__main__':
-    suite = unittest.TestLoader().loadTestsFromTestCase(WavesFilterExportTest)
+    suite = unittest.TestLoader().loadTestsFromTestCase(FilterExportTest)
     unittest.TextTestRunner(verbosity=2).run(suite)

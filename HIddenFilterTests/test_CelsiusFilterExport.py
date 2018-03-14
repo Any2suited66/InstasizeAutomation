@@ -11,12 +11,14 @@ def _by_link_text():
     pass
 
 
-class MarketFilterExportTest(unittest.TestCase):
-     "Class to run tests on exporting photos to Instagram"
 
-     def test_filter_uploads(self):
+class FilterExportTest(unittest.TestCase):
+    "Class to run tests on exporting photos to Instagram"
+
+    def test_filter_uploads(self):
         driver_builder = DriverBuilderAndroid()
         driver = driver_builder.driver
+
 
         # taps on the + icon
         addPhoto = GridPage(driver)
@@ -38,9 +40,27 @@ class MarketFilterExportTest(unittest.TestCase):
         tapTopLeftPhoto = GridPage(driver)
         tapTopLeftPhoto.topLeftPhoto()
 
+        # taps the filer manager
+        tapFilterManager = EditorPage(driver)
+        tapFilterManager.tapFilterManager()
+
+        # searches for filter
+        selectFilter = EditorPage(driver)
+        selectFilter.celsiusFilterManager()
+
+        # taps the checkmark
+        tapCheckmark = EditorPage(driver)
+        tapCheckmark.tapAccept()
+
         # finds and taps on the filter
         filters = EditorPage(driver)
-        filters.marketFilter()
+        filters.celsiusFilter()
+
+        # taps accept
+        tapCheckmark.tapAccept()
+
+        # taps athens filter again
+        filters.celsiusFilter()
 
         # Asserts tvFilterLevel is displayed
         tvFilterLevel = PhotoLibraryAsserts(driver)
@@ -69,7 +89,8 @@ class MarketFilterExportTest(unittest.TestCase):
         quitTest = EditorPage(driver)
         quitTest.driverQuit()
 
+
 # ---START OF SCRIPT
 if __name__ == '__main__':
-    suite = unittest.TestLoader().loadTestsFromTestCase(MarketFilterExportTest)
+    suite = unittest.TestLoader().loadTestsFromTestCase(FilterExportTest)
     unittest.TextTestRunner(verbosity=2).run(suite)

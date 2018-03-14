@@ -77,10 +77,10 @@ class EditorPage(object):
                 EditorPage.swipeInEditor(self)
 
     def tapAthensFilter(self):
-        WebDriverWait(self.driver, 30).until(
-            EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/ibExport")))
         athens = self.driver.find_element_by_xpath("//android.widget.TextView[@text='ATHENS']")
         athens.click()
+        sleep(2)
+
 
     def oakFilter(self):
         for x in range(0, 50):
@@ -136,6 +136,8 @@ class EditorPage(object):
                 EditorPage.swipeInEditor(self)
 
     def tapKayakFilter(self):
+        WebDriverWait(self.driver, 30).until(
+            EC.presence_of_element_located((By.XPATH, "//android.widget.TextView[@text='KAYAK']")))
         self.driver.find_element_by_xpath("//android.widget.TextView[@text='KAYAK']").click()
 
     def lincolnFilter(self):
@@ -150,6 +152,8 @@ class EditorPage(object):
                 EditorPage.swipeInEditor(self)
 
     def tapLincolnFilter(self):
+        WebDriverWait(self.driver, 30).until(
+            EC.presence_of_element_located((By.XPATH, "//android.widget.TextView[@text='LINCOLN']")))
         self.driver.find_element_by_xpath("//android.widget.TextView[@text='LINCOLN']").click()
 
     def rioFilter(self):
@@ -164,6 +168,8 @@ class EditorPage(object):
                 EditorPage.swipeInEditor(self)
 
     def tapRioFilter(self):
+        WebDriverWait(self.driver, 30).until(
+            EC.presence_of_element_located((By.XPATH, "//android.widget.TextView[@text='RIO']")))
         self.driver.find_element_by_xpath("//android.widget.TextView[@text='RIO']").click()
 
     def newportFilter(self):
@@ -178,6 +184,8 @@ class EditorPage(object):
                 EditorPage.swipeInEditor(self)
 
     def tapNewportFilter(self):
+        WebDriverWait(self.driver, 30).until(
+            EC.presence_of_element_located((By.XPATH, "//android.widget.TextView[@text='NEWPORT']")))
         self.driver.find_element_by_xpath("//android.widget.TextView[@text='NEWPORT']").click()
 
     def novaFilter(self):
@@ -192,6 +200,8 @@ class EditorPage(object):
                 EditorPage.swipeInEditor(self)
 
     def tapNovaFilter(self):
+        WebDriverWait(self.driver, 30).until(
+            EC.presence_of_element_located((By.XPATH, "//android.widget.TextView[@text='NOVA']")))
         self.driver.find_element_by_xpath("//android.widget.TextView[@text='NOVA']").click()
 
     def hiroFilter(self):
@@ -206,6 +216,8 @@ class EditorPage(object):
                 EditorPage.swipeInEditor(self)
 
     def tapHiroFilter(self):
+        WebDriverWait(self.driver, 30).until(
+            EC.presence_of_element_located((By.XPATH, "//android.widget.TextView[@text='HIRO']")))
         self.driver.find_element_by_xpath("//android.widget.TextView[@text='HIRO']").click()
 
     def wasatchFilter(self):
@@ -220,6 +232,8 @@ class EditorPage(object):
                 EditorPage.swipeInEditor(self)
 
     def tapWasatchFilter(self):
+        WebDriverWait(self.driver, 30).until(
+            EC.presence_of_element_located((By.XPATH, "//android.widget.TextView[@text='WASATCH']")))
         self.driver.find_element_by_xpath("//android.widget.TextView[@text='WASATCH']").click()
 
     def marketFilter(self):
@@ -234,6 +248,8 @@ class EditorPage(object):
                 EditorPage.swipeInEditor(self)
 
     def tapMarketFilter(self):
+        WebDriverWait(self.driver, 30).until(
+            EC.presence_of_element_located((By.XPATH, "//android.widget.TextView[@text='MARKET']")))
         self.driver.find_element_by_xpath("//android.widget.TextView[@text='MARKET']").click()
 
     def radioFilter(self):
@@ -248,6 +264,8 @@ class EditorPage(object):
                 EditorPage.swipeInEditor(self)
 
     def tapRadioFilter(self):
+        WebDriverWait(self.driver, 30).until(
+            EC.presence_of_element_located((By.XPATH, "//android.widget.TextView[@text='RADIO']")))
         self.driver.find_element_by_xpath("//android.widget.TextView[@text='RADIO']").click()
 
     def madridFilter(self):
@@ -262,6 +280,8 @@ class EditorPage(object):
                 EditorPage.swipeInEditor(self)
 
     def tapMadridFilter(self):
+        WebDriverWait(self.driver, 30).until(
+            EC.presence_of_element_located((By.XPATH, "//android.widget.TextView[@text='MADRID']")))
         self.driver.find_element_by_xpath("//android.widget.TextView[@text='MADRID']").click()
 
     def barkFilter(self):
@@ -276,6 +296,8 @@ class EditorPage(object):
                 EditorPage.swipeInEditor(self)
 
     def tapBarkFilter(self):
+        WebDriverWait(self.driver, 30).until(
+            EC.presence_of_element_located((By.XPATH, "//android.widget.TextView[@text='BARK']")))
         self.driver.find_element_by_xpath("//android.widget.TextView[@text='BARK']").click()
 
     def fluxFilter(self):
@@ -290,6 +312,8 @@ class EditorPage(object):
                 EditorPage.swipeInEditor(self)
 
     def tapFluxFilter(self):
+        WebDriverWait(self.driver, 30).until(
+            EC.presence_of_element_located((By. XPATH, "//android.widget.TextView[@text='FLUX']")))
         self.driver.find_element_by_xpath("//android.widget.TextView[@text='FLUX']").click()
 
     def nineteen89Filter(self):
@@ -721,6 +745,8 @@ class EditorPage(object):
         doneButton.click()
 
     def tapAccept(self):
+        WebDriverWait(self.driver, 30).until(
+            EC.presence_of_element_located((By.XPATH, "//*[@class = 'android.widget.ImageButton' and @content-desc ='Accept']")))
         self.driver.find_element_by_xpath("//*[@class = 'android.widget.ImageButton' and @content-desc ='Accept']").click()
 
     def tapBorderFeature(self):

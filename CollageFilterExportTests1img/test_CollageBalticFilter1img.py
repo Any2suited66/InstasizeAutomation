@@ -13,7 +13,7 @@ def _by_link_text():
     pass
 
 
-class CollageBalticFilter1imgExportTest(unittest.TestCase):
+class CollageFilter1imgExportTest(unittest.TestCase):
      # Class to run tests on exporting photos to Instagram
 
 
@@ -45,8 +45,26 @@ class CollageBalticFilter1imgExportTest(unittest.TestCase):
         tapOnFirstCollageOption = CollagePage(driver)
         tapOnFirstCollageOption.tapFirstCollageOption()
 
-        # taps on the filter
+        # taps the filer manager
+        tapFilterManager = EditorPage(driver)
+        tapFilterManager.tapFilterManager()
+
+        # searches for filter
+        selectFilter = EditorPage(driver)
+        selectFilter.balticFilterManager()
+
+        # taps the checkmark
+        tapCheckmark = EditorPage(driver)
+        tapCheckmark.tapAccept()
+
+        # finds and taps on the filter
         filters = EditorPage(driver)
+        filters.balticFilter()
+
+        # taps accept
+        tapCheckmark.tapAccept()
+
+        # taps athens filter again
         filters.balticFilter()
 
         # Asserts tvFilterLevel is displayed
@@ -79,5 +97,5 @@ class CollageBalticFilter1imgExportTest(unittest.TestCase):
 
 # ---START OF SCRIPT
 if __name__ == '__main__':
-    suite = unittest.TestLoader().loadTestsFromTestCase(CollageBalticFilter1imgExportTest)
+    suite = unittest.TestLoader().loadTestsFromTestCase(CollageFilter1imgExportTest)
     unittest.TextTestRunner(verbosity=2).run(suite)

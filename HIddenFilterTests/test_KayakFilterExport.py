@@ -6,16 +6,19 @@ from InstasizePages import GridPage
 from TryExcepts import TryExcepts
 from time import sleep
 
+
 def _by_link_text():
     pass
 
 
-class RioFilterExportTest(unittest.TestCase):
-     "Class to run tests on exporting photos to Instagram"
 
-     def test_filter_uploads(self):
+class FilterExportTest(unittest.TestCase):
+    "Class to run tests on exporting photos to Instagram"
+
+    def test_filter_uploads(self):
         driver_builder = DriverBuilderAndroid()
         driver = driver_builder.driver
+
 
         # taps on the + icon
         addPhoto = GridPage(driver)
@@ -37,9 +40,27 @@ class RioFilterExportTest(unittest.TestCase):
         tapTopLeftPhoto = GridPage(driver)
         tapTopLeftPhoto.topLeftPhoto()
 
+        # taps the filer manager
+        tapFilterManager = EditorPage(driver)
+        tapFilterManager.tapFilterManager()
+
+        # searches for filter
+        selectFilter = EditorPage(driver)
+        selectFilter.kayakFilterManager()
+
+        # taps the checkmark
+        tapCheckmark = EditorPage(driver)
+        tapCheckmark.tapAccept()
+
         # finds and taps on the filter
         filters = EditorPage(driver)
-        filters.rioFilter()
+        filters.kayakFilter()
+
+        # taps accept
+        tapCheckmark.tapAccept()
+
+        # taps athens filter again
+        filters.kayakFilter()
 
         # Asserts tvFilterLevel is displayed
         tvFilterLevel = PhotoLibraryAsserts(driver)
@@ -57,7 +78,7 @@ class RioFilterExportTest(unittest.TestCase):
         instagramSystemPopup = TryExcepts(driver)
         instagramSystemPopup.instagramSystemPopup()
 
-        sleep(2)
+        sleep(5)
         driver.back()
 
         # Asserts the + button is displayed
@@ -68,7 +89,8 @@ class RioFilterExportTest(unittest.TestCase):
         quitTest = EditorPage(driver)
         quitTest.driverQuit()
 
+
 # ---START OF SCRIPT
 if __name__ == '__main__':
-    suite = unittest.TestLoader().loadTestsFromTestCase(RioFilterExportTest)
+    suite = unittest.TestLoader().loadTestsFromTestCase(FilterExportTest)
     unittest.TextTestRunner(verbosity=2).run(suite)

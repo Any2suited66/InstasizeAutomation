@@ -1,24 +1,24 @@
 import unittest
-
 from Asserts import PhotoLibraryAsserts
 from DriverBuilder7zero import DriverBuilderAndroid
 from InstasizePages import EditorPage
 from InstasizePages import GridPage
 from TryExcepts import TryExcepts
 from time import sleep
-from appium import webdriver
+
 
 def _by_link_text():
     pass
 
 
-class FluxFilterExportTest(unittest.TestCase):
-     # Class to run tests on exporting photos to Instagram
 
+class FilterExportTest(unittest.TestCase):
+    "Class to run tests on exporting photos to Instagram"
 
     def test_filter_uploads(self):
         driver_builder = DriverBuilderAndroid()
         driver = driver_builder.driver
+
 
         # taps on the + icon
         addPhoto = GridPage(driver)
@@ -40,9 +40,27 @@ class FluxFilterExportTest(unittest.TestCase):
         tapTopLeftPhoto = GridPage(driver)
         tapTopLeftPhoto.topLeftPhoto()
 
-        # taps on the filter
+        # taps the filer manager
+        tapFilterManager = EditorPage(driver)
+        tapFilterManager.tapFilterManager()
+
+        # searches for filter
+        selectFilter = EditorPage(driver)
+        selectFilter.newportFilterManager()
+
+        # taps the checkmark
+        tapCheckmark = EditorPage(driver)
+        tapCheckmark.tapAccept()
+
+        # finds and taps on the filter
         filters = EditorPage(driver)
-        filters.fluxFilter()
+        filters.newportFilter()
+
+        # taps accept
+        tapCheckmark.tapAccept()
+
+        # taps athens filter again
+        filters.newportFilter()
 
         # Asserts tvFilterLevel is displayed
         tvFilterLevel = PhotoLibraryAsserts(driver)
@@ -74,5 +92,6 @@ class FluxFilterExportTest(unittest.TestCase):
 
 # ---START OF SCRIPT
 if __name__ == '__main__':
-    suite = unittest.TestLoader().loadTestsFromTestCase(FluxFilterExportTest)
+    suite = unittest.TestLoader().loadTestsFromTestCase(FilterExportTest)
     unittest.TextTestRunner(verbosity=2).run(suite)
+

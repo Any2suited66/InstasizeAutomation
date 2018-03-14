@@ -21,6 +21,8 @@ class PhotoLibraryAsserts(object):
         self.assertTrue(allPhotosButton.is_displayed, "Failed, Check for crash")
 
     def tvFilterLevel(self):
+        WebDriverWait(self.driver, 30).until(
+            EC.presence_of_element_located((By.XPATH, "//android.widget.TextView[@text='100']")))
         tvFilterLevel = self.driver.find_element_by_xpath("//android.widget.TextView[@text='100']")
         self.assertTrue(tvFilterLevel.is_displayed, "Failed, Check for crash")
 

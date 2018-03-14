@@ -14,9 +14,8 @@ def _by_link_text():
     pass
 
 
-class CollageFilter1imgExportTest(unittest.TestCase):
+class CollageFilterExportTest(unittest.TestCase):
      # Class to run tests on exporting photos to Instagram
-
 
     def test_filter_uploads(self):
         driver_builder = DriverBuilderAndroid()
@@ -66,8 +65,26 @@ class CollageFilter1imgExportTest(unittest.TestCase):
         tapOnCollageOption = CollagePage(driver)
         tapOnCollageOption.tapFirstCollageOption()
 
-        # taps on the filter
+        # taps the filter manager
+        tapFilterManager = EditorPage(driver)
+        tapFilterManager.tapFilterManager()
+
+        # searches for filter
+        selectFilter = EditorPage(driver)
+        selectFilter.wasatchFilterManager()
+
+        # taps the checkmark
+        tapCheckmark = EditorPage(driver)
+        tapCheckmark.tapAccept()
+
+        # finds and taps on the filter
         filters = EditorPage(driver)
+        filters.wasatchFilter()
+
+        # taps accept
+        tapCheckmark.tapAccept()
+
+        # taps athens filter again
         filters.wasatchFilter()
 
         # Asserts tvFilterLevel is displayed
@@ -100,5 +117,5 @@ class CollageFilter1imgExportTest(unittest.TestCase):
 
 # ---START OF SCRIPT
 if __name__ == '__main__':
-    suite = unittest.TestLoader().loadTestsFromTestCase(CollageFilter1imgExportTest)
+    suite = unittest.TestLoader().loadTestsFromTestCase(CollageFilterExportTest)
     unittest.TextTestRunner(verbosity=2).run(suite)

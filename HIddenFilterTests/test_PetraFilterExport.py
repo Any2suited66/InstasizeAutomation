@@ -1,23 +1,24 @@
 import unittest
-
 from Asserts import PhotoLibraryAsserts
 from DriverBuilder7zero import DriverBuilderAndroid
 from InstasizePages import EditorPage
 from InstasizePages import GridPage
 from TryExcepts import TryExcepts
 from time import sleep
-from appium import webdriver
+
 
 def _by_link_text():
     pass
 
 
-class NomadFilterExportTest(unittest.TestCase):
-    # Class to run tests on exporting photos to Instagram
+
+class FilterExportTest(unittest.TestCase):
+    "Class to run tests on exporting photos to Instagram"
 
     def test_filter_uploads(self):
         driver_builder = DriverBuilderAndroid()
         driver = driver_builder.driver
+
 
         # taps on the + icon
         addPhoto = GridPage(driver)
@@ -39,9 +40,27 @@ class NomadFilterExportTest(unittest.TestCase):
         tapTopLeftPhoto = GridPage(driver)
         tapTopLeftPhoto.topLeftPhoto()
 
+        # taps the filer manager
+        tapFilterManager = EditorPage(driver)
+        tapFilterManager.tapFilterManager()
+
+        # searches for filter
+        selectFilter = EditorPage(driver)
+        selectFilter.petraFilterManager()
+
+        # taps the checkmark
+        tapCheckmark = EditorPage(driver)
+        tapCheckmark.tapAccept()
+
         # finds and taps on the filter
         filters = EditorPage(driver)
-        filters.nomadFilter()
+        filters.petraFilter()
+
+        # taps accept
+        tapCheckmark.tapAccept()
+
+        # taps athens filter again
+        filters.petraFilter()
 
         # Asserts tvFilterLevel is displayed
         tvFilterLevel = PhotoLibraryAsserts(driver)
@@ -59,7 +78,7 @@ class NomadFilterExportTest(unittest.TestCase):
         instagramSystemPopup = TryExcepts(driver)
         instagramSystemPopup.instagramSystemPopup()
 
-        sleep(3)
+        sleep(5)
         driver.back()
 
         # Asserts the + button is displayed
@@ -73,5 +92,5 @@ class NomadFilterExportTest(unittest.TestCase):
 
 # ---START OF SCRIPT
 if __name__ == '__main__':
-    suite = unittest.TestLoader().loadTestsFromTestCase(NomadFilterExportTest)
+    suite = unittest.TestLoader().loadTestsFromTestCase(FilterExportTest)
     unittest.TextTestRunner(verbosity=2).run(suite)

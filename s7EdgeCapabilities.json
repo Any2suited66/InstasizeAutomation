@@ -7,6 +7,7 @@
           "platformVersion": "7.0",
           "maxInstances": 1,
           "platformName": "ANDROID"
+          "adbPort": "4744"
         }
       ],
   "configuration":

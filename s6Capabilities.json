@@ -6,7 +6,8 @@
           "udid": "05157df532e5e40e",
           "platformVersion": "6.0.1",
           "maxInstances": 1,
-          "platformName": "ANDROID"
+          "platformName": "ANDROID",
+          "adbPort": "4823"
 
         }
       ],

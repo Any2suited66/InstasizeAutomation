@@ -49,7 +49,7 @@ class NonHDAryaFilterExportTest(unittest.TestCase):
 
         # taps on the top left photo
         tapTopLeftPhoto = GridPage(driver)
-        tapTopLeftPhoto.topLeftPhoto()
+        tapTopLeftPhoto.tapTopLeftPhoto()
 
         # taps on the filter
         filters = PaidEditorPage(driver)

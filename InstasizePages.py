@@ -31,6 +31,9 @@ class EditorPage(object):
         el = self.driver.find_element_by_id("com.jsdev.instasize:id/ibExport")
         el.click()
 
+    def tapStartFreeTrial(self):
+        freeTrial = self.driver.find_element_by_id("com.jsdev.instasize:id/btnTryFreeTrial")
+        freeTrial.click()
 
     def instasizeButton(self):
         for x in range(0, 3):
@@ -997,39 +1000,82 @@ class GridPage(object):
         self.driver = driver
 
     # taps the + sign on the grid page
+    def simpleTapAddPhoto(self):
+        WebDriverWait(self.driver, 30).until(
+            EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/ibAddPhoto")))
+        plusIcon2 = self.driver.find_element_by_id("com.jsdev.instasize:id/ibAddPhoto")
+        plusIcon2.click()
+
     def addPhotoTap(self):
         # had to add this try/except to take care of the premium popup screen.
         # if premium popup screen is removed please delete this try/except to reduce testing time
 
         try:
-            plusIcon = self.driver.find_element_by_id("com.jsdev.instasize:id/ibAddPhoto")
-            sleep(2)
-            plusIcon.click()
-
-        except NoSuchElementException:
             WebDriverWait(self.driver, 30).until(
                 EC.presence_of_element_located((By.ID, "btnGetStarted")))
-            sleep(1)
             self.driver.find_element_by_id("btnGetStarted").click()
+            WebDriverWait(self.driver, 30).until(
+                EC.presence_of_element_located((By.ID, "btnSkip")))
+            self.driver.find_element_by_id("btnSkip").click()
+            WebDriverWait(self.driver, 30).until(
+                EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/ibAddPhoto")))
+            GridPage.purchasPremiumEditor(self)
+            self.driver.find_element_by_id("com.jsdev.instasize:id/ibAddPhoto").click()
 
-            try:
-                sleep(2)
-                plusIcon = self.driver.find_element_by_id("com.jsdev.instasize:id/ibAddPhoto")
-                plusIcon.click()
+        except:
+            GridPage.purchasPremiumEditor(self)
+            WebDriverWait(self.driver, 30).until(
+                EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/ibAddPhoto")))
+            self.driver.find_element_by_id("com.jsdev.instasize:id/ibAddPhoto").click()
 
-            except NoSuchElementException:
-                try:
-                    sleep(1)
-                    self.driver.find_element_by_id("btnSkip").click()
-                    WebDriverWait(self.driver, 30).until(
-                        EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/ibAddPhoto")))
-                    self.driver.find_element_by_id("com.jsdev.instasize:id/ibAddPhoto").click()
 
-                except:
-                    WebDriverWait(self.driver, 30).until(
-                        EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/ibAddPhoto")))
-                    sleep(2)
-                    self.driver.find_element_by_id("com.jsdev.instasize:id/ibAddPhoto").click()
+
+    def freeTrialButton(self):
+        self.driver.find_element_by_id("com.jsdev.instasize:id/btnGoPremium")
+
+    def tapPhotoOption(self):
+        photo = self.driver.find_element_by_id("com.jsdev.instasize:id/ibPhoto")
+        photo.click()
+
+    def tapSubscribeButton(self):
+        WebDriverWait(self.driver, 30).until(
+            EC.presence_of_element_located((By.ID, "com.android.vending:id/continue_button")))
+        subscribeBtn = self.driver.find_element_by_id("com.android.vending:id/continue_button")
+        subscribeBtn.click()
+
+    def tapShareButton(self):
+        WebDriverWait(self.driver, 30).until(
+            EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/ibExport")))
+        share = self.driver.find_element_by_id("com.jsdev.instasize:id/ibExport")
+        share.click()
+
+    def tapStartFreeTrial(self):
+        WebDriverWait(self.driver, 30).until(
+            EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/btnTryFreeTrial")))
+        freeTrial = self.driver.find_element_by_id("com.jsdev.instasize:id/btnTryFreeTrial")
+        freeTrial.click()
+
+    def purchasPremiumEditor(self):
+        try:
+            GridPage.freeTrialButton(self)
+            print('checking for free trial button')
+            GridPage.simpleTapAddPhoto(self)
+            print('tapping on + icon')
+            GridPage.tapPhotoOption(self)
+            print('tapping photo option')
+            GridPage.tapTopLeftPhoto(self)
+            sleep(5)
+            print('tapping top left photo')
+            GridPage.tapShareButton(self)
+            print('tap share button')
+            GridPage.tapStartFreeTrial(self)
+            print('tap free trial button')
+            sleep(2)
+            GridPage.tapSubscribeButton(self)
+            print('tapping subscribe button')
+
+        except NoSuchElementException:
+            pass
 
     def tapOnCloudOption(self):
         WebDriverWait(self.driver, 30).until(
@@ -1130,7 +1176,7 @@ class GridPage(object):
         self.driver.find_element_by_id("photosContainer").click()
 
     # taps the top left photo in the photo library
-    def topLeftPhoto(self):
+    def tapTopLeftPhoto(self):
         sleep(5)
         # WebDriverWait(self.driver, 30).until(
         #     EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/ivPhoto")))

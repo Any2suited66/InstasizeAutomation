@@ -38,7 +38,7 @@ class InstasizeButtonExportTest(unittest.TestCase):
 
         # taps on the top left photo
         tapTopLeftPhoto = GridPage(driver)
-        tapTopLeftPhoto.topLeftPhoto()
+        tapTopLeftPhoto.tapTopLeftPhoto()
 
         # taps on the yellow instasize button
         tapInstasizeButton = EditorPage(driver)

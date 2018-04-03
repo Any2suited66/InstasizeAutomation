@@ -7,7 +7,7 @@
           "platformVersion": "7.0",
           "maxInstances": 1,
           "platformName": "ANDROID"
-          "adbPort": "4744"
+          "adbPort": "4755"
         }
       ],
   "configuration":
@@ -15,9 +15,9 @@
     "cleanUpCycle": 2000,
     "timeout": 30000,
     "proxy": "org.openqa.grid.selenium.proxy.DefaultRemoteProxy",
-    "url": "http://localhost:4744/wd/hub",
+    "url": "http://192.168.99.1:4444/wd/hub",
     "host": "127.0.0.1",
-    "port": 4744,
+    "port": 4823,
     "role": "node",
     "maxSession": 1,
     "register": true,

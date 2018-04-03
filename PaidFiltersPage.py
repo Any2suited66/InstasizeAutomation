@@ -1,7 +1,9 @@
 from time import sleep
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
+from appium import webdriver
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.common.exceptions import NoSuchElementException
 
 class element_is_enabled(object):
     def __init__(self, locator, is_enabled):
@@ -725,4 +727,9 @@ class PaidEditorPage(object):
         self.driver.implicitly_wait(2)
 
     def wait_for_editor(self):
-        self.driver.implicitly_wait(5)
+        for x in range(0, 20):
+            try:
+                self.driver.find_element_by_id('com.jsdev.instasize:id/ivCircle1')
+                pass
+            except NoSuchElementException:
+                break

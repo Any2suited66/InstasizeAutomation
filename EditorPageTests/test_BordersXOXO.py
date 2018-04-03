@@ -34,7 +34,7 @@ class BordersFeatureTest(unittest.TestCase):
 
         # taps on the top left photo
         tapTopLeftPhoto = GridPage(driver)
-        tapTopLeftPhoto.topLeftPhoto()
+        tapTopLeftPhoto.tapTopLeftPhoto()
 
         # taps on the borders feature
         tapBorders = EditorPage(driver)

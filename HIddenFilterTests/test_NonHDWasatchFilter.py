@@ -46,7 +46,7 @@ class NonHDWasatchFilterExportTest(unittest.TestCase):
 
         # taps on the top left photo
         tapTopLeftPhoto = GridPage(driver)
-        tapTopLeftPhoto.topLeftPhoto()
+        tapTopLeftPhoto.tapTopLeftPhoto()
 
         # taps the filer manager
         tapFilterManager = EditorPage(driver)

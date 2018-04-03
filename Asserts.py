@@ -86,7 +86,7 @@ class GridPageAsserts(object):
             EC.presence_of_element_located((By.ID, "ibSettingsIcon")))
         settingsIcon = self.driver.find_element_by_id("ibSettingsIcon")
         self.assertTrue(settingsIcon.is_displayed, "Failed, check for crash manually")
-        print ("Passed, no crash")
+        print("Passed, no crash")
 
     def gridPagePhotoNotPresent(self):
         self.driver.implicitly_wait(10)
@@ -94,7 +94,7 @@ class GridPageAsserts(object):
             self.driver.find_element_by_xpath("(//android.widget.ImageView[@index=0])[1]")
 
         except NoSuchElementException:
-            print ('Test passed, image(s) successfully deleted')
+            print('Test passed, image(s) successfully deleted')
 
 
 

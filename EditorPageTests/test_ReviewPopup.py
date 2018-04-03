@@ -45,7 +45,7 @@ class TestReviewPopupTest(unittest.TestCase):
 
         # taps on the top left photo on photo library page
         tapTopLeftPhoto = GridPage(driver)
-        tapTopLeftPhoto.topLeftPhoto()
+        tapTopLeftPhoto.tapTopLeftPhoto()
 
         # taps on share icon
         tapShareButton = EditorPage(driver)
@@ -71,7 +71,7 @@ class TestReviewPopupTest(unittest.TestCase):
 
         # taps on the top left photo on photo library page
         tapTopLeftPhoto = GridPage(driver)
-        tapTopLeftPhoto.topLeftPhoto()
+        tapTopLeftPhoto.tapTopLeftPhoto()
 
         # taps on share icon
         tapShareButton = EditorPage(driver)

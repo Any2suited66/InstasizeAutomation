@@ -7,7 +7,6 @@ from TryExcepts import TryExcepts
 from time import sleep
 from InstasizePages import EditorPage
 from InstasizePages import CollagePage
-from PaidFiltersPage import PaidEditorPage
 
 
 def _by_link_text():
@@ -46,9 +45,27 @@ class CollageFilter1imgExportTest(unittest.TestCase):
         tapOnFirstCollageOption = CollagePage(driver)
         tapOnFirstCollageOption.tapFirstCollageOption()
 
-        # taps on the filter
-        filters = PaidEditorPage(driver)
-        filters.aryaFilter()
+        # taps the filer manager
+        tapFilterManager = EditorPage(driver)
+        tapFilterManager.tapFilterManager()
+
+        # searches for filter
+        selectFilter = EditorPage(driver)
+        selectFilter.nomadFilterManager()
+
+        # taps the checkmark
+        tapCheckmark = EditorPage(driver)
+        tapCheckmark.tapAccept()
+
+        # finds and taps on the filter
+        filters = EditorPage(driver)
+        filters.nomadFilter()
+
+        # taps accept
+        tapCheckmark.tapAccept()
+
+        # taps athens filter again
+        filters.nomadFilter()
 
         # Asserts tvFilterLevel is displayed
         tvFilterLevel = PhotoLibraryAsserts(driver)

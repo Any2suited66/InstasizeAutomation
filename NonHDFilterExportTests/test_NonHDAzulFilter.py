@@ -50,7 +50,7 @@ class NonHDAzulFilterExportTest(unittest.TestCase):
 
         # taps on the top left photo
         tapTopLeftPhoto = GridPage(driver)
-        tapTopLeftPhoto.topLeftPhoto()
+        tapTopLeftPhoto.tapTopLeftPhoto()
 
         # taps on the filter
         filters = PaidEditorPage(driver)
@@ -79,7 +79,7 @@ class NonHDAzulFilterExportTest(unittest.TestCase):
         addPhoto = GridPage(driver)
         addPhoto.addPhotoFind()
 
-        print "Filter Passed!"
+        print("Filter Passed!")
 
         # Tears down the test
         quitTest = EditorPage(driver)

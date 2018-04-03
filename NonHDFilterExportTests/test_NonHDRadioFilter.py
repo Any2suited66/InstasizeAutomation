@@ -46,7 +46,7 @@ class NonHDRadioFilterExportTest(unittest.TestCase):
 
         # taps on the top left photo
         tapTopLeftPhoto = GridPage(driver)
-        tapTopLeftPhoto.topLeftPhoto()
+        tapTopLeftPhoto.tapTopLeftPhoto()
 
         # finds and taps on the filter
         filters = EditorPage(driver)

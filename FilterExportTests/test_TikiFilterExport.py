@@ -35,7 +35,7 @@ class TikiFilterExportTest(unittest.TestCase):
 
         # taps on the top left photo
         tapTopLeftPhoto = GridPage(driver)
-        tapTopLeftPhoto.topLeftPhoto()
+        tapTopLeftPhoto.tapTopLeftPhoto()
 
         # finds and taps the filter
         findFilter = EditorPage(driver)

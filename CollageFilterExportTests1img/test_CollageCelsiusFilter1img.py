@@ -45,8 +45,26 @@ class CollageFilter1imgExportTest(unittest.TestCase):
         tapOnFirstCollageOption = CollagePage(driver)
         tapOnFirstCollageOption.tapFirstCollageOption()
 
-        # taps on the filter
+        # taps the filer manager
+        tapFilterManager = EditorPage(driver)
+        tapFilterManager.tapFilterManager()
+
+        # searches for filter
+        selectFilter = EditorPage(driver)
+        selectFilter.celsiusFilterManager()
+
+        # taps the checkmark
+        tapCheckmark = EditorPage(driver)
+        tapCheckmark.tapAccept()
+
+        # finds and taps on the filter
         filters = EditorPage(driver)
+        filters.celsiusFilter()
+
+        # taps accept
+        tapCheckmark.tapAccept()
+
+        # taps athens filter again
         filters.celsiusFilter()
 
         # Asserts tvFilterLevel is displayed

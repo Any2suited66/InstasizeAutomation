@@ -34,7 +34,7 @@ class AdjustmentsFeatureTest(unittest.TestCase):
 
         # taps on the top left photo
         tapTopLeftPhoto = GridPage(driver)
-        tapTopLeftPhoto.topLeftPhoto()
+        tapTopLeftPhoto.tapTopLeftPhoto()
 
         # taps the settings feature
         tapAdjustments = EditorPage(driver)

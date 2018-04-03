@@ -21,10 +21,10 @@ class PhotoLibraryAsserts(object):
         self.assertTrue(allPhotosButton.is_displayed, "Failed, Check for crash")
 
     def tvFilterLevel(self):
-        pass
-        # tvFilterLevel = self.driver.find_element_by_xpath("//android.widget.TextView[@text='100']")
-        # self.assertTrue(tvFilterLevel.is_displayed, "Failed, Check for crash")
-
+        WebDriverWait(self.driver, 30).until(
+            EC.presence_of_element_located((By.XPATH, "//android.widget.TextView[@text='100']")))
+        tvFilterLevel = self.driver.find_element_by_xpath("//android.widget.TextView[@text='100']")
+        self.assertTrue(tvFilterLevel.is_displayed, "Failed, Check for crash")
 
 class EditorPageAsserts(object):
 
@@ -64,7 +64,7 @@ class EditorPageAsserts(object):
             pass
 
         except NoSuchElementException:
-            print 'Test Passed, filter is not displayed on editor page'
+            print ('Test Passed, filter is not displayed on editor page')
 
     def junoFilterPresent(self):
         WebDriverWait(self.driver, 5).until(
@@ -86,7 +86,7 @@ class GridPageAsserts(object):
             EC.presence_of_element_located((By.ID, "ibSettingsIcon")))
         settingsIcon = self.driver.find_element_by_id("ibSettingsIcon")
         self.assertTrue(settingsIcon.is_displayed, "Failed, check for crash manually")
-        print ("Passed, no crash")
+        print("Passed, no crash")
 
     def gridPagePhotoNotPresent(self):
         self.driver.implicitly_wait(10)
@@ -94,7 +94,7 @@ class GridPageAsserts(object):
             self.driver.find_element_by_xpath("(//android.widget.ImageView[@index=0])[1]")
 
         except NoSuchElementException:
-            print 'Test passed, image(s) successfully deleted'
+            print('Test passed, image(s) successfully deleted')
 
 
 

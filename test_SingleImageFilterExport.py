@@ -1,13 +1,7 @@
-"""Do not use this file for testing.  This is used to experiment with different settings. Ignore this file if it
-throws an exception"""
-
-
-
-import inspect
 import unittest
 from DriverBuilder7zero import DriverBuilderAndroid
 from ExportHelper import FilterExportHelper
-
+import inspect
 
 def _by_link_text():
     pass
@@ -19,13 +13,18 @@ class FilterExportTest(unittest.TestCase):
     driver_builder = DriverBuilderAndroid()
     driver = driver_builder.driver
 
+    def findCallerMethod(self):
+        frame = inspect.stack()[1]
+        module = inspect.getmodule(frame[0])
+        filename = module.__file__
+        print(filename)
+
     def test_filter_uploads(self):
 
-            filterExportHelper = FilterExportHelper()
+        filterExportHelper = FilterExportHelper()
 
-            filterExportHelper.filter_exports()
+        filterExportHelper.filter_exports()
 
-            filterExportHelper.filterExportInstagram()
 
 # ---START OF SCRIPT
 if __name__ == '__main__':

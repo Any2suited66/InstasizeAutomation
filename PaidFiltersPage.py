@@ -22,6 +22,20 @@ class PaidEditorPage(object):
     def __init__(self, driver):
         self.driver = driver
 
+    def listFilters(self):
+        mylist = {}
+        mylist['F1'] = self.driver.find_element_by_xpath("//android.widget.TextView[@text='F1']")
+        mylist['F2'] = self.driver.find_element_by_xpath("//android.widget.TextView[@text='F2']")
+        mylist['F3'] = self.driver.find_element_by_xpath("//android.widget.TextView[@text='F3']")
+
+        for x in mylist:
+            try:
+                x.click()
+                break
+
+            except:
+                PaidEditorPage.swipeInEditor()
+
     # premium subscription element
     def f1Filter(self):
         PaidEditorPage.wait_for_editor(self)
@@ -717,10 +731,8 @@ class PaidEditorPage(object):
 
 
     def swipeInEditor(self):
-        WebDriverWait(self.driver, 30).until(
-            element_is_enabled((By.ID, "ibExport"), "true"))
-        self.driver.swipe(1000, 2268, 201, 2268)
-        self.driver.implicitly_wait(2)
+        sleep(2)
+        self.driver.swipe(1000, 2268, 100, 2268)
 
     def freeSwipeInEditor(self):
         self.driver.swipe(900, 2050, 220, 2050)

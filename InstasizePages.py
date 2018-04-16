@@ -1,5 +1,5 @@
 from time import sleep
-
+import signal
 from appium.webdriver.common.multi_action import MultiAction
 from appium.webdriver.common.touch_action import TouchAction
 from selenium.common.exceptions import NoSuchElementException, WebDriverException, TimeoutException
@@ -534,7 +534,16 @@ class EditorPage(object):
         banner.click()
 
     def reviewPopup(self):
-        self.driver.find_element_by_id("btnDeny").click()
+
+        try:
+                WebDriverWait(self.driver, 15).until(
+                    EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/btnDeny")))
+                noThanksButton = self.driver.find_element_by_id("com.jsdev.instasize:id/btnDeny")
+                noThanksButton.click()
+        except NoSuchElementException:
+            pass
+        except TimeoutException:
+            pass
 
     def filterLevel(self):
         self.driver.find_element_by_id("tvFilterLevel")
@@ -600,11 +609,7 @@ class EditorPage(object):
         self.driver.find_element_by_xpath("//android.widget.TextView[@text='21:9']").click()
 
     def tapAdjustmentsFeature(self):
-        sleep(5)
-        WebDriverWait(self.driver, 30).until(
-            EC.presence_of_element_located(
-                (By.XPATH, "//*[@class = 'android.widget.ImageView' and @content-desc ='Adjustments']")))
-        settings = self.driver.find_element_by_xpath("//*[@class = 'android.widget.ImageView' and @content-desc = 'Adjustments']")
+        settings = self.driver.find_element_by_xpath("//*[@class = 'android.widget.ImageView' and @content-desc ='Adjustments']")
         settings.click()
 
     def tapExposure(self):
@@ -795,6 +800,12 @@ class EditorPage(object):
         sleep(2)
         self.driver.find_element_by_xpath("//android.widget.TextView[@text='ROTATE']").click()
 
+    def discardEditsYes(self):
+        WebDriverWait(self.driver, 30).until(
+            EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/btnDiscard")))
+        yesDiscard = self.driver.find_element_by_id("com.jsdev.instasize:id/btnDiscard")
+        yesDiscard.click()
+
 
     def driverQuit(self):
         print ("Passed!")
@@ -803,8 +814,8 @@ class EditorPage(object):
 
     # Premium version swipe
     def swipeInEditor(self):
-        sleep(4)
-        self.driver.swipe(1000, 2268, 201, 2268)
+        sleep(2)
+        self.driver.swipe(1000, 2268, 100, 2268)
 
     def swipeRightToLeftInEditor(self):
         sleep(4)
@@ -822,7 +833,8 @@ class EditorPage(object):
         self.driver.swipe(1000, 2050, 201, 2050)
 
     def filterManagerSwipe(self):
-        self.driver.swipe(1070, 2200, 1070, 100)
+        sleep(1)
+        self.driver.swipe(1070, 1500, 1070, 300)
 
     def athensFilterManager(self):
         for x in range(0, 20):
@@ -989,10 +1001,6 @@ class EditorPage(object):
                 EditorPage.filterManagerSwipe(self)
                 pass
 
-    def discardEditsConfirm(self):
-        WebDriverWait(self.driver, 30).until(
-            EC.presence_of_element_located((By.ID, "btnDiscard")))
-        self.driver.find_element_by_id("btnDiscard").click()
 
 
 class GridPage(object):
@@ -1007,27 +1015,30 @@ class GridPage(object):
         plusIcon2.click()
 
     def addPhotoTap(self):
+
         # had to add this try/except to take care of the premium popup screen.
         # if premium popup screen is removed please delete this try/except to reduce testing time
 
         try:
-            WebDriverWait(self.driver, 30).until(
-                EC.presence_of_element_located((By.ID, "btnGetStarted")))
-            self.driver.find_element_by_id("btnGetStarted").click()
-            WebDriverWait(self.driver, 30).until(
-                EC.presence_of_element_located((By.ID, "btnSkip")))
-            self.driver.find_element_by_id("btnSkip").click()
-            WebDriverWait(self.driver, 30).until(
-                EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/ibAddPhoto")))
+            WebDriverWait(self.driver, 7).until(
+                EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/btnGetStarted")))
+            self.driver.find_element_by_id("com.jsdev.instasize:id/btnGetStarted").click()
+            WebDriverWait(self.driver, 7).until(
+                EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/btnSkip")))
+            self.driver.find_element_by_id("com.jsdev.instasize:id/btnSkip").click()
             GridPage.purchasPremiumEditor(self)
-            self.driver.find_element_by_id("com.jsdev.instasize:id/ibAddPhoto").click()
+            GridPage.simpleTapAddPhoto(self)
 
-        except:
+        except NoSuchElementException:
             GridPage.purchasPremiumEditor(self)
             WebDriverWait(self.driver, 30).until(
                 EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/ibAddPhoto")))
             self.driver.find_element_by_id("com.jsdev.instasize:id/ibAddPhoto").click()
-
+        except TimeoutException:
+            GridPage.purchasPremiumEditor(self)
+            WebDriverWait(self.driver, 30).until(
+                EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/ibAddPhoto")))
+            self.driver.find_element_by_id("com.jsdev.instasize:id/ibAddPhoto").click()
 
 
     def freeTrialButton(self):
@@ -1046,6 +1057,7 @@ class GridPage(object):
     def tapShareButton(self):
         WebDriverWait(self.driver, 30).until(
             EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/ibExport")))
+        sleep(5)
         share = self.driver.find_element_by_id("com.jsdev.instasize:id/ibExport")
         share.click()
 
@@ -1055,27 +1067,31 @@ class GridPage(object):
         freeTrial = self.driver.find_element_by_id("com.jsdev.instasize:id/btnTryFreeTrial")
         freeTrial.click()
 
+
+    # this method looks for the 'free trial' button on grid and if it is present, it will purchase premium from the
+    # the editor screen.  Premium screen on grid has too many animations for appium to find elements.
     def purchasPremiumEditor(self):
         try:
-            GridPage.freeTrialButton(self)
-            print('checking for free trial button')
-            GridPage.simpleTapAddPhoto(self)
-            print('tapping on + icon')
-            GridPage.tapPhotoOption(self)
-            print('tapping photo option')
-            GridPage.tapTopLeftPhoto(self)
-            sleep(5)
-            print('tapping top left photo')
-            GridPage.tapShareButton(self)
-            print('tap share button')
-            GridPage.tapStartFreeTrial(self)
-            print('tap free trial button')
-            sleep(2)
-            GridPage.tapSubscribeButton(self)
-            print('tapping subscribe button')
+
+            if self.driver.find_element_by_id("com.jsdev.instasize:id/btnGoPremium").is_displayed():
+                    GridPage.simpleTapAddPhoto(self)
+                    GridPage.tapPhotoOption(self)
+                    GridPage.tapTopLeftPhoto(self)
+                    GridPage.tapShareButton(self)
+                    GridPage.tapStartFreeTrial(self)
+                    GridPage.tapSubscribeButton(self)
+                    WebDriverWait(self.driver, 30).until(
+                        EC.presence_of_element_located((By.ID, "ivCollapseIcon")))
+                    self.driver.back()
+                    WebDriverWait(self.driver, 30).until(
+                        EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/ivShareCollapse")))
+                    self.driver.back()
+            else:
+                pass
 
         except NoSuchElementException:
             pass
+
 
     def tapOnCloudOption(self):
         WebDriverWait(self.driver, 30).until(
@@ -1173,13 +1189,14 @@ class GridPage(object):
         self.driver.find_element_by_id("ibEdit").click()
 
     def photoContainers(self):
-        self.driver.find_element_by_id("photosContainer").click()
+        WebDriverWait(self.driver, 30).until(
+            EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/photosContainer")))
+        self.driver.find_element_by_id("com.jsdev.instasize:id/photosContainer").click()
 
     # taps the top left photo in the photo library
     def tapTopLeftPhoto(self):
-        sleep(5)
-        # WebDriverWait(self.driver, 30).until(
-        #     EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/ivPhoto")))
+        WebDriverWait(self.driver, 30).until(
+            EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/ivPhoto")))
         self.driver.find_element_by_id("com.jsdev.instasize:id/ivPhoto").click()
 
     def instagramIcon(self):
@@ -1343,11 +1360,10 @@ class CollagePage(object):
         self.driver.find_element_by_xpath("//android.view.View[@index=0]").click()
 
     def topLeftPhoto(self):
-        sleep(5)
-        el = self.driver.find_element_by_id("ivPhoto")
-        # WebDriverWait(self.driver, 30).until(
-        #     element_is_enabled((By.ID, "ivPhoto"), "true"))
-        el.click()
+        WebDriverWait(self.driver, 30).until(
+            EC.presence_of_element_located((By.XPATH, "(//android.widget.ImageView[@index=0])")))
+        topLeftPhoto = self.driver.find_element_by_id("com.jsdev.instasize:id/ivPhoto")
+        topLeftPhoto.click()
 
 
     def tap2ndPhoto(self):
@@ -1417,3 +1433,43 @@ class SelectFormat(object):
 
     def allPhotosButton(self):
         self.driver.find_element_by_id("btnShowAlbumsList")
+
+
+
+
+
+def test_request(arg=None):
+    """Your http request."""
+    sleep(2)
+    return arg
+
+class Timeout():
+    """Timeout class using ALARM signal."""
+    class Timeout(Exception):
+        pass
+
+    def __init__(self, sec):
+        self.sec = sec
+
+    def __enter__(self):
+        signal.signal(signal.SIGALRM, self.raise_timeout)
+        signal.alarm(self.sec)
+
+    def __exit__(self, *args):
+        signal.alarm(0)    # disable alarm
+
+    def raise_timeout(self, *args):
+        raise Timeout.Timeout()
+
+# def main():
+#     # Run block of code with timeouts
+#     try:
+#         with Timeout(3):
+#             print test_request("Request 1")
+#         with Timeout(1):
+#             print test_request("Request 2")
+#     except Timeout.Timeout:
+#         print "Timeout"
+
+
+

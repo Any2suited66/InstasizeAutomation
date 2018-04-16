@@ -8,7 +8,7 @@ from TryExcepts import TryExcepts
 from time import sleep
 from InstasizePages import EditorPage
 from SettingsPage import SettingsPage
-
+from selenium.common.exceptions import NoSuchElementException, WebDriverException, TimeoutException
 
 def _by_link_text():
     pass

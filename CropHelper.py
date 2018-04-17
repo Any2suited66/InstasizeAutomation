@@ -1,19 +1,10 @@
-import unittest
 from time import sleep
-import inspect
-from Asserts import PhotoLibraryAsserts
-from InstasizePages import EditorPage, CollagePage
+
+from selenium.common.exceptions import NoSuchElementException
+
+from InstasizePages import EditorPage
 from InstasizePages import GridPage
-from PaidFiltersPage import PaidEditorPage
 from TryExcepts import TryExcepts
-from DriverBuilder7zero import DriverBuilderAndroid
-from time import sleep
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.common.exceptions import NoSuchElementException, WebDriverException, TimeoutException
-import inspect
-import test_SingleImageFilterExport
 
 
 class CropHelper(object):
@@ -35,16 +26,16 @@ class CropHelper(object):
 
         for a in cropFeatureList:
             gridPage.addPhotoTap()
-            gridPage.photoContainers()
-            gridPage.tapTopLeftPhoto()
-            editorPage.reviewPopup()
+            gridPage.tapPhotoContainer()
+            gridPage.tapTopLeftImageInPhotoLibrary()
+            editorPage.tapDenyReviewPopup()
             editorPage.tapCropFeature()
             for x in range(0, 10):
                 try:
                     cropFeature = self.driver.find_element_by_xpath("(""%s"")" % a)
                     cropFeature.click()
                     editorPage.tapAccept()
-                    editorPage.sharebutton()
+                    editorPage.tapSharebutton()
                     break
                 except NoSuchElementException:
                     sleep(2)
@@ -52,7 +43,7 @@ class CropHelper(object):
 
             # Taps on Instagram icon
             gridPage = GridPage(self.driver)
-            gridPage.instagramIcon()
+            gridPage.tapInstagramIcon()
 
             # Searches for Instagram android popup on bottom of screen
             tryExceots = TryExcepts(self.driver)

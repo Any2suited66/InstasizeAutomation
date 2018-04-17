@@ -25,7 +25,7 @@ class EditorPage(object):
     def __init__(self, driver):
         self.driver = driver
 
-    def sharebutton(self):
+    def tapSharebutton(self):
         WebDriverWait(self.driver, 30).until(
             EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/ibExport")))
         el = self.driver.find_element_by_id("com.jsdev.instasize:id/ibExport")
@@ -35,429 +35,12 @@ class EditorPage(object):
         freeTrial = self.driver.find_element_by_id("com.jsdev.instasize:id/btnTryFreeTrial")
         freeTrial.click()
 
-    def instasizeButton(self):
+    def tapInstasizeButton(self):
         for x in range(0, 3):
-            sleep(5)
+            WebDriverWait(self.driver, 30).until(
+                EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/ibAspectChange")))
+            sleep(2)
             self.driver.find_element_by_id("com.jsdev.instasize:id/ibAspectChange").click()
-
-    def findCoastFilter(self):
-        for x in range(0, 50):
-            try:
-                filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='COAST']")
-                if filter_found.is_displayed():
-                    EditorPage.tapCoastFilter(self)
-                    break
-
-            except NoSuchElementException:
-                EditorPage.swipeInEditor(self)
-
-    def tapCoastFilter(self):
-        self.driver.find_element_by_xpath("//android.widget.TextView[@text='COAST']").click()
-
-    def tikiFilter(self):
-        for x in range(0, 50):
-            try:
-                filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='TIKI']")
-                if filter_found.is_displayed():
-                    EditorPage.tapTikiFilter(self)
-                    break
-
-            except NoSuchElementException:
-                EditorPage.swipeInEditor(self)
-
-    def tapTikiFilter(self):
-        self.driver.find_element_by_xpath("//android.widget.TextView[@text='TIKI']").click()
-
-    def athensFilter(self):
-        for x in range(0, 50):
-            try:
-                filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='ATHENS']")
-                if filter_found.is_displayed():
-                    EditorPage.tapAthensFilter(self)
-                    break
-
-            except NoSuchElementException:
-                EditorPage.swipeInEditor(self)
-
-    def tapAthensFilter(self):
-        athens = self.driver.find_element_by_xpath("//android.widget.TextView[@text='ATHENS']")
-        athens.click()
-        sleep(2)
-
-
-    def oakFilter(self):
-        for x in range(0, 50):
-            try:
-                filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='OAK']")
-                if filter_found.is_displayed():
-                    EditorPage.tapOakFilter(self)
-                    break
-
-            except NoSuchElementException:
-                EditorPage.swipeInEditor(self)
-
-    def tapOakFilter(self):
-        self.driver.find_element_by_xpath("//android.widget.TextView[@text='OAK']").click()
-
-    def wavesFilter(self):
-        for x in range(0, 50):
-            try:
-                filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='WAVES']")
-                if filter_found.is_displayed():
-                    EditorPage.tapWavesFilter(self)
-                    break
-
-            except NoSuchElementException:
-                EditorPage.swipeInEditor(self)
-
-    def tapWavesFilter(self):
-        self.driver.find_element_by_xpath("//android.widget.TextView[@text='WAVES']").click()
-
-    def tokyoFilter(self):
-        for x in range(0, 50):
-            try:
-                filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='TOKYO']")
-                if filter_found.is_displayed():
-                    EditorPage.tapTokyoFilter(self)
-                    break
-
-            except NoSuchElementException:
-                EditorPage.swipeInEditor(self)
-
-    def tapTokyoFilter(self):
-        self.driver.find_element_by_xpath("//android.widget.TextView[@text='TOKYO']").click()
-
-    def kayakFilter(self):
-        for x in range(0, 50):
-            try:
-                filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='KAYAK']")
-                if filter_found.is_displayed():
-                    EditorPage.tapKayakFilter(self)
-                    break
-
-            except NoSuchElementException:
-                EditorPage.swipeInEditor(self)
-
-    def tapKayakFilter(self):
-        WebDriverWait(self.driver, 30).until(
-            EC.presence_of_element_located((By.XPATH, "//android.widget.TextView[@text='KAYAK']")))
-        self.driver.find_element_by_xpath("//android.widget.TextView[@text='KAYAK']").click()
-
-    def lincolnFilter(self):
-        for x in range(0, 50):
-            try:
-                filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='LINCOLN']")
-                if filter_found.is_displayed():
-                    EditorPage.tapLincolnFilter(self)
-                    break
-
-            except NoSuchElementException:
-                EditorPage.swipeInEditor(self)
-
-    def tapLincolnFilter(self):
-        WebDriverWait(self.driver, 30).until(
-            EC.presence_of_element_located((By.XPATH, "//android.widget.TextView[@text='LINCOLN']")))
-        self.driver.find_element_by_xpath("//android.widget.TextView[@text='LINCOLN']").click()
-
-    def rioFilter(self):
-        for x in range(0, 50):
-            try:
-                filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='RIO']")
-                if filter_found.is_displayed():
-                    EditorPage.tapRioFilter(self)
-                    break
-
-            except NoSuchElementException:
-                EditorPage.swipeInEditor(self)
-
-    def tapRioFilter(self):
-        WebDriverWait(self.driver, 30).until(
-            EC.presence_of_element_located((By.XPATH, "//android.widget.TextView[@text='RIO']")))
-        self.driver.find_element_by_xpath("//android.widget.TextView[@text='RIO']").click()
-
-    def newportFilter(self):
-        for x in range(0, 50):
-            try:
-                filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='NEWPORT']")
-                if filter_found.is_displayed():
-                    EditorPage.tapNewportFilter(self)
-                    break
-
-            except NoSuchElementException:
-                EditorPage.swipeInEditor(self)
-
-    def tapNewportFilter(self):
-        WebDriverWait(self.driver, 30).until(
-            EC.presence_of_element_located((By.XPATH, "//android.widget.TextView[@text='NEWPORT']")))
-        self.driver.find_element_by_xpath("//android.widget.TextView[@text='NEWPORT']").click()
-
-    def novaFilter(self):
-        for x in range(0, 50):
-            try:
-                filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='NOVA']")
-                if filter_found.is_displayed():
-                    EditorPage.tapNovaFilter(self)
-                    break
-
-            except NoSuchElementException:
-                EditorPage.swipeInEditor(self)
-
-    def tapNovaFilter(self):
-        WebDriverWait(self.driver, 30).until(
-            EC.presence_of_element_located((By.XPATH, "//android.widget.TextView[@text='NOVA']")))
-        self.driver.find_element_by_xpath("//android.widget.TextView[@text='NOVA']").click()
-
-    def hiroFilter(self):
-        for x in range(0, 50):
-            try:
-                filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='HIRO']")
-                if filter_found.is_displayed():
-                    EditorPage.tapHiroFilter(self)
-                    break
-
-            except NoSuchElementException:
-                EditorPage.swipeInEditor(self)
-
-    def tapHiroFilter(self):
-        WebDriverWait(self.driver, 30).until(
-            EC.presence_of_element_located((By.XPATH, "//android.widget.TextView[@text='HIRO']")))
-        self.driver.find_element_by_xpath("//android.widget.TextView[@text='HIRO']").click()
-
-    def wasatchFilter(self):
-        for x in range(0, 50):
-            try:
-                filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='WASATCH']")
-                if filter_found.is_displayed():
-                    EditorPage.tapWasatchFilter(self)
-                    break
-
-            except NoSuchElementException:
-                EditorPage.swipeInEditor(self)
-
-    def tapWasatchFilter(self):
-        WebDriverWait(self.driver, 30).until(
-            EC.presence_of_element_located((By.XPATH, "//android.widget.TextView[@text='WASATCH']")))
-        self.driver.find_element_by_xpath("//android.widget.TextView[@text='WASATCH']").click()
-
-    def marketFilter(self):
-        for x in range(0, 50):
-            try:
-                filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='MARKET']")
-                if filter_found.is_displayed():
-                    EditorPage.tapMarketFilter(self)
-                    break
-
-            except NoSuchElementException:
-                EditorPage.swipeInEditor(self)
-
-    def tapMarketFilter(self):
-        WebDriverWait(self.driver, 30).until(
-            EC.presence_of_element_located((By.XPATH, "//android.widget.TextView[@text='MARKET']")))
-        self.driver.find_element_by_xpath("//android.widget.TextView[@text='MARKET']").click()
-
-    def radioFilter(self):
-        for x in range(0, 50):
-            try:
-                filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='RADIO']")
-                if filter_found.is_displayed():
-                    EditorPage.tapRadioFilter(self)
-                    break
-
-            except NoSuchElementException:
-                EditorPage.swipeInEditor(self)
-
-    def tapRadioFilter(self):
-        WebDriverWait(self.driver, 30).until(
-            EC.presence_of_element_located((By.XPATH, "//android.widget.TextView[@text='RADIO']")))
-        self.driver.find_element_by_xpath("//android.widget.TextView[@text='RADIO']").click()
-
-    def madridFilter(self):
-        for x in range(0, 50):
-            try:
-                filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='MADRID']")
-                if filter_found.is_displayed():
-                    EditorPage.tapMadridFilter(self)
-                    break
-
-            except NoSuchElementException:
-                EditorPage.swipeInEditor(self)
-
-    def tapMadridFilter(self):
-        WebDriverWait(self.driver, 30).until(
-            EC.presence_of_element_located((By.XPATH, "//android.widget.TextView[@text='MADRID']")))
-        self.driver.find_element_by_xpath("//android.widget.TextView[@text='MADRID']").click()
-
-    def barkFilter(self):
-        for x in range(0, 50):
-            try:
-                filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='BARK']")
-                if filter_found.is_displayed():
-                    EditorPage.tapBarkFilter(self)
-                    break
-
-            except NoSuchElementException:
-                EditorPage.swipeInEditor(self)
-
-    def tapBarkFilter(self):
-        WebDriverWait(self.driver, 30).until(
-            EC.presence_of_element_located((By.XPATH, "//android.widget.TextView[@text='BARK']")))
-        self.driver.find_element_by_xpath("//android.widget.TextView[@text='BARK']").click()
-
-    def fluxFilter(self):
-        for x in range(0, 50):
-            try:
-                filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='FLUX']")
-                if filter_found.is_displayed():
-                    EditorPage.tapFluxFilter(self)
-                    break
-
-            except NoSuchElementException:
-                EditorPage.swipeInEditor(self)
-
-    def tapFluxFilter(self):
-        WebDriverWait(self.driver, 30).until(
-            EC.presence_of_element_located((By. XPATH, "//android.widget.TextView[@text='FLUX']")))
-        self.driver.find_element_by_xpath("//android.widget.TextView[@text='FLUX']").click()
-
-    def nineteen89Filter(self):
-        for x in range(0, 50):
-            try:
-                filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='1989']")
-                if filter_found.is_displayed():
-                    EditorPage.tapNineteen89Filter(self)
-                    break
-
-            except NoSuchElementException:
-                EditorPage.swipeInEditor(self)
-
-    def tapNineteen89Filter(self):
-        self.driver.find_element_by_xpath("//android.widget.TextView[@text='1989']").click()
-
-    def celsiusFilter(self):
-        for x in range(0, 50):
-            try:
-                filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='CELSIUS']")
-                if filter_found.is_displayed():
-                    EditorPage.tapCelsiusFilter(self)
-                    break
-
-            except NoSuchElementException:
-                EditorPage.swipeInEditor(self)
-
-    def tapCelsiusFilter(self):
-        self.driver.find_element_by_xpath("//android.widget.TextView[@text='CELSIUS']").click()
-
-    def petraFilter(self):
-        for x in range(0, 50):
-            try:
-                filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='PETRA']")
-                if filter_found.is_displayed():
-                    EditorPage.tapPetraFilter(self)
-                    break
-
-            except NoSuchElementException:
-                EditorPage.swipeInEditor(self)
-
-    def tapPetraFilter(self):
-        self.driver.find_element_by_xpath("//android.widget.TextView[@text='PETRA']").click()
-
-    def organicFilter(self):
-        for x in range(0, 50):
-            try:
-                filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='ORGANIC']")
-                if filter_found.is_displayed():
-                    EditorPage.tapOrganicFilter(self)
-                    break
-
-            except NoSuchElementException:
-                EditorPage.swipeInEditor(self)
-
-    def tapOrganicFilter(self):
-        self.driver.find_element_by_xpath("//android.widget.TextView[@text='ORGANIC']").click()
-
-    def nomadFilter(self):
-        for x in range(0, 50):
-            try:
-                filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='NOMAD']")
-                if filter_found.is_displayed():
-                    EditorPage.tapNomadFilter(self)
-                    break
-
-            except NoSuchElementException:
-                EditorPage.swipeInEditor(self)
-
-    def tapNomadFilter(self):
-        self.driver.find_element_by_xpath("//android.widget.TextView[@text='NOMAD']").click()
-
-    def altaFilter(self):
-        for x in range(0, 50):
-            try:
-                filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='ALTA']")
-                if filter_found.is_displayed():
-                    EditorPage.tapAltaFilter(self)
-                    break
-
-            except NoSuchElementException:
-                EditorPage.swipeInEditor(self)
-
-    def tapAltaFilter(self):
-        self.driver.find_element_by_xpath("//android.widget.TextView[@text='ALTA']").click()
-
-    def balticFilter(self):
-        for x in range(0, 50):
-            try:
-                filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='BALTIC']")
-                if filter_found.is_displayed():
-                    EditorPage.tapBalticFilter(self)
-                    break
-
-            except NoSuchElementException:
-                EditorPage.swipeInEditor(self)
-
-    def tapBalticFilter(self):
-        self.driver.find_element_by_xpath("//android.widget.TextView[@text='BALTIC']").click()
-
-    def junoFilter(self):
-        for x in range(0, 50):
-            try:
-                filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='JUNO']")
-                if filter_found.is_displayed():
-                    EditorPage.tapJunoFilter(self)
-                    break
-
-            except NoSuchElementException:
-                EditorPage.swipeInEditor(self)
-
-    def tapJunoFilter(self):
-        self.driver.find_element_by_xpath("//android.widget.TextView[@text='JUNO']").click()
-
-    def latchFilter(self):
-        for x in range(0, 50):
-            try:
-                filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='LATCH']")
-                if filter_found.is_displayed():
-                    EditorPage.tapLatchFilter(self)
-                    break
-
-            except NoSuchElementException:
-                EditorPage.swipeInEditor(self)
-
-    def tapLatchFilter(self):
-        self.driver.find_element_by_xpath("//android.widget.TextView[@text='LATCH']").click()
-
-    def hulaFilter(self):
-        for x in range(0, 50):
-            try:
-                filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='HULA']")
-                if filter_found.is_displayed():
-                    EditorPage.tapHulaFilter(self)
-                    break
-
-            except NoSuchElementException:
-                EditorPage.swipeInEditor(self)
-
-    def tapHulaFilter(self):
-        self.driver.find_element_by_xpath("//android.widget.TextView[@text='HULA']").click()
 
     def bDayFilter(self):
         sleep(4)
@@ -487,13 +70,13 @@ class EditorPage(object):
         self.driver.set_value(spinner, 'Dec')
         self.driver.find_element_by_id("android:id/numberpicker_input").click()
 
-    def tapCreateMyFilter(self):
+    def tapCreateMyFilterBtn(self):
         WebDriverWait(self.driver, 30).until(
             EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/btnCreateFilter")))
         tapCreateFilter = self.driver.find_element_by_id("com.jsdev.instasize:id/btnCreateFilter")
         tapCreateFilter.click()
 
-    def tapUseFilter(self):
+    def tapUseFilterBtn(self):
         WebDriverWait(self.driver, 30).until(
             EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/btnUseFilter")))
         tapUseFilter = self.driver.find_element_by_id("com.jsdev.instasize:id/btnUseFilter")
@@ -509,19 +92,6 @@ class EditorPage(object):
                 EditorPage.swipeInEditor(self)
                 pass
 
-    # taps athens filter in filter manager
-    def tapAthensBox(self):
-        for x in range(0,10):
-            try:
-                sleep(2)
-                tapCheckBox = self.driver.find_element_by_xpath("//*[@class = 'android.widget.TextView' and @text ='ATHENS']")
-                tapCheckBox.click()
-                break
-
-            except NoSuchElementException:
-                EditorPage.swipeTopToBottom(self)
-                pass
-
     def moveFilterInManager(self):
         WebDriverWait(self.driver, 30).until(
             EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/ivHandle")))
@@ -533,10 +103,11 @@ class EditorPage(object):
         banner = self.driver.find_element_by_id("getCollectionViewContainer")
         banner.click()
 
-    def reviewPopup(self):
+    def tapDenyReviewPopup(self):
 
         try:
-                WebDriverWait(self.driver, 15).until(
+                EditorPage.wait_for_editor(self)
+                WebDriverWait(self.driver, 5).until(
                     EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/btnDeny")))
                 noThanksButton = self.driver.find_element_by_id("com.jsdev.instasize:id/btnDeny")
                 noThanksButton.click()
@@ -548,176 +119,17 @@ class EditorPage(object):
     def filterLevel(self):
         self.driver.find_element_by_id("tvFilterLevel")
 
-    def giveAReviewButtonTap(self):
+    def tapReviewApp(self):
         self.driver.find_element_by_id("btnReview").click()
 
     def tapCropFeature(self):
-        sleep(5)
+        EditorPage.wait_for_editor(self)
         self.driver.find_element_by_xpath("//*[@class = 'android.widget.ImageView' and @content-desc ='Crop']").click()
 
-    def tapCropFree(self):
-        self.driver.find_element_by_xpath("//android.widget.TextView[@text='FREE']").click()
-
-    def tapCropOneToOne(self):
-        self.driver.find_element_by_xpath("//android.widget.TextView[@text='1:1']").click()
-
-    def tapCropThreeToTwo(self):
-        self.driver.find_element_by_xpath("//android.widget.TextView[@text='3:2']").click()
-
-    def tapCropFiveToThree(self):
-        self.driver.find_element_by_xpath("//android.widget.TextView[@text='5:3']").click()
-
-    def tapCropFourToThree(self):
-        self.driver.find_element_by_xpath("//android.widget.TextView[@text='4:3']").click()
-
-    def tapCropFiveToFour(self):
-        EditorPage.swipeInEditor(self)
-        sleep(2)
-        self.driver.find_element_by_xpath("//android.widget.TextView[@text='5:4']").click()
-
-    def tapCropFourToFive(self):
-        EditorPage.swipeInEditor(self)
-        sleep(2)
-        self.driver.find_element_by_xpath("//android.widget.TextView[@text='4:5']").click()
-
-    def tapCropThreeToFour(self):
-        EditorPage.swipeInEditor(self)
-        sleep(2)
-        EditorPage.swipeInEditor(self)
-        sleep(2)
-        self.driver.find_element_by_xpath("//android.widget.TextView[@text='3:4']").click()
-
-    def tapCropTwoToThree(self):
-        EditorPage.swipeInEditor(self)
-        sleep(2)
-        EditorPage.swipeInEditor(self)
-        sleep(2)
-        self.driver.find_element_by_xpath("//android.widget.TextView[@text='2:3']").click()
-
-    def tapCropSevenToFive(self):
-        EditorPage.swipeInEditor(self)
-        sleep(2)
-        EditorPage.swipeInEditor(self)
-        sleep(2)
-        self.driver.find_element_by_xpath("//android.widget.TextView[@text='7:5']").click()
-
-    def tapCrop21To9(self):
-        EditorPage.swipeInEditor(self)
-        sleep(2)
-        EditorPage.swipeInEditor(self)
-        sleep(2)
-        self.driver.find_element_by_xpath("//android.widget.TextView[@text='21:9']").click()
-
     def tapAdjustmentsFeature(self):
+        EditorPage.wait_for_editor(self)
         settings = self.driver.find_element_by_xpath("//*[@class = 'android.widget.ImageView' and @content-desc ='Adjustments']")
         settings.click()
-
-    def tapExposure(self):
-        WebDriverWait(self.driver, 30).until(
-            EC.presence_of_element_located(
-                (By.XPATH, "//*[@class = 'android.widget.TextView' and @text ='EXPOSURE']")))
-        exposure = self.driver.find_element_by_xpath("//*[@class = 'android.widget.TextView' and @text ='EXPOSURE']")
-        exposure.click()
-
-    def tapContrast(self):
-        WebDriverWait(self.driver, 30).until(
-            EC.presence_of_element_located(
-                (By.XPATH, "//*[@class = 'android.widget.TextView' and @text ='CONTRAST']")))
-        contrast = self.driver.find_element_by_xpath("//*[@class = 'android.widget.TextView' and @text ='CONTRAST']")
-        contrast.click()
-
-    def tapBrightness(self):
-        WebDriverWait(self.driver, 30).until(
-            EC.presence_of_element_located(
-                (By.XPATH, "//*[@class = 'android.widget.TextView' and @text ='BRIGHTNESS']")))
-        brightness = self.driver.find_element_by_xpath("//*[@class = 'android.widget.TextView' and @text ='BRIGHTNESS']")
-        brightness.click()
-
-    def tapSharpness(self):
-        WebDriverWait(self.driver, 30).until(
-            EC.presence_of_element_located(
-                (By.XPATH, "//*[@class = 'android.widget.TextView' and @text ='SHARPNESS']")))
-        WebDriverWait(self.driver, 30).until(
-            EC.presence_of_element_located(
-                (By.XPATH, "//*[@class = 'android.widget.TextView' and @text ='SHARPNESS']")))
-        sharpness = self.driver.find_element_by_xpath("//*[@class = 'android.widget.TextView' and @text ='SHARPNESS']")
-        sharpness.click()
-
-    def tapSaturation(self):
-        for x in range(0, 5):
-            try:
-                saturation = self.driver.find_element_by_xpath("//*[@class = 'android.widget.TextView' and @text ='SATURATION']")
-                saturation.click()
-                break
-
-            except NoSuchElementException:
-                EditorPage.swipeInEditor(self)
-
-    def tapTint(self):
-        for x in range(0, 5):
-            try:
-                tint = self.driver.find_element_by_xpath("//*[@class = 'android.widget.TextView' and @text ='TINT']")
-                tint.click()
-                break
-
-            except NoSuchElementException:
-                EditorPage.swipeInEditor(self)
-
-    def tapWarmth(self):
-        for x in range(0, 5):
-            try:
-                warmth = self.driver.find_element_by_xpath("//*[@class = 'android.widget.TextView' and @text ='WARMTH']")
-                warmth.click()
-                break
-
-            except NoSuchElementException:
-                EditorPage.swipeInEditor(self)
-
-    def tapVignette(self):
-        for x in range(0, 5):
-            try:
-                vignette = self.driver.find_element_by_xpath("//*[@class = 'android.widget.TextView' and @text ='VIGNETTE']")
-                vignette.click()
-                break
-
-            except NoSuchElementException:
-                EditorPage.swipeInEditor(self)
-                pass
-
-    def tapShadows(self):
-        for x in range(0, 5):
-            try:
-                shadows = self.driver.find_element_by_xpath("//*[@class = 'android.widget.TextView' and @text ='SHADOWS']")
-                shadows.click()
-                break
-
-            except NoSuchElementException:
-                EditorPage.swipeInEditor(self)
-                pass
-
-    def tapHighlights(self):
-        for x in range(0, 5):
-            try:
-                highlights = self.driver.find_element_by_xpath("//*[@class = 'android.widget.TextView' and @text ='HIGHLIGHTS']")
-                highlights.click()
-                break
-
-            except NoSuchElementException:
-                EditorPage.swipeInEditor(self)
-                pass
-
-    def tapGrain(self):
-        for x in range(0,5):
-            try:
-                sleep(2)
-                grain = self.driver.find_element_by_xpath(
-                    "//*[@class = 'android.widget.TextView' and @text ='GRAIN']")
-                grain.click()
-                break
-
-            except NoSuchElementException:
-                EditorPage.swipeInEditor(self)
-                pass
 
     def adjustSeekBar(self):
         adjust = self.driver.find_element_by_id('com.jsdev.instasize:id/seekBar')
@@ -729,7 +141,7 @@ class EditorPage(object):
         backAndForth.long_press(adjust, x=174, y=2137).move_to(x=1270, y=2137).release().perform()
 
     def tapTextFeature(self):
-        sleep(5)
+        EditorPage.wait_for_editor(self)
         self.driver.find_element_by_xpath("//*[@class = 'android.widget.ImageView' and @content-desc ='Text']").click()
 
     def tapLeagueGothic(self):
@@ -741,8 +153,6 @@ class EditorPage(object):
         sleep(2)
         action = TouchAction(self.driver)
         action.tap(element=None, x=750, y=400, count=2).perform()
-
-
 
     def typeInTextBox(self):
         WebDriverWait(self.driver, 30).until(
@@ -760,26 +170,6 @@ class EditorPage(object):
     def tapBorderFeature(self):
         sleep(5)
         self.driver.find_element_by_xpath("//*[@class = 'android.widget.ImageView' and @content-desc ='Border']").click()
-
-    def tapXOXOBorderPack(self):
-        sleep(2)
-        self.driver.find_element_by_xpath("//android.widget.TextView[@text='XOXO']").click()
-
-    def tapX1Border(self):
-        sleep(2)
-        self.driver.find_element_by_xpath("//android.widget.TextView[@text='X1']").click()
-
-    def tapPhotoBorder(self):
-        sleep(2)
-        self.driver.find_element_by_xpath("//android.widget.TextView[@text='PHOTO']").click()
-
-    def tapBlurPhotoBorder(self):
-        sleep(2)
-        self.driver.find_element_by_xpath("//android.widget.TextView[@text='BLUR']").click()
-
-    def tapPhotoLibraryBorder(self):
-        sleep(2)
-        self.driver.find_element_by_xpath("//android.widget.TextView[@text='LIBRARY']").click()
 
     def tapToolsFeature(self):
         WebDriverWait(self.driver, 30).until(
@@ -806,6 +196,13 @@ class EditorPage(object):
         yesDiscard = self.driver.find_element_by_id("com.jsdev.instasize:id/btnDiscard")
         yesDiscard.click()
 
+    def wait_for_editor(self):
+        for x in range(0, 20):
+            try:
+                self.driver.find_element_by_id('com.jsdev.instasize:id/ivCircle1')
+                pass
+            except NoSuchElementException:
+                break
 
     def driverQuit(self):
         print ("Passed!")
@@ -814,7 +211,7 @@ class EditorPage(object):
 
     # Premium version swipe
     def swipeInEditor(self):
-        sleep(2)
+        EditorPage.wait_for_editor(self)
         self.driver.swipe(1000, 2268, 100, 2268)
 
     def swipeRightToLeftInEditor(self):
@@ -835,173 +232,6 @@ class EditorPage(object):
     def filterManagerSwipe(self):
         sleep(1)
         self.driver.swipe(1070, 1500, 1070, 300)
-
-    def athensFilterManager(self):
-        for x in range(0, 20):
-            try:
-                el = self.driver.find_element_by_xpath("//android.widget.TextView[@text='ATHENS']")
-                el.click()
-                break
-
-            except NoSuchElementException:
-                EditorPage.filterManagerSwipe(self)
-                pass
-
-    def balticFilterManager(self):
-        for x in range(0, 20):
-            try:
-                el = self.driver.find_element_by_xpath("//android.widget.TextView[@text='BALTIC']")
-                el.click()
-                break
-
-            except NoSuchElementException:
-                EditorPage.filterManagerSwipe(self)
-                pass
-
-    def celsiusFilterManager(self):
-        for x in range(0, 20):
-            try:
-                el = self.driver.find_element_by_xpath("//android.widget.TextView[@text='CELSIUS']")
-                el.click()
-                break
-
-            except NoSuchElementException:
-                EditorPage.filterManagerSwipe(self)
-                pass
-
-    def fluxFilterManager(self):
-        for x in range(0, 20):
-            try:
-                el = self.driver.find_element_by_xpath("//android.widget.TextView[@text='FLUX']")
-                el.click()
-                break
-
-            except NoSuchElementException:
-                EditorPage.filterManagerSwipe(self)
-                pass
-
-    def junoFilterManager(self):
-        for x in range(0, 20):
-            try:
-                el = self.driver.find_element_by_xpath("//android.widget.TextView[@text='JUNO']")
-                el.click()
-                break
-
-            except NoSuchElementException:
-                EditorPage.filterManagerSwipe(self)
-                pass
-
-    def kayakFilterManager(self):
-        for x in range(0, 20):
-            try:
-                el = self.driver.find_element_by_xpath("//android.widget.TextView[@text='KAYAK']")
-                el.click()
-                break
-
-            except NoSuchElementException:
-                EditorPage.filterManagerSwipe(self)
-                pass
-
-    def madridFilterManager(self):
-        for x in range(0, 20):
-            try:
-                el = self.driver.find_element_by_xpath("//android.widget.TextView[@text='MADRID']")
-                el.click()
-                break
-
-            except NoSuchElementException:
-                EditorPage.filterManagerSwipe(self)
-                pass
-
-    def marketFilterManager(self):
-        for x in range(0, 20):
-            try:
-                el = self.driver.find_element_by_xpath("//android.widget.TextView[@text='MARKET']")
-                el.click()
-                break
-
-            except NoSuchElementException:
-                EditorPage.filterManagerSwipe(self)
-                pass
-
-    def newportFilterManager(self):
-        for x in range(0, 20):
-            try:
-                el = self.driver.find_element_by_xpath("//android.widget.TextView[@text='NEWPORT']")
-                el.click()
-                break
-
-            except NoSuchElementException:
-                EditorPage.filterManagerSwipe(self)
-                pass
-
-    def nomadFilterManager(self):
-        for x in range(0, 20):
-            try:
-                el = self.driver.find_element_by_xpath("//android.widget.TextView[@text='NOMAD']")
-                el.click()
-                break
-
-            except NoSuchElementException:
-                EditorPage.filterManagerSwipe(self)
-                pass
-
-    def organicFilterManager(self):
-        for x in range(0, 20):
-            try:
-                el = self.driver.find_element_by_xpath("//android.widget.TextView[@text='ORGANIC']")
-                el.click()
-                break
-
-            except NoSuchElementException:
-                EditorPage.filterManagerSwipe(self)
-                pass
-
-    def petraFilterManager(self):
-        for x in range(0, 20):
-            try:
-                el = self.driver.find_element_by_xpath("//android.widget.TextView[@text='PETRA']")
-                el.click()
-                break
-
-            except NoSuchElementException:
-                EditorPage.filterManagerSwipe(self)
-                pass
-
-    def rioFilterManager(self):
-        for x in range(0, 20):
-            try:
-                el = self.driver.find_element_by_xpath("//android.widget.TextView[@text='RIO']")
-                el.click()
-                break
-
-            except NoSuchElementException:
-                EditorPage.filterManagerSwipe(self)
-                pass
-
-    def wasatchFilterManager(self):
-        for x in range(0, 20):
-            try:
-                el = self.driver.find_element_by_xpath("//android.widget.TextView[@text='WASATCH']")
-                el.click()
-                break
-
-            except NoSuchElementException:
-                EditorPage.filterManagerSwipe(self)
-                pass
-
-    def wavesFilterManager(self):
-        for x in range(0, 20):
-            try:
-                el = self.driver.find_element_by_xpath("//android.widget.TextView[@text='WAVES']")
-                el.click()
-                break
-
-            except NoSuchElementException:
-                EditorPage.filterManagerSwipe(self)
-                pass
-
-
 
 class GridPage(object):
     def __init__(self, driver):
@@ -1076,7 +306,7 @@ class GridPage(object):
             if self.driver.find_element_by_id("com.jsdev.instasize:id/btnGoPremium").is_displayed():
                     GridPage.simpleTapAddPhoto(self)
                     GridPage.tapPhotoOption(self)
-                    GridPage.tapTopLeftPhoto(self)
+                    GridPage.tapTopLeftImageInPhotoLibrary(self)
                     GridPage.tapShareButton(self)
                     GridPage.tapStartFreeTrial(self)
                     GridPage.tapSubscribeButton(self)
@@ -1099,7 +329,7 @@ class GridPage(object):
         cloud = self.driver.find_element_by_id("com.jsdev.instasize:id/ibCloud")
         cloud.click()
 
-    def tapOnCloudImage(self):
+    def tapOnCloudImageInSystem(self):
         image = self.driver.find_element_by_id("com.android.documentsui:id/icon_mime")
         image.click()
 
@@ -1123,7 +353,7 @@ class GridPage(object):
                     el.click()
                     break
             except NoSuchElementException:
-                print ("element not found, please check manually and to make sure element is still present")
+                print("element not found, please check manually and to make sure element is still present")
                 break
 
     def skip_button(self):
@@ -1139,7 +369,7 @@ class GridPage(object):
                 print ("element not found, please check manually and to make sure element is still present")
                 break
 
-    def topLeftPhotoGridtap(self):
+    def tapTopLeftPhotoOnGrid(self):
             try:
                 sleep(13)
                 topLeftPhotoGridtap = self.driver.find_element_by_id("ivPhoto")
@@ -1153,7 +383,7 @@ class GridPage(object):
             except NoSuchElementException:
                 print ("test failed, check manually")
 
-    def second_grid_image(self):
+    def tap_second_grid_image(self):
 
             try:
                 sleep(2)
@@ -1184,35 +414,43 @@ class GridPage(object):
         sleep(2)
 
 
-    def reeditButtontap(self):
-        self.driver.implicitly_wait(100)
+    def tapReeditBtn(self):
+        WebDriverWait(self.driver, 30).until(
+            EC.presence_of_element_located((By.ID, "ibEdit")))
         self.driver.find_element_by_id("ibEdit").click()
 
-    def photoContainers(self):
+    def tapPhotoContainer(self):
         WebDriverWait(self.driver, 30).until(
             EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/photosContainer")))
         self.driver.find_element_by_id("com.jsdev.instasize:id/photosContainer").click()
 
     # taps the top left photo in the photo library
-    def tapTopLeftPhoto(self):
+    def tapTopLeftImageInPhotoLibrary(self):
         WebDriverWait(self.driver, 30).until(
             EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/ivPhoto")))
         self.driver.find_element_by_id("com.jsdev.instasize:id/ivPhoto").click()
 
-    def instagramIcon(self):
-        sleep(1)
+    def wait_for_editor(self):
+        for x in range(0, 20):
+            try:
+                self.driver.find_element_by_id('com.jsdev.instasize:id/ivCircle1')
+                pass
+            except NoSuchElementException:
+                break
+
+    def tapInstagramIcon(self):
+        GridPage.wait_for_editor(self)
         WebDriverWait(self.driver, 30).until(
             EC.presence_of_element_located((By.XPATH, "//android.widget.TextView[@index=2]")))
         self.driver.find_element_by_xpath("//*[@class = 'android.widget.TextView' and @text ='Instagram']").click()
 
-    def instagramPopup(self):
+    def tapInstagramPopup(self):
         WebDriverWait(self.driver, 30).until(
             EC.presence_of_element_located((By.ID, "android:id/icon")))
-        nativeInstagram = self.driver.find_element_by_xpath("//*[@class = "
-                                                            "'android.widget.TextView' and @text ='Instagram']")
+        nativeInstagram = self.driver.find_element_by_xpath("//*[@class =""'android.widget.TextView' and @text ='Instagram']")
         nativeInstagram.click()
 
-    def collapseIconFind(self):
+    def assertCollapseIconPresent(self):
         WebDriverWait(self.driver, 30).until(
             EC.presence_of_element_located((By.ID, "ivCollapseIcon")))
         collapseIcon = self.driver.find_element_by_id("ivCollapseIcon")
@@ -1221,28 +459,35 @@ class GridPage(object):
     def assertTrue(self, param, param1):
         pass
 
-    def deleteIconTap(self):
+    def tapDeleteIconOnGrid(self):
         deletePhoto = self.driver.find_element_by_id("ibDelete")
         WebDriverWait(self.driver, 30).until(
             element_is_enabled((By.ID, "ibDelete"), "true"))
         deletePhoto.click()
 
-    def deleteButtonTap(self):
+    def tapDeleteButton(self):
+        WebDriverWait(self.driver, 30).until(
+            element_is_enabled((By.ID, "btnDelete"), "true"))
         self.driver.find_element_by_id("btnDelete").click()
 
-    def cancelButtonTap(self):
+    def tapCancelButton(self):
+        WebDriverWait(self.driver, 30).until(
+            EC.presence_of_element_located((By.ID, "btnCancel")))
         self.driver.find_element_by_id("btnCancel").click()
 
-    def settingsIconTap(self):
+    def tapSettingsIcon(self):
+        WebDriverWait(self.driver, 30).until(
+            EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/ibSettingsIcon")))
         self.driver.find_element_by_id("com.jsdev.instasize:id/ibSettingsIcon").click()
 
-    def collageButtonTap(self):
+    def tapCollageBtn(self):
         self.driver.find_element_by_id("ibCollage").click()
 
-    def whatsNewBtnTap(self):
+    def tapWhatsNewBtn(self):
         try:
             whatsNewIcon = self.driver.find_element_by_id("com.jsdev.instasize:id/ibWhatsNewIcon")
-            sleep(2)
+            WebDriverWait(self.driver, 30).until(
+                EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/ibWhatsNewIcon")))
             whatsNewIcon.click()
 
         except NoSuchElementException:
@@ -1252,7 +497,8 @@ class GridPage(object):
 
             try:
                 whatsNewIcon = self.driver.find_element_by_xpath("//android.widget.ImageButton[@index=2]")
-                sleep(2)
+                WebDriverWait(self.driver, 30).until(
+                    EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/ibWhatsNewIcon")))
                 whatsNewIcon.click()
 
             except NoSuchElementException:
@@ -1272,8 +518,9 @@ class GridPage(object):
 
     def openProfilePage(self):
         try:
+            WebDriverWait(self.driver, 30).until(
+                EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/ibPlus")))
             profilePlusIcon = self.driver.find_element_by_id("com.jsdev.instasize:id/ibPlus")
-            sleep(2)
             profilePlusIcon.click()
 
         except NoSuchElementException:
@@ -1283,7 +530,8 @@ class GridPage(object):
 
             try:
                 profilePlusIcon = self.driver.find_element_by_id("com.jsdev.instasize:id/ibPlus")
-                sleep(2)
+                WebDriverWait(self.driver, 30).until(
+                    EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/ibPlus")))
                 profilePlusIcon.click()
 
             except NoSuchElementException:
@@ -1359,7 +607,7 @@ class CollagePage(object):
         sleep(2)
         self.driver.find_element_by_xpath("//android.view.View[@index=0]").click()
 
-    def topLeftPhoto(self):
+    def tapTopLeftImagePhotoLib(self):
         WebDriverWait(self.driver, 30).until(
             EC.presence_of_element_located((By.XPATH, "(//android.widget.ImageView[@index=0])")))
         topLeftPhoto = self.driver.find_element_by_id("com.jsdev.instasize:id/ivPhoto")
@@ -1368,30 +616,38 @@ class CollagePage(object):
 
     def tap2ndPhoto(self):
         el = self.driver.find_element_by_xpath("(//android.widget.ImageView[@index=0])[3]")
-        sleep(3)
+        CollagePage.wait_for_editor(self)
         el.click()
 
 
     def tap3rdPhoto(self):
         el = self.driver.find_element_by_xpath("(//android.widget.ImageView[@index=0])[5]")
-        sleep(3)
+        CollagePage.wait_for_editor(self)
         el.click()
 
 
     def tap4thPhoto(self):
         el = self.driver.find_element_by_xpath("(//android.widget.ImageView[@index=0])[7]")
-        sleep(3)
+        CollagePage.wait_for_editor(self)
         el.click()
 
     def tap5thPhoto(self):
         el = self.driver.find_element_by_xpath("(//android.widget.ImageView[@index=0])[9]")
-        sleep(3)
+        CollagePage.wait_for_editor(self)
         el.click()
 
     def tap6thPhoto(self):
         el = self.driver.find_element_by_xpath("(//android.widget.ImageView[@index=0])[11]")
-        sleep(3)
+        CollagePage.wait_for_editor(self)
         el.click()
+
+    def wait_for_editor(self):
+        for x in range(0, 20):
+            try:
+                self.driver.find_element_by_id('com.jsdev.instasize:id/ivCircle1')
+                pass
+            except NoSuchElementException:
+                break
 
 class ProfilePage(object):
     def __init__(self, driver):
@@ -1434,42 +690,12 @@ class SelectFormat(object):
     def allPhotosButton(self):
         self.driver.find_element_by_id("btnShowAlbumsList")
 
-
-
-
-
 def test_request(arg=None):
     """Your http request."""
     sleep(2)
     return arg
 
-class Timeout():
-    """Timeout class using ALARM signal."""
-    class Timeout(Exception):
-        pass
 
-    def __init__(self, sec):
-        self.sec = sec
-
-    def __enter__(self):
-        signal.signal(signal.SIGALRM, self.raise_timeout)
-        signal.alarm(self.sec)
-
-    def __exit__(self, *args):
-        signal.alarm(0)    # disable alarm
-
-    def raise_timeout(self, *args):
-        raise Timeout.Timeout()
-
-# def main():
-#     # Run block of code with timeouts
-#     try:
-#         with Timeout(3):
-#             print test_request("Request 1")
-#         with Timeout(1):
-#             print test_request("Request 2")
-#     except Timeout.Timeout:
-#         print "Timeout"
 
 
 

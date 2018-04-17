@@ -6,6 +6,8 @@ from test_SingleImageFilterExport import FilterExportTest
 from test_Adjustments import AdjustmentsTest
 from test_Crop import Crop_Feature
 from test_CollageFilterExport import CollageExportTest
+from test_BorderFeature import BordersFeatureTest
+from test_NonHDFilterExport import NonHDFilterExportTest
 
 PATH = lambda p: os.path.abspath(
     os.path.join(os.path.dirname(__file__), p)
@@ -41,17 +43,23 @@ class InstasizeTests(unittest.TestCase):
     def runFilterExportTest(self):
         FilterExportTest.test_filter_uploads(FilterExportTest)
 
-
     def runAdjustmentsTest(self):
         AdjustmentsTest.test_adjustments(AdjustmentsTest)
-
 
     def runCropFeatureTest(self):
         Crop_Feature.test_crop(Crop_Feature)
 
-
     def runCollageTest(self):
         CollageExportTest.test_collage_filter_uploads(CollageExportTest)
+
+    def runBorderTest(self):
+        BordersFeatureTest.test_borders(BordersFeatureTest)
+
+    def runNonHDFilterTest(self):
+        NonHDFilterExportTest.test_filter_uploads(NonHDFilterExportTest)
+
+
+
 
 
 if __name__ == '__main__':

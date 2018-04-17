@@ -1,20 +1,12 @@
-import unittest
 from time import sleep
-import inspect
-from Asserts import PhotoLibraryAsserts
-from InstasizePages import EditorPage, CollagePage
-from InstasizePages import GridPage
-from PaidFiltersPage import PaidEditorPage
-from TryExcepts import TryExcepts
-from DriverBuilder7zero import DriverBuilderAndroid
-from time import sleep
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.common.exceptions import NoSuchElementException, WebDriverException, TimeoutException
-import inspect
-import test_SingleImageFilterExport
+
+from selenium.common.exceptions import NoSuchElementException
+
 from ExportHelper import FilterExportHelper
+from InstasizePages import EditorPage
+from InstasizePages import GridPage
+from TryExcepts import TryExcepts
+
 
 class AdjustmentsHelper(object):
     def __init__(self, driver):
@@ -47,11 +39,11 @@ class AdjustmentsHelper(object):
                 except NoSuchElementException:
                     editorPage.swipeInEditor()
 
-        editorPage.sharebutton()
+        editorPage.tapSharebutton()
 
         # Taps on Instagram icon
         gridPage = GridPage(self.driver)
-        gridPage.instagramIcon()
+        gridPage.tapInstagramIcon()
 
         # Searches for Instagram android popup on bottom of screen
         tryExceots = TryExcepts(self.driver)

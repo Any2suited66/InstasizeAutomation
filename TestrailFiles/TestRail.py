@@ -1,19 +1,12 @@
 """
 TestRail integration
 """
-import dotenv, os, testrail
-from TestrailFiles import Conf_Reader
-#Code to automate test case goes here
+import os
+import testrail
+# Code to automate test case goes here
 import unittest
-from time import sleep
 
-from Asserts import PhotoLibraryAsserts
-from DriverBuilderMultiple import DriverBuilderAndroid
-from InstasizePages import EditorPage
-from InstasizePages import GridPage
-from PaidFiltersPage import PaidEditorPage
-from TryExcepts import TryExcepts
-
+from TestrailFiles import Conf_Reader
 
 
 class AryaFilterExportTest(unittest.TestCase):
@@ -87,69 +80,7 @@ class AryaFilterExportTest(unittest.TestCase):
                     break
             return run_id
 
-    def test_filter_uploads(self):
-        driver_builder = DriverBuilderAndroid()
-        driver = driver_builder.driver
 
-        # taps on the + icon
-        addPhoto = GridPage(driver)
-        addPhoto.addPhotoTap()
-
-        # Asserts collapseIcon is displayed
-        collapseIcon = GridPage(driver)
-        collapseIcon.collapseIconFind()
-
-        # taps on the native photos container
-        tapPhotoContainer = GridPage(driver)
-        tapPhotoContainer.photoContainers()
-
-        # Asserts allPhotosButton is displayed
-        allPhotosButton = PhotoLibraryAsserts(driver)
-        allPhotosButton.allPhotosButton()
-
-        # taps on the top left photo
-        tapTopLeftPhoto = GridPage(driver)
-        tapTopLeftPhoto.tapTopLeftPhoto()
-
-        # taps on the filter
-        filters = PaidEditorPage(driver)
-        filters.aryaFilter()
-
-        # Asserts tvFilterLevel is displayed
-        tvFilterLevel = PhotoLibraryAsserts(driver)
-        tvFilterLevel.tvFilterLevel()
-
-        # taps on share button
-        tapShareButton = EditorPage(driver)
-        tapShareButton.sharebutton()
-
-        # Taps on Instagram icon
-        tapInstagram = GridPage(driver)
-        tapInstagram.instagramIcon()
-
-        # Searches for Instagram android popup on bottom of screen
-        instagramSystemPopup = TryExcepts(driver)
-        instagramSystemPopup.instagramSystemPopup()
-
-        sleep(5)
-        driver.back()
-
-        # Asserts the + button is displayed
-        addPhoto = GridPage(driver)
-        addPhoto.addPhotoFind()
-
-        # Tears down the test
-        quitTest = EditorPage(driver)
-        quitTest.driverQuit()
-
-        # Update TestRail
-        # Update TestRail
-        case_id = 125  # Case id of your test case
-        if (result_flag):
-            msg = "Successfully updated the example form"
-        else:
-            msg = "Failed to update the example form"
-            Test_Rail.update_testrail(case_id, test_run_id, result_flag, msg=msg)
 
 # ---START OF SCRIPT
 if __name__ == '__main__':

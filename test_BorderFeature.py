@@ -1,25 +1,26 @@
 import unittest
 from DriverBuilder7zero import DriverBuilderAndroid
-from SingleImageExportHelper import SingleImageExportHelper
+from helper_BorderExport import BordersFeatureTest
+import inspect
 
 def _by_link_text():
     pass
 
 
-class FilterExportTest(unittest.TestCase):
+class Crop_Feature(unittest.TestCase):
     # Class to run tests on exporting photos to Instagram
 
     driver_builder = DriverBuilderAndroid()
     driver = driver_builder.driver
 
-    def test_filter_uploads(self):
+    def test_crop(self):
 
-        singleImageExportHelper = SingleImageExportHelper(self.driver)
+        bordersFeatureTest = BordersFeatureTest(self.driver)
 
-        singleImageExportHelper.filter_exports()
+        bordersFeatureTest.test_borders()
 
 
 # ---START OF SCRIPT
 if __name__ == '__main__':
-    suite = unittest.TestLoader().loadTestsFromTestCase(FilterExportTest)
+    suite = unittest.TestLoader().loadTestsFromTestCase(Crop_Feature)
     unittest.TextTestRunner(verbosity=2).run(suite)

@@ -1,19 +1,16 @@
-import unittest
 from time import sleep
-import inspect
+
+from selenium.common.exceptions import NoSuchElementException
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.ui import WebDriverWait
+
 from Asserts import PhotoLibraryAsserts
+from DriverBuilder7zero import DriverBuilderAndroid
 from InstasizePages import EditorPage, CollagePage
 from InstasizePages import GridPage
-from PaidFiltersPage import PaidEditorPage
 from TryExcepts import TryExcepts
-from DriverBuilder7zero import DriverBuilderAndroid
-from time import sleep
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.common.exceptions import NoSuchElementException, WebDriverException, TimeoutException
-import inspect
-import test_SingleImageFilterExport
+
 
 class FilterExportHelper(object):
 
@@ -53,9 +50,9 @@ class FilterExportHelper(object):
 
 
         filterExportHelper = FilterExportHelper()
+        editorPage = EditorPage(self.driver)
 
-
-        filterExportHelper.addAllFiltersFromManager()
+        # filterExportHelper.addAllFiltersFromManager()
 
 
         for x in normalFilterList:
@@ -67,13 +64,13 @@ class FilterExportHelper(object):
                 try:
                     WebDriverWait(self.driver, 30).until(
                         EC.presence_of_element_located((By.ID, ("com.jsdev.instasize:id/ibExport"))))
+
                     filter = self.driver.find_element_by_xpath("(""%s"")" % x)
                     filter.click()
                     break
                 except NoSuchElementException:
-                    paidEditorPage = PaidEditorPage(self.driver)
                     sleep(2)
-                    paidEditorPage.swipeInEditor()
+                    editorPage.swipeInEditor()
                     pass
 
             filterExportHelper.filterExportInstagram()
@@ -122,9 +119,9 @@ class FilterExportHelper(object):
                     filter.click()
                     break
                 except NoSuchElementException:
-                    paidEditorPage = PaidEditorPage(self.driver)
+                    editorPage = EditorPage(self.driver)
                     sleep(2)
-                    paidEditorPage.swipeInEditor()
+                    editorPage.swipeInEditor()
                     pass
 
             filterExportHelper.filterExportInstagram()
@@ -148,15 +145,15 @@ class FilterExportHelper(object):
         # taps on the + icon
         gridPage.addPhotoTap()
         # Asserts collapseIcon is displayed
-        gridPage.collapseIconFind()
+        gridPage.assertCollapseIconPresent()
         # taps on the native photos container
-        gridPage.photoContainers()
+        gridPage.tapPhotoContainer()
         # Asserts allPhotosButton is displayed
         photoLibraryAsserts.allPhotosButton()
         # taps on the top left photo
-        gridPage.tapTopLeftPhoto()
+        gridPage.tapTopLeftImageInPhotoLibrary()
         # searches for review popup and clicks 'no, thanks'
-        editorPage.reviewPopup()
+        editorPage.tapDenyReviewPopup()
         # taps the filer manager
         editorPage.tapFilterManager()
         # searches for filter
@@ -216,27 +213,23 @@ class FilterExportHelper(object):
         gridPage.addPhotoTap()
 
         # taps on the native photos container
-        gridPage.photoContainers()
+        gridPage.tapPhotoContainer()
 
         # taps on the top left photo
-        gridPage.tapTopLeftPhoto()
+        gridPage.tapTopLeftImageInPhotoLibrary()
 
         # taps 'No thanks' on app review popup
         editorPage = EditorPage(self.driver)
-        editorPage.reviewPopup()
+        editorPage.tapDenyReviewPopup()
 
     def filterExportInstagram(self):
-        # Asserts tvFilterLevel is displayed
-        photoLibraryAsserts = PhotoLibraryAsserts(self.driver)
-        photoLibraryAsserts.tvFilterLevel()
-
         # taps on share button
         editorPage = EditorPage(self.driver)
-        editorPage.sharebutton()
+        editorPage.tapSharebutton()
 
         # Taps on Instagram icon
         gridPage = GridPage(self.driver)
-        gridPage.instagramIcon()
+        gridPage.tapInstagramIcon()
 
         # Searches for Instagram android popup on bottom of screen
         tryExceots = TryExcepts(self.driver)
@@ -250,16 +243,15 @@ class FilterExportHelper(object):
         collagePage = CollagePage(self.driver)
         editorPage = EditorPage(self.driver)
         gridPage.addPhotoTap()
-        gridPage.collapseIconFind()
-        gridPage.collageButtonTap()
-        collagePage.topLeftPhoto()
+        gridPage.tapCollageBtn()
+        collagePage.tapTopLeftImagePhotoLib()
         collagePage.tap2ndPhoto()
         collagePage.tap3rdPhoto()
         collagePage.tap4thPhoto()
         collagePage.tap5thPhoto()
         collagePage.tap6thPhoto()
         collagePage.tap2ndCollageOption()
-        editorPage.reviewPopup()
+        editorPage.tapDenyReviewPopup()
 
 
 

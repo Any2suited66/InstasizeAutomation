@@ -212,7 +212,7 @@ class EditorPage(object):
     # Premium version swipe
     def swipeInEditor(self):
         EditorPage.wait_for_editor(self)
-        self.driver.swipe(1000, 2268, 100, 2268)
+        self.driver.swipe(1000, 2140, 100, 2140)
 
     def swipeRightToLeftInEditor(self):
         sleep(4)
@@ -244,31 +244,31 @@ class GridPage(object):
         plusIcon2 = self.driver.find_element_by_id("com.jsdev.instasize:id/ibAddPhoto")
         plusIcon2.click()
 
+    def skip_onborading(self):
+        WebDriverWait(self.driver, 10).until(
+            EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/btnGetStarted")))
+        getStartedBtn = self.driver.find_element_by_id("com.jsdev.instasize:id/btnGetStarted")
+        if getStartedBtn.is_displayed():
+
+            try:
+                WebDriverWait(self.driver, 7).until(
+                    EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/btnGetStarted")))
+                self.driver.find_element_by_id("com.jsdev.instasize:id/btnGetStarted").click()
+                WebDriverWait(self.driver, 7).until(
+                    EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/btnSkip")))
+                self.driver.find_element_by_id("com.jsdev.instasize:id/btnSkip").click()
+                GridPage.purchasPremiumEditor(self)
+
+            except NoSuchElementException:
+                pass
+        else:
+            pass
+
     def addPhotoTap(self):
-
-        # had to add this try/except to take care of the premium popup screen.
-        # if premium popup screen is removed please delete this try/except to reduce testing time
-
-        try:
-            WebDriverWait(self.driver, 7).until(
-                EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/btnGetStarted")))
-            self.driver.find_element_by_id("com.jsdev.instasize:id/btnGetStarted").click()
-            WebDriverWait(self.driver, 7).until(
-                EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/btnSkip")))
-            self.driver.find_element_by_id("com.jsdev.instasize:id/btnSkip").click()
-            GridPage.purchasPremiumEditor(self)
-            GridPage.simpleTapAddPhoto(self)
-
-        except NoSuchElementException:
-            GridPage.purchasPremiumEditor(self)
-            WebDriverWait(self.driver, 30).until(
-                EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/ibAddPhoto")))
-            self.driver.find_element_by_id("com.jsdev.instasize:id/ibAddPhoto").click()
-        except TimeoutException:
-            GridPage.purchasPremiumEditor(self)
-            WebDriverWait(self.driver, 30).until(
-                EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/ibAddPhoto")))
-            self.driver.find_element_by_id("com.jsdev.instasize:id/ibAddPhoto").click()
+        WebDriverWait(self.driver, 20).until(
+            EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/ibAddPhoto")))
+        GridPage.purchasPremiumEditor(self)
+        self.driver.find_element_by_id("com.jsdev.instasize:id/ibAddPhoto").click()
 
 
     def freeTrialButton(self):
@@ -443,6 +443,8 @@ class GridPage(object):
         WebDriverWait(self.driver, 30).until(
             EC.presence_of_element_located((By.XPATH, "//android.widget.TextView[@index=2]")))
         self.driver.find_element_by_xpath("//*[@class = 'android.widget.TextView' and @text ='Instagram']").click()
+        sleep(10)
+        self.driver.back()
 
     def tapInstagramPopup(self):
         WebDriverWait(self.driver, 30).until(

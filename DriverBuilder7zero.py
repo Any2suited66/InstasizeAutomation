@@ -25,9 +25,9 @@ class DriverBuilderAndroid(object):
         desired_caps['platformName'] = 'ANDROID'
         desired_caps['automationName'] = 'uiautomator2'
         desired_caps['deviceName'] = 'ANDROID'
-        desired_caps['udid'] = '8802edf5'
+        # desired_caps['udid'] = '8802edf5'
         # desired_caps['platformVersion'] = GetAndroidVersion.getVersion()
-        desired_caps['app'] = '/Users/tyler/Desktop/appium-docker-android-master/Appium/InstasizeInstallAPK/Instasize_20180903_release_4.0.11_128_google.apk'
+        desired_caps['app'] = '/Users/tyler/Desktop/appium-docker-android-master/Appium/InstasizeInstallAPK/Instasize_20180404_release_4.0.13_130_google.apk'
         desired_caps['appActivity'] = 'com.jsdev.instasize.activities.MainActivity'
         desired_caps['appPackage'] = 'com.jsdev.instasize'
         # desired_caps['noReset'] = True

@@ -51,9 +51,12 @@ class FilterExportHelper(object):
 
         filterExportHelper = FilterExportHelper()
         editorPage = EditorPage(self.driver)
+        gridPage = GridPage(self.driver)
 
-        # filterExportHelper.addAllFiltersFromManager()
+        # skips onboarding screens
+        gridPage.skip_onborading()
 
+        filterExportHelper.addAllFiltersFromManager()
 
         for x in normalFilterList:
 
@@ -105,6 +108,10 @@ class FilterExportHelper(object):
 
         filterExportHelper = FilterExportHelper()
 
+        gridPage = GridPage(self.driver)
+
+        gridPage.skip_onborading()
+
         filterExportHelper.addAllFiltersFromManager()
 
         for x in normalFilterList:
@@ -142,6 +149,9 @@ class FilterExportHelper(object):
         gridPage = GridPage(self.driver)
         photoLibraryAsserts = PhotoLibraryAsserts(self.driver)
         editorPage = EditorPage(self.driver)
+
+        # skips onboarding screens
+        gridPage.skip_onborading()
         # taps on the + icon
         gridPage.addPhotoTap()
         # Asserts collapseIcon is displayed
@@ -182,9 +192,12 @@ class FilterExportHelper(object):
                            "//android.widget.TextView[@text ='HIGHLIGHTS']", "//android.widget.TextView[@text ='GRAIN']"]
 
         filterExportHelper = FilterExportHelper()
-
+        gridPage = GridPage(self.driver)
         editorPage = EditorPage(self.driver)
+
+        gridPage.skip_onborading()
         editorPage.tapAdjustmentsFeature()
+
         for a in adjustmentsList:
             filterExportHelper.setupFilter()
             for x in range(0, 11):
@@ -208,8 +221,11 @@ class FilterExportHelper(object):
 
 
     def setupFilter(self):
-        # taps on the + icon
         gridPage = GridPage(self.driver)
+
+        gridPage.purchasPremiumEditor()
+
+        # taps on the + icon
         gridPage.addPhotoTap()
 
         # taps on the native photos container
@@ -235,13 +251,13 @@ class FilterExportHelper(object):
         tryExceots = TryExcepts(self.driver)
         tryExceots.instagramSystemPopup()
 
-        sleep(5)
-        self.driver.back()
+
 
     def collageFilterSetup(self):
         gridPage = GridPage(self.driver)
         collagePage = CollagePage(self.driver)
         editorPage = EditorPage(self.driver)
+        gridPage.purchasPremiumEditor()
         gridPage.addPhotoTap()
         gridPage.tapCollageBtn()
         collagePage.tapTopLeftImagePhotoLib()

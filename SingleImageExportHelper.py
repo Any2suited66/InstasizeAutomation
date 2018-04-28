@@ -18,7 +18,7 @@ class SingleImageExportHelper(object):
 
     def filter_exports(self):
 
-        normalFilterList = [    "//android.widget.TextView[@text='RADIO']",     "//android.widget.TextView[@text='H1']",        "//android.widget.TextView[@text='H2']",
+        normalFilterList = [    "//android.widget.TextView[@text='H1']",     "//android.widget.TextView[@text='RADIO']",        "//android.widget.TextView[@text='H2']",
                                 "//android.widget.TextView[@text='H3']",        "//android.widget.TextView[@text='F1']",        "//android.widget.TextView[@text='F2']",
                                 "//android.widget.TextView[@text='F3']",        "//android.widget.TextView[@text='A1']",        "//android.widget.TextView[@text='A2']",
                                 "//android.widget.TextView[@text='A3']",        "//android.widget.TextView[@text='R1']",        "//android.widget.TextView[@text='R2']",
@@ -50,6 +50,8 @@ class SingleImageExportHelper(object):
 
         # filterExportHelper.addAllFiltersFromManager()
 
+        # skips onboarding screens
+        gridPage.skip_onborading()
 
         for x in normalFilterList:
 

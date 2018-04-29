@@ -261,6 +261,9 @@ class GridPage(object):
 
             except NoSuchElementException:
                 pass
+
+            except TimeoutException:
+                pass
         else:
             pass
 
@@ -443,7 +446,7 @@ class GridPage(object):
         WebDriverWait(self.driver, 30).until(
             EC.presence_of_element_located((By.XPATH, "//android.widget.TextView[@index=2]")))
         self.driver.find_element_by_xpath("//*[@class = 'android.widget.TextView' and @text ='Instagram']").click()
-        sleep(10)
+        sleep(15)
         self.driver.back()
 
     def tapInstagramPopup(self):

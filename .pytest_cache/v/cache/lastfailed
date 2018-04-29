@@ -24,5 +24,7 @@
   "CollageFilterExport6imgs/test_CollageRio6imgs.py::CollageFilterExportTest::test_filter_uploads": true,
   "CollageFilterExportTests1img/test_CollageKayakFilter1img.py::CollageFilter1imgExportTest::test_filter_uploads": true,
   "CollageFilterExportTests1img/test_CollageNewportFilter1img.py::CollageFilter1imgExportTest::test_filter_uploads": true,
-  "CollageFilterExportTests1img/test_CollageNovaFilter1img.py::CollageFilter1imgExportTest::test_filter_uploads": true
+  "CollageFilterExportTests1img/test_CollageNovaFilter1img.py::CollageFilter1imgExportTest::test_filter_uploads": true,
+  "testRunner.py": true,
+  "test_SingleImageFilterExport.py::FilterExportTest::test_filter_uploads": true
 }

@@ -48,7 +48,7 @@ class SingleImageExportHelper(object):
         filterExportHelper = FilterExportHelper()
 
 
-        # filterExportHelper.addAllFiltersFromManager()
+        filterExportHelper.addAllFiltersFromManager()
 
         # skips onboarding screens
         gridPage.skip_onborading()

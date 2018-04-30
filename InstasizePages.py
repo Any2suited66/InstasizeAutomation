@@ -1,12 +1,10 @@
 from time import sleep
-import signal
-from appium.webdriver.common.multi_action import MultiAction
 from appium.webdriver.common.touch_action import TouchAction
-from selenium.common.exceptions import NoSuchElementException, WebDriverException, TimeoutException
-from selenium.webdriver import TouchActions, ActionChains
+from selenium.common.exceptions import NoSuchElementException, TimeoutException
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.ui import WebDriverWait
+
 
 # custom explicit wait for element to be enabled
 class element_is_enabled(object):
@@ -55,6 +53,7 @@ class EditorPage(object):
                 EditorPage.swipeInEditor(self)
 
     def tapBDayFilter(self):
+        EditorPage.wait_for_editor(self)
         self.driver.find_element_by_xpath("//android.widget.TextView[@text='BDAY']").click()
 
     def tapBdayDateSpinner(self):
@@ -66,9 +65,8 @@ class EditorPage(object):
     def tapBdaySpinnerForInput(self):
         WebDriverWait(self.driver, 30).until(
             EC.presence_of_element_located((By.ID, "android:id/numberpicker_input")))
-        spinner = self.driver.find_element_by_id("android:id/numberpicker_input")
-        self.driver.set_value(spinner, 'Dec')
-        self.driver.find_element_by_id("android:id/numberpicker_input").click()
+        self.driver.swipe(392, 2469, 392, 2130)
+
 
     def tapCreateMyFilterBtn(self):
         WebDriverWait(self.driver, 30).until(

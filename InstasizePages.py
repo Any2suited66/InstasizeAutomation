@@ -678,6 +678,8 @@ class ProfilePage(object):
         self.driver.find_element_by_id("com.jsdev.instasize:id/etvPassword").click()
 
     def name_generator(self, N=6):
+        WebDriverWait(self.driver, 30).until(
+            EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/etvFullName")))
         randomName = ''.join(random.choices(string.ascii_uppercase + string.digits, k=N))
         fullNameBox = self.driver.find_element_by_id("com.jsdev.instasize:id/etvFullName")
         fullNameBox.send_keys(randomName)

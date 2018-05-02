@@ -17,16 +17,15 @@ class test_CreateNewProfile(unittest.TestCase):
     def test_create_new_profile(self):
 
         profilePage = ProfilePage(self.driver)
-        gridPageAsserts = GridPageAsserts(self.driver)
 
         profilePage.openProfilePage()
-
         profilePage.name_generator()
-
         profilePage.email_generator()
-
         profilePage.pw_generator()
         profilePage.tapSignUp()
+
+    def premium_badge_assertion(self):
+        gridPageAsserts = GridPageAsserts(self.driver)
         gridPageAsserts.premium_badge_assert()
 
 

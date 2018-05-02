@@ -20,7 +20,7 @@ class BordersFeatureTest(unittest.TestCase):
 
     def test_borders(self):
 
-        borderList = ["//android.widget.TextView[@text='XOXO']",       "//android.widget.TextView[@text='COLOR']",
+        borderList = ["//android.widget.TextView[@text='XOXO']",       "//android.widget.TextView[@text='COLOR']",      "//android.widget.TextView[@text='VIBES']",
                        "//android.widget.TextView[@text='SPRING']",     "//android.widget.TextView[@text='MARBLE']",    "//android.widget.TextView[@text='MERICA']",
                        "//android.widget.TextView[@text='HOLIDAY']",    "//android.widget.TextView[@text='AUTUMN']",    "//android.widget.TextView[@text='WOOD']",
                        "//android.widget.TextView[@text='FLORAL']",     "//android.widget.TextView[@text='COSMIC']",    "//android.widget.TextView[@text='CAMO']",

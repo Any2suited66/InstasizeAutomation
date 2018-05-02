@@ -18,7 +18,11 @@ class test_SigleImageFilterExport(unittest.TestCase):
 
     def test_filter_exports(self):
 
-        normalFilterList = ["//android.widget.TextView[@text='H1']", "//android.widget.TextView[@text='RADIO']",
+        normalFilterList = ["//android.widget.TextView[@text='C3']",
+                            "//android.widget.TextView[@text='C2']",
+                            "//android.widget.TextView[@text='C1']",
+                            "//android.widget.TextView[@text='H1']",
+                            "//android.widget.TextView[@text='RADIO']",
                             "//android.widget.TextView[@text='H2']",
                             "//android.widget.TextView[@text='H3']", "//android.widget.TextView[@text='F1']",
                             "//android.widget.TextView[@text='F2']",

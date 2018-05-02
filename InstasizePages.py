@@ -246,7 +246,7 @@ class GridPage(object):
         plusIcon2 = self.driver.find_element_by_id("com.jsdev.instasize:id/ibAddPhoto")
         plusIcon2.click()
 
-    def skip_onborading(self):
+    def skip_onboarding(self):
         WebDriverWait(self.driver, 10).until(
             EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/btnGetStarted")))
         getStartedBtn = self.driver.find_element_by_id("com.jsdev.instasize:id/btnGetStarted")
@@ -656,7 +656,7 @@ class ProfilePage(object):
 
     def openProfilePage(self):
         gridPage = GridPage(self.driver)
-        gridPage.skip_onborading()
+        gridPage.skip_onboarding()
 
         WebDriverWait(self.driver, 30).until(
             EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/ibPlus")))

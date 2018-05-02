@@ -44,7 +44,7 @@ class InstasizeTests(unittest.TestCase):
         FilterExportTest.test_filter_uploads(FilterExportTest)
 
     def runAdjustmentsTest(self):
-        AdjustmentsTest.test_adjustments(AdjustmentsTest)
+        AdjustmentsTest.test_allAdjustments(AdjustmentsTest)
 
     def runCropFeatureTest(self):
         Crop_Feature.test_crop(Crop_Feature)

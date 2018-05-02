@@ -54,7 +54,7 @@ class FilterExportHelper(object):
         gridPage = GridPage(self.driver)
 
         # skips onboarding screens
-        gridPage.skip_onborading()
+        gridPage.skip_onboarding()
 
         filterExportHelper.addAllFiltersFromManager()
 
@@ -110,7 +110,7 @@ class FilterExportHelper(object):
 
         gridPage = GridPage(self.driver)
 
-        gridPage.skip_onborading()
+        gridPage.skip_onboarding()
 
         filterExportHelper.addAllFiltersFromManager()
 
@@ -150,8 +150,7 @@ class FilterExportHelper(object):
         photoLibraryAsserts = PhotoLibraryAsserts(self.driver)
         editorPage = EditorPage(self.driver)
 
-        # skips onboarding screens
-        gridPage.skip_onborading()
+
         # taps on the + icon
         gridPage.addPhotoTap()
         # Asserts collapseIcon is displayed
@@ -183,41 +182,6 @@ class FilterExportHelper(object):
         sleep(2)
         self.driver.back()
         editorPage.discardEditsYes()
-
-    def allAdjustments(self):
-
-        adjustmentsList = ["//android.widget.TextView[@text ='CONTRAST']", "//android.widget.TextView[@text ='EXPOSURE']", "//android.widget.TextView[@text ='BRIGHTNESS']",
-                           "//android.widget.TextView[@text ='SHARPNESS']", "//android.widget.TextView[@text ='SATURATION']", "//android.widget.TextView[@text ='TINT']",
-                           "//android.widget.TextView[@text ='WARMTH']", "//android.widget.TextView[@text ='VIGNETTE']", "//android.widget.TextView[@text ='SHADOWS']",
-                           "//android.widget.TextView[@text ='HIGHLIGHTS']", "//android.widget.TextView[@text ='GRAIN']"]
-
-        filterExportHelper = FilterExportHelper()
-        gridPage = GridPage(self.driver)
-        editorPage = EditorPage(self.driver)
-
-        gridPage.skip_onborading()
-        editorPage.tapAdjustmentsFeature()
-
-        for a in adjustmentsList:
-            filterExportHelper.setupFilter()
-            for x in range(0, 11):
-                try:
-                    adjustment = self.driver.find_element_by_xpath("(""%s"")" % a)
-                    sleep(2)
-                    adjustment.click()
-                    editorPage.adjustSeekBar()
-                    editorPage.tapAccept()
-                    break
-
-                except NoSuchElementException:
-                    editorPage.swipeInEditor()
-
-
-            filterExportHelper.filterExportInstagram()
-
-
-
-
 
 
     def setupFilter(self):

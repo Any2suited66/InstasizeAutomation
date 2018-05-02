@@ -1,26 +1,33 @@
 import unittest
+from InstasizePages import EditorPage
+from InstasizePages import GridPage
+from ExportHelper import FilterExportHelper
 from DriverBuilder7zero import DriverBuilderAndroid
-from helper_BorderExport import BordersFeatureTest
-import inspect
-from helper_birthday_filter import BirthdayFilterExport
-def _by_link_text():
-    pass
 
-
-class test_BrithdayFilter(unittest.TestCase):
-    # Class to run tests on exporting photos to Instagram
+class test_BirthdayFilterExport(unittest.TestCase):
 
     driver_builder = DriverBuilderAndroid()
     driver = driver_builder.driver
 
-    def test_crop(self):
+    def test_birthday_filter_export(self):
 
-        helperBirthdayFilter = BirthdayFilterExport()
+        gridPage = GridPage(self.driver)
+        editorPage = EditorPage(self.driver)
+        filterExportHelper = FilterExportHelper()
 
-        helperBirthdayFilter.birthday_filter_export()
-
+        gridPage.skip_onboarding()
+        gridPage.addPhotoTap()
+        gridPage.tapPhotoContainer()
+        gridPage.tapTopLeftImageInPhotoLibrary()
+        editorPage.tapDenyReviewPopup()
+        editorPage.tapBDayFilter()
+        editorPage.tapBdayDateSpinner()
+        editorPage.tapBdaySpinnerForInput()
+        editorPage.tapCreateMyFilterBtn()
+        editorPage.tapUseFilterBtn()
+        filterExportHelper.filterExportInstagram()
 
 # ---START OF SCRIPT
 if __name__ == '__main__':
-    suite = unittest.TestLoader().loadTestsFromTestCase(test_BrithdayFilter)
+    suite = unittest.TestLoader().loadTestsFromTestCase(test_BirthdayFilterExport)
     unittest.TextTestRunner(verbosity=2).run(suite)

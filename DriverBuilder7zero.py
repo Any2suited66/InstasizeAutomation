@@ -20,7 +20,7 @@ class DriverBuilderAndroid(object):
         desired_caps['deviceName'] = 'ANDROID'
         desired_caps['udid'] = '8802edf5'
         # desired_caps['platformVersion'] = GetAndroidVersion.getVersion()
-        desired_caps['app'] = '/Users/tyler/Desktop/Instasize_20182704_release_4.0.14_131_google.apk'
+        desired_caps['app'] = '/Users/tyler/Desktop/InstasizeInstallAPK/Instasize_20182704_release_4.0.14_131_google.apk'
         desired_caps['appActivity'] = 'com.jsdev.instasize.activities.MainActivity'
         desired_caps['appPackage'] = 'com.jsdev.instasize'
         # desired_caps['noReset'] = True

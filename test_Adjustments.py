@@ -1,6 +1,6 @@
 import unittest
 from DriverBuilder7zero import DriverBuilderAndroid
-from AdjustmentsHelper import AdjustmentsHelper
+
 from time import sleep
 from ExportHelper import FilterExportHelper
 from InstasizePages import EditorPage, GridPage
@@ -30,7 +30,7 @@ class AdjustmentsTest(unittest.TestCase):
         gridPage = GridPage(self.driver)
         editorPage = EditorPage(self.driver)
 
-        gridPage.skip_onborading()
+        gridPage.skip_onboarding()
         filterExportHelper.setupFilter()
         editorPage.tapAdjustmentsFeature()
 

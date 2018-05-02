@@ -7,6 +7,8 @@ from selenium.webdriver import TouchActions, ActionChains
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+import string
+import random
 
 # custom explicit wait for element to be enabled
 class element_is_enabled(object):
@@ -521,39 +523,6 @@ class GridPage(object):
                         EC.presence_of_element_located((By.XPATH, "//android.widget.ImageButton[@index=2]")))
                     self.driver.find_element_by_id("com.jsdev.instasize:id/ibWhatsNewIcon").click()
 
-    def openProfilePage(self):
-        try:
-            WebDriverWait(self.driver, 30).until(
-                EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/ibPlus")))
-            profilePlusIcon = self.driver.find_element_by_id("com.jsdev.instasize:id/ibPlus")
-            profilePlusIcon.click()
-
-        except NoSuchElementException:
-            WebDriverWait(self.driver, 30).until(
-                EC.presence_of_element_located((By.ID, "btnGetStarted")))
-            self.driver.find_element_by_id("btnGetStarted").click()
-
-            try:
-                profilePlusIcon = self.driver.find_element_by_id("com.jsdev.instasize:id/ibPlus")
-                WebDriverWait(self.driver, 30).until(
-                    EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/ibPlus")))
-                profilePlusIcon.click()
-
-            except NoSuchElementException:
-                try:
-                    self.driver.find_element_by_id("btnSkip").click()
-                    WebDriverWait(self.driver, 30).until(
-                        EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/ivCollapseIcon")))
-                    self.driver.back()
-                    WebDriverWait(self.driver, 30).until(
-                        EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/ibPlus]")))
-                    self.driver.find_element_by_id("com.jsdev.instasize:id/ibPlus]").click()
-
-                except:
-                    WebDriverWait(self.driver, 30).until(
-                        EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/ibPlus")))
-                    self.driver.find_element_by_id("com.jsdev.instasize:id/ibPlus").click()
-
 
 class PhotoLibraryPage(object):
     def __init__(self, driver):
@@ -684,6 +653,44 @@ class ProfilePage(object):
         email = self.driver.find_element_by_id("com.jsdev.instasize:id/etvEmailAddress")
         email.click()
         email.send_keys('randomEmail@test.com')
+
+    def openProfilePage(self):
+        gridPage = GridPage(self.driver)
+        gridPage.skip_onborading()
+
+        WebDriverWait(self.driver, 30).until(
+            EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/ibPlus")))
+        self.driver.find_element_by_id("com.jsdev.instasize:id/ibPlus").click()
+
+    def tap_full_name(self):
+        WebDriverWait(self.driver, 30).until(
+            EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/etvFullName")))
+        self.driver.find_element_by_id("com.jsdev.instasize:id/etvFullName").click()
+
+    def tap_email(self):
+        WebDriverWait(self.driver, 30).until(
+            EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/etvEmailAddress")))
+        self.driver.find_element_by_id("com.jsdev.instasize:id/etvEmailAddress").click()
+
+    def tap_pw(self):
+        WebDriverWait(self.driver, 30).until(
+            EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/etvPassword")))
+        self.driver.find_element_by_id("com.jsdev.instasize:id/etvPassword").click()
+
+    def name_generator(self, N=6):
+        randomName = ''.join(random.choices(string.ascii_uppercase + string.digits, k=N))
+        fullNameBox = self.driver.find_element_by_id("com.jsdev.instasize:id/etvFullName")
+        fullNameBox.send_keys(randomName)
+
+    def pw_generator(self, N=8):
+        randomPW = ''.join(random.choices(string.ascii_uppercase + string.digits, k=N))
+        pWBox = self.driver.find_element_by_id("com.jsdev.instasize:id/etvPassword")
+        pWBox.send_keys(randomPW)
+
+    def email_generator(self, N=8):
+        randomEmail = ''.join(random.choices(string.ascii_uppercase + string.digits, k=N))
+        emailBox = self.driver.find_element_by_id("com.jsdev.instasize:id/etvEmailAddress")
+        emailBox.send_keys(''.join('test@' + randomEmail + '.com'))
 
 class SelectFormat(object):
     def __init__(self, driver):

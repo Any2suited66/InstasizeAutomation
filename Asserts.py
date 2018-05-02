@@ -86,7 +86,13 @@ class GridPageAsserts(object):
             EC.presence_of_element_located((By.ID, "ibSettingsIcon")))
         settingsIcon = self.driver.find_element_by_id("ibSettingsIcon")
         self.assertTrue(settingsIcon.is_displayed, "Failed, check for crash manually")
-        print("Passed, no crash")
+
+    def premium_badge_assert(self):
+        WebDriverWait(self.driver, 30).until(
+            EC.presence_of_element_located((By.ID, "ibSettingsIcon")))
+        premium_badge = self.driver.find_element_by_id("com.jsdev.instasize:id/ivPremiumBadge")
+        self.assertTrue(premium_badge.is_displayed, "Failed, check login flow.")
+
 
     def gridPagePhotoNotPresent(self):
         self.driver.implicitly_wait(10)

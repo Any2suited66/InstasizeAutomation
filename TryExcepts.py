@@ -17,7 +17,7 @@ class TryExcepts(object):
 
     def instagramSystemPopup(self):
         try:
-            WebDriverWait(self.driver, 5).until(
+            WebDriverWait(self.driver, 10).until(
                 EC.presence_of_element_located((By.ID, "android:id/icon")))
             self.driver.find_element_by_xpath("//*[@class = 'android.widget.TextView' and @text ='Instagram']").click()
 

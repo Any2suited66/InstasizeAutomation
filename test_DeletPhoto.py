@@ -17,58 +17,43 @@ class TestDeletePhoto(unittest.TestCase):
         driverBuilder = DriverBuilderAndroid()
         driver = driverBuilder.driver
 
-        addphoto = GridPage(driver)
-        addphoto.addPhotoTap()
+        editorPage = EditorPage(driver)
+        gridPage = GridPage(driver)
+        gridPageAsserts = GridPageAsserts(driver)
 
-        # Asserts collapseIcon is displayed
-        collapseIcon = GridPage(driver)
-        collapseIcon.assertCollapseIconPresent()
+        gridPage.skip_onboarding()
+        gridPage.purchasPremiumEditor()
+        gridPage.addPhotoTap()
 
         # taps on the native photos container
-        tapPhotoContainer = GridPage(driver)
-        tapPhotoContainer.tapPhotoContainer()
-
-        # Asserts allPhotosButton is displayed
-        allPhotosButton = PhotoLibraryAsserts(driver)
-        allPhotosButton.allPhotosButton()
+        gridPage.tapPhotoContainer()
 
         # taps on the top left photo on photo library page
-        tapTopLeftPhoto = GridPage(driver)
-        tapTopLeftPhoto.tapTopLeftImageInPhotoLibrary()
+        gridPage.tapTopLeftImageInPhotoLibrary()
 
         # taps on share icon
-        tapShareButton = EditorPage(driver)
-        tapShareButton.tapSharebutton()
+        editorPage.tapSharebutton()
 
-        sleep(2)
+        sleep(5)
         driver.back()
 
         # Taps on the top left image on the grid
-        tapOnGridPhoto = GridPage(driver)
-        tapOnGridPhoto.tapTopLeftPhotoOnGrid()
+        gridPage.tapTopLeftPhotoOnGrid()
 
         # Taps on delete icon
-        tapDeleteIcon = GridPage(driver)
-        tapDeleteIcon.tapDeleteIconOnGrid()
+        gridPage.tapDeleteIconOnGrid()
 
         # Taps on cancel
-        tapOnCancel = GridPage(driver)
-        tapOnCancel.tapCancelButton()
+        gridPage.tapCancelButton()
 
         # Taps on delete icon
-        tapDeleteIcon.tapDeleteIconOnGrid()
+        gridPage.tapDeleteIconOnGrid()
 
         # Taps on delete button in popup
-        tapDeleteButton = GridPage(driver)
-        tapDeleteButton.tapDeleteButton()
+        gridPage.tapDeleteButton()
 
         # Asserts the image was deleted successfully
-        assertsImageDeleted = GridPageAsserts(driver)
-        assertsImageDeleted.gridPagePhotoNotPresent()
-
-        sleep(3)
-        driver.quit()
-
+        gridPageAsserts.gridPagePhotoNotPresent()
 
 # ---START OF SCRIPT
 if __name__ == '__main__':

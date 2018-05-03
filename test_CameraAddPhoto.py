@@ -17,49 +17,40 @@ class CameraTest(unittest.TestCase):
         driver_builder = DriverBuilderAndroid()
         driver = driver_builder.driver
 
-        # taps on the + icon
-        addPhoto = GridPage(driver)
-        addPhoto.addPhotoTap()
+        gridPage    = GridPage(driver)
+        editorPage  = EditorPage(driver)
+        tryExcepts  = TryExcepts(driver)
+
+        gridPage.skip_onboarding()
+
+        gridPage.purchasPremiumEditor()
+
+        gridPage.addPhotoTap()
 
         # Asserts collapseIcon is displayed
-        collapseIcon = GridPage(driver)
-        collapseIcon.assertCollapseIconPresent()
+        gridPage.assertCollapseIconPresent()
 
         # taps on the camera icon
-        tapCamera = GridPage(driver)
-        tapCamera.tap_camera_icon()
+        gridPage.tap_camera_icon()
 
         # takes a picture
-        take_picture = GridPage(driver)
-        take_picture.take_photo()
+        gridPage.take_photo()
 
         # taps on ok
-        tapCameraOkay = GridPage(driver)
-        tapCameraOkay.tap_camera_ok()
+        gridPage.tap_camera_ok()
 
         # taps on share button
-        tapShareButton = EditorPage(driver)
-        tapShareButton.tapSharebutton()
+        editorPage.tapSharebutton()
 
-        # Taps on Instagram icon
-        tapInstagram = GridPage(driver)
-        tapInstagram.tapInstagramIcon()
+        gridPage.tapInstagramIcon()
 
         # Searches for Instagram android popup on bottom of screen
-        instagramSystemPopup = TryExcepts(driver)
-        instagramSystemPopup.instagramSystemPopup()
+        tryExcepts.instagramSystemPopup()
 
         sleep(5)
-        driver.back()
 
         # Asserts the + button is displayed
-        addPhoto = GridPage(driver)
-        addPhoto.addPhotoFind()
-
-        # Tears down the test
-        quitTest = EditorPage(driver)
-        quitTest.driverQuit()
-
+        gridPage.addPhotoFind()
 
 # ---START OF SCRIPT
 if __name__ == '__main__':

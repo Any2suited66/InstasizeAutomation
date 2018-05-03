@@ -493,35 +493,10 @@ class GridPage(object):
     def tapWhatsNewBtn(self):
         try:
             whatsNewIcon = self.driver.find_element_by_id("com.jsdev.instasize:id/ibWhatsNewIcon")
-            WebDriverWait(self.driver, 30).until(
-                EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/ibWhatsNewIcon")))
             whatsNewIcon.click()
 
         except NoSuchElementException:
-            WebDriverWait(self.driver, 30).until(
-                EC.presence_of_element_located((By.ID, "btnGetStarted")))
-            self.driver.find_element_by_id("btnGetStarted").click()
-
-            try:
-                whatsNewIcon = self.driver.find_element_by_xpath("//android.widget.ImageButton[@index=2]")
-                WebDriverWait(self.driver, 30).until(
-                    EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/ibWhatsNewIcon")))
-                whatsNewIcon.click()
-
-            except NoSuchElementException:
-                try:
-                    self.driver.find_element_by_id("btnSkip").click()
-                    WebDriverWait(self.driver, 30).until(
-                        EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/ivCollapseIcon")))
-                    self.driver.back()
-                    WebDriverWait(self.driver, 30).until(
-                        EC.presence_of_element_located((By.XPATH, "//android.widget.ImageButton[@index=2]")))
-                    self.driver.find_element_by_id("com.jsdev.instasize:id/ibWhatsNewIcon]").click()
-
-                except:
-                    WebDriverWait(self.driver, 30).until(
-                        EC.presence_of_element_located((By.XPATH, "//android.widget.ImageButton[@index=2]")))
-                    self.driver.find_element_by_id("com.jsdev.instasize:id/ibWhatsNewIcon").click()
+            print('whats new button not found, check manually')
 
 
 class PhotoLibraryPage(object):

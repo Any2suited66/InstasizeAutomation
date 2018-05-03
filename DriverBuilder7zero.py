@@ -18,7 +18,7 @@ class DriverBuilderAndroid(object):
         desired_caps['platformName'] = 'ANDROID'
         desired_caps['automationName'] = 'uiautomator2'
         desired_caps['deviceName'] = 'ANDROID'
-        desired_caps['udid'] = '8802edf5'
+        # desired_caps['udid'] = '8802edf5'
         # desired_caps['platformVersion'] = GetAndroidVersion.getVersion()
         desired_caps['app'] = '/Users/tyler/Desktop/InstasizeInstallAPK/Instasize_20182704_release_4.0.14_131_google.apk'
         desired_caps['appActivity'] = 'com.jsdev.instasize.activities.MainActivity'

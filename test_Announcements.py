@@ -18,9 +18,11 @@ class TestAnnouncements(unittest.TestCase):
         gridPage = GridPage(driver)
         gridPageAsserts = GridPageAsserts(driver)
 
+        gridPage.skip_onboarding()
+
         gridPage.tapWhatsNewBtn()
 
-        sleep(2)
+        sleep(5)
         driver.back()
 
         gridPageAsserts.settingsIconAssert()

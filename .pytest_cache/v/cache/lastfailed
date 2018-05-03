@@ -1,4 +1,5 @@
 {
+  ".DeleteGridImage.py": true,
   "CollageFilterExport6imgs/test_CollageArya6imgs.py::CollageFilter1imgExportTest::test_filter_uploads": true,
   "CollageFilterExport6imgs/test_CollageAthens6imgs.py::CollageFilterExportTest::test_filter_uploads": true,
   "CollageFilterExport6imgs/test_CollageAzul6imgs.py::CollageFilter1imgExportTest::test_filter_uploads": true,
@@ -26,5 +27,7 @@
   "CollageFilterExportTests1img/test_CollageNewportFilter1img.py::CollageFilter1imgExportTest::test_filter_uploads": true,
   "CollageFilterExportTests1img/test_CollageNovaFilter1img.py::CollageFilter1imgExportTest::test_filter_uploads": true,
   "testRunner.py": true,
-  "test_SingleImageFilterExport.py::FilterExportTest::test_filter_uploads": true
+  "test_NonHDFilterExport.py::test_NonHDFilterExport::test_filter_uploads": true,
+  "test_SingleImageFilterExport.py::FilterExportTest::test_filter_uploads": true,
+  "test_SingleImageFilterExport.py::test_SigleImageFilterExport::test_filter_exports": true
 }

@@ -467,15 +467,15 @@ class GridPage(object):
         pass
 
     def tapDeleteIconOnGrid(self):
-        deletePhoto = self.driver.find_element_by_id("ibDelete")
         WebDriverWait(self.driver, 30).until(
-            element_is_enabled((By.ID, "ibDelete"), "true"))
+            EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/ibDelete")))
+        deletePhoto = self.driver.find_element_by_id("com.jsdev.instasize:id/ibDelete")
         deletePhoto.click()
 
     def tapDeleteButton(self):
         WebDriverWait(self.driver, 30).until(
-            element_is_enabled((By.ID, "btnDelete"), "true"))
-        self.driver.find_element_by_id("btnDelete").click()
+            EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/btnDelete")))
+        self.driver.find_element_by_id("com.jsdev.instasize:id/btnDelete").click()
 
     def tapCancelButton(self):
         WebDriverWait(self.driver, 30).until(

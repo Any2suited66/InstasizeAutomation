@@ -25,7 +25,7 @@ class DriverBuilderAndroid(object):
         desired_caps['appPackage'] = 'com.jsdev.instasize'
         # desired_caps['noReset'] = True
         desired_caps['newCommandTimeout'] = 999999
-        self.driver = webdriver.Remote('http://localhost:4723/wd/hub', desired_caps)
+        self.driver = webdriver.Remote('http://0.0.0.0:5678/wd/hub', desired_caps)
 
     def tearDown(self):
         self.driver.quit()

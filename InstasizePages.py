@@ -447,7 +447,7 @@ class GridPage(object):
         GridPage.wait_for_editor(self)
         WebDriverWait(self.driver, 30).until(
             EC.presence_of_element_located((By.XPATH, "//android.widget.TextView[@index=2]")))
-        self.driver.find_element_by_xpath("//*[@class = 'android.widget.TextView' and @text ='Instagram']").click()
+        self.driver.find_element_by_xpath("//*[@class = 'android.widget.TextView' and @text ='Feed']").click()
         sleep(15)
         self.driver.back()
 
@@ -630,9 +630,6 @@ class ProfilePage(object):
         email.send_keys('randomEmail@test.com')
 
     def openProfilePage(self):
-        gridPage = GridPage(self.driver)
-        gridPage.skip_onboarding()
-
         WebDriverWait(self.driver, 30).until(
             EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/ibPlus")))
         self.driver.find_element_by_id("com.jsdev.instasize:id/ibPlus").click()

@@ -16,22 +16,17 @@ class TestProfileLogin(unittest.TestCase):
         driverBuilder = DriverBuilderAndroid()
         driver = driverBuilder.driver
 
-        profilePlusIcon = GridPage(driver)
-        profilePlusIcon.openProfilePage()
+        gridPage = GridPage(driver)
+        gridPageAsserts = GridPageAsserts(driver)
+        profilePage = ProfilePage(driver)
 
-        tapLogin = ProfilePage(driver)
-        tapLogin.tapSignIn()
+        gridPage.skip_onboarding()
 
-        enterLoginInfo = ProfilePage(driver)
-        enterLoginInfo.enterLoginInfo()
-
-        tapSignIn = ProfilePage(driver)
-        tapSignIn.tapSignUp()
-
-        assertSettingsIcon = GridPageAsserts(driver)
-        assertSettingsIcon.settingsIconAssert()
-
-
+        profilePage.openProfilePage()
+        profilePage.tapSignIn()
+        profilePage.enterLoginInfo()
+        profilePage.tapSignUp()
+        gridPageAsserts.settingsIconAssert()
 
         sleep(2)
         driver.quit()

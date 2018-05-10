@@ -80,6 +80,8 @@ class CollageExportTest(unittest.TestCase):
                     pass
 
             filterExportHelper.filterExportInstagram()
+            sleep(5)
+            driver.back()
 
         sleep(5)
 

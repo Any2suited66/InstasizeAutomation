@@ -2,6 +2,7 @@ from time import sleep
 
 from selenium.common.exceptions import NoSuchElementException
 import unittest
+from InstasizePages import GridPage
 
 from InstasizePages import ProfilePage
 from Asserts import GridPageAsserts
@@ -17,7 +18,9 @@ class test_CreateNewProfile(unittest.TestCase):
     def test_create_new_profile(self):
 
         profilePage = ProfilePage(self.driver)
+        gridPage = GridPage(self.driver)
 
+        gridPage.skip_onboarding()
         profilePage.openProfilePage()
         profilePage.name_generator()
         profilePage.email_generator()

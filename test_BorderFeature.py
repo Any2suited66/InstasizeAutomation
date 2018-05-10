@@ -8,6 +8,7 @@ from InstasizePages import GridPage
 from TryExcepts import TryExcepts
 import unittest
 from time import sleep
+from ExportHelper import FilterExportHelper
 
 def _by_link_text():
     pass
@@ -33,30 +34,26 @@ class BordersFeatureTest(unittest.TestCase):
         tryExcepts = TryExcepts(self.driver)
         gridPage = GridPage(self.driver)
         editorPage = EditorPage(self.driver)
+        filterExportHelper = FilterExportHelper()
 
         gridPage.skip_onboarding()
 
         for x in borderList:
-            gridPage.addPhotoTap()
-            gridPage.tapPhotoContainer()
-            gridPage.tapTopLeftImageInPhotoLibrary()
-            editorPage.tapDenyReviewPopup()
+            filterExportHelper.setupFilter()
             editorPage.tapBorderFeature()
             print("("'%s'")" % x)
             for i in range(0, 50):
                 try:
-                    WebDriverWait(self.driver, 30).until(
-                        EC.presence_of_element_located((By.ID, ("com.jsdev.instasize:id/ibExport"))))
+                    editorPage.wait_for_editor()
                     border = self.driver.find_element_by_xpath("(""%s"")" % x)
                     border.click()
-                    WebDriverWait(self.driver, 30).until(
-                        EC.presence_of_element_located((By.XPATH, ("//android.widget.RelativeLayout[@index='4']"))))
-
-                    border = self.driver.find_element_by_xpath("//android.widget.ImageView[@index='4']")
-                    border.click()
-                    sleep(2)
+                    WebDriverWait(self.driver, 120).until(
+                        EC.presence_of_element_located((By.ID, ("com.jsdev.instasize:id/seekBar"))))
+                    borderElement = self.driver.find_element_by_xpath("//android.widget.ImageView[@index='4']")
+                    borderElement.click()
+                    editorPage.adjustSeekBar()
                     editorPage.tapAccept()
-                    editorPage.tapSharebutton()
+                    filterExportHelper.filterExportInstagram()
                     break
                 except NoSuchElementException:
                     editorPage = EditorPage(self.driver)
@@ -64,10 +61,8 @@ class BordersFeatureTest(unittest.TestCase):
                     editorPage.swipeInEditor()
                     pass
 
-            gridPage.tapInstagramIcon()
-            tryExcepts.instagramSystemPopup()
             sleep(5)
-
+            self.driver.back()
 
 
 # ---START OF SCRIPT

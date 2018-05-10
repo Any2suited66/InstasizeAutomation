@@ -5,7 +5,7 @@ from Asserts import PhotoLibraryAsserts, EditorPageAsserts
 from DriverBuilder7zero import DriverBuilderAndroid
 from InstasizePages import EditorPage
 from InstasizePages import GridPage
-from TryExcepts import TryExcepts
+from ExportHelper import FilterExportHelper
 
 
 def _by_link_text():
@@ -19,64 +19,30 @@ class FilterManagerTest(unittest.TestCase):
         driver_builder = DriverBuilderAndroid()
         driver = driver_builder.driver
 
-        # taps on the + icon
-        addPhoto = GridPage(driver)
-        addPhoto.addPhotoTap()
+        editorPage = EditorPage(driver)
+        gridPage = GridPage(driver)
+        fitlerExportHelper = FilterExportHelper()
 
-        # Asserts collapseIcon is displayed
-        collapseIcon = GridPage(driver)
-        collapseIcon.assertCollapseIconPresent()
+        gridPage.skip_onboarding()
 
-        # taps on the native photos container
-        tapPhotoContainer = GridPage(driver)
-        tapPhotoContainer.tapPhotoContainer()
-
-        # Asserts allPhotosButton is displayed
-        allPhotosButton = PhotoLibraryAsserts(driver)
-        allPhotosButton.allPhotosButton()
-
-        # taps on the top left photo
-        tapTopLeftPhoto = GridPage(driver)
-        tapTopLeftPhoto.tapTopLeftImageInPhotoLibrary()
+        fitlerExportHelper.setupFilter()
 
         # taps the filer manager
-        tapFilterManager = EditorPage(driver)
-        tapFilterManager.tapFilterManager()
+        editorPage.tapFilterManager()
 
         # moves the top filter down 3 spots
-        moveFilter = EditorPage(driver)
-        moveFilter.moveFilterInManager()
+        editorPage.moveFilterInManager()
 
         # taps accept
-        accept = EditorPage(driver)
-        accept.tapAccept()
+        editorPage.tapAccept()
 
-        # asserts filter is present on editor page
-        filterAssert = EditorPageAsserts(driver)
-        filterAssert.junoFilterPresent()
-
-        # taps on share button
-        tapShareButton = EditorPage(driver)
-        tapShareButton.tapSharebutton()
-
-        # Taps on Instagram icon
-        tapInstagram = GridPage(driver)
-        tapInstagram.tapInstagramIcon()
-
-        # Searches for Instagram android popup on bottom of screen
-        instagramSystemPopup = TryExcepts(driver)
-        instagramSystemPopup.instagramSystemPopup()
+        fitlerExportHelper.filterExportInstagram()
 
         sleep(5)
         driver.back()
 
         # Asserts the + button is displayed
-        addPhoto = GridPage(driver)
-        addPhoto.addPhotoFind()
-
-        # Tears down the test
-        quitTest = EditorPage(driver)
-        quitTest.driverQuit()
+        gridPage.addPhotoFind()
 
 
 # ---START OF SCRIPT

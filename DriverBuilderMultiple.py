@@ -23,7 +23,7 @@ class DriverBuilderAndroid(object):
         desired_caps['platformVersion'] = GetAndroidVersion.getVersion()
         desired_caps['app'] = '/Users/tyler/Desktop/InstasizeInstallAPK/Instasize_20180903_release_4.0.11_128_google.apk'
 
-        self.driver = webdriver.Remote('http://127.0.0.1:5678/wd/hub', desired_caps)
+        self.driver = webdriver.Remote('http://0.0.0.0:5678/wd/hub', desired_caps)
 
 
 

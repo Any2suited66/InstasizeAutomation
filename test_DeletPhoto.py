@@ -5,6 +5,7 @@ from InstasizePages import EditorPage
 from Asserts import PhotoLibraryAsserts
 from Asserts import GridPageAsserts
 from time import sleep
+from ExportHelper import FilterExportHelper
 
 
 def _by_link_text():
@@ -20,18 +21,11 @@ class TestDeletePhoto(unittest.TestCase):
         editorPage = EditorPage(driver)
         gridPage = GridPage(driver)
         gridPageAsserts = GridPageAsserts(driver)
+        filterExportHelper = FilterExportHelper()
 
         gridPage.skip_onboarding()
-        gridPage.purchasPremiumEditor()
-        gridPage.addPhotoTap()
+        filterExportHelper.setupFilter()
 
-        # taps on the native photos container
-        gridPage.tapPhotoContainer()
-
-        # taps on the top left photo on photo library page
-        gridPage.tapTopLeftImageInPhotoLibrary()
-
-        # taps on share icon
         editorPage.tapSharebutton()
 
         sleep(5)

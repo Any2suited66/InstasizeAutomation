@@ -28,8 +28,8 @@ class EditorPage(object):
         self.driver = driver
 
     def tapSharebutton(self):
-        WebDriverWait(self.driver, 30).until(
-            EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/ibExport")))
+
+        EditorPage.wait_for_editor(self)
         el = self.driver.find_element_by_id("com.jsdev.instasize:id/ibExport")
         el.click()
 
@@ -199,10 +199,19 @@ class EditorPage(object):
         yesDiscard.click()
 
     def wait_for_editor(self):
-        for x in range(0, 20):
+        while True:
             try:
-                self.driver.find_element_by_id('com.jsdev.instasize:id/ivCircle1')
+                self.driver.find_element_by_id('com.jsdev.instasize:id/ivCircle4')
                 pass
+            except NoSuchElementException:
+                break
+
+    def wait_for_border_dwnld(self):
+        while True:
+            try:
+                if self.driver.find_element_by_id('android:id/alertTitle').is_displayed():
+                    return True
+
             except NoSuchElementException:
                 break
 
@@ -447,9 +456,26 @@ class GridPage(object):
         GridPage.wait_for_editor(self)
         WebDriverWait(self.driver, 30).until(
             EC.presence_of_element_located((By.XPATH, "//android.widget.TextView[@index=2]")))
-        self.driver.find_element_by_xpath("//*[@class = 'android.widget.TextView' and @text ='Feed']").click()
-        sleep(15)
-        self.driver.back()
+        self.driver.find_element_by_xpath("//*[@class = 'android.widget.TextView' and @text ='Instagram']").click()
+
+        while True:
+            try:
+                if self.driver.find_element_by_id('com.jsdev.instasize:id/ivCircle4').is_displayed():
+                    sleep(1)
+                    return True
+
+            except NoSuchElementException:
+                try:
+                    sleep(2)
+                    self.driver.find_element_by_xpath(
+                        "//*[@class = 'android.widget.TextView' and @text ='Feed']").click()
+                    return False
+
+                except NoSuchElementException:
+                    return False
+
+
+
 
     def tapInstagramPopup(self):
         WebDriverWait(self.driver, 30).until(

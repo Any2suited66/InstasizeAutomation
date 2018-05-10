@@ -68,10 +68,10 @@ class FilterExportHelper(object):
                 try:
                     WebDriverWait(self.driver, 30).until(
                         EC.presence_of_element_located((By.ID, ("com.jsdev.instasize:id/ibExport"))))
-
                     filter = self.driver.find_element_by_xpath("(""%s"")" % x)
                     filter.click()
                     break
+
                 except NoSuchElementException:
                     sleep(2)
                     editorPage.swipeInEditor()
@@ -181,7 +181,7 @@ class FilterExportHelper(object):
                     pass
 
         editorPage.tapAccept()
-        sleep(2)
+        editorPage.wait_for_editor()
         self.driver.back()
         editorPage.discardEditsYes()
 
@@ -212,12 +212,6 @@ class FilterExportHelper(object):
         # Taps on Instagram icon
         gridPage = GridPage(self.driver)
         gridPage.tapInstagramIcon()
-
-        # Searches for Instagram android popup on bottom of screen
-        tryExceots = TryExcepts(self.driver)
-        tryExceots.instagramSystemPopup()
-
-
 
     def collageFilterSetup(self):
         gridPage = GridPage(self.driver)

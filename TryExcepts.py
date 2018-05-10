@@ -13,19 +13,30 @@ class TryExcepts(object):
         try:
               self.driver.find_element_by_id("btnDeny").click()
         except NoSuchElementException:
-            print('PlayStore review popup did not occur')
+            pass
 
     def instagramSystemPopup(self):
-        try:
-            WebDriverWait(self.driver, 10).until(
-                EC.presence_of_element_located((By.ID, "android:id/icon")))
-            self.driver.find_element_by_xpath("//*[@class = 'android.widget.TextView' and @text ='Instagram']").click()
+        while True:
+            if self.driver.find_element_by_id('com.jsdev.instasize:id/ivShareCollapse').is_displayed():
+                sleep(1)
+                return True
 
-        except NoSuchElementException:
-            print ("Not required on this version of android")
-            pass
-        except TimeoutException:
-            pass
+            else:
+                try:
+                    WebDriverWait(self.driver, 10).until(
+                        EC.presence_of_element_located((By.ID, "android:id/icon")))
+                    self.driver.find_element_by_xpath(
+                        "//*[@class = 'android.widget.TextView' and @text ='Feed']").click()
+                    break
+
+                except NoSuchElementException:
+                    break
+
+                except TimeoutException:
+                    break
+
+
+
 
 
 

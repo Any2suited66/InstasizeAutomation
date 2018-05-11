@@ -1,13 +1,9 @@
 import unittest
 from time import sleep
-
-from Asserts import PhotoLibraryAsserts
 from DriverBuilder7zero import DriverBuilderAndroid
 from InstasizePages import EditorPage
 from InstasizePages import GridPage
-from TryExcepts import TryExcepts
-
-
+from ExportHelper import FilterExportHelper
 def _by_link_text():
     pass
 
@@ -19,52 +15,28 @@ class InstasizeButtonExportTest(unittest.TestCase):
         driver_builder = DriverBuilderAndroid()
         driver = driver_builder.driver
 
-        # taps on the + icon
-        addPhoto = GridPage(driver)
-        addPhoto.addPhotoTap()
+        gridPage = GridPage(driver)
+        editorPage = EditorPage(driver)
+        filterExportHelper = FilterExportHelper()
 
-        # Asserts collapseIcon is displayed
-        collapseIcon = GridPage(driver)
-        collapseIcon.assertCollapseIconPresent()
-
-        # taps on the native photos container
-        tapPhotoContainer = GridPage(driver)
-        tapPhotoContainer.tapPhotoContainer()
-
-        # Asserts allPhotosButton is displayed
-        allPhotosButton = PhotoLibraryAsserts(driver)
-        allPhotosButton.allPhotosButton()
-
-        # taps on the top left photo
-        tapTopLeftPhoto = GridPage(driver)
-        tapTopLeftPhoto.tapTopLeftImageInPhotoLibrary()
+        gridPage.skip_onboarding()
+        gridPage.purchasPremiumEditor()
+        filterExportHelper.setupFilter()
 
         # taps on the yellow instasize button
-        tapInstasizeButton = EditorPage(driver)
-        tapInstasizeButton.tapInstasizeButton()
+        editorPage.tapInstasizeButton()
 
         # taps on share button
-        tapShareButton = EditorPage(driver)
-        tapShareButton.tapSharebutton()
+        editorPage.tapSharebutton()
 
         # Taps on Instagram icon
-        tapInstagram = GridPage(driver)
-        tapInstagram.tapInstagramIcon()
-
-        # Searches for Instagram android popup on bottom of screen
-        instagramSystemPopup = TryExcepts(driver)
-        instagramSystemPopup.instagramSystemPopup()
+        gridPage.tapInstagramIcon()
 
         sleep(5)
         driver.back()
 
         # Asserts the + button is displayed
-        addPhoto = GridPage(driver)
-        addPhoto.addPhotoFind()
-
-        # Tears down the test
-        quitTest = EditorPage(driver)
-        quitTest.driverQuit()
+        gridPage.addPhotoFind()
 
 
 # ---START OF SCRIPT

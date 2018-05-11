@@ -31,8 +31,6 @@ class test_NonHDFilterExport(unittest.TestCase):
 
         gridPage.skip_onboarding()
 
-        gridPage.purchasPremiumEditor()
-
         # taps on the settings icon
         gridPage.tapSettingsIcon()
 
@@ -66,9 +64,6 @@ class test_NonHDFilterExport(unittest.TestCase):
                             "//android.widget.TextView[@text='PETRA']",     "//android.widget.TextView[@text='ORGANIC']",   "//android.widget.TextView[@text='NOMAD']",
                             "//android.widget.TextView[@text='ALTA']",      "//android.widget.TextView[@text='BALTIC']",    "//android.widget.TextView[@text='JUNO']",]
 
-
-
-
         filterExportHelper.addAllFiltersFromManager()
 
         for x in normalFilterList:
@@ -91,14 +86,8 @@ class test_NonHDFilterExport(unittest.TestCase):
 
             filterExportHelper.filterExportInstagram()
 
-        # taps on the + icon
-        gridPage.addPhotoTap()
-        # taps on the native photos container
-        gridPage.tapPhotoContainer()
-        # Asserts allPhotosButton is displayed
-        photoLibraryAsserts.allPhotosButton()
-        # taps on the top left photo
-        gridPage.tapTopLeftImageInPhotoLibrary()
+            sleep(5)
+            self.driver.back()
 
 
 # ---START OF SCRIPT

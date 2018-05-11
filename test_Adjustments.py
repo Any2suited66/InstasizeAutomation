@@ -4,7 +4,6 @@ from DriverBuilder7zero import DriverBuilderAndroid
 from time import sleep
 from ExportHelper import FilterExportHelper
 from InstasizePages import EditorPage, GridPage
-from TryExcepts import TryExcepts
 from Asserts import GridPageAsserts
 from selenium.common.exceptions import NoSuchElementException
 
@@ -52,10 +51,6 @@ class AdjustmentsTest(unittest.TestCase):
         # Taps on Instagram icon
         gridPage = GridPage(self.driver)
         gridPage.tapInstagramIcon()
-
-        # Searches for Instagram android popup on bottom of screen
-        tryExceots = TryExcepts(self.driver)
-        tryExceots.instagramSystemPopup()
 
         sleep(5)
         self.driver.back()

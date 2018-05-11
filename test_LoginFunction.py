@@ -26,11 +26,8 @@ class TestProfileLogin(unittest.TestCase):
         profilePage.tapSignIn()
         profilePage.enterLoginInfo()
         profilePage.tapSignUp()
+        sleep(5)
         gridPageAsserts.settingsIconAssert()
-
-        sleep(2)
-        driver.quit()
-
 
 
 if __name__ == '__main__':

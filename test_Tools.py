@@ -1,10 +1,9 @@
 import unittest
 from DriverBuilder7zero import DriverBuilderAndroid
 from InstasizePages import GridPage
-from TryExcepts import TryExcepts
 from time import sleep
 from InstasizePages import EditorPage
-
+from ExportHelper import FilterExportHelper
 
 def _by_link_text():
     pass
@@ -17,41 +16,20 @@ class CropFeatureTest(unittest.TestCase):
         driver_builder = DriverBuilderAndroid()
         driver = driver_builder.driver
 
-        # taps on the + icon
-        addPhoto = GridPage(driver)
-        addPhoto.addPhotoTap()
+        gridPage = GridPage(driver)
+        filterExportHelper = FilterExportHelper()
+        editorPage = EditorPage(driver)
 
-        # Asserts collapseIcon is displayed
-        collapseIcon = GridPage(driver)
-        collapseIcon.assertCollapseIconPresent()
-
-        # taps on the native photos container
-        tapPhotoContainer = GridPage(driver)
-        tapPhotoContainer.tapPhotoContainer()
-
-        # taps on the top left photo
-        tapTopLeftPhoto = GridPage(driver)
-        tapTopLeftPhoto.tapTopLeftImageInPhotoLibrary()
+        gridPage.skip_onboarding()
+        filterExportHelper.setupFilter()
 
         # taps the tools feature
-        tapTools = EditorPage(driver)
-        tapTools.tapToolsFeature()
+        editorPage.tapToolsFeature()
 
         # taps on all tool features
-        tapAllTools = EditorPage(driver)
-        tapAllTools.tapOnAllTools()
+        editorPage.tapOnAllTools()
 
-        # taps on share button
-        tapShareButton = EditorPage(driver)
-        tapShareButton.tapSharebutton()
-
-        # Taps on Instagram icon
-        tapInstagram = GridPage(driver)
-        tapInstagram.tapInstagramIcon()
-
-        # Searches for Instagram android popup on bottom of screen
-        instagramSystemPopup = TryExcepts(driver)
-        instagramSystemPopup.instagramSystemPopup()
+        filterExportHelper.filterExportInstagram()
 
         sleep(5)
         driver.back()
@@ -59,10 +37,6 @@ class CropFeatureTest(unittest.TestCase):
         # Asserts the + button is displayed
         addPhoto = GridPage(driver)
         addPhoto.addPhotoFind()
-
-        # Tears down the test
-        quitTest = EditorPage(driver)
-        quitTest.driverQuit()
 
 
 if __name__ == '__main__':

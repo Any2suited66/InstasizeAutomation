@@ -5,7 +5,6 @@ from selenium.webdriver.support.ui import WebDriverWait
 from DriverBuilder7zero import DriverBuilderAndroid
 from InstasizePages import EditorPage
 from InstasizePages import GridPage
-from TryExcepts import TryExcepts
 import unittest
 from time import sleep
 from ExportHelper import FilterExportHelper
@@ -31,7 +30,6 @@ class BordersFeatureTest(unittest.TestCase):
                        "//android.widget.TextView[@text='GOLD']",       "//android.widget.TextView[@text='GLITTER']",   "//android.widget.TextView[@text='GEOMETRIC']",
                        "//android.widget.TextView[@text='LINE']",       "//android.widget.TextView[@text='TRIBAL']",    "//android.widget.TextView[@text='PINK']"]
 
-        tryExcepts = TryExcepts(self.driver)
         gridPage = GridPage(self.driver)
         editorPage = EditorPage(self.driver)
         filterExportHelper = FilterExportHelper()

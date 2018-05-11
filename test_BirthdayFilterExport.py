@@ -3,6 +3,7 @@ from InstasizePages import EditorPage
 from InstasizePages import GridPage
 from ExportHelper import FilterExportHelper
 from DriverBuilder7zero import DriverBuilderAndroid
+from time import sleep
 
 class test_BirthdayFilterExport(unittest.TestCase):
 
@@ -26,6 +27,9 @@ class test_BirthdayFilterExport(unittest.TestCase):
         editorPage.tapCreateMyFilterBtn()
         editorPage.tapUseFilterBtn()
         filterExportHelper.filterExportInstagram()
+
+        sleep(5)
+        self.driver.back()
 
 # ---START OF SCRIPT
 if __name__ == '__main__':

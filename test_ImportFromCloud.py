@@ -2,9 +2,7 @@ import unittest
 from time import sleep
 from Asserts import GridPageAsserts
 from DriverBuilder7zero import DriverBuilderAndroid
-from InstasizePages import EditorPage
 from InstasizePages import GridPage
-from TryExcepts import TryExcepts
 from ExportHelper import FilterExportHelper
 
 def _by_link_text():
@@ -17,8 +15,6 @@ class ImportFromCloud(unittest.TestCase):
         driverBuilder = DriverBuilderAndroid()
         driver = driverBuilder.driver
         gridPage = GridPage(driver)
-        editorPage = EditorPage(driver)
-        tryExcepts = TryExcepts(driver)
         gridPageAsserts = GridPageAsserts(driver)
         filterExportHelper = FilterExportHelper()
 

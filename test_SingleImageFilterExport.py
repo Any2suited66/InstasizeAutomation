@@ -99,6 +99,9 @@ class test_SigleImageFilterExport(unittest.TestCase):
 
             filterExportHelper.filterExportInstagram()
 
+            sleep(5)
+            self.driver.back()
+
 
 # ---START OF SCRIPT
 if __name__ == '__main__':

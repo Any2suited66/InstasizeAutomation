@@ -38,16 +38,19 @@ class EditorPage(object):
         freeTrial.click()
 
     def tapInstasizeButton(self):
-        for x in range(0, 3):
-            WebDriverWait(self.driver, 30).until(
-                EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/ibAspectChange")))
-            sleep(2)
-            self.driver.find_element_by_id("com.jsdev.instasize:id/ibAspectChange").click()
+        EditorPage.wait_for_editor(self)
+        WebDriverWait(self.driver, 30).until(
+            EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/ibAspectChange")))
+        instasizeButton = self.driver.find_element_by_id("com.jsdev.instasize:id/ibAspectChange")
+        for x in range(0, 5):
+            sleep(1)
+            instasizeButton.click()
 
     def bDayFilter(self):
         sleep(4)
-        for x in range(0, 50):
+        while True:
             try:
+                sleep(2)
                 filter_found = self.driver.find_element_by_xpath("//android.widget.TextView[@text='BDAY']")
                 if filter_found.is_displayed():
                     EditorPage.tapBDayFilter(self)
@@ -106,7 +109,6 @@ class EditorPage(object):
         banner.click()
 
     def tapDenyReviewPopup(self):
-
         try:
                 EditorPage.wait_for_editor(self)
                 WebDriverWait(self.driver, 5).until(
@@ -201,6 +203,7 @@ class EditorPage(object):
     def wait_for_editor(self):
         while True:
             try:
+                sleep(2)
                 self.driver.find_element_by_id('com.jsdev.instasize:id/ivCircle4')
                 pass
             except NoSuchElementException:
@@ -398,9 +401,7 @@ class GridPage(object):
                 print ("test failed, check manually")
 
     def tap_second_grid_image(self):
-
             try:
-                sleep(2)
                 el = self.driver.find_element_by_xpath("(//android.widget.ImageView[@index=0])[2]")
                 if el.is_displayed():
                     el.click()
@@ -460,21 +461,18 @@ class GridPage(object):
 
         while True:
             try:
+                sleep(2)
                 if self.driver.find_element_by_id('com.jsdev.instasize:id/ivCircle4').is_displayed():
-                    sleep(1)
-                    return True
+                    sleep(2)
+                    pass
 
             except NoSuchElementException:
                 try:
-                    sleep(2)
                     self.driver.find_element_by_xpath(
                         "//*[@class = 'android.widget.TextView' and @text ='Feed']").click()
-                    return False
-
+                    break
                 except NoSuchElementException:
-                    return False
-
-
+                    break
 
 
     def tapInstagramPopup(self):

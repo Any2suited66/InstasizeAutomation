@@ -1,12 +1,9 @@
-from time import sleep
-
-from selenium.common.exceptions import NoSuchElementException
 import unittest
 from InstasizePages import GridPage
 
 from InstasizePages import ProfilePage
 from Asserts import GridPageAsserts
-from TryExcepts import TryExcepts
+
 from DriverBuilder7zero import DriverBuilderAndroid
 
 

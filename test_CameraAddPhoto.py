@@ -1,7 +1,6 @@
 import unittest
 from DriverBuilder7zero import DriverBuilderAndroid
 from InstasizePages import GridPage
-from TryExcepts import TryExcepts
 from time import sleep
 from InstasizePages import EditorPage
 
@@ -19,7 +18,7 @@ class CameraTest(unittest.TestCase):
 
         gridPage    = GridPage(driver)
         editorPage  = EditorPage(driver)
-        tryExcepts  = TryExcepts(driver)
+
 
         gridPage.skip_onboarding()
 
@@ -43,9 +42,6 @@ class CameraTest(unittest.TestCase):
         editorPage.tapSharebutton()
 
         gridPage.tapInstagramIcon()
-
-        # Searches for Instagram android popup on bottom of screen
-        tryExcepts.instagramSystemPopup()
 
         sleep(5)
 

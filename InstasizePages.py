@@ -259,6 +259,19 @@ class GridPage(object):
         plusIcon2.click()
 
     def skip_onboarding(self):
+        WebDriverWait(self.driver, 30).until(
+            EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/cbAge")))
+        age_check_box = self.driver.find_element_by_id('com.jsdev.instasize:id/cbAge')
+        age_check_box.click()
+        
+        data_check_box = self.driver.find_element_by_id('com.jsdev.instasize:id/cbData')
+        data_check_box.click()
+
+        WebDriverWait(self.driver, 30).until(
+            EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/btnAccept")))
+        accept_btn = self.driver.find_element_by_id('com.jsdev.instasize:id/btnAccept')
+        accept_btn.click()
+
         WebDriverWait(self.driver, 10).until(
             EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/btnGetStarted")))
         getStartedBtn = self.driver.find_element_by_id("com.jsdev.instasize:id/btnGetStarted")

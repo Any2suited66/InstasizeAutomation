@@ -166,7 +166,20 @@ class FilterExportHelper(object):
         # searches for review popup and clicks 'no, thanks'
         editorPage.tapDenyReviewPopup()
         # taps the filer manager
-        editorPage.tapFilterManager()
+
+        try:
+            for x in range(0, 13):
+                editorPage.swipeInEditor()
+            athens_filter = self.driver.find_element_by_xpath("//adnroid.widget.TextView[@text='ATHENS']")
+            if athens_filter.is_displayed:
+                self.driver.back()
+                sleep(2)
+                editorPage.tapAccept()
+
+        except NoSuchElementException:
+            editorPage.tapFilterManager()
+            pass
+
         # searches for filter
         for a in filterManagerList:
             for x in range(0, 30):
@@ -176,7 +189,6 @@ class FilterExportHelper(object):
                     filter.click()
                     break
                 except NoSuchElementException:
-
                     editorPage.filterManagerSwipe()
                     pass
 

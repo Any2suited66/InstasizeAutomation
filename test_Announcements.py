@@ -12,19 +12,22 @@ def _by_link_text():
 
 class TestAnnouncements(unittest.TestCase):
 
+    driverBuilder = DriverBuilderAndroid()
+    driver = driverBuilder.driver
+
     def runTest(self):
-        driverBuilder = DriverBuilderAndroid()
-        driver = driverBuilder.driver
-        gridPage = GridPage(driver)
-        gridPageAsserts = GridPageAsserts(driver)
+
+        gridPage = GridPage(self.driver)
 
         gridPage.skip_onboarding()
 
         gridPage.tapWhatsNewBtn()
 
         sleep(5)
-        driver.back()
+        self.driver.back()
 
+    def plus_icon_assert(self):
+        gridPageAsserts = GridPageAsserts(self.driver)
         gridPageAsserts.settingsIconAssert()
 
 if __name__ == '__main__':

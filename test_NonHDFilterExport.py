@@ -62,7 +62,7 @@ class test_NonHDFilterExport(unittest.TestCase):
                             "//android.widget.TextView[@text='NOVA']",      "//android.widget.TextView[@text='WASATCH']",   "//android.widget.TextView[@text='MARKET']",
                             "//android.widget.TextView[@text='MADRID']",    "//android.widget.TextView[@text='FLUX']",      "//android.widget.TextView[@text='CELSIUS']",
                             "//android.widget.TextView[@text='PETRA']",     "//android.widget.TextView[@text='ORGANIC']",   "//android.widget.TextView[@text='NOMAD']",
-                            "//android.widget.TextView[@text='ALTA']",      "//android.widget.TextView[@text='BALTIC']",    "//android.widget.TextView[@text='JUNO']",]
+                            "//android.widget.TextView[@text='ALTA']",      "//android.widget.TextView[@text='BALTIC']",    "//android.widget.TextView[@text='JUNO']"]
 
         filterExportHelper.addAllFiltersFromManager()
 

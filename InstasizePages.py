@@ -28,7 +28,6 @@ class EditorPage(object):
         self.driver = driver
 
     def tapSharebutton(self):
-
         EditorPage.wait_for_editor(self)
         el = self.driver.find_element_by_id("com.jsdev.instasize:id/ibExport")
         el.click()
@@ -68,6 +67,10 @@ class EditorPage(object):
         date_spinner = self.driver.find_element_by_id("com.jsdev.instasize:id/tvBirthday")
         date_spinner.click()
 
+    def swipe_bday_spinner(self):
+        sleep(2)
+        self.driver.swipe(360, 2400, 360, 1900)
+
     def tapBdaySpinnerForInput(self):
         WebDriverWait(self.driver, 30).until(
             EC.presence_of_element_located((By.ID, "android:id/numberpicker_input")))
@@ -88,13 +91,9 @@ class EditorPage(object):
         tapUseFilter.click()
 
     def tapFilterManager(self):
-        for x in range(0, 50):
             try:
                 self.driver.find_element_by_xpath("//android.widget.TextView[@text ='MANAGE']").click()
-                break
-
             except NoSuchElementException:
-                EditorPage.swipeInEditor(self)
                 pass
 
     def moveFilterInManager(self):
@@ -258,40 +257,54 @@ class GridPage(object):
         plusIcon2 = self.driver.find_element_by_id("com.jsdev.instasize:id/ibAddPhoto")
         plusIcon2.click()
 
+    def enter_age_screen(self):
+        try:
+            WebDriverWait(self.driver, 15).until(
+                EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/cbAge")))
+            age_check_box = self.driver.find_element_by_id('com.jsdev.instasize:id/cbAge')
+            if age_check_box.is_displayed:
+
+                age_check_box.click()
+
+                data_check_box = self.driver.find_element_by_id('com.jsdev.instasize:id/cbData')
+                data_check_box.click()
+
+                WebDriverWait(self.driver, 30).until(
+                    EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/btnAccept")))
+                accept_btn = self.driver.find_element_by_id('com.jsdev.instasize:id/btnAccept')
+                accept_btn.click()
+            else:
+                pass
+        except TimeoutException:
+            pass
+        except NoSuchElementException:
+            pass
+
     def skip_onboarding(self):
-        WebDriverWait(self.driver, 30).until(
-            EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/cbAge")))
-        age_check_box = self.driver.find_element_by_id('com.jsdev.instasize:id/cbAge')
-        age_check_box.click()
-        
-        data_check_box = self.driver.find_element_by_id('com.jsdev.instasize:id/cbData')
-        data_check_box.click()
 
-        WebDriverWait(self.driver, 30).until(
-            EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/btnAccept")))
-        accept_btn = self.driver.find_element_by_id('com.jsdev.instasize:id/btnAccept')
-        accept_btn.click()
+        GridPage.enter_age_screen(self)
+        try:
+            getStartedBtn = self.driver.find_element_by_id("com.jsdev.instasize:id/btnGetStarted")
+            if getStartedBtn.is_displayed():
+                try:
+                    WebDriverWait(self.driver, 7).until(
+                        EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/btnGetStarted")))
+                    self.driver.find_element_by_id("com.jsdev.instasize:id/btnGetStarted").click()
+                    WebDriverWait(self.driver, 7).until(
+                        EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/btnSkip")))
+                    self.driver.find_element_by_id("com.jsdev.instasize:id/btnSkip").click()
+                    GridPage.purchasPremiumEditor(self)
 
-        WebDriverWait(self.driver, 10).until(
-            EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/btnGetStarted")))
-        getStartedBtn = self.driver.find_element_by_id("com.jsdev.instasize:id/btnGetStarted")
-        if getStartedBtn.is_displayed():
+                except NoSuchElementException:
+                    pass
 
-            try:
-                WebDriverWait(self.driver, 7).until(
-                    EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/btnGetStarted")))
-                self.driver.find_element_by_id("com.jsdev.instasize:id/btnGetStarted").click()
-                WebDriverWait(self.driver, 7).until(
-                    EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/btnSkip")))
-                self.driver.find_element_by_id("com.jsdev.instasize:id/btnSkip").click()
-                GridPage.purchasPremiumEditor(self)
-
-            except NoSuchElementException:
+                except TimeoutException:
+                    pass
+            else:
                 pass
-
-            except TimeoutException:
-                pass
-        else:
+        except NoSuchElementException:
+            pass
+        except TimeoutException:
             pass
 
     def addPhotoTap(self):
@@ -461,6 +474,7 @@ class GridPage(object):
     def wait_for_editor(self):
         for x in range(0, 20):
             try:
+                sleep(1)
                 self.driver.find_element_by_id('com.jsdev.instasize:id/ivCircle1')
                 pass
             except NoSuchElementException:

@@ -10,6 +10,7 @@ class GetDeviceID(object):
         removeFirst = str.replace('List of devices attached', '')
         device = removeFirst.replace('device', '')
         json = device.encode()
+        print(json)
         return json
 
 

@@ -11,22 +11,21 @@ def _by_link_text():
 
 
 class TestProfileLogin(unittest.TestCase):
+    driverBuilder = DriverBuilderAndroid()
+    driver = driverBuilder.driver
 
-    def runTest(self):
-        driverBuilder = DriverBuilderAndroid()
-        driver = driverBuilder.driver
-
-        gridPage = GridPage(driver)
-        gridPageAsserts = GridPageAsserts(driver)
-        profilePage = ProfilePage(driver)
+    def test_runTest(self):
+        gridPage = GridPage(self.driver)
+        profilePage = ProfilePage(self.driver)
 
         gridPage.skip_onboarding()
-
         profilePage.openProfilePage()
         profilePage.tapSignIn()
         profilePage.enterLoginInfo()
         profilePage.tapSignUp()
-        sleep(5)
+
+    def test_settings_icon_asser(self):
+        gridPageAsserts = GridPageAsserts(self.driver)
         gridPageAsserts.settingsIconAssert()
 
 

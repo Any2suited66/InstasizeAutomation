@@ -24,7 +24,7 @@ class test_CreateNewProfile(unittest.TestCase):
         profilePage.pw_generator()
         profilePage.tapSignUp()
 
-    def premium_badge_assertion(self):
+    def test_premium_badge_assertion(self):
         gridPageAsserts = GridPageAsserts(self.driver)
         gridPageAsserts.premium_badge_assert()
 

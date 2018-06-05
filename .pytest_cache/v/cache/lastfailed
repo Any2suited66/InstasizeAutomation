@@ -27,10 +27,10 @@
   "CollageFilterExportTests1img/test_CollageNewportFilter1img.py::CollageFilter1imgExportTest::test_filter_uploads": true,
   "CollageFilterExportTests1img/test_CollageNovaFilter1img.py::CollageFilter1imgExportTest::test_filter_uploads": true,
   "testRunner.py": true,
+  "test_Adjustments.py::AdjustmentsTest::test_allAdjustments": true,
   "test_CameraAddPhoto.py::CameraTest::test_filter_uploads": true,
-  "test_CollageFilterExport.py": true,
   "test_CollageFilterExport.py::CollageExportTest::test_collage_filter_exports": true,
-  "test_LoginFunction.py::TestProfileLogin::runTest": true,
+  "test_Crop.py::test_CropFeature::test_cropFeatures": true,
   "test_NonHDFilterExport.py::test_NonHDFilterExport::test_filter_uploads": true,
   "test_SingleImageFilterExport.py::FilterExportTest::test_filter_uploads": true,
   "test_SingleImageFilterExport.py::test_SigleImageFilterExport::test_filter_exports": true

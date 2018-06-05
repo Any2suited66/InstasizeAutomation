@@ -29,7 +29,6 @@ class AdjustmentsTest(unittest.TestCase):
         gridPage = GridPage(self.driver)
         editorPage = EditorPage(self.driver)
 
-        gridPage.skip_onboarding()
         filterExportHelper.setupFilter()
         editorPage.tapAdjustmentsFeature()
 

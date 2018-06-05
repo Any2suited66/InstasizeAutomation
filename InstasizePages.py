@@ -10,6 +10,7 @@ from selenium.webdriver.support import expected_conditions as EC
 import string
 import random
 
+
 # custom explicit wait for element to be enabled
 class element_is_enabled(object):
     def __init__(self, locator, is_enabled):
@@ -91,9 +92,13 @@ class EditorPage(object):
         tapUseFilter.click()
 
     def tapFilterManager(self):
+        for x in range(0, 50):
             try:
                 self.driver.find_element_by_xpath("//android.widget.TextView[@text ='MANAGE']").click()
+                break
+
             except NoSuchElementException:
+                EditorPage.swipeInEditor(self)
                 pass
 
     def moveFilterInManager(self):
@@ -312,7 +317,25 @@ class GridPage(object):
             EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/ibAddPhoto")))
         GridPage.purchasPremiumEditor(self)
         self.driver.find_element_by_id("com.jsdev.instasize:id/ibAddPhoto").click()
+        sleep(2)
+        GridPage.GDPR_skip(self)
 
+    def GDPR_skip(self):
+        gridPage = GridPage(self.driver)
+        try:
+            if self.driver.find_element_by_id("com.jsdev.instasize:id/cbCombined").is_displayed():
+                WebDriverWait(self.driver, 10).until(
+                    EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/cbCombined")))
+                self.driver.find_element_by_id("com.jsdev.instasize:id/cbCombined").click()
+                gridPage.tap_agree_to_continue()
+
+            else:
+                pass
+        except NoSuchElementException:
+            pass
+
+    def tap_agree_to_continue(self):
+        self.driver.find_element_by_id("com.jsdev.instasize:id/btnAccept").click()
 
     def freeTrialButton(self):
         self.driver.find_element_by_id("com.jsdev.instasize:id/btnGoPremium")
@@ -344,10 +367,12 @@ class GridPage(object):
     # this method looks for the 'free trial' button on grid and if it is present, it will purchase premium from the
     # the editor screen.  Premium screen on grid has too many animations for appium to find elements.
     def purchasPremiumEditor(self):
+
         try:
 
             if self.driver.find_element_by_id("com.jsdev.instasize:id/btnGoPremium").is_displayed():
                     GridPage.simpleTapAddPhoto(self)
+                    GridPage.GDPR_skip(self)
                     GridPage.tapPhotoOption(self)
                     GridPage.tapTopLeftImageInPhotoLibrary(self)
                     GridPage.tapShareButton(self)
@@ -373,6 +398,8 @@ class GridPage(object):
         cloud.click()
 
     def tapOnCloudImageInSystem(self):
+        WebDriverWait(self.driver, 30).until(
+            EC.presence_of_element_located((By.ID, "com.android.documentsui:id/icon_mime")))
         image = self.driver.find_element_by_id("com.android.documentsui:id/icon_mime")
         image.click()
 
@@ -495,6 +522,7 @@ class GridPage(object):
 
             except NoSuchElementException:
                 try:
+                    sleep(3)
                     self.driver.find_element_by_xpath(
                         "//*[@class = 'android.widget.TextView' and @text ='Feed']").click()
                     break

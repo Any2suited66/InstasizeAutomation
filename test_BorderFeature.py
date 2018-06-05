@@ -1,4 +1,4 @@
-from selenium.common.exceptions import NoSuchElementException
+from selenium.common.exceptions import NoSuchElementException, TimeoutException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
@@ -58,6 +58,8 @@ class BordersFeatureTest(unittest.TestCase):
                     sleep(2)
                     editorPage.swipeInEditor()
                     pass
+                except TimeoutException:
+                    self.driver.back()
 
             sleep(5)
             self.driver.back()

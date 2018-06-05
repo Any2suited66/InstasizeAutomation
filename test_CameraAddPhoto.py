@@ -45,6 +45,8 @@ class CameraTest(unittest.TestCase):
 
         sleep(5)
 
+        driver.back()
+
         # Asserts the + button is displayed
         gridPage.addPhotoFind()
 

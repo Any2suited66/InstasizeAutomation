@@ -13,6 +13,7 @@ def subprocess_cmd(command):
 
 def getVersion():
     version = subprocess_cmd('adb shell getprop ro.build.version.release')
+    print(version)
     return version
     pass
 

@@ -224,6 +224,7 @@ class FilterExportHelper(object):
         # Taps on Instagram icon
         gridPage = GridPage(self.driver)
         gridPage.tapInstagramIcon()
+        sleep(3)
 
     def collageFilterSetup(self):
         gridPage = GridPage(self.driver)
@@ -240,6 +241,5 @@ class FilterExportHelper(object):
         collagePage.tap6thPhoto()
         collagePage.tap2ndCollageOption()
         editorPage.tapDenyReviewPopup()
-
 
 

@@ -34,7 +34,7 @@ class BordersFeatureTest(unittest.TestCase):
         editorPage = EditorPage(self.driver)
         filterExportHelper = FilterExportHelper()
 
-        gridPage.skip_onboarding()
+
 
         for x in borderList:
             filterExportHelper.setupFilter()

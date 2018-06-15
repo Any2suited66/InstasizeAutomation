@@ -1,6 +1,6 @@
 from time import sleep
 
-from selenium.common.exceptions import NoSuchElementException
+from selenium.common.exceptions import NoSuchElementException, TimeoutException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
@@ -199,6 +199,7 @@ class FilterExportHelper(object):
 
 
     def setupFilter(self):
+        editorPage = EditorPage(self.driver)
         gridPage = GridPage(self.driver)
 
         gridPage.purchasPremiumEditor()
@@ -212,6 +213,11 @@ class FilterExportHelper(object):
         # taps on the top left photo
         gridPage.tapTopLeftImageInPhotoLibrary()
 
+        # purchases premium from popup if it occurs
+        editorPage.purchase_premium_editor_popup()
+
+        editorPage.dismiss_popup()
+
         # taps 'No thanks' on app review popup
         editorPage = EditorPage(self.driver)
         editorPage.tapDenyReviewPopup()
@@ -220,6 +226,8 @@ class FilterExportHelper(object):
         # taps on share button
         editorPage = EditorPage(self.driver)
         editorPage.tapSharebutton()
+
+        editorPage.dismiss_popup()
 
         # Taps on Instagram icon
         gridPage = GridPage(self.driver)

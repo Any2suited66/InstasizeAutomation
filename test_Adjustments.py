@@ -45,11 +45,7 @@ class AdjustmentsTest(unittest.TestCase):
                 except NoSuchElementException:
                     editorPage.swipeInEditor()
 
-        editorPage.tapSharebutton()
-
-        # Taps on Instagram icon
-        gridPage = GridPage(self.driver)
-        gridPage.tapInstagramIcon()
+        filterExportHelper.filterExportInstagram()
 
         sleep(5)
         self.driver.back()

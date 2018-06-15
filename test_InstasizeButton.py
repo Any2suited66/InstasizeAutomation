@@ -19,7 +19,7 @@ class InstasizeButtonExportTest(unittest.TestCase):
         editorPage = EditorPage(driver)
         filterExportHelper = FilterExportHelper()
 
-        gridPage.skip_onboarding()
+        android_version = driver.desired_capabilities['platformVersion']
         gridPage.purchasPremiumEditor()
         filterExportHelper.setupFilter()
 

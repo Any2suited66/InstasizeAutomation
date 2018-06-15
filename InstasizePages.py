@@ -176,7 +176,8 @@ class EditorPage(object):
         self.driver.find_element_by_xpath("//*[@class = 'android.widget.ImageButton' and @content-desc ='Accept']").click()
 
     def tapBorderFeature(self):
-        sleep(5)
+        WebDriverWait(self.driver, 30).until(
+            EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/ibExport")))
         self.driver.find_element_by_xpath("//*[@class = 'android.widget.ImageView' and @content-desc ='Border']").click()
 
     def tapToolsFeature(self):
@@ -203,6 +204,37 @@ class EditorPage(object):
             EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/btnDiscard")))
         yesDiscard = self.driver.find_element_by_id("com.jsdev.instasize:id/btnDiscard")
         yesDiscard.click()
+
+    def dismiss_popup(self):
+        try:
+            WebDriverWait(self.driver, 15).until(
+                EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/ibCollapse")))
+            dismiss = self.driver.find_element_by_id('com.jsdev.instasize:id/ibCollapse')
+            dismiss.click()
+
+        except TimeoutException:
+            pass
+
+        except NoSuchElementException:
+            pass
+
+    def purchase_premium_editor_popup(self):
+        try:
+            WebDriverWait(self.driver, 15).until(
+                EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/ibCollapse")))
+            click_try = self.driver.find_element_by_id('com.jsdev.instasize:id/btnAction')
+            click_try.click()
+            WebDriverWait(self.driver, 15).until(
+                EC.presence_of_element_located((By.ID, "com.android.vending:id/continue_button")))
+            subscribe_btn = self.driver.find_element_by_id('com.android.vending:id/continue_button')
+            subscribe_btn.click()
+            EditorPage.dismiss_popup(self)
+
+        except TimeoutException:
+            EditorPage.dismiss_popup(self)
+
+        except NoSuchElementException:
+            EditorPage.dismiss_popup(self)
 
     def wait_for_editor(self):
         while True:

@@ -2,12 +2,16 @@
   "capabilities":
       [
         {
-          "applicationName": "Samsung S7",
+          "automationName": "uiautomator2",
+          "deviceName": "ANDROID",
           "udid": "8802edf5",
           "platformVersion": "7.0",
           "maxInstances": 1,
-          "platformName": "ANDROID"
-          "adbPort": "4755"
+          "platformName": "ANDROID",
+          "appAcitvity": "com.jsdev.instasize.activities.MainActivity",
+          "appPackage": "com.jsdev.instasize",
+          "newCommandTimeout": "999999",
+          "systemPort": "7779"
         }
       ],
   "configuration":
@@ -15,14 +19,14 @@
     "cleanUpCycle": 2000,
     "timeout": 30000,
     "proxy": "org.openqa.grid.selenium.proxy.DefaultRemoteProxy",
-    "url": "http://192.168.99.1:4444/wd/hub",
+    "url": "http://localhost:4800/wd/hub",
     "host": "127.0.0.1",
-    "port": 4823,
+    "port": 4800,
     "role": "node",
     "maxSession": 1,
     "register": true,
     "registerCycle": 5000,
     "hubPort": 4444,
-    "hubHost": "0.0.0.0"
+    "hubHost": "172.20.10.4"
   }
 }

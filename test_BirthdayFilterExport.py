@@ -16,11 +16,10 @@ class test_BirthdayFilterExport(unittest.TestCase):
         editorPage = EditorPage(self.driver)
         filterExportHelper = FilterExportHelper()
 
-        gridPage.skip_onboarding()
-        gridPage.addPhotoTap()
-        gridPage.tapPhotoContainer()
-        gridPage.tapTopLeftImageInPhotoLibrary()
-        editorPage.tapDenyReviewPopup()
+        version = self.driver.desired_capabilities['platformVersion']
+        print(version)
+
+        filterExportHelper.setupFilter()
         editorPage.tapBDayFilter()
         editorPage.tapBdayDateSpinner()
         editorPage.swipe_bday_spinner()

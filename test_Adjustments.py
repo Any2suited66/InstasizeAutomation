@@ -17,7 +17,11 @@ class AdjustmentsTest(unittest.TestCase):
     driver_builder = DriverBuilderAndroid()
     driver = driver_builder.driver
 
+    udid = driver.capabilities['udid']
+    print(udid)
+
     def test_allAdjustments(self):
+
         adjustmentsList = ["//android.widget.TextView[@text ='CONTRAST']", "//android.widget.TextView[@text ='EXPOSURE']",
                            "//android.widget.TextView[@text ='BRIGHTNESS']", "//android.widget.TextView[@text ='SHARPNESS']",
                            "//android.widget.TextView[@text ='SATURATION']", "//android.widget.TextView[@text ='TINT']",

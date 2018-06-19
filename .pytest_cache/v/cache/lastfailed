@@ -69,6 +69,7 @@
   "s7edgeTests/test_Tools.py": true,
   "s7edgeTests/test_multiple_image_delete.py": true,
   "testRunner.py": true,
+  "test_Adjustments.py::AdjustmentsTest::test_allAdjustments": true,
   "test_BirthdayFilterExport.py::test_BirthdayFilterExport::test_birthday_filter_export": true,
   "test_BorderFeature.py::BordersFeatureTest::test_borders": true,
   "test_CameraAddPhoto.py::CameraTest::test_filter_uploads": true,

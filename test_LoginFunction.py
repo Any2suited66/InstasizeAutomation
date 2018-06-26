@@ -1,8 +1,9 @@
 import unittest
 from DriverBuilder7zero import DriverBuilderAndroid
-from InstasizePages import GridPage, ProfilePage
+from InstasizePages import ProfilePage
 from Asserts import GridPageAsserts
 from time import sleep
+from ExportHelper import FilterExportHelper
 
 
 
@@ -15,16 +16,18 @@ class TestProfileLogin(unittest.TestCase):
     driver = driverBuilder.driver
 
     def test_runTest(self):
-        gridPage = GridPage(self.driver)
-        profilePage = ProfilePage(self.driver)
 
-        gridPage.skip_onboarding()
+        profilePage = ProfilePage(self.driver)
+        filter_export_helper = FilterExportHelper()
+
+        filter_export_helper.setupFilter()
+        filter_export_helper.filterExportInstagram()
         profilePage.openProfilePage()
         profilePage.tapSignIn()
         profilePage.enterLoginInfo()
         profilePage.tapSignUp()
 
-    def test_settings_icon_asser(self):
+
         gridPageAsserts = GridPageAsserts(self.driver)
         gridPageAsserts.settingsIconAssert()
 

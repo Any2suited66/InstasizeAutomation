@@ -24,7 +24,7 @@ class CollageExportTest(unittest.TestCase):
     def test_collage_filter_exports(self):
 
         driver_builder = DriverBuilderAndroid()
-        driver = driver_builder.driver
+        self.driver = driver_builder.driver
 
         normalFilterList = [    "//android.widget.TextView[@text='H1']",        "//android.widget.TextView[@text='H2']",        "//android.widget.TextView[@text='H3']",
                                 "//android.widget.TextView[@text='F1']",        "//android.widget.TextView[@text='F2']",        "//android.widget.TextView[@text='RADIO']",
@@ -55,10 +55,7 @@ class CollageExportTest(unittest.TestCase):
 
         filterExportHelper = FilterExportHelper()
 
-        gridPage = GridPage(driver)
-        editorPage = EditorPage(driver)
-
-        gridPage.skip_onboarding()
+        editorPage = EditorPage(self.driver)
 
         filterExportHelper.addAllFiltersFromManager()
 
@@ -68,8 +65,8 @@ class CollageExportTest(unittest.TestCase):
             print("("'%s'")" % x)
             for i in range(0, 50):
                 try:
-                    filter = driver.find_element_by_xpath("(""%s"")" % x)
-                    WebDriverWait(driver, 30).until(
+                    filter = self.driver.find_element_by_xpath("(""%s"")" % x)
+                    WebDriverWait(self.driver, 30).until(
                         EC.presence_of_element_located((By.XPATH, ("(""%s"")" % x))))
                     filter.click()
                     break
@@ -80,8 +77,8 @@ class CollageExportTest(unittest.TestCase):
                     pass
 
             filterExportHelper.filterExportInstagram()
-            sleep(5)
-            driver.back()
+            sleep(3)
+
 
         sleep(5)
 

@@ -3,7 +3,7 @@ from DriverBuilder7zero import DriverBuilderAndroid
 
 from time import sleep
 from ExportHelper import FilterExportHelper
-from InstasizePages import EditorPage, GridPage
+from InstasizePages import EditorPage
 from Asserts import GridPageAsserts
 from selenium.common.exceptions import NoSuchElementException
 
@@ -30,7 +30,7 @@ class AdjustmentsTest(unittest.TestCase):
                            "//android.widget.TextView[@text ='GRAIN']"]
 
         filterExportHelper = FilterExportHelper()
-        gridPage = GridPage(self.driver)
+
         editorPage = EditorPage(self.driver)
 
         filterExportHelper.setupFilter()

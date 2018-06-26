@@ -82,8 +82,11 @@ class GridPageAsserts(object):
         pass
 
     def settingsIconAssert(self):
-        settingsIcon = self.driver.find_element_by_id("ibSettingsIcon")
+
         try:
+            WebDriverWait(self.driver, 15).until(
+                EC.presence_of_element_located((By.ID, "ibSettingsIcon")))
+            settingsIcon = self.driver.find_element_by_id("ibSettingsIcon")
             self.assertTrue(settingsIcon.is_displayed, "Failed, check for crash manually")
 
         except:

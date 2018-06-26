@@ -1,20 +1,14 @@
 import pytest
 from appium import webdriver
+import test_Announcements
+import unittest
 
-
-
-class DriverBuilderAndroidS6(object):
-    _multiprocess_can_split_ = True
-
-    def __init__(self):
-        self.setUp_S7()
-
+class test_DriverBuilderAndroidS6(unittest.TestCase):
 
     @pytest.fixture()
-    def setUp_S7(self):
+    def setUp_S6(self):
         # getDevice = GetDeviceID()
         "Setup for the test"
-
 
         desired_caps = {}
         desired_caps['platformName'] = 'ANDROID'
@@ -27,9 +21,16 @@ class DriverBuilderAndroidS6(object):
         desired_caps['appPackage'] = 'com.jsdev.instasize'
         # desired_caps['noReset'] = True
         desired_caps['newCommandTimeout'] = 999999
-        desired_caps['systemPort'] = '7779'
-        self.driver = webdriver.Remote('http://127.0.0.1:4400/wd/hub', desired_caps)
-
+        desired_caps['systemPort'] = 7779
+        self.driver = webdriver.Remote('http://127.0.0.2:4444/wd/hub', desired_caps)
 
     def tearDown(self):
         self.driver.quit()
+
+
+
+
+
+if __name__ == '__main__':
+    suite = unittest.TestLoader().loadTestsFromTestCase(test_DriverBuilderAndroidS6)
+    unittest.TextTestRunner(verbosity=2).run(suite)

@@ -26,10 +26,7 @@ class test_NonHDFilterExport(unittest.TestCase):
     def test_filter_uploads(self):
         filterExportHelper = FilterExportHelper()
         gridPage = GridPage(self.driver)
-        photoLibraryAsserts = PhotoLibraryAsserts(self.driver)
         settingsPage = SettingsPage(self.driver)
-
-        gridPage.skip_onboarding()
 
         # taps on the settings icon
         gridPage.tapSettingsIcon()

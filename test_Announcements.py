@@ -19,8 +19,6 @@ class TestAnnouncements(unittest.TestCase):
 
         gridPage = GridPage(self.driver)
 
-        gridPage.skip_onboarding()
-
         gridPage.tapWhatsNewBtn()
 
         sleep(5)

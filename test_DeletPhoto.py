@@ -23,7 +23,6 @@ class TestDeletePhoto(unittest.TestCase):
         gridPageAsserts = GridPageAsserts(driver)
         filterExportHelper = FilterExportHelper()
 
-        gridPage.skip_onboarding()
         filterExportHelper.setupFilter()
 
         editorPage.tapSharebutton()

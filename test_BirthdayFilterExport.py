@@ -12,7 +12,6 @@ class test_BirthdayFilterExport(unittest.TestCase):
 
     def test_birthday_filter_export(self):
 
-        gridPage = GridPage(self.driver)
         editorPage = EditorPage(self.driver)
         filterExportHelper = FilterExportHelper()
 

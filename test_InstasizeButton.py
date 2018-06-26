@@ -19,21 +19,12 @@ class InstasizeButtonExportTest(unittest.TestCase):
         editorPage = EditorPage(driver)
         filterExportHelper = FilterExportHelper()
 
-        android_version = driver.desired_capabilities['platformVersion']
-        gridPage.purchasPremiumEditor()
         filterExportHelper.setupFilter()
 
         # taps on the yellow instasize button
         editorPage.tapInstasizeButton()
 
-        # taps on share button
-        editorPage.tapSharebutton()
-
-        # Taps on Instagram icon
-        gridPage.tapInstagramIcon()
-
-        sleep(5)
-        driver.back()
+        filterExportHelper.filterExportInstagram()
 
         # Asserts the + button is displayed
         gridPage.addPhotoFind()

@@ -22,12 +22,10 @@ class test_CropFeature(unittest.TestCase):
                            "//android.widget.TextView[@text ='2:3']", "//android.widget.TextView[@text ='7:5']",
                            "//android.widget.TextView[@text ='21:9']"]
 
-
-        gridPage = GridPage(driver)
         editorPage = EditorPage(driver)
         filterExportHelper = FilterExportHelper()
 
-        gridPage.skip_onboarding()
+
 
         for a in cropFeatureList:
             filterExportHelper.setupFilter()

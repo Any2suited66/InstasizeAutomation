@@ -9,7 +9,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import string
 import random
-
+from Common_lists import filter_list
 
 # custom explicit wait for element to be enabled
 class element_is_enabled(object):
@@ -132,6 +132,9 @@ class EditorPage(object):
 
     def tapCropFeature(self):
         EditorPage.wait_for_editor(self)
+        # waits for IS button to be present on screen
+        WebDriverWait(self.driver, 30).until(
+            EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/ibAspectChange")))
         self.driver.find_element_by_xpath("//*[@class = 'android.widget.ImageView' and @content-desc ='Crop']").click()
 
     def tapAdjustmentsFeature(self):
@@ -208,8 +211,8 @@ class EditorPage(object):
     def dismiss_popup(self):
         try:
             WebDriverWait(self.driver, 15).until(
-                EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/ibCollapse")))
-            dismiss = self.driver.find_element_by_id('com.jsdev.instasize:id/ibCollapse')
+                EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/ivCollapseIcon")))
+            dismiss = self.driver.find_element_by_id('com.jsdev.instasize:id/ivCollapseIcon')
             dismiss.click()
 
         except TimeoutException:
@@ -220,7 +223,7 @@ class EditorPage(object):
 
     def purchase_premium_editor_popup(self):
         try:
-            WebDriverWait(self.driver, 15).until(
+            WebDriverWait(self.driver, 30).until(
                 EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/ibCollapse")))
             click_try = self.driver.find_element_by_id('com.jsdev.instasize:id/btnAction')
             click_try.click()
@@ -289,10 +292,15 @@ class GridPage(object):
 
     # taps the + sign on the grid page
     def simpleTapAddPhoto(self):
-        WebDriverWait(self.driver, 30).until(
-            EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/ibAddPhoto")))
-        plusIcon2 = self.driver.find_element_by_id("com.jsdev.instasize:id/ibAddPhoto")
-        plusIcon2.click()
+        try:
+            WebDriverWait(self.driver, 30).until(
+                EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/ibAddPhoto")))
+            plusIcon2 = self.driver.find_element_by_id("com.jsdev.instasize:id/ibAddPhoto")
+            plusIcon2.click()
+
+        except TimeoutException:
+            print('what happened? better check the test flow manually!')
+
 
     def enter_age_screen(self):
         try:
@@ -345,25 +353,28 @@ class GridPage(object):
             pass
 
     def addPhotoTap(self):
-        WebDriverWait(self.driver, 20).until(
-            EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/ibAddPhoto")))
-        GridPage.purchasPremiumEditor(self)
-        self.driver.find_element_by_id("com.jsdev.instasize:id/ibAddPhoto").click()
-        sleep(2)
-        GridPage.GDPR_skip(self)
+        try:
+            WebDriverWait(self.driver, 120).until(
+                EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/ibAddPhoto")))
+            self.driver.find_element_by_id("com.jsdev.instasize:id/ibAddPhoto").click()
+            sleep(2)
+            GridPage.GDPR_skip(self)
+        except TimeoutException:
+            pass
+
 
     def GDPR_skip(self):
         gridPage = GridPage(self.driver)
         try:
-            if self.driver.find_element_by_id("com.jsdev.instasize:id/cbCombined").is_displayed():
-                WebDriverWait(self.driver, 10).until(
-                    EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/cbCombined")))
-                self.driver.find_element_by_id("com.jsdev.instasize:id/cbCombined").click()
-                gridPage.tap_agree_to_continue()
+            WebDriverWait(self.driver, 10).until(
+                EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/cbCombined")))
+            self.driver.find_element_by_id("com.jsdev.instasize:id/cbCombined").click()
+            gridPage.tap_agree_to_continue()
 
-            else:
-                pass
         except NoSuchElementException:
+            pass
+
+        except TimeoutException:
             pass
 
     def tap_agree_to_continue(self):
@@ -431,8 +442,8 @@ class GridPage(object):
 
     def tapOnCloudImageInSystem(self):
         WebDriverWait(self.driver, 30).until(
-            EC.presence_of_element_located((By.ID, "com.android.documentsui:id/icon_mime")))
-        image = self.driver.find_element_by_id("com.android.documentsui:id/icon_mime")
+            EC.presence_of_element_located((By.XPATH, "//android.widget.TextView[@index='3']")))
+        image = self.driver.find_element_by_xpath("//android.widget.TextView[@index='3']")
         image.click()
 
 
@@ -599,15 +610,22 @@ class GridPage(object):
         self.driver.find_element_by_id("com.jsdev.instasize:id/ibSettingsIcon").click()
 
     def tapCollageBtn(self):
-        self.driver.find_element_by_id("ibCollage").click()
+        WebDriverWait(self.driver, 30).until(
+            EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/ibCollage")))
+        self.driver.find_element_by_id("com.jsdev.instasize:id/ibCollage").click()
 
     def tapWhatsNewBtn(self):
+        WebDriverWait(self.driver, 30).until(
+            EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/ibSettingsIcon")))
         try:
             whatsNewIcon = self.driver.find_element_by_id("com.jsdev.instasize:id/ibWhatsNewIcon")
             whatsNewIcon.click()
 
         except NoSuchElementException:
             print('whats new button not found, check manually')
+
+    def tap_back(self):
+        self.driver.back()
 
 
 class PhotoLibraryPage(object):
@@ -721,14 +739,19 @@ class ProfilePage(object):
     def enterLoginInfo(self):
         email = self.driver.find_element_by_id("com.jsdev.instasize:id/etvEmailAddress")
         email.click()
-        email.send_keys('test1@test.com')
+        email.send_keys('tyler@munkee.co')
         password = self.driver.find_element_by_id("com.jsdev.instasize:id/etvPassword")
         password.click()
         password.send_keys('aaaaaaaa')
 
     def tapSignUp(self):
-        signUP = self.driver.find_element_by_id("com.jsdev.instasize:id/btnMainAction")
-        signUP.click()
+        try:
+            WebDriverWait(self.driver, 5).until(
+                EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/btnMainAction")))
+            signUP = self.driver.find_element_by_id("com.jsdev.instasize:id/btnMainAction")
+            signUP.click()
+        except:
+            pass
 
     def enterFullName(self):
         fullName = self.driver.find_element_by_id("com.jsdev.instasize:id/etvFullName")
@@ -794,5 +817,186 @@ def test_request(arg=None):
 
 
 
+class Helper_Methods(object):
 
+    def __init__(self, driver):
+        self.driver = driver
+
+    def collageFilterSetup(self):
+        gridPage = GridPage(self.driver)
+        collagePage = CollagePage(self.driver)
+        editorPage = EditorPage(self.driver)
+        gridPage.addPhotoTap()
+        gridPage.tapCollageBtn()
+        collagePage.tapTopLeftImagePhotoLib()
+        collagePage.tap2ndPhoto()
+        collagePage.tap3rdPhoto()
+        collagePage.tap4thPhoto()
+        collagePage.tap5thPhoto()
+        collagePage.tap6thPhoto()
+        collagePage.tap2ndCollageOption()
+        editorPage.purchase_premium_editor_popup()
+        editorPage.tapDenyReviewPopup()
+
+    def addAllFiltersFromManager(self):
+        from Common_lists import filter_manager_list
+
+        editorPage = EditorPage(self.driver)
+        Helper_Methods.setupFilter(self.driver)
+
+        try:
+            for x in range(0, 13):
+                editorPage.swipeInEditor()
+            athens_filter = self.driver.find_element_by_xpath("//adnroid.widget.TextView[@text='ATHENS']")
+            if athens_filter.is_displayed:
+                self.driver.back()
+                sleep(2)
+                editorPage.tapAccept()
+
+        except NoSuchElementException:
+            editorPage.tapFilterManager()
+            pass
+
+        # searches for filter
+        for a in filter_manager_list:
+            for x in range(0, 30):
+                try:
+                    filter = self.driver.find_element_by_xpath("(""%s"")" % a)
+                    print("(""%s"")" % a)
+                    filter.click()
+                    break
+                except NoSuchElementException:
+                    editorPage.filterManagerSwipe()
+                    pass
+
+        editorPage.tapAccept()
+        editorPage.wait_for_editor()
+        self.driver.back()
+        editorPage.discardEditsYes()
+
+    def filterExportInstagram(self):
+        gridPage = GridPage(self.driver)
+        editorPage = EditorPage(self.driver)
+
+        editorPage.tapSharebutton()
+        editorPage.dismiss_popup()
+        gridPage.tapInstagramIcon()
+        sleep(5)
+        self.driver.back()
+
+    def setupFilter(self):
+        editorPage = EditorPage(self.driver)
+        gridPage = GridPage(self.driver)
+
+        # taps on the + icon
+        gridPage.addPhotoTap()
+        # taps on the native photos container
+        gridPage.tapPhotoContainer()
+        # taps on the top left photo
+        gridPage.tapTopLeftImageInPhotoLibrary()
+        # purchases premium from popup if it occurs
+        editorPage.purchase_premium_editor_popup()
+        # taps 'No thanks' on app review popup
+        editorPage.tapDenyReviewPopup()
+
+    def iterate_filters_collage(self):
+        helper_methods = Helper_Methods(self.driver)
+        editor_page = EditorPage(self.driver)
+        for x in filter_list:
+            helper_methods.collageFilterSetup()
+            # taps on the filter
+            print("("'%s'")" % x)
+            for i in range(0, 50):
+                try:
+                    filter = self.driver.find_element_by_xpath("(""%s"")" % x)
+                    WebDriverWait(self.driver, 30).until(
+                        EC.presence_of_element_located((By.XPATH, ("(""%s"")" % x))))
+                    filter.click()
+                    break
+                except NoSuchElementException:
+
+                    sleep(2)
+                    editor_page.swipeInEditor()
+                    pass
+
+            helper_methods.filterExportInstagram()
+
+    def iterate_crop_options(self):
+        from Common_lists import cropFeatureList
+        helper_methods = Helper_Methods(self.driver)
+        editor_page = EditorPage(self.driver)
+        for a in cropFeatureList:
+            helper_methods.setupFilter()
+            editor_page.tapCropFeature()
+            for x in range(0, 10):
+                try:
+                    cropFeature = self.driver.find_element_by_xpath("(""%s"")" % a)
+                    cropFeature.click()
+                    editor_page.tapAccept()
+                    break
+                except NoSuchElementException:
+                    sleep(2)
+                    editor_page.swipeInEditor()
+
+            helper_methods.filterExportInstagram()
+
+    def iterate_border_options(self):
+        from Common_lists import border_list
+        editor_page = EditorPage(self.driver)
+        helper_methods = Helper_Methods(self.driver)
+
+        for x in border_list:
+            for i in range(0, 50):
+                try:
+                    editor_page.wait_for_editor()
+                    border = self.driver.find_element_by_xpath("(""%s"")" % x)
+                    border.click()
+                    WebDriverWait(self.driver, 120).until(
+                        EC.presence_of_element_located((By.ID, ("com.jsdev.instasize:id/seekBar"))))
+                    borderElement = self.driver.find_element_by_xpath("//android.widget.ImageView[@index='4']")
+                    borderElement.click()
+                    editor_page.adjustSeekBar()
+                    editor_page.tapAccept()
+                    helper_methods.filterExportInstagram()
+                    break
+                except NoSuchElementException:
+                    sleep(2)
+                    editor_page.swipeInEditor()
+                    pass
+                except TimeoutException:
+                    self.driver.back()
+
+    def iterate_adjustment_options(self):
+        from Common_lists import adjustmentsList
+
+        helper_methods = Helper_Methods(self.driver)
+        editorPage = EditorPage(self.driver)
+
+        helper_methods.setupFilter()
+        editorPage.tapAdjustmentsFeature()
+
+        for a in adjustmentsList:
+            for x in range(0, 11):
+                try:
+                    adjustment = self.driver.find_element_by_xpath("(""%s"")" % a)
+                    sleep(2)
+                    adjustment.click()
+                    editorPage.adjustSeekBar()
+                    editorPage.tapAccept()
+                    break
+
+                except NoSuchElementException:
+                    editorPage.swipeInEditor()
+
+        helper_methods.filterExportInstagram()
+
+    def bDay_filter_iteration(self):
+        Helper_Methods.setupFilter(self.driver)
+        EditorPage.tapBDayFilter(self.driver)
+        EditorPage.tapBdayDateSpinner(self.driver)
+        EditorPage.swipe_bday_spinner(self.driver)
+        # editorPage.tapBdaySpinnerForInput()
+        EditorPage.tapCreateMyFilterBtn(self.driver)
+        EditorPage.tapUseFilterBtn(self.driver)
+        Helper_Methods.filterExportInstagram(self.driver)
 

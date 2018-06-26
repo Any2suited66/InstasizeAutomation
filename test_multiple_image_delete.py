@@ -1,10 +1,7 @@
 import unittest
 from DriverBuilder7zero import DriverBuilderAndroid
 from InstasizePages import GridPage
-from InstasizePages import EditorPage
-from Asserts import PhotoLibraryAsserts
 from Asserts import GridPageAsserts
-from time import sleep
 from ExportHelper import FilterExportHelper
 
 
@@ -16,29 +13,19 @@ class TestDeletePhoto(unittest.TestCase):
 
     def testDelete(self):
         driverBuilder = DriverBuilderAndroid()
-        driver = driverBuilder.driver
+        self.driver = driverBuilder.driver
 
-        gridPage = GridPage(driver)
-        editorPage = EditorPage(driver)
+        gridPage = GridPage(self.driver)
+        gridPageAsserts = GridPageAsserts(self.driver)
         filterExportHelper = FilterExportHelper()
 
-        gridPage.skip_onboarding()
         filterExportHelper.setupFilter()
 
-        # taps on share icon
-        editorPage.tapSharebutton()
-
-        sleep(2)
-        driver.back()
+        filterExportHelper.filterExportInstagram()
 
         filterExportHelper.setupFilter()
 
-        # taps on share icon
-        tapShareButton = EditorPage(driver)
-        tapShareButton.tapSharebutton()
-
-        sleep(2)
-        driver.back()
+        filterExportHelper.filterExportInstagram()
 
         # Taps on the top left image on the grid
         gridPage.tapTopLeftPhotoOnGrid()
@@ -58,9 +45,7 @@ class TestDeletePhoto(unittest.TestCase):
         # Taps on delete button in popup
         gridPage.tapDeleteButton()
 
-        # Asserts the image was deleted successfully
-        assertsImageDeleted = GridPageAsserts(driver)
-        assertsImageDeleted.gridPagePhotoNotPresent()
+        gridPageAsserts.settingsIconAssert()
 
 
 # ---START OF SCRIPT

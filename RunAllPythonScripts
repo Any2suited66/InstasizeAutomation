@@ -5,8 +5,8 @@
 
 
 
-TEST_FRAMEWORK='nose2'
-TEST_DIR="/Users/tyler/PycharmProjects/testInstasizeAutomation/" #$PWD
+TEST_FRAMEWORK='python3'
+TEST_DIR="/Users/tyler/Desktop/instasizeAutomationlatest/instasize-automation/test_Announcements.py" #$PWD
 APPIUM_SERVER_LOGS='appium.log'
 TEST_LOGS='test.log'
 PID_DATA=()
@@ -43,9 +43,9 @@ function start_tests() {
   echo "[INFO] Start ${test_framework} test with main port: ${appium_main_port} and udid: ${udid}..."
   case $test_framework in
     "nose2" )
-      nose2_full_path=`which nose2`
+      pytest_full_path=`which py.test`
       cd $test_dir
-      UDID=$udid PORT=$appium_main_port PLATFORM_VERSION=$platform_version $nose2_full_path > "$test_logs-$udid" & 2>&1
+      UDID=$udid PORT=$appium_main_port PLATFORM_VERSION=$platform_version $pytest_full_path > "$test_logs-$udid" & 2>&1
 
 
       echo $test_logs-$udid

@@ -1,7 +1,7 @@
 import unittest
-from InstasizePages import GridPage
+from ExportHelper import FilterExportHelper
 
-from InstasizePages import ProfilePage
+from InstasizePages import ProfilePage, GridPage
 from Asserts import GridPageAsserts
 
 from DriverBuilder7zero import DriverBuilderAndroid
@@ -13,18 +13,20 @@ class test_CreateNewProfile(unittest.TestCase):
     driver = driver_builder.driver
 
     def test_create_new_profile(self):
-
+        filter_export_helper = FilterExportHelper()
         profilePage = ProfilePage(self.driver)
-        gridPage = GridPage(self.driver)
+        grid_page = GridPage(self.driver)
 
-        gridPage.skip_onboarding()
+        filter_export_helper.setupFilter()
+        filter_export_helper.filterExportInstagram()
         profilePage.openProfilePage()
         profilePage.name_generator()
         profilePage.email_generator()
         profilePage.pw_generator()
         profilePage.tapSignUp()
+        grid_page.GDPR_skip()
+        profilePage.tapSignUp()
 
-    def test_premium_badge_assertion(self):
         gridPageAsserts = GridPageAsserts(self.driver)
         gridPageAsserts.premium_badge_assert()
 

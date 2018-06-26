@@ -2,7 +2,7 @@ import unittest
 from time import sleep
 from Asserts import GridPageAsserts
 from DriverBuilder7zero import DriverBuilderAndroid
-from InstasizePages import GridPage
+from InstasizePages import GridPage, EditorPage
 from ExportHelper import FilterExportHelper
 
 def _by_link_text():
@@ -13,12 +13,12 @@ class ImportFromCloud(unittest.TestCase):
 
     def runTest(self):
         driverBuilder = DriverBuilderAndroid()
-        driver = driverBuilder.driver
-        gridPage = GridPage(driver)
-        gridPageAsserts = GridPageAsserts(driver)
+        self.driver = driverBuilder.driver
+        gridPage = GridPage(self.driver)
+        gridPageAsserts = GridPageAsserts(self.driver)
         filterExportHelper = FilterExportHelper()
+        editor_page = EditorPage(self.driver)
 
-        gridPage.skip_onboarding()
         gridPage.purchasPremiumEditor()
 
         # taps on the + icon
@@ -30,10 +30,10 @@ class ImportFromCloud(unittest.TestCase):
         # taps on the second image
         gridPage.tapOnCloudImageInSystem()
 
+        editor_page.purchase_premium_editor_popup()
+
         filterExportHelper.filterExportInstagram()
 
-        sleep(5)
-        driver.back()
         gridPageAsserts.settingsIconAssert()
 
 

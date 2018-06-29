@@ -1,21 +1,17 @@
 
 
-from InstasizePages import GridPage, EditorPage, ProfilePage, Helper_Methods
-from Common_lists import border_list
+from InstasizePages import GridPage, EditorPage, ProfilePage, Helper_Methods, SettingsPage
+from Common_lists import border_list, filter_list
 from time import sleep
 from selenium.common.exceptions import NoSuchElementException, TimeoutException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 from Asserts import GridPageAsserts
-
-
-
-
+import unittest
 
 
 class BaseTests(object):
-
 
     def __init__(self, driver):
         self.driver = driver
@@ -34,15 +30,6 @@ class BaseTests(object):
         profilePage.tapSignUp()
         gridPageAsserts = GridPageAsserts(self)
         gridPageAsserts.premium_badge_assert()
-
-    def test_collage_feature(self):
-
-        helper_methods = Helper_Methods(self)
-        grid_page_asserts = GridPageAsserts(self)
-
-        helper_methods.addAllFiltersFromManager()
-        helper_methods.iterate_filters_collage()
-        grid_page_asserts.settingsIconAssert()
 
     def camera_test(self):
         gridPage = GridPage(self.driver)
@@ -63,14 +50,32 @@ class BaseTests(object):
     def collage_test(self):
         grid_page_asserts = GridPageAsserts(self.driver)
         helper_methods = Helper_Methods(self.driver)
+        editor_page = EditorPage(self.driver)
 
-        helper_methods.iterate_filters_collage()
+        for x in filter_list:
+            helper_methods.collageFilterSetup()
+            # taps on the filter
+            print("("'%s'")" % x)
+            for i in range(0, 50):
+                try:
+                    filter = self.driver.find_element_by_xpath("(""%s"")" % x)
+                    WebDriverWait(self.driver, 30).until(
+                        EC.presence_of_element_located((By.XPATH, ("(""%s"")" % x))))
+                    filter.click()
+                    break
+                except NoSuchElementException:
+                    sleep(2)
+                    editor_page.swipeInEditor()
+                    pass
+            helper_methods.filterExportInstagram()
+
         grid_page_asserts.settingsIconAssert()
 
     def create_new_profile_test(self):
         profilePage = ProfilePage(self.driver)
         helper_methods = Helper_Methods(self.driver)
         gridPageAsserts = GridPageAsserts(self.driver)
+        grid_page = GridPage(self.driver)
 
         helper_methods.setupFilter()
         helper_methods.filterExportInstagram()
@@ -79,6 +84,8 @@ class BaseTests(object):
         profilePage.email_generator()
         profilePage.pw_generator()
         profilePage.tapSignUp()
+        grid_page.GDPR_skip()
+
         gridPageAsserts.premium_badge_assert()
 
     def crop_feature_test(self):
@@ -142,3 +149,161 @@ class BaseTests(object):
 
         helper_methods.bDay_filter_iteration()
         grid_page_asserts.settingsIconAssert()
+
+    def delete_image(self):
+        gridPage = GridPage(self.driver)
+        gridPageAsserts = GridPageAsserts(self.driver)
+        helper_methods = Helper_Methods(self.driver)
+
+        helper_methods.setupFilter()
+        helper_methods.filterExportInstagram()
+        # Taps on the top left image on the grid
+        gridPage.tapTopLeftPhotoOnGrid()
+        # Taps on delete icon
+        gridPage.tapDeleteIconOnGrid()
+        # Taps on cancel
+        gridPage.tapCancelButton()
+        # Taps on delete icon
+        gridPage.tapDeleteIconOnGrid()
+        # Taps on delete button in popup
+        gridPage.tapDeleteButton()
+        # Asserts the image was deleted successfully
+        gridPageAsserts.gridPagePhotoNotPresent()
+
+    def import_from_cloud(self):
+        gridPage = GridPage(self.driver)
+        gridPageAsserts = GridPageAsserts(self.driver)
+        helper_methods = Helper_Methods(self.driver)
+        editor_page = EditorPage(self.driver)
+
+        # taps on the + icon
+        gridPage.addPhotoTap()
+        # taps on cloud option
+        gridPage.tapOnCloudOption()
+        # taps on the second image
+        gridPage.tapOnCloudImageInSystem()
+        editor_page.purchase_premium_editor_popup()
+        helper_methods.filterExportInstagram()
+        gridPageAsserts.settingsIconAssert()
+
+    def instasize_btn_test(self):
+        gridPage = GridPage(self.driver)
+        editorPage = EditorPage(self.driver)
+        helper_methods = Helper_Methods(self.driver)
+
+        helper_methods.setupFilter()
+        # taps on the yellow instasize button
+        editorPage.tapInstasizeButton()
+        helper_methods.filterExportInstagram()
+        # Asserts the + button is displayed
+        gridPage.addPhotoFind()
+
+    def login_to_profile(self):
+        profilePage = ProfilePage(self.driver)
+        helper_methods = Helper_Methods(self.driver)
+        grid_page = GridPage(self.driver)
+
+        helper_methods.setupFilter()
+        helper_methods.filterExportInstagram()
+        profilePage.openProfilePage()
+        profilePage.tapSignIn()
+        profilePage.enterLoginInfo()
+        profilePage.tapSignUp()
+        grid_page.GDPR_skip()
+
+        gridPageAsserts = GridPageAsserts(self.driver)
+        gridPageAsserts.settingsIconAssert()
+
+    def delete_multiple_images(self):
+        gridPage = GridPage(self.driver)
+        gridPageAsserts = GridPageAsserts(self.driver)
+        helper_methods = Helper_Methods(self.driver)
+
+        helper_methods.setupFilter()
+        helper_methods.filterExportInstagram()
+        helper_methods.setupFilter()
+        helper_methods.filterExportInstagram()
+        # Taps on the top left image on the grid
+        gridPage.tapTopLeftPhotoOnGrid()
+        # taps on the second image on grid screen
+        gridPage.tap_second_grid_image()
+        # Taps on delete icon
+        gridPage.tapDeleteIconOnGrid()
+        # Taps on cancel
+        gridPage.tapCancelButton()
+        # Taps on delete icon
+        gridPage.tapDeleteIconOnGrid()
+        # Taps on delete button in popup
+        gridPage.tapDeleteButton()
+        gridPageAsserts.settingsIconAssert()
+
+    def non_hd_filter_export(self):
+        helper_methods = Helper_Methods(self.driver)
+        gridPage = GridPage(self.driver)
+        settingsPage = SettingsPage(self.driver)
+        editorPage = EditorPage(self.driver)
+
+        helper_methods.addAllFiltersFromManager()
+        # taps on the settings icon
+        gridPage.tapSettingsIcon()
+        # taps the hd switch
+        settingsPage.HDExportButtonTap()
+        self.driver.back()
+
+        for x in filter_list:
+
+            helper_methods.setupFilter()
+            # taps on the filter
+            print("("'%s'")" % x)
+            for i in range(0, 50):
+                try:
+                    WebDriverWait(self.driver, 30).until(
+                        EC.presence_of_element_located((By.ID, ("com.jsdev.instasize:id/ibExport"))))
+                    filter = self.driver.find_element_by_xpath("(""%s"")" % x)
+                    filter.click()
+                    break
+                except NoSuchElementException:
+                    sleep(2)
+                    editorPage.swipeInEditor()
+                    pass
+
+            helper_methods.filterExportInstagram()
+
+    def single_image_export_test(self):
+        helper_methods = Helper_Methods(self.driver)
+        editorPage = EditorPage(self.driver)
+
+        helper_methods.addAllFiltersFromManager()
+
+        for x in filter_list:
+
+            helper_methods.setupFilter()
+            # taps on the filter
+            print("("'%s'")" % x)
+            for i in range(0, 50):
+                try:
+                    WebDriverWait(self.driver, 30).until(
+                        EC.presence_of_element_located((By.ID, ("com.jsdev.instasize:id/ibExport"))))
+                    filter = self.driver.find_element_by_xpath("(""%s"")" % x)
+                    filter.click()
+                    break
+                except NoSuchElementException:
+                    sleep(2)
+                    editorPage.swipeInEditor()
+                    pass
+
+            helper_methods.filterExportInstagram()
+
+    def tools_test(self):
+        gridPage = GridPage(self.driver)
+        helper_methods = Helper_Methods(self.driver)
+        editorPage = EditorPage(self.driver)
+
+        helper_methods.setupFilter()
+        # taps the tools feature
+        editorPage.tapToolsFeature()
+        # taps on all tool features
+        editorPage.tapOnAllTools()
+        helper_methods.filterExportInstagram()
+        # Asserts the + button is displayed
+        gridPage.addPhotoFind()

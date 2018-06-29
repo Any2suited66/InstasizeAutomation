@@ -1,25 +1,25 @@
-
 import unittest
 from appium import webdriver
 from Base_tests import BaseTests
 import APKInstall
 
-class TestRunnerS6(unittest.TestCase):
+class TestRunnerS7(unittest.TestCase):
 
+    @classmethod
     def setUp(self):
         desired_caps = {}
         desired_caps['platformName'] = 'ANDROID'
         desired_caps['automationName'] = 'uiautomator2'
         desired_caps['deviceName'] = 'ANDROID'
-        desired_caps['udid'] = '05157df532e5e40e'
-        desired_caps['platformVersion'] = '6.0.1'
+        desired_caps['udid'] = '8802edf5'
+        desired_caps['platformVersion'] = '7.0'
         desired_caps['app'] = APKInstall.installAPK()
         desired_caps['appActivity'] = 'com.jsdev.instasize.activities.MainActivity'
         desired_caps['appPackage'] = 'com.jsdev.instasize'
         # desired_caps['noReset'] = True
         desired_caps['newCommandTimeout'] = 999999
-        desired_caps['systemPort'] = 7779
-        self.driver = webdriver.Remote('http://127.0.0.1:4444/wd/hub', desired_caps)
+        desired_caps['systemPort'] = 7785
+        self.driver = webdriver.Remote('http://127.0.0.1:4450/wd/hub', desired_caps)
 
     def test_bday_filter(self):
         BaseTests(self.driver).bday_filter_test()
@@ -71,5 +71,5 @@ class TestRunnerS6(unittest.TestCase):
 
 
 if __name__ == '__main__':
-    suite = unittest.TestLoader().loadTestsFromTestCase(TestRunnerS6)
+    suite = unittest.TestLoader().loadTestsFromTestCase(TestRunnerS7)
     unittest.TextTestRunner(verbosity=2).run(suite)

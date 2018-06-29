@@ -69,8 +69,10 @@ class EditorPage(object):
         date_spinner.click()
 
     def swipe_bday_spinner(self):
+        page = self.driver.page_source
+        print(page)
         sleep(2)
-        self.driver.swipe(360, 2400, 360, 1900)
+        self.driver.swipe(360, 2000, 360, 1900)
 
     def tapBdaySpinnerForInput(self):
         WebDriverWait(self.driver, 30).until(
@@ -210,7 +212,7 @@ class EditorPage(object):
 
     def dismiss_popup(self):
         try:
-            WebDriverWait(self.driver, 15).until(
+            WebDriverWait(self.driver, 5).until(
                 EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/ivCollapseIcon")))
             dismiss = self.driver.find_element_by_id('com.jsdev.instasize:id/ivCollapseIcon')
             dismiss.click()
@@ -223,11 +225,11 @@ class EditorPage(object):
 
     def purchase_premium_editor_popup(self):
         try:
-            WebDriverWait(self.driver, 30).until(
+            WebDriverWait(self.driver, 5).until(
                 EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/ibCollapse")))
             click_try = self.driver.find_element_by_id('com.jsdev.instasize:id/btnAction')
             click_try.click()
-            WebDriverWait(self.driver, 15).until(
+            WebDriverWait(self.driver, 5).until(
                 EC.presence_of_element_located((By.ID, "com.android.vending:id/continue_button")))
             subscribe_btn = self.driver.find_element_by_id('com.android.vending:id/continue_button')
             subscribe_btn.click()
@@ -242,7 +244,7 @@ class EditorPage(object):
     def wait_for_editor(self):
         while True:
             try:
-                sleep(2)
+                sleep(1)
                 self.driver.find_element_by_id('com.jsdev.instasize:id/ivCircle4')
                 pass
             except NoSuchElementException:
@@ -264,7 +266,8 @@ class EditorPage(object):
 
     # Premium version swipe
     def swipeInEditor(self):
-        EditorPage.wait_for_editor(self)
+        editor_page = EditorPage(self.driver)
+        editor_page.wait_for_editor()
         self.driver.swipe(1000, 2140, 100, 2140)
 
     def swipeRightToLeftInEditor(self):
@@ -366,18 +369,16 @@ class GridPage(object):
     def GDPR_skip(self):
         gridPage = GridPage(self.driver)
         try:
-            WebDriverWait(self.driver, 10).until(
+            WebDriverWait(self.driver, 5).until(
                 EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/cbCombined")))
-            self.driver.find_element_by_id("com.jsdev.instasize:id/cbCombined").click()
+            tap_checkbox = self.driver.find_element_by_id("com.jsdev.instasize:id/cbCombined")
+            tap_checkbox.click()
             gridPage.tap_agree_to_continue()
-
-        except NoSuchElementException:
-            pass
-
-        except TimeoutException:
+        except:
             pass
 
     def tap_agree_to_continue(self):
+        sleep(2)
         self.driver.find_element_by_id("com.jsdev.instasize:id/btnAccept").click()
 
     def freeTrialButton(self):
@@ -394,9 +395,9 @@ class GridPage(object):
         subscribeBtn.click()
 
     def tapShareButton(self):
+        EditorPage.wait_for_editor(self.driver)
         WebDriverWait(self.driver, 30).until(
             EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/ibExport")))
-        sleep(5)
         share = self.driver.find_element_by_id("com.jsdev.instasize:id/ibExport")
         share.click()
 
@@ -412,7 +413,6 @@ class GridPage(object):
     def purchasPremiumEditor(self):
 
         try:
-
             if self.driver.find_element_by_id("com.jsdev.instasize:id/btnGoPremium").is_displayed():
                     GridPage.simpleTapAddPhoto(self)
                     GridPage.GDPR_skip(self)
@@ -441,11 +441,20 @@ class GridPage(object):
         cloud.click()
 
     def tapOnCloudImageInSystem(self):
-        WebDriverWait(self.driver, 30).until(
-            EC.presence_of_element_located((By.XPATH, "//android.widget.TextView[@index='3']")))
-        image = self.driver.find_element_by_xpath("//android.widget.TextView[@index='3']")
-        image.click()
 
+        try:
+            WebDriverWait(self.driver, 10).until(
+                EC.presence_of_element_located(
+                    (By.ID, "com.android.documentsui:id/toolbar")))
+
+            image = self.driver.find_element_by_id("com.android.documentsui:id/date")
+            image.click()
+
+        except TimeoutException:
+            print('check test flow in case android version was updated')
+
+        except NoSuchElementException:
+            print('check test flow in case android version was updated')
 
     def addPhotoFind(self):
         WebDriverWait(self.driver, 30).until(
@@ -560,12 +569,12 @@ class GridPage(object):
             try:
                 sleep(2)
                 if self.driver.find_element_by_id('com.jsdev.instasize:id/ivCircle4').is_displayed():
-                    sleep(2)
+                    sleep(1)
                     pass
 
             except NoSuchElementException:
                 try:
-                    sleep(3)
+                    sleep(2)
                     self.driver.find_element_by_xpath(
                         "//*[@class = 'android.widget.TextView' and @text ='Feed']").click()
                     break
@@ -626,6 +635,16 @@ class GridPage(object):
 
     def tap_back(self):
         self.driver.back()
+
+class SettingsPage(object):
+
+    def __init__(self, driver):
+        self.driver = driver
+
+    def HDExportButtonTap(self):
+        WebDriverWait(self.driver, 30).until(
+            EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/switchExportImageQuality")))
+        self.driver.find_element_by_id("com.jsdev.instasize:id/switchExportImageQuality").click()
 
 
 class PhotoLibraryPage(object):
@@ -749,6 +768,7 @@ class ProfilePage(object):
             WebDriverWait(self.driver, 5).until(
                 EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/btnMainAction")))
             signUP = self.driver.find_element_by_id("com.jsdev.instasize:id/btnMainAction")
+            sleep(2)
             signUP.click()
         except:
             pass
@@ -836,13 +856,14 @@ class Helper_Methods(object):
         collagePage.tap6thPhoto()
         collagePage.tap2ndCollageOption()
         editorPage.purchase_premium_editor_popup()
-        editorPage.tapDenyReviewPopup()
 
     def addAllFiltersFromManager(self):
         from Common_lists import filter_manager_list
-
+        helper_methods = Helper_Methods(self.driver)
         editorPage = EditorPage(self.driver)
-        Helper_Methods.setupFilter(self.driver)
+
+
+        helper_methods.setupFilter()
 
         try:
             for x in range(0, 13):
@@ -898,28 +919,6 @@ class Helper_Methods(object):
         editorPage.purchase_premium_editor_popup()
         # taps 'No thanks' on app review popup
         editorPage.tapDenyReviewPopup()
-
-    def iterate_filters_collage(self):
-        helper_methods = Helper_Methods(self.driver)
-        editor_page = EditorPage(self.driver)
-        for x in filter_list:
-            helper_methods.collageFilterSetup()
-            # taps on the filter
-            print("("'%s'")" % x)
-            for i in range(0, 50):
-                try:
-                    filter = self.driver.find_element_by_xpath("(""%s"")" % x)
-                    WebDriverWait(self.driver, 30).until(
-                        EC.presence_of_element_located((By.XPATH, ("(""%s"")" % x))))
-                    filter.click()
-                    break
-                except NoSuchElementException:
-
-                    sleep(2)
-                    editor_page.swipeInEditor()
-                    pass
-
-            helper_methods.filterExportInstagram()
 
     def iterate_crop_options(self):
         from Common_lists import cropFeatureList
@@ -991,12 +990,15 @@ class Helper_Methods(object):
         helper_methods.filterExportInstagram()
 
     def bDay_filter_iteration(self):
-        Helper_Methods.setupFilter(self.driver)
-        EditorPage.tapBDayFilter(self.driver)
-        EditorPage.tapBdayDateSpinner(self.driver)
-        EditorPage.swipe_bday_spinner(self.driver)
+        helper_methods = Helper_Methods(self.driver)
+        editor_page = EditorPage(self.driver)
+
+        helper_methods.setupFilter()
+        editor_page.tapBDayFilter()
+        editor_page.tapBdayDateSpinner()
+        editor_page.swipe_bday_spinner()
         # editorPage.tapBdaySpinnerForInput()
-        EditorPage.tapCreateMyFilterBtn(self.driver)
-        EditorPage.tapUseFilterBtn(self.driver)
-        Helper_Methods.filterExportInstagram(self.driver)
+        editor_page.tapCreateMyFilterBtn()
+        editor_page.tapUseFilterBtn()
+        helper_methods.filterExportInstagram()
 

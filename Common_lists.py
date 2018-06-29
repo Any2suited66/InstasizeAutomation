@@ -45,21 +45,24 @@ filter_list =               ["//android.widget.TextView[@text='H1']", "//android
                             "//android.widget.TextView[@text='P3']",]
 
 
-filter_manager_list = ["//android.widget.TextView[@text='WAVES']", "//android.widget.TextView[@text='KAYAK']", "//android.widget.TextView[@text='RIO']",
-                             "//android.widget.TextView[@text='NEWPORT']", "//android.widget.TextView[@text='NOVA']", "//android.widget.TextView[@text='WASATCH']",
-                             "//android.widget.TextView[@text='MARKET']", "//android.widget.TextView[@text='MADRID']", "//android.widget.TextView[@text='FLUX']",
-                             "//android.widget.TextView[@text='CELSIUS']", "//android.widget.TextView[@text='PETRA']", "//android.widget.TextView[@text='ORGANIC']",
-                             "//android.widget.TextView[@text='NOMAD']", "//android.widget.TextView[@text='ALTA']", "//android.widget.TextView[@text='BALTIC']",
-                             "//android.widget.TextView[@text='JUNO']", "//android.widget.TextView[@text='ATHENS']"]
+filter_manager_list =       ["//android.widget.TextView[@text='WAVES']", "//android.widget.TextView[@text='KAYAK']",
+                             "//android.widget.TextView[@text='RIO']", "//android.widget.TextView[@text='NEWPORT']",
+                             "//android.widget.TextView[@text='NOVA']", "//android.widget.TextView[@text='WASATCH']",
+                             "//android.widget.TextView[@text='MARKET']", "//android.widget.TextView[@text='MADRID']",
+                             "//android.widget.TextView[@text='FLUX']", "//android.widget.TextView[@text='CELSIUS']",
+                             "//android.widget.TextView[@text='PETRA']", "//android.widget.TextView[@text='ORGANIC']",
+                             "//android.widget.TextView[@text='NOMAD']", "//android.widget.TextView[@text='ALTA']",
+                             "//android.widget.TextView[@text='BALTIC']", "//android.widget.TextView[@text='JUNO']",
+                             "//android.widget.TextView[@text='ATHENS']"]
 
-cropFeatureList = ["//android.widget.TextView[@text ='FREE']", "//android.widget.TextView[@text ='1:1']",
+cropFeatureList =         ["//android.widget.TextView[@text ='FREE']", "//android.widget.TextView[@text ='1:1']",
                            "//android.widget.TextView[@text ='3:2']", "//android.widget.TextView[@text ='5:3']",
                            "//android.widget.TextView[@text ='4:3']", "//android.widget.TextView[@text ='5:4']",
                            "//android.widget.TextView[@text ='4:5']", "//android.widget.TextView[@text ='3:4']",
                            "//android.widget.TextView[@text ='2:3']", "//android.widget.TextView[@text ='7:5']",
                            "//android.widget.TextView[@text ='21:9']"]
 
-border_list = ["//android.widget.TextView[@text='XOXO']", "//android.widget.TextView[@text='COLOR']",
+border_list =        ["//android.widget.TextView[@text='XOXO']", "//android.widget.TextView[@text='COLOR']",
                       "//android.widget.TextView[@text='VIBES']",
                       "//android.widget.TextView[@text='SPRING']", "//android.widget.TextView[@text='MARBLE']",
                       "//android.widget.TextView[@text='MERICA']",

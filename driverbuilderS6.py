@@ -1,6 +1,6 @@
 import pytest
 from appium import webdriver
-import test_Announcements
+
 import unittest
 
 class test_DriverBuilderAndroidS6(unittest.TestCase):

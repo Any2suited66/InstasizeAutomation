@@ -6,7 +6,7 @@ throws an exception"""
 import inspect
 import unittest
 from DriverBuilder7zero import DriverBuilderAndroid
-from ExportHelper import FilterExportHelper
+
 
 
 def _by_link_text():

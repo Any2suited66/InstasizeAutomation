@@ -1,6 +1,7 @@
 import subprocess
 from time import sleep
 import os
+from pathlib import Path
 
 
 
@@ -13,7 +14,8 @@ def installAPK():
 
     # Edit this path to your dedicated Instasize APK folder
     d = Path(os.environ['IS_ANDROID_APK_PATH'])
-    output = d.files('*.apk')
+    output = list(d.glob('*.apk'))
     listed = ''.join(str(e) for e in output)
     return listed
 
+installAPK()

@@ -1,5 +1,3 @@
-
-
 from InstasizePages import GridPage, EditorPage, ProfilePage, Helper_Methods, SettingsPage
 from Common_lists import border_list, filter_list
 from time import sleep
@@ -7,15 +5,13 @@ from selenium.common.exceptions import NoSuchElementException, TimeoutException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
-from Asserts import GridPageAsserts
-import unittest
+from Asserts import GridPageAsserts, SettingsPageAsserts
 
 
 class BaseTests(object):
 
     def __init__(self, driver):
         self.driver = driver
-
 
     def test_new_profile(self):
         profilePage = ProfilePage(self.driver)
@@ -51,6 +47,8 @@ class BaseTests(object):
         grid_page_asserts = GridPageAsserts(self.driver)
         helper_methods = Helper_Methods(self.driver)
         editor_page = EditorPage(self.driver)
+
+        helper_methods.addAllFiltersFromManager()
 
         for x in filter_list:
             helper_methods.collageFilterSetup()
@@ -89,11 +87,23 @@ class BaseTests(object):
         gridPageAsserts.premium_badge_assert()
 
     def crop_feature_test(self):
+        from Common_lists import cropFeatureList
         helper_methods = Helper_Methods(self.driver)
-        grid_page_asserts = GridPageAsserts(self.driver)
+        editor_page = EditorPage(self.driver)
+        for a in cropFeatureList:
+            helper_methods.setupFilter()
+            editor_page.tapCropFeature()
+            for x in range(0, 10):
+                try:
+                    cropFeature = self.driver.find_element_by_xpath("(""%s"")" % a)
+                    cropFeature.click()
+                    editor_page.tapAccept()
+                    break
+                except NoSuchElementException:
+                    sleep(2)
+                    editor_page.swipeInEditor()
 
-        helper_methods.iterate_crop_options()
-        grid_page_asserts.settingsIconAssert()
+            helper_methods.filterExportInstagram()
 
     def border_feature_test(self):
         editorPage = EditorPage(self.driver)
@@ -137,11 +147,28 @@ class BaseTests(object):
         gridPageAsserts.settingsIconAssert()
 
     def adjustments_feature_test(self):
-        gridPageAsserts = GridPageAsserts(self.driver)
-        helper_methods = Helper_Methods(self.driver)
+        from Common_lists import adjustmentsList
 
-        helper_methods.iterate_adjustment_options()
-        gridPageAsserts.settingsIconAssert()
+        helper_methods = Helper_Methods(self.driver)
+        editorPage = EditorPage(self.driver)
+
+        helper_methods.setupFilter()
+        editorPage.tapAdjustmentsFeature()
+
+        for a in adjustmentsList:
+            for x in range(0, 11):
+                try:
+                    adjustment = self.driver.find_element_by_xpath("(""%s"")" % a)
+                    sleep(2)
+                    adjustment.click()
+                    editorPage.adjustSeekBar()
+                    editorPage.tapAccept()
+                    break
+
+                except NoSuchElementException:
+                    editorPage.swipeInEditor()
+
+        helper_methods.filterExportInstagram()
 
     def bday_filter_test(self):
         grid_page_asserts = GridPageAsserts(self.driver)
@@ -307,3 +334,20 @@ class BaseTests(object):
         helper_methods.filterExportInstagram()
         # Asserts the + button is displayed
         gridPage.addPhotoFind()
+
+#     def test_social_media_icons(self):
+#         gridPage = GridPage(self.driver)
+#         settings_page = SettingsPage(self.driver)
+#         settings_page_asserts = SettingsPageAsserts(self.driver)
+#
+#         gridPage.tapSettingsIcon()
+#         settings_page.settings_premium_purchase()
+#         settings_page.tap_instagram_icon()
+#         settings_page_asserts.instagram_layout_assert()
+#         sleep(5)
+#         self.driver.back()
+#
+#
+# class NegativeBaseTests(object):
+#
+#     def incorrect_username_test(self):

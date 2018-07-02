@@ -19,6 +19,8 @@ class TestRunnerS6(unittest.TestCase):
         # desired_caps['noReset'] = True
         desired_caps['newCommandTimeout'] = 999999
         desired_caps['systemPort'] = 7779
+        desired_caps['autoGrantPermissions'] = True
+        desired_caps['autoDismissAlerts'] = True
         self.driver = webdriver.Remote('http://127.0.0.1:4444/wd/hub', desired_caps)
 
     def test_bday_filter(self):
@@ -69,6 +71,8 @@ class TestRunnerS6(unittest.TestCase):
     def test_tools(self):
         BaseTests(self.driver).tools_test()
 
+    # def test_social_media_icons(self):
+    #     BaseTests(self.driver).test_social_media_icons()
 
 if __name__ == '__main__':
     suite = unittest.TestLoader().loadTestsFromTestCase(TestRunnerS6)

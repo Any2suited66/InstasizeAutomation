@@ -1,6 +1,6 @@
 
 
-filter_list =               ["//android.widget.TextView[@text='H1']", "//android.widget.TextView[@text='H2']",
+filter_list =              ["//android.widget.TextView[@text='H1']", "//android.widget.TextView[@text='H2']",
                             "//android.widget.TextView[@text='H3']", "//android.widget.TextView[@text='F1']",
                             "//android.widget.TextView[@text='F2']", "//android.widget.TextView[@text='RADIO']",
                             "//android.widget.TextView[@text='F3']", "//android.widget.TextView[@text='A1']",
@@ -42,7 +42,7 @@ filter_list =               ["//android.widget.TextView[@text='H1']", "//android
                             "//android.widget.TextView[@text='M3']", "//android.widget.TextView[@text='N1']",
                             "//android.widget.TextView[@text='N2']", "//android.widget.TextView[@text='N3']",
                             "//android.widget.TextView[@text='P1']", "//android.widget.TextView[@text='P2']",
-                            "//android.widget.TextView[@text='P3']",]
+                            "//android.widget.TextView[@text='P3']"]
 
 
 filter_manager_list =       ["//android.widget.TextView[@text='WAVES']", "//android.widget.TextView[@text='KAYAK']",
@@ -62,33 +62,29 @@ cropFeatureList =         ["//android.widget.TextView[@text ='FREE']", "//androi
                            "//android.widget.TextView[@text ='2:3']", "//android.widget.TextView[@text ='7:5']",
                            "//android.widget.TextView[@text ='21:9']"]
 
-border_list =        ["//android.widget.TextView[@text='XOXO']", "//android.widget.TextView[@text='COLOR']",
-                      "//android.widget.TextView[@text='VIBES']",
-                      "//android.widget.TextView[@text='SPRING']", "//android.widget.TextView[@text='MARBLE']",
-                      "//android.widget.TextView[@text='MERICA']",
-                      "//android.widget.TextView[@text='HOLIDAY']", "//android.widget.TextView[@text='AUTUMN']",
-                      "//android.widget.TextView[@text='WOOD']",
-                      "//android.widget.TextView[@text='FLORAL']", "//android.widget.TextView[@text='COSMIC']",
-                      "//android.widget.TextView[@text='CAMO']",
-                      "//android.widget.TextView[@text='BW I']", "//android.widget.TextView[@text='POLKA DOT']",
-                      "//android.widget.TextView[@text='BW II']",
-                      "//android.widget.TextView[@text='ANIMAL']", "//android.widget.TextView[@text='NEBULA']",
-                      "//android.widget.TextView[@text='CHEVRON']",
-                      "//android.widget.TextView[@text='TIMBER']", "//android.widget.TextView[@text='GC']",
-                      "//android.widget.TextView[@text='BW III']",
-                      "//android.widget.TextView[@text='GOLD']", "//android.widget.TextView[@text='GLITTER']",
-                      "//android.widget.TextView[@text='GEOMETRIC']",
-                      "//android.widget.TextView[@text='LINE']", "//android.widget.TextView[@text='TRIBAL']",
-                      "//android.widget.TextView[@text='PINK']"]
+border_list =            ["//android.widget.TextView[@text='XOXO']", "//android.widget.TextView[@text='COLOR']",
+                          "//android.widget.TextView[@text='VIBES']", "//android.widget.TextView[@text='SPRING']",
+                          "//android.widget.TextView[@text='MARBLE']", "//android.widget.TextView[@text='MERICA']",
+                          "//android.widget.TextView[@text='HOLIDAY']", "//android.widget.TextView[@text='AUTUMN']",
+                          "//android.widget.TextView[@text='WOOD']", "//android.widget.TextView[@text='FLORAL']",
+                          "//android.widget.TextView[@text='COSMIC']", "//android.widget.TextView[@text='CAMO']",
+                          "//android.widget.TextView[@text='BW I']", "//android.widget.TextView[@text='POLKA DOT']",
+                          "//android.widget.TextView[@text='BW II']", "//android.widget.TextView[@text='ANIMAL']",
+                          "//android.widget.TextView[@text='NEBULA']", "//android.widget.TextView[@text='CHEVRON']",
+                          "//android.widget.TextView[@text='TIMBER']", "//android.widget.TextView[@text='GC']",
+                          "//android.widget.TextView[@text='BW III']", "//android.widget.TextView[@text='GOLD']",
+                          "//android.widget.TextView[@text='GLITTER']", "//android.widget.TextView[@text='GEOMETRIC']",
+                          "//android.widget.TextView[@text='LINE']", "//android.widget.TextView[@text='TRIBAL']",
+                          "//android.widget.TextView[@text='PINK']"]
 
-adjustmentsList =             ["//android.widget.TextView[@text ='CONTRAST']",
-                               "//android.widget.TextView[@text ='EXPOSURE']",
-                               "//android.widget.TextView[@text ='BRIGHTNESS']",
-                               "//android.widget.TextView[@text ='SHARPNESS']",
-                               "//android.widget.TextView[@text ='SATURATION']",
-                               "//android.widget.TextView[@text ='TINT']",
-                               "//android.widget.TextView[@text ='WARMTH']",
-                               "//android.widget.TextView[@text ='VIGNETTE']",
-                               "//android.widget.TextView[@text ='SHADOWS']",
-                               "//android.widget.TextView[@text ='HIGHLIGHTS']",
-                               "//android.widget.TextView[@text ='GRAIN']"]
+adjustmentsList =         ["//android.widget.TextView[@text ='CONTRAST']",
+                           "//android.widget.TextView[@text ='EXPOSURE']",
+                           "//android.widget.TextView[@text ='BRIGHTNESS']",
+                           "//android.widget.TextView[@text ='SHARPNESS']",
+                           "//android.widget.TextView[@text ='SATURATION']",
+                           "//android.widget.TextView[@text ='TINT']",
+                           "//android.widget.TextView[@text ='WARMTH']",
+                           "//android.widget.TextView[@text ='VIGNETTE']",
+                           "//android.widget.TextView[@text ='SHADOWS']",
+                           "//android.widget.TextView[@text ='HIGHLIGHTS']",
+                           "//android.widget.TextView[@text ='GRAIN']"]

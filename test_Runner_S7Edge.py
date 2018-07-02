@@ -19,6 +19,8 @@ class TestRunnerS7(unittest.TestCase):
         # desired_caps['noReset'] = True
         desired_caps['newCommandTimeout'] = 999999
         desired_caps['systemPort'] = 7785
+        desired_caps['autoGrantPermissions'] = True
+        desired_caps['autoDismissAlerts'] = True
         self.driver = webdriver.Remote('http://127.0.0.1:4450/wd/hub', desired_caps)
 
     def test_bday_filter(self):

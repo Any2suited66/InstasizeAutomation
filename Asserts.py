@@ -108,6 +108,23 @@ class GridPageAsserts(object):
         except NoSuchElementException:
             print('Test passed, image(s) successfully deleted')
 
+class SettingsPageAsserts(object):
+
+    def __init__(self, driver):
+        self.driver = driver
+
+    def assertTrue(self, is_displayed, param):
+        pass
+
+    def instagram_layout_assert(self):
+        try:
+            WebDriverWait(self.driver, 15).until(
+                EC.presence_of_element_located((By.ID, "com.instagram.android:id/layout_container_parent")))
+            instagram_icon = self.driver.find_element_by_id("com.instagram.android:id/layout_container_parent")
+            self.assertTrue(instagram_icon.is_displayed, "Failed, check for crash manually")
+
+        except:
+            print('could not find instagram layout, please check manually for crash')
 
 
 

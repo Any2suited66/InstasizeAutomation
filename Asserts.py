@@ -126,7 +126,43 @@ class SettingsPageAsserts(object):
         except:
             print('could not find instagram layout, please check manually for crash')
 
+    def facebook_layout_assert(self):
+        try:
+            WebDriverWait(self.driver, 15).until(
+                EC.presence_of_element_located((By.ID, "com.instagram.android:id/layout_container_parent")))
+            facebook_page = self.driver.find_element_by_id("u_0_aj")
+            self.assertTrue(facebook_page.is_displayed, "Failed, please check manually for crash or test flow is correct")
 
+        except:
+            print('could not find facebook page, please check manually for crash')
 
+    def twitter_app_assert(self):
+        try:
+            WebDriverWait(self.driver, 15).until(
+                EC.presence_of_element_located((By.ID, "com.twitter.android:id/name")))
+            twitter_page = self.driver.find_element_by_id("com.twitter.android:id/name")
+            self.assertTrue(twitter_page.is_displayed, "Failed, please check manually for crash or test flow is correct")
 
+        except:
+            print('could not find facebook page, please check manually for crash')
+
+    def youtube_app_assert(self):
+        try:
+            WebDriverWait(self.driver, 15).until(
+                EC.presence_of_element_located((By.ID, "com.google.android.youtube:id/channel_banner")))
+            youtube_banner = self.driver.find_element_by_id("com.google.android.youtube:id/channel_banner")
+            self.assertTrue(youtube_banner.is_displayed, "Failed, please check manually for crash or test flow is correct")
+
+        except:
+            print('could not find facebook page, please check manually for crash')
+
+    def hd_switch_assert(self):
+        try:
+            WebDriverWait(self.driver, 15).until(
+                EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/tvVersion")))
+            version_number = self.driver.find_element_by_id("com.jsdev.instasize:id/tvVersion")
+            self.assertTrue(version_number.is_displayed, "Failed, please check manually")
+
+        except:
+            print('could not find version number on settings page, please check manually')
 

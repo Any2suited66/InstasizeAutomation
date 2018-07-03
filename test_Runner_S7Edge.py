@@ -3,6 +3,7 @@ from appium import webdriver
 from Base_tests import BaseTests
 import APKInstall
 
+
 class TestRunnerS7(unittest.TestCase):
 
     @classmethod
@@ -71,6 +72,8 @@ class TestRunnerS7(unittest.TestCase):
     def test_tools(self):
         BaseTests(self.driver).tools_test()
 
+    def test_social_media_icons(self):
+        BaseTests(self.driver).test_social_media_icons()
 
 if __name__ == '__main__':
     suite = unittest.TestLoader().loadTestsFromTestCase(TestRunnerS7)

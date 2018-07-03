@@ -335,19 +335,41 @@ class BaseTests(object):
         # Asserts the + button is displayed
         gridPage.addPhotoFind()
 
-#     def test_social_media_icons(self):
-#         gridPage = GridPage(self.driver)
-#         settings_page = SettingsPage(self.driver)
-#         settings_page_asserts = SettingsPageAsserts(self.driver)
-#
-#         gridPage.tapSettingsIcon()
-#         settings_page.settings_premium_purchase()
-#         settings_page.tap_instagram_icon()
-#         settings_page_asserts.instagram_layout_assert()
-#         sleep(5)
-#         self.driver.back()
-#
-#
-# class NegativeBaseTests(object):
-#
-#     def incorrect_username_test(self):
+    def test_social_media_icons(self):
+        gridPage = GridPage(self.driver)
+        settings_page = SettingsPage(self.driver)
+        settings_page_asserts = SettingsPageAsserts(self.driver)
+
+        gridPage.tapSettingsIcon()
+        settings_page.settings_premium_purchase()
+        settings_page.tap_instagram_icon()
+        settings_page_asserts.instagram_layout_assert()
+        sleep(5)
+        self.driver.back()
+
+        settings_page.tap_facebook_icon()
+        sleep(5)
+        self.driver.back()
+
+        settings_page.tap_twitter_icon()
+        settings_page_asserts.twitter_app_assert()
+        sleep(5)
+        self.driver.back()
+
+        settings_page.tap_youtube_icon()
+        settings_page_asserts.youtube_app_assert()
+        sleep(5)
+        self.driver.back()
+
+        settings_page.tap_snapchat_icon()
+        sleep(5)
+        self.driver.back()
+        sleep(2)
+        self.driver.back()
+
+        settings_page_asserts.hd_switch_assert()
+
+
+#class NegativeBaseTests(object):
+
+#   def incorrect_username_test(self):

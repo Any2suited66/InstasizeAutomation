@@ -71,6 +71,9 @@ class TestRunnerPixelXL(unittest.TestCase):
     def test_tools(self):
         BaseTests(self.driver).tools_test()
 
+    def test_social_media_icons(self):
+        BaseTests(self.driver).test_social_media_icons()
+
 
 if __name__ == '__main__':
     suite = unittest.TestLoader().loadTestsFromTestCase(TestRunnerPixelXL)

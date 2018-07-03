@@ -212,7 +212,7 @@ class EditorPage(object):
 
     def dismiss_popup(self):
         try:
-            WebDriverWait(self.driver, 5).until(
+            WebDriverWait(self.driver, 20).until(
                 EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/ivCollapseIcon")))
             dismiss = self.driver.find_element_by_id('com.jsdev.instasize:id/ivCollapseIcon')
             dismiss.click()
@@ -676,18 +676,24 @@ class SettingsPage(object):
         snapchat_icon.click()
 
     def settings_premium_purchase(self):
-        WebDriverWait(self.driver, 30).until(
-            EC.presence_of_element_located((By.XPATH, "//*[@class =""'android.widget.TextView' and @text ='Settings']")))
-        start_trial = self.driver.find_element_by_id("com.jsdev.instasize:id/btnTryFreeTrial")
-        if start_trial.is_displayed():
+        editor_page = EditorPage(self.driver)
+
+        try:
+            WebDriverWait(self.driver, 5).until(
+                EC.presence_of_element_located((By.XPATH, "//*[@class =""'android.widget.TextView' and @text ='Settings']")))
+            start_trial = self.driver.find_element_by_id("com.jsdev.instasize:id/btnTryFreeTrial")
             start_trial.click()
             WebDriverWait(self.driver, 5).until(
                 EC.presence_of_element_located((By.ID, "com.android.vending:id/continue_button")))
             subscribe_btn = self.driver.find_element_by_id('com.android.vending:id/continue_button')
             subscribe_btn.click()
-            EditorPage.dismiss_popup(self.driver)
-        else:
+            editor_page.dismiss_popup()
+
+        except NoSuchElementException:
             pass
+        except TimeoutException:
+            pass
+
 
 
 class PhotoLibraryPage(object):

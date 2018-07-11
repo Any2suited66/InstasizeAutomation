@@ -72,7 +72,7 @@ class EditorPage(object):
         page = self.driver.page_source
         print(page)
         sleep(2)
-        self.driver.swipe(360, 2000, 360, 1900)
+        self.driver.swipe(360, 2400, 360, 1900)
 
     def tapBdaySpinnerForInput(self):
         WebDriverWait(self.driver, 30).until(
@@ -240,6 +240,24 @@ class EditorPage(object):
 
         except NoSuchElementException:
             EditorPage.dismiss_popup(self)
+
+    def purchase_premium_banner(self):
+        try:
+            if self.driver.find_element_by_id('com.jsdev.instasize:id/rlEditorGoPremiumBannerContainer').is_displayed:
+                self.driver.find_element_by_id('com.jsdev.instasize:id/rlEditorGoPremiumBannerContainer').click()
+                WebDriverWait(self.driver, 30).until(
+                    EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/btnTryFree")))
+                self.driver.find_element_by_id('com.jsdev.instasize:id/btnTryFree').click()
+                WebDriverWait(self.driver, 30).until(
+                    EC.presence_of_element_located((By.ID, "com.android.vending:id/continue_button")))
+                self.driver.find_element_by_id('com.android.vending:id/continue_button').click()
+                WebDriverWait(self.driver, 30).until(
+                    EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/ivCollapseIcon")))
+                self.driver.find_element_by_id('com.jsdev.instasize:id/ivCollapseIcon').click()
+            else:
+                raise TimeoutException
+        except:
+            pass
 
     def wait_for_editor(self):
         while True:
@@ -885,7 +903,6 @@ def test_request(arg=None):
     return arg
 
 
-
 class Helper_Methods(object):
 
     def __init__(self, driver):
@@ -969,16 +986,5 @@ class Helper_Methods(object):
         # taps 'No thanks' on app review popup
         editorPage.tapDenyReviewPopup()
 
-    def bDay_filter_iteration(self):
-        helper_methods = Helper_Methods(self.driver)
-        editor_page = EditorPage(self.driver)
 
-        helper_methods.setupFilter()
-        editor_page.tapBDayFilter()
-        editor_page.tapBdayDateSpinner()
-        editor_page.swipe_bday_spinner()
-        # editorPage.tapBdaySpinnerForInput()
-        editor_page.tapCreateMyFilterBtn()
-        editor_page.tapUseFilterBtn()
-        helper_methods.filterExportInstagram()
 

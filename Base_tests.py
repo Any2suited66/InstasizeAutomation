@@ -60,6 +60,7 @@ class BaseTests(object):
                     WebDriverWait(self.driver, 30).until(
                         EC.presence_of_element_located((By.XPATH, ("(""%s"")" % x))))
                     filter.click()
+                    editor_page.purchase_premium_banner()
                     break
                 except NoSuchElementException:
                     sleep(2)
@@ -171,11 +172,17 @@ class BaseTests(object):
         helper_methods.filterExportInstagram()
 
     def bday_filter_test(self):
-        grid_page_asserts = GridPageAsserts(self.driver)
         helper_methods = Helper_Methods(self.driver)
+        editor_page = EditorPage(self.driver)
 
-        helper_methods.bDay_filter_iteration()
-        grid_page_asserts.settingsIconAssert()
+        helper_methods.setupFilter()
+        editor_page.tapBDayFilter()
+        editor_page.tapBdayDateSpinner()
+        editor_page.swipe_bday_spinner()
+        # editorPage.tapBdaySpinnerForInput()
+        editor_page.tapCreateMyFilterBtn()
+        editor_page.tapUseFilterBtn()
+        helper_methods.filterExportInstagram()
 
     def delete_image(self):
         gridPage = GridPage(self.driver)
@@ -288,6 +295,7 @@ class BaseTests(object):
                         EC.presence_of_element_located((By.ID, ("com.jsdev.instasize:id/ibExport"))))
                     filter = self.driver.find_element_by_xpath("(""%s"")" % x)
                     filter.click()
+                    editorPage.purchase_premium_banner()
                     break
                 except NoSuchElementException:
                     sleep(2)
@@ -313,6 +321,7 @@ class BaseTests(object):
                         EC.presence_of_element_located((By.ID, ("com.jsdev.instasize:id/ibExport"))))
                     filter = self.driver.find_element_by_xpath("(""%s"")" % x)
                     filter.click()
+                    editorPage.purchase_premium_banner()
                     break
                 except NoSuchElementException:
                     sleep(2)

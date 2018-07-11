@@ -13,7 +13,7 @@ class TestRunnerPixelXL(unittest.TestCase):
         desired_caps['deviceName'] = 'ANDROID'
         desired_caps['udid'] = 'HT7160200777'
         desired_caps['platformVersion'] = '8.0.1'
-        desired_caps['app'] = APKInstall.installAPK()
+        # desired_caps['app'] = APKInstall.installAPK()
         desired_caps['appActivity'] = 'com.jsdev.instasize.activities.MainActivity'
         desired_caps['appPackage'] = 'com.jsdev.instasize'
         # desired_caps['noReset'] = True

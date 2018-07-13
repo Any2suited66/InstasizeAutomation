@@ -451,6 +451,23 @@ class GridPage(object):
         except NoSuchElementException:
             pass
 
+    def purchase_premium_grid_screen(self):
+        try:
+            WebDriverWait(self.driver, 5).until(
+                EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/btnTryFreeTrial")))
+            if self.driver.find_element_by_id('com.jsdev.instasize:id/btnTryFreeTrial').is_displayed:
+                self.driver.find_element_by_id('com.jsdev.instasize:id/btnTryFreeTrial').click()
+                WebDriverWait(self.driver, 30).until(
+                    EC.presence_of_element_located((By.ID, "com.android.vending:id/continue_button")))
+                self.driver.find_element_by_id('com.android.vending:id/continue_button').click()
+                WebDriverWait(self.driver, 30).until(
+                    EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/ivCollapseIcon")))
+                self.driver.find_element_by_id('com.jsdev.instasize:id/ivCollapseIcon').click()
+            else:
+                raise Exception
+        except:
+            pass
+
     def tapOnCloudOption(self):
         WebDriverWait(self.driver, 30).until(
             EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/ibCloud")))
@@ -921,7 +938,6 @@ class Helper_Methods(object):
         collagePage.tap5thPhoto()
         collagePage.tap6thPhoto()
         collagePage.tap2ndCollageOption()
-        editorPage.purchase_premium_editor_popup()
 
     def addAllFiltersFromManager(self):
         from Common_lists import filter_manager_list
@@ -967,6 +983,7 @@ class Helper_Methods(object):
 
         editorPage.tapSharebutton()
         editorPage.dismiss_popup()
+        gridPage.purchase_premium_grid_screen()
         gridPage.tapInstagramIcon()
         sleep(5)
         self.driver.back()
@@ -981,8 +998,6 @@ class Helper_Methods(object):
         gridPage.tapPhotoContainer()
         # taps on the top left photo
         gridPage.tapTopLeftImageInPhotoLibrary()
-        # purchases premium from popup if it occurs
-        editorPage.purchase_premium_editor_popup()
         # taps 'No thanks' on app review popup
         editorPage.tapDenyReviewPopup()
 

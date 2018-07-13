@@ -125,6 +125,7 @@ class BaseTests(object):
                     borderElement = self.driver.find_element_by_xpath("//android.widget.ImageView[@index='4']")
                     borderElement.click()
                     editorPage.adjustSeekBar()
+                    editorPage.purchase_premium_banner()
                     editorPage.tapAccept()
                     helper_methods.filterExportInstagram()
                     break

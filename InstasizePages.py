@@ -212,15 +212,16 @@ class EditorPage(object):
 
     def dismiss_popup(self):
         try:
-            WebDriverWait(self.driver, 20).until(
+            WebDriverWait(self.driver, 7).until(
                 EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/ivCollapseIcon")))
-            dismiss = self.driver.find_element_by_id('com.jsdev.instasize:id/ivCollapseIcon')
-            dismiss.click()
+            if self.driver.find_element_by_id('com.jsdev.instasize:id/ivCollapseIcon').is_displayed:
+                dismiss = self.driver.find_element_by_id('com.jsdev.instasize:id/ivCollapseIcon')
+                dismiss.click()
 
-        except TimeoutException:
-            pass
+            else:
+                raise Exception
 
-        except NoSuchElementException:
+        except:
             pass
 
     def purchase_premium_editor_popup(self):
@@ -938,6 +939,7 @@ class Helper_Methods(object):
         collagePage.tap5thPhoto()
         collagePage.tap6thPhoto()
         collagePage.tap2ndCollageOption()
+        editorPage.tapDenyReviewPopup()
 
     def addAllFiltersFromManager(self):
         from Common_lists import filter_manager_list
@@ -981,6 +983,7 @@ class Helper_Methods(object):
         gridPage = GridPage(self.driver)
         editorPage = EditorPage(self.driver)
 
+        editorPage.purchase_premium_banner()
         editorPage.tapSharebutton()
         editorPage.dismiss_popup()
         gridPage.purchase_premium_grid_screen()

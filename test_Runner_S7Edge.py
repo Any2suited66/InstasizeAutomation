@@ -75,6 +75,7 @@ class TestRunnerS7(unittest.TestCase):
     def test_social_media_icons(self):
         BaseTests(self.driver).test_social_media_icons()
 
+
 if __name__ == '__main__':
     suite = unittest.TestLoader().loadTestsFromTestCase(TestRunnerS7)
     unittest.TextTestRunner(verbosity=2).run(suite)

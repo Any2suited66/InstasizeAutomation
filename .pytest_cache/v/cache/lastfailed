@@ -86,7 +86,6 @@
   "test_NonHDFilterExport.py": true,
   "test_NonHDFilterExport.py::test_NonHDFilterExport::test_filter_uploads": true,
   "test_Runner_S7Edge.py::TestRunnerS7::test_collage_feature": true,
-  "test_Runner_S7Edge.py::TestRunnerS7::test_social_media_icons": true,
   "test_SingleImageFilterExport.py": true,
   "test_SingleImageFilterExport.py::FilterExportTest::test_filter_uploads": true,
   "test_SingleImageFilterExport.py::test_SigleImageFilterExport::test_filter_exports": true,

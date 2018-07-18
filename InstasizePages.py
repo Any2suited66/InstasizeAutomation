@@ -606,8 +606,10 @@ class GridPage(object):
                 if self.driver.find_element_by_id('com.jsdev.instasize:id/ivCircle4').is_displayed():
                     sleep(1)
                     pass
+                else:
+                    raise Exception
 
-            except NoSuchElementException:
+            except:
                 try:
                     sleep(2)
                     self.driver.find_element_by_xpath(
@@ -615,6 +617,7 @@ class GridPage(object):
                     break
                 except NoSuchElementException:
                     break
+                    pass
 
 
     def tapInstagramPopup(self):
@@ -682,7 +685,7 @@ class SettingsPage(object):
         self.driver.find_element_by_id("com.jsdev.instasize:id/switchExportImageQuality").click()
 
     def tap_instagram_icon(self):
-        WebDriverWait(self.driver, 30).until(
+        WebDriverWait(self.driver, 60).until(
             EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/ivInstagram")))
         instagram_icon = self.driver.find_element_by_id('com.jsdev.instasize:id/ivInstagram')
         instagram_icon.click()

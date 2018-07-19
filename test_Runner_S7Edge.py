@@ -14,7 +14,7 @@ class TestRunnerS7(unittest.TestCase):
         desired_caps['deviceName'] = 'ANDROID'
         desired_caps['udid'] = '8802edf5'
         desired_caps['platformVersion'] = '7.0'
-        # desired_caps['app'] = APKInstall.installAPK()
+        # desired_caps['app'] = APKInstall.install_APK()
         desired_caps['appActivity'] = 'com.jsdev.instasize.activities.MainActivity'
         desired_caps['appPackage'] = 'com.jsdev.instasize'
         # desired_caps['noReset'] = True

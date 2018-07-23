@@ -45,8 +45,8 @@ appium -p 4444 -U 05157df532e5e40e
 
 In terminal: pytest path/to/test/runner
 
-In Pycharm IDE: Go to the test_runner for the device you wish to run the tests on and click the green triangle to start the tests.  In pycharm, you can run each of the tests individually rather than
-the entire suite.  This is great for debugging in case one of the tests failed.
+In Pycharm IDE: Go to the test_runner for the device you wish to run the tests on and click the green triangle at the bottom of the script to start the entire test suite or the other green
+triangles will run the individual tests which is ideal for debugging in case one of the tests failed.
 
 # To add other filters and elements to tests
 

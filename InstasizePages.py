@@ -838,6 +838,29 @@ class ProfilePage(object):
     def __init__(self, driver):
         self.driver = driver
 
+    def tap_profile_image(self):
+        try:
+            WebDriverWait(self.driver, 30).until(
+                EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/ibPhoto")))
+            profile_image = self.driver.find_element_by_id('com.jsdev.instasize:id/ibPhoto')
+            profile_image.click()
+
+        except:
+            pass
+
+    def tap_first_image_in_gallery(self):
+        try:
+            WebDriverWait(self.driver, 30).until(
+                EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/ivPhoto")))
+            first_image = self.driver.find_element_by_id('com.jsdev.instasize:id/ivPhoto')
+            first_image.click()
+        except:
+            pass
+
+    def tap_done_in_gallery(self):
+        done_btn = self.driver.find_element_by_id('com.jsdev.instasize:id/btnDone')
+        done_btn.click()
+
     def tapSignIn(self):
         WebDriverWait(self.driver, 30).until(
             EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/tvOption1")))

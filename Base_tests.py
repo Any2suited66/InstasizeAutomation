@@ -23,6 +23,9 @@ class BaseTests(object):
         profilePage.name_generator()
         profilePage.email_generator()
         profilePage.pw_generator()
+        profilePage.tap_profile_image()
+        profilePage.tap_first_image_in_gallery()
+        profilePage.tap_done_in_gallery()
         profilePage.tapSignUp()
         gridPageAsserts = GridPageAsserts(self)
         gridPageAsserts.premium_badge_assert()
@@ -31,6 +34,7 @@ class BaseTests(object):
         gridPage = GridPage(self.driver)
         helper_methods = Helper_Methods(self.driver)
         editor_page = EditorPage(self.driver)
+
         gridPage.purchasPremiumEditor()
         gridPage.addPhotoTap()
         # taps on the camera icon
@@ -82,6 +86,9 @@ class BaseTests(object):
         profilePage.name_generator()
         profilePage.email_generator()
         profilePage.pw_generator()
+        profilePage.tap_profile_image()
+        profilePage.tap_first_image_in_gallery()
+        profilePage.tap_done_in_gallery()
         profilePage.tapSignUp()
         grid_page.GDPR_skip()
 

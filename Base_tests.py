@@ -386,6 +386,52 @@ class BaseTests(object):
 
         settings_page_asserts.hd_switch_assert()
 
+    def test_send_feedback_in_settings(self):
+        grid_page = GridPage(self.driver)
+        settings_page = SettingsPage(self.driver)
+        asserts = SettingsPageAsserts(self.driver)
+
+        grid_page.tapSettingsIcon()
+        settings_page.settings_premium_purchase()
+        settings_page.tap_send_feedback()
+        settings_page.tap_gmail_for_feedback()
+
+        asserts.gmail_assert()
+
+    def test_write_a_review_in_settings(self):
+        grid_page = GridPage(self.driver)
+        settings_page = SettingsPage(self.driver)
+        asserts = SettingsPageAsserts(self.driver)
+
+        grid_page.tapSettingsIcon()
+        settings_page.settings_premium_purchase()
+        settings_page.tap_write_a_review()
+
+        asserts.play_store_assert()
+
+    def test_terms_and_conditions(self):
+        grid_page = GridPage(self.driver)
+        settings_page = SettingsPage(self.driver)
+        asserts = SettingsPageAsserts(self.driver)
+
+        grid_page.tapSettingsIcon()
+        settings_page.settings_premium_purchase()
+        settings_page.tap_terms_and_conditions()
+
+        asserts.terms_and_conditions_assert()
+
+    def test_privacy_policy(self):
+        grid_page = GridPage(self.driver)
+        settings_page = SettingsPage(self.driver)
+        asserts = SettingsPageAsserts(self.driver)
+
+        grid_page.tapSettingsIcon()
+        settings_page.settings_premium_purchase()
+        settings_page.tap_terms_and_conditions()
+
+        asserts.terms_and_conditions_assert()
+
+
 
 #class NegativeBaseTests(object):
 

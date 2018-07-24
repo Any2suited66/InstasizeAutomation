@@ -74,6 +74,15 @@ class TestRunnerPixelXL(unittest.TestCase):
     def test_social_media_icons(self):
         BaseTests(self.driver).test_social_media_icons()
 
+    def test_send_feedback(self):
+        BaseTests(self.driver).test_send_feedback_in_settings()
+
+    def test_write_a_review_in_settings(self):
+        BaseTests(self.driver).test_write_a_review_in_settings()
+
+    def test_terms_conditions_in_settings(self):
+        BaseTests(self.driver).test_terms_and_conditions()
+
 
 if __name__ == '__main__':
     suite = unittest.TestLoader().loadTestsFromTestCase(TestRunnerPixelXL)

@@ -684,6 +684,30 @@ class SettingsPage(object):
             EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/switchExportImageQuality")))
         self.driver.find_element_by_id("com.jsdev.instasize:id/switchExportImageQuality").click()
 
+    def tap_send_feedback(self):
+        WebDriverWait(self.driver, 30).until(
+            EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/switchExportImageQuality")))
+        send_feedback = self.driver.find_element_by_id('com.jsdev.instasize:id/tvEmailUs')
+        send_feedback.click()
+
+    def tap_gmail_for_feedback(self):
+        WebDriverWait(self.driver, 30).until(
+            EC.presence_of_element_located((By.ID, "android:id/text1")))
+        gmail_icon = self.driver.find_element_by_id('android:id/text1')
+        gmail_icon.click()
+
+    def tap_write_a_review(self):
+        WebDriverWait(self.driver, 30).until(
+            EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/tvWriteReview")))
+        write_a_review_btn = self.driver.find_element_by_id('com.jsdev.instasize:id/tvWriteReview')
+        write_a_review_btn.click()
+
+    def tap_terms_and_conditions(self):
+        WebDriverWait(self.driver, 30).until(
+            EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/tvWriteReview")))
+        write_a_review_btn = self.driver.find_element_by_id('com.jsdev.instasize:id/tvTermsOfUse')
+        write_a_review_btn.click()
+
     def tap_instagram_icon(self):
         WebDriverWait(self.driver, 60).until(
             EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/ivInstagram")))
@@ -718,11 +742,11 @@ class SettingsPage(object):
         editor_page = EditorPage(self.driver)
 
         try:
-            WebDriverWait(self.driver, 5).until(
+            WebDriverWait(self.driver, 30).until(
                 EC.presence_of_element_located((By.XPATH, "//*[@class =""'android.widget.TextView' and @text ='Settings']")))
             start_trial = self.driver.find_element_by_id("com.jsdev.instasize:id/btnTryFreeTrial")
             start_trial.click()
-            WebDriverWait(self.driver, 5).until(
+            WebDriverWait(self.driver, 30).until(
                 EC.presence_of_element_located((By.ID, "com.android.vending:id/continue_button")))
             subscribe_btn = self.driver.find_element_by_id('com.android.vending:id/continue_button')
             subscribe_btn.click()
@@ -732,7 +756,6 @@ class SettingsPage(object):
             pass
         except TimeoutException:
             pass
-
 
 
 class PhotoLibraryPage(object):
@@ -858,6 +881,8 @@ class ProfilePage(object):
             pass
 
     def tap_done_in_gallery(self):
+        WebDriverWait(self.driver, 30).until(
+            EC.presence_of_element_located((By.ID, "com.jsdev.instasize:id/btnDone")))
         done_btn = self.driver.find_element_by_id('com.jsdev.instasize:id/btnDone')
         done_btn.click()
 

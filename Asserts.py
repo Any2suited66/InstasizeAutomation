@@ -1,10 +1,9 @@
 from appium.webdriver.common.touch_action import TouchAction
-from selenium.common.exceptions import NoSuchElementException
+from selenium.common.exceptions import NoSuchElementException, TimeoutException
 from time import sleep
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from InstasizePages import EditorPage
 
 class PhotoLibraryAsserts(object):
 
@@ -165,4 +164,33 @@ class SettingsPageAsserts(object):
 
         except:
             print('could not find version number on settings page, please check manually')
+
+    def gmail_assert(self):
+        try:
+            WebDriverWait(self.driver, 15).until(
+                EC.presence_of_element_located((By.ID, "com.google.android.gm:id/action_bar_container")))
+            top_gmail_menu = self.driver.find_element_by_id('com.google.android.gm:id/action_bar_container')
+            self.assertTrue(top_gmail_menu.is_displayed, "Failed, please check manually")
+
+        except:
+            print('failed, please check manually')
+
+    def play_store_assert(self):
+        try:
+            WebDriverWait(self.driver, 15).until(
+                EC.presence_of_element_located((By.ID, "com.android.vending:id/hero_image")))
+            play_store_el = self.driver.find_element_by_id('com.android.vending:id/hero_image')
+            self.assertTrue(play_store_el.is_displayed, "Failed, Please check manually")
+
+        except NoSuchElementException:
+            print('failed, please check manually!')
+
+    def terms_and_conditions_assert(self):
+        try:
+            sleep(5)
+            chrome_el = self.driver.find_element_by_xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[1]/android.widget.FrameLayout[2]/android.webkit.WebView/android.view.View/android.view.View[2]/android.view.View[1]")
+            self.assertTrue(chrome_el.is_displayed, "Failed, Please check manually")
+
+        except NoSuchElementException:
+            print('failed, please check manually!')
 
